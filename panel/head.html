@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel Locker Agencia Creativa S.A. de C.V.">
+    <meta name="author" content="Luis Josué Caamal Barbosa">
+
+    <?php     if(isset($_REQUEST["id"]) && $_REQUEST["id"] != 0){
+                $id_proyecto = $_REQUEST["id"];
+                $proyecto = new proyecto($id_proyecto);
+                $proyectos = $proyecto -> obtener_proyecto();
+                $proyecto -> listar_img_secundarias_proyecto();
+                }
+        
+    ?>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- Add custom CSS here -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">    
+    <link href="js/summernote/summernote.css" rel="stylesheet">
+    <link href="css/bootstrap-notify.css" rel="stylesheet">
+	<link href="css/alert-bangtidy.css" rel="stylesheet">
+	<link href="css/alert-blackgloss.css" rel="stylesheet">
+	<link href="js/multi-select/css/multi-select.css" rel="stylesheet">
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+
+    
+</head>
