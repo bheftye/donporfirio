@@ -1,0 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-transition: all 0.3s; /* For Safari 3.1 to 6.0 */
+	-o-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+html,body{
+	height:100%;
+	-webkit-font-smoothing: antialiased;
+	-webkit-backface-visibility: hidden;
+	word-wrap:break-word;
+}
+.row{
+	margin:0;
+}
+#wraper{
+	position:relative;
+	min-height:100%;
+}
+#wraperfondo{
+	position:absolute;
+	height:100%;
+	width:100%;
+	z-index:10;
+	background:url('../img/bg.png');
+}
