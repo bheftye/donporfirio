@@ -38,4 +38,4 @@ include_once('lang/'.$idioma.'.php');
 </head>
 <body>
 <div id="wraper">
-<div id="wraperfondo">
+<div id="wraperfondo"></div>

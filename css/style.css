@@ -13,8 +13,9 @@ html,body{
 }
 #wraper{
 	position:relative;
-	min-height:100%;
+	height:100%;
 	border: 2px solid #fff;
+	overflow:hidden;
 }
 #wraperfondo{
 	position:absolute;
@@ -22,6 +23,12 @@ html,body{
 	width:100%;
 	z-index:10;
 	background:url('../img/bg.png');
+}
+.contenido{
+	position:relative;
+	width:100%;
+	height:100%;
+	z-index:100;
 }
 .closebutton{
 	float:right; 
@@ -34,7 +41,7 @@ html,body{
 }
 /**********************************MENU********************************************/
 .menuright{
-	position:fixed;
+	position:absolute;
 	right:-60%;
 	top:0;
 	width:60%;
@@ -52,4 +59,12 @@ html,body{
 .menuheader{
 	height:65px;
 	width:100%;
+}
+/*********************************CONTACTO******************************************/
+#contacto{
+	position:relative;
+	background:#fff;
+	height:400px;
+	overflow:hidden;
+	z-index:100;
 }
