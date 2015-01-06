@@ -561,82 +561,81 @@ switch($operaciones){
 		break;
 /*PANTALLAS*/
 //COMIENZAN LAS OPERACIONES DE SLIDE
-		case 'agregarslide':
-			if(isset($_FILES['archivo']['name']))
-				$nameP=$_FILES['archivo']['name'];
-			else 
-				$nameP='';
-		
-			$slide = new slide($_REQUEST['idslide'],$nameP,$_REQUEST['titulo'],$_REQUEST['link'],$_REQUEST['texto'],$_REQUEST['status'],$_FILES['archivo']['tmp_name']);
-			$slide -> insertaslide();
-			header('location: listslide.php?success=1');
-		break;
-		case 'modificarslide':
-			if(isset($_FILES['archivo']['name'][0])){
-				if ($_FILES['archivo']['name'][0]!=''){
-					$nameP=$_FILES['archivo']['name'];
-					$tmpnameP=$_FILES['archivo']['tmp_name'];
-				}	
+		case 'agregar_video_slide':
+			if(isset($_FILES['archivo']['name'])){
+				$nameP = $_FILES['archivo']['name'];
+				$tmpnameP = $_FILES['archivo']['tmp_name'];
 			}
+				
 			else{
-				$nameP='';
-				$tmpnameP='';
+				$nameP = "";
+				$tmpnameP = "";
+			}
+			
+			//video_slide($id_video_slide = 0, $nombre_video = '', $ruta_temporal = '', $titulo_video = '', $mostrar = 0, $status = 0)
+			$video_slide = new video_slide(0,$nameP, $tmpnameP, $_REQUEST['titulo_video']);
+			$video_slide -> insertar_video_slide();
+			header('location: listvideoslide.php?success=1');
+		break;
+		
+		case 'modificar_video_slide':
+			if(isset($_FILES['archivo']['name'])){
+				$nameP = $_FILES['archivo']['name'];
+				$tmpnameP = $_FILES['archivo']['tmp_name'];
+			}
+				
+			else{
+				$nameP = "";
+				$tmpnameP = "";
 			}
 	
-			$slide = new slide($_REQUEST['idslide'],$nameP,$_REQUEST['titulo'],$_REQUEST['link'],$_REQUEST['texto'],$_REQUEST['status'],$_FILES['archivo']['tmp_name']);
-			$slide->modificaslide();    
-			header('location: listslide.php?success=2');
+			$video_slide = new video_slide($_REQUEST['id_video_slide'],$nameP, $tmpnameP, $_REQUEST['titulo_video']);
+			$video_slide -> modificar_video_slide();    
+			header('location: listvideoslide.php?success=2');
 			break;
-			case 'operaslide':
-				if(isset($_REQUEST['idslide'])){
+
+			case 'operavideoslide':
+				if(isset($_REQUEST['id_video_slide'])){
 					$select=$_REQUEST['operador'];
 					$imgp=0;
 					if ($select == 'Eliminar'){
-						foreach ($_REQUEST['idslide'] as $elementoSlide) {
-							$slide = new slide();
-							$slide -> idslide=$elementoSlide;
-							$slide->eliminaslide();
+						foreach ($_REQUEST['id_video_slide'] as $elementoSlide) {
+							$video_slide = new video_slide();
+							$video_slide -> id_video_slide = $elementoSlide;
+							$video_slide -> eliminar_video_slide();
 						}
-						header('location: listslide.php?success=3');
+						header('location: listvideoslide.php?success=3');
 					}
 					if ($select == 'Mostrar'){
-						foreach ($_REQUEST['idslide'] as $elemento) {
-							$slide = new slide();
-							$slide -> idslide=$elemento;						
-							$slide -> activaslide();
+						foreach ($_REQUEST['id_video_slide'] as $elemento) {
+							$video_slide = new video_slide();
+							$video_slide -> id_video_slide = $elemento;						
+							$video_slide -> activar_video_slide();
 						}
-						header('location: listslide.php?success=4');
+						header('location: listvideoslide.php?success=4');
 					}
 					if ($select == 'No Mostrar'){
-						foreach ($_REQUEST['idslide'] as $elemento) {
-							$slide = new slide();
-							$slide -> idslide=$elemento;						
-							$slide -> Desactivaslide();
+						foreach ($_REQUEST['id_video_slide'] as $elemento) {
+							$video_slide = new video_slide();
+							$video_slide -> id_video_slide = $elemento;						
+							$video_slide -> desactivar_video_slide();
 						}
-						header('location: listslide.php?success=5');
+						header('location: listvideoslide.php?success=5');
 					}			
 				}
 				else {
-					header('location: listslide.php?success=0');
+					header('location: listvideoslide.php?success=0');
 				}
 			break;
-			case 'activaslide':
-				 $slide = new slide();
-				 $slide -> idslide = $_REQUEST['id'];
-				 $slide -> activaslide();
+			case 'activar_video_slide':
+				 $video_slide = new video_slide();
+				 $video_slide -> id_video_slide = $_REQUEST['id'];
+				 $video_slide -> activar_video_slide();
 			break;
-			case 'desactivaslide':
-				 $slide = new slide();
-				 $slide -> idslide = $_REQUEST['id'];
-				 $slide -> Desactivaslide();
-			break;
-			case 'buscarslide':
-				 $slide = new slide();
-				 $slide -> buscarslideAjax($_REQUEST['cadena']);
-			break;
-			case 'listaslide':
-				 $slide = new slide();
-				 $slide->listaslideAjax();
+			case 'desactivar_video_slide':
+				 $video_slide = new video_slide();
+				 $video_slide -> id_video_slide = $_REQUEST['id'];
+				 $video_slide -> desactivar_video_slide();
 			break;
 
 			/******Operaciones de Boletin******/

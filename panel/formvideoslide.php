@@ -13,15 +13,15 @@ if(isset($_REQUEST['id_video_slide'])){
 	$temporal = new video_slide($id);
 	$temporal -> obtener_video_slide();
 	
-	if($temporal->ruta != '')
-		$video = '<video src="../videosSlide/'.$temporal->ruta.'" width="auto" height="221"/>';
+	if($temporal->nombre_video != '')
+		$video = '<video src="../videosSlide/'.$temporal->nombre_video.'" controls muted width="auto" height="221"></video>';
 	else 
 		$video='';
-	if($temporal->ruta != ''){
+	if($temporal->nombre_video != ''){
 		$validator='';
 	}
 	else{
-		$validator='if (!val.match(/(?:gif|jpg|png)$/)) {
+		$validator='if (!val.match(/(?:mp4)$/)) {
     		$("#check").removeClass("form-group").addClass("form-group has-error"); 
 			$(".top-right").notify({
     			message: { text: "El tipo de archivo que intenta subir no es admitido, solo se aceptan videos con formato .mp4" },
@@ -38,7 +38,7 @@ else{
 	$palabra='Nuevo Videoslide';
 	$img='';
 	$temporal = new video_slide($id);
-	$validator='if (!val.match(/(?:gif|jpg|png)$/)) {
+	$validator='if (!val.match(/(?:mp4)$/)) {
     		$("#imgprin").removeClass("btn-default").addClass("btn-danger"); 
 			$(".top-right").notify({
     			message: { text: "Agregue el video para poder continuar y solo se aceptan videos con formato .mp4" },
@@ -113,6 +113,7 @@ include'menu.php';//Contiene a todo el menu.
                         
                         <br>
                         <output align="center" id="list"><?=$video?></output>
+                        <video id="video" muted controls style="display:none;"></video>
                         <br>
                     	<center>
                             <input id="files2" name="archivo" type="file" class="upload"/>
@@ -174,6 +175,7 @@ include 'javascripts.html';
     Script que inicia el summernote-->
     <!--Script que permite previsualizar la imagen primaria-->
     <script>
+    /*
 	  function handleFileSelect(evt) {
 		var files2 = evt.target.files2; // FileList object
 	
@@ -204,7 +206,35 @@ include 'javascripts.html';
 		}
 	  }
 	
-	  document.getElementById('files2').addEventListener('change', handleFileSelect, false);
+	  document.getElementById('files2').addEventListener('change', handleFileSelect, false);*/
+	  var video = document.getElementById('video');
+	  var input = document.getElementById('files2');
+	  input.addEventListener('change', function (evt) {
+	    var reader = new window.FileReader(),
+	        file = evt.target.files[0],
+	        url;
+
+	        reader = window.URL || window.webKitURL;
+
+	    if (reader && reader.createObjectURL) {
+	        url = window.URL.createObjectURL(file);
+	        video.src = url;
+	        //reader.revokeObjectURL(url);  //free up memory
+	        $(video).fadeIn();
+	        return;
+	    }
+
+	    if (!window.FileReader) {
+	        console.log('Sorry, not so much');
+	        return;
+	    }
+
+	    reader = new window.FileReader();
+	    reader.onload = function(evt) {
+	       video.src = evt.target.result;
+	    };
+	    reader.readAsDataURL(file);
+	}, false);
 	</script>
  <!--Script que permite previsualizar la imagen Secundaria-->
 	

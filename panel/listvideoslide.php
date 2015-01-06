@@ -273,7 +273,7 @@ include('javascripts.html');
 			dataType: "html",
 			contentType: "application/x-www-form-urlencoded",
 			url:"operaciones.php",
-			data:"id="+id+"&operaciones=activar_proyecto",
+			data:"id="+id+"&operaciones=activar_video_slide",
 			success:function(data){
 					$("#temp"+id).attr("src", "img/visible.png");
 					$("#temp"+id).attr("onclick", "Desactivar("+id+")");
@@ -293,7 +293,7 @@ include('javascripts.html');
 			dataType: "html",
 			contentType: "application/x-www-form-urlencoded",
 			url:"operaciones.php",
-			data:"id="+id+"&operaciones=desactivar_proyecto",
+			data:"id="+id+"&operaciones=desactivar_video_slide",
 			success:function(data){				
 				$("#temp"+id).attr("src", "img/invisible.png");
 				$("#temp"+id).attr("onclick", "Activar("+id+")");
