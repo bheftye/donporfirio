@@ -47,6 +47,7 @@
    var player=document.getElementById('bgvid');
    var mp4Vid = document.getElementById('mp4Source');
    player.addEventListener('ended',myHandler,false);
+    player.addEventListener('progress', onProgress, false);
 
    function myHandler(e)
    {
@@ -60,5 +61,23 @@
       player.load();
       player.play();
    }
+   function onProgress(e){
+
+    var vid = document.getElementById('bgvid');
+    var percent = null;
+
+    if (vid.buffered.length > 0 && vid.buffered.end && vid.duration) {
+        percent = vid.buffered.end(0) / vid.duration;
+    } else if (vid.bytesTotal != undefined && vid.bytesTotal > 0 && vid.bufferedBytes != undefined) {
+        percent = vid.bufferedBytes / vid.bytesTotal;
+    }
+
+    if (percent !== null) {
+        percent = 100 * Math.min(1, Math.max(0, percent));
+
+        console.log(percent);
+    }
+
+}
 
 </script>
