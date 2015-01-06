@@ -1,4 +1,7 @@
 <?php include_once('includes/header.php') ?>
+<video autoplay id="bgvid">
+<source src="<?=mypath?>vids/video1.webm" id="mp4Source"  type="video/webm">
+</video>
 <div class="contenido">
 	<!-- Website Content -->
 		<a href="#news">News</a>
@@ -31,5 +34,31 @@
 </div>
 <div id="contacto">
 	<span class="closebutton" onclick="hidecontact()"><img src="<?=mypath?>img/cls.png" /></span>
+	<div class="container">
+		<div class="col-sm-9"></div>
+		<div class="col-sm-3" style="text-align: center;">
+			<img style="max-width:100%;" src="<?=mypath?>img/logo.png" />
+		</div>
+	</div>
 </div>
 <?php include_once('includes/footer.php') ?>
+<script type='text/javascript'>
+   var count=1;
+   var player=document.getElementById('bgvid');
+   var mp4Vid = document.getElementById('mp4Source');
+   player.addEventListener('ended',myHandler,false);
+
+   function myHandler(e)
+   {
+
+      if(!e) 
+      {
+         e = window.event; 
+      }
+      count++;
+      $(mp4Vid).attr('src', "vids/video"+count+".webm");
+      player.load();
+      player.play();
+   }
+
+</script>
