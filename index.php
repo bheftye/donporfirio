@@ -1,7 +1,7 @@
 <?php include_once('includes/header.php') ?>
 <?php
 	$video_slide = new video_slide();
-	$lista_videos_slide = $video_slide -> listar_video_slide_activos();
+	$lista_videos_slide = $video_slide -> listar_videos_slide_activos();
 ?>
 <video autoplay id="bgvid">
 <source src="<?=mypath?>vids/video1.webm" id="mp4Source"  type="video/webm">
