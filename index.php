@@ -2,9 +2,12 @@
 <?php
 	$video_slide = new video_slide();
 	$lista_videos_slide = $video_slide -> listar_videos_slide_activos();
+	if(count($lista_videos_slide) > 0){
+		$src_tmp = $lista_videos_slide[0]["nombre_video"];
+	}
 ?>
-<video autoplay id="bgvid">
-<source src="<?=mypath?>vids/video1.webm" id="mp4Source"  type="video/webm">
+<video autoplay muted id="bgvid">
+	<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4">
 </video>
 <div class="contenido">
 	<!-- Website Content -->
@@ -12,13 +15,6 @@
 		<a href="#work" onclick="openmenu()">Work</a>
 		<a href="#about">About</a>
 		<a href="#contact" onclick="viewcontact()">Contact</a>
-		<div>
-			<div>
-				<a href="#winter_olympics_2013" onclick="verProyecto(2)">Winter Olympics
-					<video></video>
-				</a>
-			</div>
-		</div>
 	
 	<!-- Website Content -->
 	<div class="menuright">
@@ -47,7 +43,7 @@
 </div>
 <?php include_once('includes/footer.php') ?>
 <script type='text/javascript'>
-   var count = 0;
+   var count = 1;
    var count_limit = <?php echo count($lista_videos_slide);?>;
    var player=document.getElementById('bgvid');
    var mp4Vid = document.getElementById('mp4Source');
@@ -56,7 +52,7 @@
    <?php
    	 foreach($lista_videos_slide as $video_slide_tmp)
    	 {
-   	 	$src_video = $video_slide_tmp -> nombre_video;
+   	 	$src_video = $video_slide_tmp["nombre_video"];
    	 	echo "videos_slide.push(".json_encode($src_video).");";
    	 }
    ?>
