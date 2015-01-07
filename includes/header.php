@@ -1,4 +1,8 @@
 <?php
+        function __autoload($nombre_clase) {
+                $nombre_clase = strtolower($nombre_clase);
+                include_once 'panel/clases/'.$nombre_clase .'.php';
+        }
 if(isset($_REQUEST['idioma'])){
 	if($_REQUEST['idioma']=='en'){
 		$idioma = 'en';

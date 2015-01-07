@@ -1,4 +1,8 @@
 <?php include_once('includes/header.php') ?>
+<?php
+	$video_slide = new video_slide();
+	$lista_videos_slide = $video_slide -> listar_video_slide_activos();
+?>
 <video autoplay id="bgvid">
 <source src="<?=mypath?>vids/video1.webm" id="mp4Source"  type="video/webm">
 </video>
@@ -43,11 +47,22 @@
 </div>
 <?php include_once('includes/footer.php') ?>
 <script type='text/javascript'>
-   var count=1;
+   var count = 0;
+   var count_limit = <?php echo count($lista_videos_slide);?>;
    var player=document.getElementById('bgvid');
    var mp4Vid = document.getElementById('mp4Source');
+   var videos_slide = new Array();
+
+   <?php
+   	 foreach($lista_videos_slide as $video_slide_tmp)
+   	 {
+   	 	$src_video = $video_slide_tmp -> nombre_video;
+   	 	echo "videos_slide.push(".json_encode($src_video).");";
+   	 }
+   ?>
+
    player.addEventListener('ended',myHandler,false);
-    player.addEventListener('progress', onProgress, false);
+   player.addEventListener('progress', onProgress, false);
 
    function myHandler(e)
    {
@@ -56,10 +71,16 @@
       {
          e = window.event; 
       }
-      count++;
-      $(mp4Vid).attr('src', "vids/video"+count+".webm");
+      
+      if(count == count_limit)
+      {
+      	count = 0;
+      }
+
+      $(mp4Vid).attr('src', "videosSlide/"+videos_slide[count]);
       player.load();
       player.play();
+      count++;
    }
    function onProgress(e){
 
