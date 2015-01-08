@@ -93,21 +93,21 @@
 								</button>
 							</a>
 						</div>
-						<div class="col-sm-3" style="padding:0;">
+						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-behance fa-2x"></i>
 								</button>
 							</a>
 						</div>
-						<div class="col-sm-3" style="padding:0;">
+						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-twitter fa-2x"></i>
 								</button>
 							</a>
 						</div>
-						<div class="col-sm-3" style="padding:0;">
+						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-facebook fa-2x"></i>
@@ -123,7 +123,7 @@
 				</span>
 			</div>
 		</div>
-		<div class="col-sm-3" style="text-align: center;">
+		<div class="col-sm-3 imgcontacto" style="text-align: center;">
 			<img style="max-width:100%;" src="<?=mypath?>img/logo.png" />
 		</div>
 	</div>
