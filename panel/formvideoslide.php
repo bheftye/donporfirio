@@ -91,8 +91,17 @@ include'menu.php';//Contiene a todo el menu.
                     	</div>
                         
                         <br>
-                        <output align="center" id="list"><?=$video?></output>
-                        <video id="video" muted controls style="display:none;"></video>
+                        <?php 
+                            if($temporal -> nombre_video != ""){
+                                echo '<video id="video" muted controls style="height:350px;width:500px;display:table;margin:0 auto;">
+                                        <source src="../videosSlide/'.$temporal -> nombre_video.'" id="mp4Source"  type="video/mp4">
+                                      </video>';
+                            }
+                            else{
+                                echo '<video id="video" muted controls style="display:none;height:350px;width:500px;" >
+                                      </video>';
+                            }
+                        ?>
                         <br>
                     	<center>
                             <input id="files3" name="archivo" type="file" class="upload"/>
@@ -200,6 +209,7 @@ include 'javascripts.html';
 	        video.src = url;
 	        //reader.revokeObjectURL(url);  //free up memory
 	        $(video).fadeIn();
+	        $(video).css({display:"table", margin:"0 auto"});
 	        return;
 	    }
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 07-01-2015 a las 01:35:00
+-- Tiempo de generación: 08-01-2015 a las 20:05:31
 -- Versión del servidor: 5.5.38
 -- Versión de PHP: 5.5.14
 
@@ -110,7 +110,20 @@ CREATE TABLE `img_proyecto` (
   `ruta` text COLLATE utf8_unicode_ci NOT NULL,
   `orden` int(11) NOT NULL,
   `titulo` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=32 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=39 ;
+
+--
+-- Volcado de datos para la tabla `img_proyecto`
+--
+
+INSERT INTO `img_proyecto` (`id_img_proyecto`, `id_proyecto`, `ruta`, `orden`, `titulo`) VALUES
+(38, 26, 'd287abc6.jpg', 38, ''),
+(37, 26, '03216386.jpg', 37, ''),
+(36, 26, '1d6321b2.jpg', 36, ''),
+(35, 26, '7eaeaacb.jpg', 35, ''),
+(34, 26, '8058b1f0.jpg', 34, ''),
+(33, 26, '4932c02a.jpg', 33, ''),
+(32, 26, 'de03b67a.jpg', 32, '');
 
 -- --------------------------------------------------------
 
@@ -165,7 +178,7 @@ CREATE TABLE `permiso` (
   `nompermiso` varchar(255) NOT NULL,
   `clavepermiso` varchar(255) NOT NULL,
   `status` int(5) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=87 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=88 ;
 
 --
 -- Volcado de datos para la tabla `permiso`
@@ -209,7 +222,8 @@ INSERT INTO `permiso` (`idpermiso`, `nompermiso`, `clavepermiso`, `status`) VALU
 (83, 'Agregar Proyecto', 'AgrProy', 1),
 (84, 'Eliminar Proyecto', 'ElimProy', 1),
 (85, 'Activar y Desactivar Proyecto', 'AcDcProy', 1),
-(86, 'Editar Proyecto', 'ModProy', 1);
+(86, 'Editar Proyecto', 'ModProy', 1),
+(87, 'Ordenar Tabla de Videoslides', 'SortTableVidSli', 1);
 
 -- --------------------------------------------------------
 
@@ -219,24 +233,34 @@ INSERT INTO `permiso` (`idpermiso`, `nompermiso`, `clavepermiso`, `status`) VALU
 
 CREATE TABLE `proyectos` (
 `id_proyecto` int(11) NOT NULL,
-  `titulo` text COLLATE utf8_unicode_ci NOT NULL,
-  `descripcion` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `subtitulo` text COLLATE utf8_unicode_ci NOT NULL,
-  `cliente` text COLLATE utf8_unicode_ci NOT NULL,
+  `titulo_esp` text COLLATE utf8_unicode_ci NOT NULL,
+  `titulo_eng` text COLLATE utf8_unicode_ci NOT NULL,
+  `subtitulo_esp` text COLLATE utf8_unicode_ci NOT NULL,
+  `subtitulo_eng` text COLLATE utf8_unicode_ci NOT NULL,
+  `descripcion_esp` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `descripcion_eng` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `nombre_video` text COLLATE utf8_unicode_ci NOT NULL,
+  `nombre_preview` text COLLATE utf8_unicode_ci NOT NULL,
   `img_principal` text COLLATE utf8_unicode_ci NOT NULL,
+  `orden` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `mostrar` tinyint(1) NOT NULL,
-  `orden` int(11) NOT NULL,
-  `principal` tinyint(1) NOT NULL,
-  `caso_exito` tinyint(1) NOT NULL,
-  `link_video` text COLLATE utf8_unicode_ci NOT NULL,
-  `tipo` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
-  `meta_titulo` text COLLATE utf8_unicode_ci NOT NULL,
-  `meta_descripcion` text COLLATE utf8_unicode_ci NOT NULL,
+  `meta_titulo_esp` text COLLATE utf8_unicode_ci NOT NULL,
+  `meta_descripcion_esp` text COLLATE utf8_unicode_ci NOT NULL,
   `url_amigable` text COLLATE utf8_unicode_ci NOT NULL,
   `fecha_creacion` date NOT NULL,
-  `fecha_modificacion` date NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=26 ;
+  `fecha_modificacion` date NOT NULL,
+  `behance` text COLLATE utf8_unicode_ci NOT NULL,
+  `meta_titulo_eng` text COLLATE utf8_unicode_ci NOT NULL,
+  `meta_descripcion_eng` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
+
+--
+-- Volcado de datos para la tabla `proyectos`
+--
+
+INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_esp`, `subtitulo_eng`, `descripcion_esp`, `descripcion_eng`, `nombre_video`, `nombre_preview`, `img_principal`, `orden`, `status`, `mostrar`, `meta_titulo_esp`, `meta_descripcion_esp`, `url_amigable`, `fecha_creacion`, `fecha_modificacion`, `behance`, `meta_titulo_eng`, `meta_descripcion_eng`) VALUES
+(26, 'SPORTS PACKAGE 2014', 'SPORTS PACKAGE 2014', 'CBC SPORTS', 'CBC SPORTS', '&lt;p&gt;Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.&lt;br&gt;&lt;br&gt;Esta vez fuimos comisionados para diseÃ±ar el look de los paquetes graficos tanto para invierno como para verano de CBC Sports. Desarrollamos una serie de ambientes que nos sirvieron para dar vida a estas piezas llenas de energia que celebran el amor por el deporte.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.&lt;br&gt;&lt;/p&gt;', '5a243ee6.mp4', '5a9035dc.mp4', '957ec1a6.jpg', 26, 1, 0, 'SPORTS PACKAGE 2014', '&lt;p&gt;Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.&lt;br&gt;&lt;br&gt;Esta vez fuim', 'sports-package-2014', '2015-01-08', '2015-01-08', '', 'SPORTS PACKAGE 2014', '&lt;p&gt;Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we w');
 
 -- --------------------------------------------------------
 
@@ -343,7 +367,8 @@ INSERT INTO `tipousuarioxpermiso` (`idtipousuario`, `idpermiso`) VALUES
 (9, 83),
 (9, 84),
 (9, 85),
-(9, 86);
+(9, 86),
+(9, 87);
 
 -- --------------------------------------------------------
 
@@ -375,22 +400,15 @@ INSERT INTO `usuario` (`idusuario`, `nomusuario`, `password`, `status`, `idtipou
 CREATE TABLE `videos_slide` (
 `id_video_slide` int(11) NOT NULL,
   `titulo_video` text COLLATE utf8_unicode_ci NOT NULL,
-  `nombre_video` text COLLATE utf8_unicode_ci NOT NULL,
-  `fecha_creacion` date NOT NULL,
-  `fecha_modificacion` date NOT NULL,
-  `mostrar` tinyint(1) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `orden` int(11) NOT NULL
+  `nombre_video` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `videos_slide`
 --
 
-INSERT INTO `videos_slide` (`id_video_slide`, `titulo_video`, `nombre_video`, `fecha_creacion`, `fecha_modificacion`, `mostrar`, `status`, `orden`) VALUES
-(1, 'Video Corto Paisaje', 'beb9d405.mp4', '2015-01-06', '2015-01-06', 0, 0, 1),
-(2, 'Comercial Navidad', '771d59dc.mp4', '2015-01-06', '2015-01-06', 0, 0, 2),
-(3, 'Gol en el futbol', 'fb6057f1.mp4', '2015-01-07', '2015-01-07', 0, 0, 3);
+INSERT INTO `videos_slide` (`id_video_slide`, `titulo_video`, `nombre_video`) VALUES
+(1, 'MOTION DESIGN REEL 2014', '0b80379e.mp4');
 
 --
 -- Índices para tablas volcadas
@@ -464,17 +482,17 @@ ALTER TABLE `videos_slide`
 -- AUTO_INCREMENT de la tabla `img_proyecto`
 --
 ALTER TABLE `img_proyecto`
-MODIFY `id_img_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+MODIFY `id_img_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT de la tabla `permiso`
 --
 ALTER TABLE `permiso`
-MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
+MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=88;
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT de la tabla `tiposusuario`
 --
