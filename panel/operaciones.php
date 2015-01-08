@@ -381,11 +381,22 @@ switch($operaciones){
 			$nombre_preview = '';
 			$nombre_preview_temporal = '';
 		}
+
+		if(isset($_FILES['archivo_hd']['name']))
+		{
+			$nombre_video_hd = $_FILES['archivo_hd']['name'];
+			$nombre_video_hd_temporal = $_FILES['archivo_hd']['tmp_name'];
+		}
+		else
+		{
+			$nombre_video_hd = '';
+			$nombre_video_hd_temporal = '';
+		}
 		
 	 				    
 		//	function proyecto($id_proyecto = 0, $img_principal = '', $ruta_temporal = '',$nombre_video = "", $ruta_temporal2 = "", $nombre_preview = "", $ruta_temporal3 = "", $titulo_esp = '',$titulo_eng = '',$subtitulo_esp = '',$subtitulo_eng = '', $descripcion_esp = '', $descripcion_eng = '', $behance = "",$url_amigable = '', $meta_titulo_esp = "", $meta_descripcion_esp = "", $meta_titulo_eng = "", $meta_descripcion_eng = "", $mostrar = 0, $status = 1) 
 
-		$proyecto = new proyecto(0, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
+		$proyecto = new proyecto(0, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $nombre_video_hd, $nombre_video_hd_temporal ,$titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
 		$proyecto -> insertar_proyecto();
 		if ($proyecto -> id_proyecto == 'error'){
 			$success = 0;
@@ -461,9 +472,20 @@ switch($operaciones){
 			$nombre_preview = '';
 			$nombre_preview_temporal = '';
 		}
+
+		if(isset($_FILES['archivo_hd']['name']))
+		{
+			$nombre_video_hd = $_FILES['archivo_hd']['name'];
+			$nombre_video_hd_temporal = $_FILES['archivo_hd']['tmp_name'];
+		}
+		else
+		{
+			$nombre_video_hd = '';
+			$nombre_video_hd_temporal = '';
+		}
 		
 
-		$proyecto = new proyecto($id_proyecto, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
+		$proyecto = new proyecto($id_proyecto, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $nombre_video_hd, $nombre_video_hd_temporal ,$titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
 		
 		if($proyecto -> id_proyecto != 0){
 			$proyecto -> modificar_proyecto();
@@ -634,8 +656,18 @@ switch($operaciones){
 				$nameP = "";
 				$tmpnameP = "";
 			}
+
+			if(isset($_FILES['archivo_hd']['name'])){
+				$nameP_hd = $_FILES['archivo_hd']['name'];
+				$tmpnameP_hd = $_FILES['archivo_hd']['tmp_name'];
+			}
+				
+			else{
+				$nameP_hd = "";
+				$tmpnameP_hd = "";
+			}
 	
-			$video_slide = new video_slide(1,$nameP, $tmpnameP, $_REQUEST['titulo_video']);
+			$video_slide = new video_slide(1,$nameP, $tmpnameP, $nameP_hd, $tmpnameP_hd ,$_REQUEST['titulo_video']);
 			$video_slide -> modificar_video_slide();    
 			header('location: formvideoslide.php');
 			break;
