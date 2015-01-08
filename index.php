@@ -14,6 +14,7 @@
 	<div class="container">
 		<div class="row logohome">
 			<div class=" col-sm-1">
+				<div class="titulorojo2"><img src="<?=mypath?>img/logowr.png" /></div>
 				<img style="max-width:100%;" src="<?=mypath?>img/logow.png" />
 			</div>
 		</div>
@@ -26,12 +27,13 @@
 				<li class="idioma"><a href="#">ENG</a> / <a href="#" class="active">ESP</a></li>
 			</ul>
 		</div>
-		<div class="row logobottom">
+		<div class="row logobottom"><!--
 			<div class="progress progress-striped active">
 			    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-			</div>
+			</div>-->
 			<div class="col-sm-2">
-				<img style="max-width:100%;" src="<?=mypath?>img/dptitle.png" />
+				<div class="titulorojo"><img src="<?=mypath?>img/dptitler.png" /></div>
+				<img src="<?=mypath?>img/dptitle.png" />
 			</div>
 		</div>
 		<div class="row logobottomr">
@@ -183,9 +185,13 @@
    			//console.log("entro");
 		    var vid = document.getElementById('bgvid');
 		    var percent = null;
-		    var percent = (vid.currentTime/vid.duration)*100;
-		    //console.log(percent);
-	        $('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
+		    var percent2 = null;
+		    var percent = 137*(vid.currentTime/vid.duration);
+		    var percent2 = 51*(vid.currentTime/vid.duration);
+		    console.log(percent);
+	        //$('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
+	        $(".titulorojo").width(percent+"px");
+	        $(".titulorojo2").width(percent2+"px");
 			});
 	});
 </script>

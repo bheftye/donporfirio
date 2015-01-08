@@ -49,6 +49,12 @@ video#bgvid {
 	height: auto; 
 	z-index: -100;
 }
+/*************************************INICIO***************************************/
+.titulorojo, .titulorojo2{
+	position:absolute;
+	width:0px;
+	overflow:hidden;
+}
 /**********************************MENU********************************************/
 .menuright{
 	position:absolute;
