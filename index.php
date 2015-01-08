@@ -6,7 +6,7 @@
 		$src_tmp = $lista_videos_slide[0]["nombre_video"];
 	}
 ?>
-<video autoplay muted id="bgvid" auto>
+<video autoplay muted id="bgvid" loop>
 	<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4">
 </video>
 <div class="contenido">
@@ -20,7 +20,6 @@
 		<div id="menu">
 			<ul>
 				<li><a href="#home" onclick="changecursor()" class="active">Home</a></li>
-				<li><a href="#news">News</a></li>
 				<li><a href="#work" onclick="openmenu()">Work</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#contact" onclick="viewcontact()">Contact</a></li>
@@ -176,52 +175,17 @@
 </div>
 <?php include_once('includes/footer.php') ?>
 <script type='text/javascript'>
-   var count = 1;
-   var count_limit = <?php echo count($lista_videos_slide);?>;
-   var player=document.getElementById('bgvid');
-   var mp4Vid = document.getElementById('mp4Source');
-   var videos_slide = new Array();
-
-   <?php
-   	 foreach($lista_videos_slide as $video_slide_tmp)
-   	 {
-   	 	$src_video = $video_slide_tmp["nombre_video"];
-   	 	echo "videos_slide.push(".json_encode($src_video).");";
-   	 }
-   ?>
-
-   player.addEventListener('ended',myHandler,false);
-   player.addEventListener('progress', onProgress, false);
-
-   function myHandler(e)
-   {
-
-      if(!e) 
-      {
-         e = window.event; 
-      }
-      
-      if(count == count_limit)
-      {
-      	count = 0;
-      }
-
-      $(mp4Vid).attr('src', "videosSlide/"+videos_slide[count]);
-      $(player).fadeOut();
-      player.load();
-      $(player).delay(1000).fadeIn();
-      player.play();
-      count++;
-   }
-   //console.log(document.getElementById('bgvid'));
-   function onProgress(e){
-
-	    var vid = document.getElementById('bgvid');
-	    var percent = null;
-	    var percent = (vid.currentTime/vid.duration)*100;
-	    console.log(percent);
+	$(document).ready(function(){
+		//console.log("hola");
+	  $("#bgvid").on(
+	    "timeupdate", 
+   			function (event){
+   			//console.log("entro");
+		    var vid = document.getElementById('bgvid');
+		    var percent = null;
+		    var percent = (vid.currentTime/vid.duration)*100;
+		    //console.log(percent);
 	        $('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
-	
-	}
-
+			});
+	});
 </script>
