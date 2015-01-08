@@ -11,15 +11,53 @@
 </video>
 <div class="contenido">
 	<!-- Website Content -->
-		<a href="#news">News</a>
-		<a href="#work" onclick="openmenu()">Work</a>
-		<a href="#about">About</a>
-		<a href="#contact" onclick="viewcontact()">Contact</a>
-	
+	<div class="container">
+		<div class="row logohome">
+			<div class=" col-sm-1">
+				<img style="max-width:100%;" src="<?=mypath?>img/logow.png" />
+			</div>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="#home" class="active">Home</a></li>
+				<li><a href="#news">News</a></li>
+				<li><a href="#work" onclick="openmenu()">Work</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#contact" onclick="viewcontact()">Contact</a></li>
+				<li class="idioma"><a href="#">ENG</a> / <a href="#" class="active">ESP</a></li>
+			</ul>
+		</div>
+		<div class="row logobottom">
+			<div class="col-sm-2">
+				<img style="max-width:100%;" src="<?=mypath?>img/dptitle.png" />
+			</div>
+		</div>
+	</div>
 	<!-- Website Content -->
 	<div class="menuright">
 		<div class="menuheader">
-			<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
+			<div class="row">
+				<div class="col-sm-10 sidemenu">
+					<ul>
+						<li class="active">
+							all
+						</li>
+						<li>
+							BROADCAST DESIGN
+						</li>
+						<li>
+							sports
+						</li>
+						<li>
+							2d
+						</li>
+						<li>
+							3d
+						</li>
+					</ul>
+				</div>
+				<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
+			</div>
 		</div>
 		<?php
 		$i=0;
@@ -118,7 +156,7 @@
 				</div>
 			</div>
 			<div class="row" style="padding-left:15px;">
-				<span class="textMedIt">
+				<span class="textMedItBottom">
 					Copyright 2015 | Don Porfirio. All rights reserved.
 				</span>
 			</div>

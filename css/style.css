@@ -70,6 +70,59 @@ video#bgvid {
 	height:65px;
 	width:100%;
 }
+#menu{
+	position:absolute;
+	top:50%;
+	margin-top:-90px;
+}
+#menu ul{
+	padding:0;
+	margin:0;
+}
+#menu ul li{
+	list-style:none;
+	padding:5px 0;
+}
+#menu ul li a{
+	font-family: 'AkzidenzGrotesk-Regular';
+	text-transform: uppercase;
+	color:#fff;
+	text-decoration: none;
+}
+#menu ul li a.active, #menu ul li a:hover{
+	font-family: 'AkzidenzGrotesk-Bold';
+	color:#ff5858;
+}
+.idioma a{
+	font-family: 'AkzidenzGrotesk-Italic' !important;
+}
+.idioma a.active, .idioma a:hover{
+	font-family: 'AkzidenzGrotesk-Italic' !important;
+	color:#ff5858;
+}
+.sidemenu ul{
+	padding:20px 0;
+	margin:0;
+}
+.sidemenu ul li{
+	display:inline;
+	list-style:none;
+	font-family: 'AkzidenzGrotesk-Bold';
+	padding:0 5px;
+	text-transform: uppercase;
+	cursor:pointer;
+}
+.sidemenu ul li.active, .sidemenu ul li:hover{
+	color:#ff5858;
+}
+.logohome{
+	padding-top:45px;
+}
+.logobottom{
+	position:absolute;
+	width:100%;
+	bottom:40px;
+}
 /*********************************CONTACTO******************************************/
 #contacto{
 	position:relative;
@@ -88,6 +141,10 @@ video#bgvid {
 	font-family: 'AkzidenzGrotesk-MediumItalic';
 	font-size:13px;
 }
+.textMedItBottom{
+	font-family: 'AkzidenzGrotesk-MediumItalic';
+	font-size:12px;
+}
 .textitalic{
 	font-family: 'AkzidenzGrotesk-Italic';
 }
@@ -95,6 +152,7 @@ video#bgvid {
 	border: 1px solid #000;
 }
 .bdbtm{
+	text-align: center;
 	border-bottom: 1px solid #000;
 }
 .tbdefault{
@@ -103,6 +161,7 @@ video#bgvid {
 	padding: 0 5px;
 }
 .bgblack{
+	text-align: center;
 	font-family: 'AkzidenzGrotesk-MediumItalic';
 	border-bottom: 1px solid #000;
 	background:#000;
