@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 08-01-2015 a las 20:05:31
+-- Tiempo de generación: 09-01-2015 a las 00:51:30
 -- Versión del servidor: 5.5.38
 -- Versión de PHP: 5.5.14
 
@@ -110,20 +110,52 @@ CREATE TABLE `img_proyecto` (
   `ruta` text COLLATE utf8_unicode_ci NOT NULL,
   `orden` int(11) NOT NULL,
   `titulo` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=39 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=71 ;
 
 --
 -- Volcado de datos para la tabla `img_proyecto`
 --
 
 INSERT INTO `img_proyecto` (`id_img_proyecto`, `id_proyecto`, `ruta`, `orden`, `titulo`) VALUES
+(41, 27, '7b060a07.jpg', 41, ''),
+(40, 27, 'e31d55e3.jpg', 40, ''),
+(39, 27, 'de0e384e.jpg', 39, ''),
 (38, 26, 'd287abc6.jpg', 38, ''),
 (37, 26, '03216386.jpg', 37, ''),
 (36, 26, '1d6321b2.jpg', 36, ''),
 (35, 26, '7eaeaacb.jpg', 35, ''),
 (34, 26, '8058b1f0.jpg', 34, ''),
 (33, 26, '4932c02a.jpg', 33, ''),
-(32, 26, 'de03b67a.jpg', 32, '');
+(32, 26, 'de03b67a.jpg', 32, ''),
+(42, 27, 'a4c72aaf.jpg', 42, ''),
+(43, 27, '574a5db2.jpg', 43, ''),
+(44, 27, '2642ba9d.jpg', 44, ''),
+(45, 27, '32b67efa.jpg', 45, ''),
+(46, 27, '8cabb5e5.jpg', 46, ''),
+(47, 27, 'b40a6af9.jpg', 47, ''),
+(48, 28, '6eae9f30.jpg', 48, ''),
+(49, 28, '5f945612.jpg', 49, ''),
+(50, 28, 'd07ac01e.jpg', 50, ''),
+(51, 28, 'ca1c582b.jpg', 51, ''),
+(52, 28, 'ada56978.jpg', 52, ''),
+(53, 28, 'b8e46314.jpg', 53, ''),
+(54, 29, 'efcf7dac.jpg', 54, ''),
+(55, 29, '28bbaf08.jpg', 55, ''),
+(56, 29, 'df550099.jpg', 56, ''),
+(57, 29, 'fa8cc96e.jpg', 57, ''),
+(58, 29, '860ef10a.jpg', 58, ''),
+(59, 29, 'f894baf3.jpg', 59, ''),
+(60, 29, 'd115fbf1.jpg', 60, ''),
+(61, 30, 'd982521a.jpg', 61, ''),
+(62, 30, 'cf1feb6d.jpg', 62, ''),
+(63, 30, '56d762ae.jpg', 63, ''),
+(64, 30, '29b62197.jpg', 64, ''),
+(65, 30, '4ef728c1.jpg', 65, ''),
+(66, 31, 'fa5aceb8.jpg', 66, ''),
+(67, 31, '6ee0395f.jpg', 67, ''),
+(68, 31, '73176ba1.jpg', 68, ''),
+(69, 31, '1379c023.jpg', 69, ''),
+(70, 31, '2895dc91.jpg', 70, '');
 
 -- --------------------------------------------------------
 
@@ -241,6 +273,7 @@ CREATE TABLE `proyectos` (
   `descripcion_eng` longtext COLLATE utf8_unicode_ci NOT NULL,
   `nombre_video` text COLLATE utf8_unicode_ci NOT NULL,
   `nombre_preview` text COLLATE utf8_unicode_ci NOT NULL,
+  `nombre_video_hd` text COLLATE utf8_unicode_ci NOT NULL,
   `img_principal` text COLLATE utf8_unicode_ci NOT NULL,
   `orden` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL,
@@ -253,14 +286,19 @@ CREATE TABLE `proyectos` (
   `behance` text COLLATE utf8_unicode_ci NOT NULL,
   `meta_titulo_eng` text COLLATE utf8_unicode_ci NOT NULL,
   `meta_descripcion_eng` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=32 ;
 
 --
 -- Volcado de datos para la tabla `proyectos`
 --
 
-INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_esp`, `subtitulo_eng`, `descripcion_esp`, `descripcion_eng`, `nombre_video`, `nombre_preview`, `img_principal`, `orden`, `status`, `mostrar`, `meta_titulo_esp`, `meta_descripcion_esp`, `url_amigable`, `fecha_creacion`, `fecha_modificacion`, `behance`, `meta_titulo_eng`, `meta_descripcion_eng`) VALUES
-(26, 'SPORTS PACKAGE 2014', 'SPORTS PACKAGE 2014', 'CBC SPORTS', 'CBC SPORTS', '&lt;p&gt;Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.&lt;br&gt;&lt;br&gt;Esta vez fuimos comisionados para diseÃ±ar el look de los paquetes graficos tanto para invierno como para verano de CBC Sports. Desarrollamos una serie de ambientes que nos sirvieron para dar vida a estas piezas llenas de energia que celebran el amor por el deporte.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.&lt;br&gt;&lt;/p&gt;', '5a243ee6.mp4', '5a9035dc.mp4', '957ec1a6.jpg', 26, 1, 0, 'SPORTS PACKAGE 2014', '&lt;p&gt;Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.&lt;br&gt;&lt;br&gt;Esta vez fuim', 'sports-package-2014', '2015-01-08', '2015-01-08', '', 'SPORTS PACKAGE 2014', '&lt;p&gt;Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we w');
+INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_esp`, `subtitulo_eng`, `descripcion_esp`, `descripcion_eng`, `nombre_video`, `nombre_preview`, `nombre_video_hd`, `img_principal`, `orden`, `status`, `mostrar`, `meta_titulo_esp`, `meta_descripcion_esp`, `url_amigable`, `fecha_creacion`, `fecha_modificacion`, `behance`, `meta_titulo_eng`, `meta_descripcion_eng`) VALUES
+(26, 'SPORTS PACKAGE 2014', 'CBC SPORTS', 'CBC SPORTS', 'SPORTS PACKAGE 2014', '&lt;p&gt;Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.&lt;br&gt;&lt;br&gt;Esta vez fuimos comisionados para diseÃ±ar el look de los paquetes graficos tanto para invierno como para verano de CBC Sports. Desarrollamos una serie de ambientes que nos sirvieron para dar vida a estas piezas llenas de energia que celebran el amor por el deporte.&lt;br&gt;&lt;/p&gt;', 'Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.&lt;br&gt;', '5a243ee6.mp4', '5a9035dc.mp4', '525cd72a.mp4', '957ec1a6.jpg', 26, 0, 0, 'SPORTS PACKAGE 2014', 'Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.\r\n\r\nEsta vez fuimos comisionados para diseÃ±a', 'cbc-sports', '2015-01-08', '2015-01-09', '', 'CBC SPORTS', 'Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comis'),
+(27, 'LONDON CALLING 2014', 'LONDON CALLING 2014', 'BBC ENTERTAINMENT', 'BBC ENTERTAINMENT', '&lt;p&gt;Fuimos comisionados para desarrollar el nuevo paquete grÃ¡fico para London Calling, inspirado en el Underground de la ciudad de Londres. Generamos una serie completa de ambientes subterrÃ¡neos y utilizamos estos espacios para dar vida a los diferentes elementos que conforman el paquete.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;We were invited to create the graphics package for BBC&#039;s London Calling inspired in the Underground of London. We generated a series of cg underground environments that we used to give life to the different elements that integrate this cool package.&lt;br&gt;&lt;/p&gt;', '81b42f33.mp4', '5586711c.mp4', '', 'dfb825aa.jpg', 27, 0, 0, 'LONDON CALLING 2014', '&lt;p&gt;Fuimos comisionados para desarrollar el nuevo paquete grÃ¡fico para London Calling, inspirado en el Underground de la ciudad de Londres. Generamos una ', 'london-calling-2014', '2015-01-08', '2015-01-08', '', 'LONDON CALLING 2014', '&lt;p&gt;We were invited to create the graphics package for BBC&#039;s London Calling inspired in the Underground of London. We generated a series of cg undergr'),
+(28, 'CONFERENCE OPENING TITLES', 'CONFERENCE OPENING TITLES', 'DH17', 'DH17', '&lt;div&gt;Nuestros amigos de&amp;nbsp;TIPOS LIBRES&amp;nbsp;organizadores de uno de los eventos de diseÃ±o mÃ¡s importantes en MÃ©xico conocido como&amp;nbsp;&quot;DEJANDO HUELLA&quot;, nos invitaron a colaborar con ellos en el desarrollo de la secuencia de tÃ­tulos en su ediciÃ³n No.17&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;El&amp;nbsp;DH17&amp;nbsp;tuvo como concepto general la temÃ¡tica&amp;nbsp;&quot;HAY MUCHAS HISTORIAS POR CONTAR&quot;&amp;nbsp;por lo que nos pareciÃ³ interesante que los tÃ­tulos contaran la historia de algo que nos une a todos los creativos y diseÃ±adores sin importar la especialidad. Nuestro proceso creativo.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;La secuencia de entrada, explora el proceso creativo a travÃ©z de diferentes Ã¡ngulos mostrando la diversa manera en que nosotros los creativos podemos atacar un proyecto en busca de una soluciÃ³n grÃ¡fica. Es una historia que nos habla de inpisraciÃ³n, creaciÃ³n y genio creativo para finalizar en el nacimiento de una nueva ediciÃ³n de este gran evento, el&amp;nbsp;DH17.&lt;/div&gt;', '&lt;div&gt;Our friends at TIPOS LIBRES, organize every year one of the top design conferences in Mexico and this year they inveited us to create the opening titles for them.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;This year&#039;s event was based on the concept &quot;THERE ARE MANY STORIES TO TELL&quot;. This is why we found very interesting to play with an idea that all we creatives share... our creative process.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;The opening titles explore the creative process of every designer trough a series of shots and that show different stages of creation and inspiration.&lt;/div&gt;', '7befe482.mp4', '', '', '67539e76.jpg', 28, 0, 0, 'CONFERENCE OPENING TITLES', '&lt;div&gt;Nuestros amigos de&amp;nbsp;TIPOS LIBRES&amp;nbsp;organizadores de uno de los eventos de diseÃ±o mÃ¡s importantes en MÃ©xico conocido como&amp;nbsp;&', 'conference-opening-titles', '2015-01-08', '2015-01-08', '', 'CONFERENCE OPENING TITLES', '&lt;div&gt;Our friends at TIPOS LIBRES, organize every year one of the top design conferences in Mexico and this year they inveited us to create the opening tit'),
+(29, 'CINEMATIC TRAILER', 'CINEMATIC TRAILER', 'BBC EARTH + CINEMARK', 'BBC EARTH + CINEMARK', '&lt;p&gt;Creamos para BBC los tÃ­tulos animados que forman parte del trailer oficial para esta nueva e increible serie de documentales que se podrÃ¡n ver en las salas de Cinemark en LatinoamÃ©rica.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;We created for BBC the animated titles that are included in the official trailer for their upcoming series of incredible documentaries that will hit Latinoamerica on Cinemark.&lt;br&gt;&lt;/p&gt;', 'a35e3627.mp4', '', '', '70ca98e3.jpg', 29, 0, 0, 'CINEMATIC TRAILER', '&lt;p&gt;Creamos para BBC los tÃ­tulos animados que forman parte del trailer oficial para esta nueva e increible serie de documentales que se podrÃ¡n ver en las', 'cinematic-trailer', '2015-01-08', '2015-01-08', '', 'CINEMATIC TRAILER', '&lt;p&gt;We created for BBC the animated titles that are included in the official trailer for their upcoming series of incredible documentaries that will hit La'),
+(30, 'NIDO', 'NIDO', 'NIDO', 'NIDO', '&lt;div&gt;En esta maternal pieza creada para el lanzamiento de la promocion de NIDO para el dia de las madres, se buscaba generar una pieza que pareciera intervenida por niÃ±os donde ademÃ¡s se mostrara el regalo incluido debajo de la tapa del producto, de una manera dinÃ¡mica y elegante.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;Desarrollamos tÃ­tulos animados en 2D con tÃ©cnicas tradicionales y generamos los productos 3D realistas integrÃ¡ndolos a un ambiente fotogrÃ¡fico para generar una pieza alegre y llena de vida, con una interesante secuencia de producto&lt;/div&gt;', '&lt;div&gt;This is a piece created to promote the campaign for Mother&#039;s Day. The intention was to give the piece a real feel of kids talking to their moms, which is why we created titles drawn by hand&amp;nbsp; and animated with traditional techniques that mimic a kid style and personalty.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;We also created the CG product animated sequence that shows the gift that comes inside every product.&lt;/div&gt;', '9b2abb2b.mp4', '', '', '5d4f7c81.jpg', 30, 0, 0, 'NIDO', '&lt;div&gt;En esta maternal pieza creada para el lanzamiento de la promocion de NIDO para el dia de las madres, se buscaba generar una pieza que pareciera inter', 'nido', '2015-01-08', '2015-01-08', '', 'NIDO', '&lt;div&gt;This is a piece created to promote the campaign for Mother&#039;s Day. The intention was to give the piece a real feel of kids talking to their moms,'),
+(31, 'GAMEDAY GRAPHICS PACKAGE', 'GAMEDAY GRAPHICS PACKAGE', 'CBC SPORTS ', 'CBC SPORTS ', '&lt;p&gt;GAMEDAY es un show de CBC Sports acerca de la NHL y lo que pasa en el mundo del Hockey profesional. Big Studios Inc. nos invito a desarrollamos el paquete grafico para el show.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;GAMEDAY is a CBC Sports show about the NHL and everything related to the world of professional hockey. Big Studios Inc invited us to create the Graphics Package for the show.&lt;br&gt;&lt;/p&gt;', '482c2daa.mp4', '', '', '129ee070.jpg', 31, 0, 0, 'GAMEDAY GRAPHICS PACKAGE', '&lt;p&gt;GAMEDAY es un show de CBC Sports acerca de la NHL y lo que pasa en el mundo del Hockey profesional. Big Studios Inc. nos invito a desarrollamos el paqu', 'gameday-graphics-package', '2015-01-08', '2015-01-08', '', 'GAMEDAY GRAPHICS PACKAGE', '&lt;p&gt;GAMEDAY is a CBC Sports show about the NHL and everything related to the world of professional hockey. Big Studios Inc invited us to create the Graphic');
 
 -- --------------------------------------------------------
 
@@ -400,15 +438,16 @@ INSERT INTO `usuario` (`idusuario`, `nomusuario`, `password`, `status`, `idtipou
 CREATE TABLE `videos_slide` (
 `id_video_slide` int(11) NOT NULL,
   `titulo_video` text COLLATE utf8_unicode_ci NOT NULL,
-  `nombre_video` text COLLATE utf8_unicode_ci NOT NULL
+  `nombre_video` text COLLATE utf8_unicode_ci NOT NULL,
+  `nombre_video_hd` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `videos_slide`
 --
 
-INSERT INTO `videos_slide` (`id_video_slide`, `titulo_video`, `nombre_video`) VALUES
-(1, 'MOTION DESIGN REEL 2014', '0b80379e.mp4');
+INSERT INTO `videos_slide` (`id_video_slide`, `titulo_video`, `nombre_video`, `nombre_video_hd`) VALUES
+(1, 'MOTION DESIGN REEL 2014', '0b80379e.mp4', 'f95ea549.mp4');
 
 --
 -- Índices para tablas volcadas
@@ -482,7 +521,7 @@ ALTER TABLE `videos_slide`
 -- AUTO_INCREMENT de la tabla `img_proyecto`
 --
 ALTER TABLE `img_proyecto`
-MODIFY `id_img_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
+MODIFY `id_img_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT de la tabla `permiso`
 --
@@ -492,7 +531,7 @@ MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=88;
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT de la tabla `tiposusuario`
 --
