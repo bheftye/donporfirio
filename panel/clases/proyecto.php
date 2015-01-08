@@ -75,7 +75,7 @@ class proyecto extends Archivo {
 		$this -> titulo_eng = $titulo_eng;
 
 		$this -> subtitulo_esp = $subtitulo_esp;
-		$this -> subtitulo_esp = $subtitulo_esp;
+		$this -> subtitulo_eng = $subtitulo_eng;
 
 		$this -> descripcion_esp = $descripcion_esp;
 		$this -> descripcion_eng = $descripcion_eng;
@@ -83,8 +83,11 @@ class proyecto extends Archivo {
 		$this -> behance = $behance;
 		$this -> url_amigable = $url_amigable;
 
-		$this -> meta_titulo = $meta_titulo;
-		$this -> meta_descripcion = $meta_descripcion;
+		$this -> meta_titulo_esp = $meta_titulo_esp;
+		$this -> meta_descripcion_esp = $meta_descripcion_esp;
+
+		$this -> meta_titulo_eng = $meta_titulo_eng;
+		$this -> meta_descripcion_eng = $meta_descripcion_eng;		
 
 		$this -> mostrar = $mostrar;
 		$this -> status = $status;
@@ -102,7 +105,7 @@ class proyecto extends Archivo {
 		$s = preg_replace ('~[^\w\d]+~', '-', str_replace ($from, $to, trim ($this -> titulo_eng)));
 		$url = strtolower (preg_replace ('/^-/', '', preg_replace ('/-$/', '',$s)));
 		$fechaCreacion = date("Y-m-d");
-		$sql = "INSERT INTO proyectos (img_principal, nombre_video, nombre_preview, titulo_esp, titulo_eng, subtitulo_esp, subtitulo_eng, descripcion_esp, descripcion_eng, behance, url_amigable, meta_titulo_esp, meta_descripcion_esp, meta_titulo_esp, meta_descripcion_eng, fecha_creacion, fecha_modificacion, mostrar, status ) 
+		$sql = "INSERT INTO proyectos (img_principal, nombre_video, nombre_preview, titulo_esp, titulo_eng, subtitulo_esp, subtitulo_eng, descripcion_esp, descripcion_eng, behance, url_amigable, meta_titulo_esp, meta_descripcion_esp, meta_titulo_eng, meta_descripcion_eng, fecha_creacion, fecha_modificacion, mostrar, status ) 
 		values ('".$this -> img_principal."',
 		'".$this -> nombre_video."',
 		'".$this -> nombre_preview."',
@@ -462,17 +465,20 @@ class proyecto extends Archivo {
 		while ($fila = mysqli_fetch_array($resultados)) {
 			$this -> id_proyecto = $fila['id_proyecto'];
 			$this -> img_principal = $fila['img_principal'];
-			$this -> titulo = htmlspecialchars_decode($fila['titulo']);
-			$this -> subtitulo = htmlspecialchars_decode($fila['subtitulo']);
-			$this -> cliente = htmlspecialchars_decode($fila['cliente']);
-			$this -> descripcion = htmlspecialchars_decode($fila['descripcion']);
-			$this -> link_video = $fila["link_video"];
-			$this -> tipo = $fila["tipo"];
-			$this -> principal = $fila["principal"];
-			$this -> caso_exito = $fila["caso_exito"];
+			$this -> nombre_video = $fila["nombre_video"];
+			$this -> nombre_preview = $fila["nombre_preview"];
+			$this -> titulo_esp = htmlspecialchars_decode($fila['titulo_esp']);
+			$this -> titulo_eng = htmlspecialchars_decode($fila['titulo_eng']);
+			$this -> subtitulo_esp = htmlspecialchars_decode($fila['subtitulo_esp']);
+			$this -> subtitulo_eng = htmlspecialchars_decode($fila['subtitulo_eng']);
+			$this -> behance = $fila['behance'];
+			$this -> descripcion_esp = htmlspecialchars_decode($fila['descripcion_esp']);
+			$this -> descripcion_eng = htmlspecialchars_decode($fila['descripcion_eng']);
 			$this -> url_amigable = $fila['url_amigable'];
-			$this -> meta_titulo = $fila["meta_titulo"];
-			$this -> meta_descripcion = $fila["meta_descripcion"];
+			$this -> meta_titulo_esp = $fila["meta_titulo_esp"];
+			$this -> meta_descripcion_esp = $fila["meta_descripcion_esp"];
+			$this -> meta_titulo_eng = $fila["meta_titulo_eng"];
+			$this -> meta_descripcion_eng = $fila["meta_descripcion_eng"];
 			$this -> mostrar = $fila['mostrar'];
 			$this -> orden = $fila['orden'];
 			$this -> status = $fila['status'];
@@ -488,17 +494,20 @@ class proyecto extends Archivo {
 		while ($fila = mysqli_fetch_array($resultados)) {
 			$this -> id_proyecto = $fila['id_proyecto'];
 			$this -> img_principal = $fila['img_principal'];
-			$this -> titulo = htmlspecialchars_decode($fila['titulo']);
-			$this -> subtitulo = htmlspecialchars_decode($fila['subtitulo']);
-			$this -> cliente = htmlspecialchars_decode($fila['cliente']);
-			$this -> descripcion = htmlspecialchars_decode($fila['descripcion']);
-			$this -> link_video = $fila["link_video"];
-			$this -> tipo = $fila["tipo"];
-			$this -> principal = $fila["principal"];
-			$this -> caso_exito = $fila["caso_exito"];
+			$this -> nombre_video = $fila["nombre_video"];
+			$this -> nombre_preview = $fila["nombre_preview"];
+			$this -> titulo_esp = htmlspecialchars_decode($fila['titulo_esp']);
+			$this -> titulo_eng = htmlspecialchars_decode($fila['titulo_eng']);
+			$this -> subtitulo_esp = htmlspecialchars_decode($fila['subtitulo_esp']);
+			$this -> subtitulo_eng = htmlspecialchars_decode($fila['subtitulo_eng']);
+			$this -> behance = $fila['behance'];
+			$this -> descripcion_esp = htmlspecialchars_decode($fila['descripcion_esp']);
+			$this -> descripcion_eng = htmlspecialchars_decode($fila['descripcion_eng']);
 			$this -> url_amigable = $fila['url_amigable'];
-			$this -> meta_titulo = $fila["meta_titulo"];
-			$this -> meta_descripcion = $fila["meta_descripcion"];
+			$this -> meta_titulo_esp = $fila["meta_titulo_esp"];
+			$this -> meta_descripcion_esp = $fila["meta_descripcion_esp"];
+			$this -> meta_titulo_eng = $fila["meta_titulo_eng"];
+			$this -> meta_descripcion_eng = $fila["meta_descripcion_eng"];
 			$this -> mostrar = $fila['mostrar'];
 			$this -> orden = $fila['orden'];
 			$this -> status = $fila['status'];

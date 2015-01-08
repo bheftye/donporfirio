@@ -6,8 +6,7 @@ function __autoload($ClassName){
 	$seguridad = new seguridad();
 	$seguridad->candado();
 	
-if(isset($_REQUEST['id_video_slide'])){
-	$id=$_REQUEST['id_video_slide'];
+	$id=1;
 	$operacion='modificar_video_slide';
 	$palabra='Editar Videoslide';
 	$temporal = new video_slide($id);
@@ -31,26 +30,6 @@ if(isset($_REQUEST['id_video_slide'])){
 			return false; 
 		}';
 	}
-}
-else{
-	$id=0;
-	$operacion='agregar_video_slide';
-	$palabra='Nuevo Videoslide';
-	$img='';
-	$temporal = new video_slide($id);
-	$validator='if (!val.match(/(?:mp4)$/)) {
-    		$("#imgprin").removeClass("btn-default").addClass("btn-danger"); 
-			$(".top-right").notify({
-    			message: { text: "Agregue el video para poder continuar y solo se aceptan videos con formato .mp4" },
-    			type:"blackgloss",
-    			delay: 10000,
-  			}).show(); 
-			return false; 
-		}
-		else{
-			$("#imgprin").removeClass("btn-danger").addClass("btn-success"); 
-		}';
-}
 $clave = 'ModSlide';
 ?>
 

@@ -204,7 +204,7 @@ include('menu.php');
                                 	<input type="checkbox" id="'.$elemento['id_proyecto'].'" name="id_proyecto[]" value="'.$elemento['id_proyecto'].'">
 									<label for="'.$elemento['id_proyecto'].'"><span></span></label>
                                 </td>                    
-                                <td><a href="formproyecto.php?id_proyecto='.$elemento['id_proyecto'].'">'.$elemento['titulo'].'</a></td>
+                                <td><a href="formproyecto.php?id_proyecto='.$elemento['id_proyecto'].'">'.$elemento['titulo_esp'].'</a></td>
                                 <td class="text-center visible-lg visible-md">'.$elemento['fecha_creacion'].'</td>                                
                                 <td class="text-center visible-lg visible-md">'.date('d/m/Y', strtotime($elemento['fecha_modificacion'])).'</td>
                                 <td class="text-center visible-lg visible-md">'.$handle.'<img class="manita '.$class.'" onclick="'.$funcion.'" id="temp'.$elemento['id_proyecto'].'" src="'.$img.'"></td>

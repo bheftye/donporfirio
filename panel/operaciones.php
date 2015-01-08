@@ -330,16 +330,23 @@ switch($operaciones){
 	SECCIÓN PARA LAS OPERACIONES DE PROYECTOS
 	-------------------------------------------------------------------------*/	
 	case 'agregar_proyecto':
-		$titulo = (isset($_REQUEST['titulo']))? $_REQUEST['titulo'] : "";
-		$descripcion = (isset($_REQUEST['descripcion']))? htmlspecialchars($_REQUEST['descripcion'], ENT_QUOTES) : "";
-		$subtitulo = (isset($_REQUEST['subtitulo']))? htmlspecialchars($_REQUEST['subtitulo'], ENT_QUOTES) : "";
-		$cliente = (isset($_REQUEST['cliente']))? htmlspecialchars($_REQUEST['cliente'], ENT_QUOTES) : "";
-		$link_video = (isset($_REQUEST['link_video']) && $_REQUEST['link_video'] != "")? $_REQUEST['link_video'] : "";
-		$tipo = (isset($_REQUEST['tipo']) && $_REQUEST['tipo'] != "")? $_REQUEST['tipo'] : "y";
-		$principal = (isset($_REQUEST['principal']))? $_REQUEST['principal'] : 1;
-		$caso_exito = (isset($_REQUEST['caso_exito']))? $_REQUEST['caso_exito'] : 1;
-		$meta_titulo = (isset($_REQUEST['meta_titulo']) && $_REQUEST['meta_titulo'] != "")? $_REQUEST['meta_titulo'] : $titulo;
-		$meta_descripcion = (isset($_REQUEST['meta_descripcion']) && $_REQUEST['meta_descripcion'] != "")? htmlspecialchars($_REQUEST['meta_descripcion'], ENT_QUOTES) : substr($descripcion, 0,70);
+		$titulo_esp = (isset($_REQUEST['titulo_esp']))? $_REQUEST['titulo_esp'] : "";
+		$titulo_eng = (isset($_REQUEST['titulo_eng']))? $_REQUEST['titulo_eng'] : "";
+
+		$descripcion_esp = (isset($_REQUEST['descripcion_esp']))? htmlspecialchars($_REQUEST['descripcion_esp'], ENT_QUOTES) : "";
+		$descripcion_eng = (isset($_REQUEST['descripcion_eng']))? htmlspecialchars($_REQUEST['descripcion_eng'], ENT_QUOTES) : "";
+
+		$subtitulo_esp = (isset($_REQUEST['subtitulo_esp']))? htmlspecialchars($_REQUEST['subtitulo_esp'], ENT_QUOTES) : "";
+		$subtitulo_eng = (isset($_REQUEST['subtitulo_eng']))? htmlspecialchars($_REQUEST['subtitulo_eng'], ENT_QUOTES) : "";
+
+		$behance =  (isset($_REQUEST['behance']))? htmlspecialchars($_REQUEST['behance'], ENT_QUOTES) : "";
+
+		$meta_titulo_esp = (isset($_REQUEST['meta_titulo_esp']) && $_REQUEST['meta_titulo_esp'] != "")? $_REQUEST['meta_titulo_esp'] : $titulo_esp;
+		$meta_descripcion_esp = (isset($_REQUEST['meta_descripcion_esp']) && $_REQUEST['meta_descripcion_esp'] != "")? htmlspecialchars($_REQUEST['meta_descripcion_esp'], ENT_QUOTES) : substr($descripcion_esp, 0,160);
+
+		$meta_titulo_eng = (isset($_REQUEST['meta_titulo_eng']) && $_REQUEST['meta_titulo_eng'] != "")? $_REQUEST['meta_titulo_eng'] : $titulo_eng;
+		$meta_descripcion_eng = (isset($_REQUEST['meta_descripcion_eng']) && $_REQUEST['meta_descripcion_eng'] != "")? htmlspecialchars($_REQUEST['meta_descripcion_eng'], ENT_QUOTES) : substr($descripcion_eng, 0,160);
+
 
 
 		if(isset($_FILES['archivo']['name']))
@@ -352,14 +359,33 @@ switch($operaciones){
 			$img_principal = '';
 			$img_principal_temporal = '';
 		}
+
+		if(isset($_FILES['archivo_video']['name']))
+		{
+			$nombre_video = $_FILES['archivo_video']['name'];
+			$nombre_video_temporal = $_FILES['archivo_video']['tmp_name'];
+		}
+		else
+		{
+			$nombre_video = '';
+			$nombre_video_temporal = '';
+		}
+
+		if(isset($_FILES['archivo_preview']['name']))
+		{
+			$nombre_preview = $_FILES['archivo_preview']['name'];
+			$nombre_preview_temporal = $_FILES['archivo_preview']['tmp_name'];
+		}
+		else
+		{
+			$nombre_preview = '';
+			$nombre_preview_temporal = '';
+		}
 		
 	 				    
-		//	function proyecto($id_proyecto = 0, $img_principal = '', $ruta_temporal = '', $titulo = '',$subtitulo = '',$cliente = '', $descripcion = '', $link_video = '',$tipo = '',$principal = 1,$url_amigable = '', $meta_titulo = "", $meta_descripcion = "", $mostrar = 1, $status = 1) {
+		//	function proyecto($id_proyecto = 0, $img_principal = '', $ruta_temporal = '',$nombre_video = "", $ruta_temporal2 = "", $nombre_preview = "", $ruta_temporal3 = "", $titulo_esp = '',$titulo_eng = '',$subtitulo_esp = '',$subtitulo_eng = '', $descripcion_esp = '', $descripcion_eng = '', $behance = "",$url_amigable = '', $meta_titulo_esp = "", $meta_descripcion_esp = "", $meta_titulo_eng = "", $meta_descripcion_eng = "", $mostrar = 0, $status = 1) 
 
-		$proyecto = new proyecto(0, $img_principal, $img_principal_temporal, $titulo ,$subtitulo, $cliente, $descripcion, $link_video, $tipo, $principal, $caso_exito, $titulo, $meta_titulo, $meta_descripcion);
-		if($principal == 0){
-			$proyecto -> modificar_principal();
-		}
+		$proyecto = new proyecto(0, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
 		$proyecto -> insertar_proyecto();
 		if ($proyecto -> id_proyecto == 'error'){
 			$success = 0;
@@ -382,17 +408,25 @@ switch($operaciones){
 		header('location: listproyecto.php?success='.$success);
 	break;
 	case 'modificar_proyecto':
-		$id_proyecto = (isset($_REQUEST['id_proyecto']))? $_REQUEST['id_proyecto'] : "";
-		$titulo = (isset($_REQUEST['titulo']))? $_REQUEST['titulo'] : "";
-		$descripcion = (isset($_REQUEST['descripcion']))? htmlspecialchars($_REQUEST['descripcion'], ENT_QUOTES) : "";
-		$subtitulo = (isset($_REQUEST['subtitulo']))? htmlspecialchars($_REQUEST['subtitulo'], ENT_QUOTES) : "";
-		$cliente = (isset($_REQUEST['cliente']))? htmlspecialchars($_REQUEST['cliente'], ENT_QUOTES) : "";
-		$link_video = (isset($_REQUEST['link_video']) && $_REQUEST['link_video'] != "")? $_REQUEST['link_video'] : "";
-		$tipo = (isset($_REQUEST['tipo']) && $_REQUEST['tipo'] != "")? $_REQUEST['tipo'] : "y";
-		$principal = (isset($_REQUEST['principal']))? $_REQUEST['principal'] : 1;
-		$caso_exito = (isset($_REQUEST['caso_exito']))? $_REQUEST['caso_exito'] : 1;
-		$meta_titulo = (isset($_REQUEST['meta_titulo']) && $_REQUEST['meta_titulo'] != "")? $_REQUEST['meta_titulo'] : $titulo;
-		$meta_descripcion = (isset($_REQUEST['meta_descripcion']) && $_REQUEST['meta_descripcion'] != "")? htmlspecialchars($_REQUEST['meta_descripcion'], ENT_QUOTES) : substr($descripcion, 0,70);
+		$id_proyecto = (isset($_REQUEST['id_proyecto']))? $_REQUEST['id_proyecto'] : 0;
+
+		$titulo_esp = (isset($_REQUEST['titulo_esp']))? $_REQUEST['titulo_esp'] : "";
+		$titulo_eng = (isset($_REQUEST['titulo_eng']))? $_REQUEST['titulo_eng'] : "";
+
+		$descripcion_esp = (isset($_REQUEST['descripcion_esp']))? htmlspecialchars($_REQUEST['descripcion_esp'], ENT_QUOTES) : "";
+		$descripcion_eng = (isset($_REQUEST['descripcion_eng']))? htmlspecialchars($_REQUEST['descripcion_eng'], ENT_QUOTES) : "";
+
+		$subtitulo_esp = (isset($_REQUEST['subtitulo_esp']))? htmlspecialchars($_REQUEST['subtitulo_esp'], ENT_QUOTES) : "";
+		$subtitulo_eng = (isset($_REQUEST['subtitulo_eng']))? htmlspecialchars($_REQUEST['subtitulo_eng'], ENT_QUOTES) : "";
+
+		$behance =  (isset($_REQUEST['behance']))? htmlspecialchars($_REQUEST['behance'], ENT_QUOTES) : "";
+
+		$meta_titulo_esp = (isset($_REQUEST['meta_titulo_esp']) && $_REQUEST['meta_titulo_esp'] != "")? $_REQUEST['meta_titulo_esp'] : $titulo_esp;
+		$meta_descripcion_esp = (isset($_REQUEST['meta_descripcion_esp']) && $_REQUEST['meta_descripcion_esp'] != "")? htmlspecialchars($_REQUEST['meta_descripcion_esp'], ENT_QUOTES) : substr($descripcion_esp, 0,160);
+
+		$meta_titulo_eng = (isset($_REQUEST['meta_titulo_eng']) && $_REQUEST['meta_titulo_eng'] != "")? $_REQUEST['meta_titulo_eng'] : $titulo_eng;
+		$meta_descripcion_eng = (isset($_REQUEST['meta_descripcion_eng']) && $_REQUEST['meta_descripcion_eng'] != "")? htmlspecialchars($_REQUEST['meta_descripcion_eng'], ENT_QUOTES) : substr($descripcion_eng, 0,160);
+
 
 
 		if(isset($_FILES['archivo']['name']))
@@ -405,13 +439,32 @@ switch($operaciones){
 			$img_principal = '';
 			$img_principal_temporal = '';
 		}
-		
-	 				    //producto($id_producto = 0, $img_principal = '', $ruta_temporal = '', $pdf_adjunto = "", $titulo_esp = '',$titulo_eng = '', $clave = "",$descripcion_esp = '', $descripcion_eng = '', $tags_esp = "", $tags_eng = "" ,$url_amigable_esp = '', $url_amigable_eng = '', $precio_mxn = "", $precio_usd = "", $stock_general = "", $meta_titulo_esp = "", $meta_titulo_eng = "" , $meta_descripcion_esp = "", $meta_descripcion_eng = "" ,$mostrar = 1, $status = 1) {
 
-		$proyecto = new proyecto($id_proyecto, $img_principal, $img_principal_temporal, $titulo ,$subtitulo, $cliente, $descripcion, $link_video, $tipo, $principal, $caso_exito,$titulo, $meta_titulo, $meta_descripcion);
-		if($principal == 0){
-			$proyecto -> modificar_principal();
+		if(isset($_FILES['archivo_video']['name']))
+		{
+			$nombre_video = $_FILES['archivo_video']['name'];
+			$nombre_video_temporal = $_FILES['archivo_video']['tmp_name'];
 		}
+		else
+		{
+			$nombre_video = '';
+			$nombre_video_temporal = '';
+		}
+
+		if(isset($_FILES['archivo_preview']['name']))
+		{
+			$nombre_preview = $_FILES['archivo_preview']['name'];
+			$nombre_preview_temporal = $_FILES['archivo_preview']['tmp_name'];
+		}
+		else
+		{
+			$nombre_preview = '';
+			$nombre_preview_temporal = '';
+		}
+		
+
+		$proyecto = new proyecto($id_proyecto, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
+		
 		if($proyecto -> id_proyecto != 0){
 			$proyecto -> modificar_proyecto();
 		
@@ -570,22 +623,6 @@ switch($operaciones){
 		break;
 /*PANTALLAS*/
 //COMIENZAN LAS OPERACIONES DE SLIDE
-		case 'agregar_video_slide':
-			if(isset($_FILES['archivo']['name'])){
-				$nameP = $_FILES['archivo']['name'];
-				$tmpnameP = $_FILES['archivo']['tmp_name'];
-			}
-				
-			else{
-				$nameP = "";
-				$tmpnameP = "";
-			}
-			
-			//video_slide($id_video_slide = 0, $nombre_video = '', $ruta_temporal = '', $titulo_video = '', $mostrar = 0, $status = 0)
-			$video_slide = new video_slide(0,$nameP, $tmpnameP, $_REQUEST['titulo_video']);
-			$video_slide -> insertar_video_slide();
-			header('location: listvideoslide.php?success=1');
-		break;
 		
 		case 'modificar_video_slide':
 			if(isset($_FILES['archivo']['name'])){
@@ -598,53 +635,9 @@ switch($operaciones){
 				$tmpnameP = "";
 			}
 	
-			$video_slide = new video_slide($_REQUEST['id_video_slide'],$nameP, $tmpnameP, $_REQUEST['titulo_video']);
+			$video_slide = new video_slide(1,$nameP, $tmpnameP, $_REQUEST['titulo_video']);
 			$video_slide -> modificar_video_slide();    
-			header('location: listvideoslide.php?success=2');
-			break;
-
-			case 'operavideoslide':
-				if(isset($_REQUEST['id_video_slide'])){
-					$select=$_REQUEST['operador'];
-					$imgp=0;
-					if ($select == 'Eliminar'){
-						foreach ($_REQUEST['id_video_slide'] as $elementoSlide) {
-							$video_slide = new video_slide();
-							$video_slide -> id_video_slide = $elementoSlide;
-							$video_slide -> eliminar_video_slide();
-						}
-						header('location: listvideoslide.php?success=3');
-					}
-					if ($select == 'Mostrar'){
-						foreach ($_REQUEST['id_video_slide'] as $elemento) {
-							$video_slide = new video_slide();
-							$video_slide -> id_video_slide = $elemento;						
-							$video_slide -> activar_video_slide();
-						}
-						header('location: listvideoslide.php?success=4');
-					}
-					if ($select == 'No Mostrar'){
-						foreach ($_REQUEST['id_video_slide'] as $elemento) {
-							$video_slide = new video_slide();
-							$video_slide -> id_video_slide = $elemento;						
-							$video_slide -> desactivar_video_slide();
-						}
-						header('location: listvideoslide.php?success=5');
-					}			
-				}
-				else {
-					header('location: listvideoslide.php?success=0');
-				}
-			break;
-			case 'activar_video_slide':
-				 $video_slide = new video_slide();
-				 $video_slide -> id_video_slide = $_REQUEST['id'];
-				 $video_slide -> activar_video_slide();
-			break;
-			case 'desactivar_video_slide':
-				 $video_slide = new video_slide();
-				 $video_slide -> id_video_slide = $_REQUEST['id'];
-				 $video_slide -> desactivar_video_slide();
+			header('location: formvideoslide.php');
 			break;
 
 			/******Operaciones de Boletin******/

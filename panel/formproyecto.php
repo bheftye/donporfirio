@@ -246,10 +246,21 @@ include'menu.php';//Contiene a todo el menu.
                                     </div>
                                     
                                     <br>
-                                    <video id="video" muted controls style="display:none;"></video>
+                                    <?php 
+                                        if($temporal -> nombre_video != ""){
+                                            echo '<video id="video" muted controls style="height:350px;width:500px;display:table;margin:0 auto;">
+                                                    <source src="../vidProyectos/'.$temporal -> nombre_video.'" id="mp4Source"  type="video/mp4">
+                                                  </video>';
+                                        }
+                                        else{
+                                            echo '<video id="video" muted controls style="display:none;height:350px;width:500px;" >
+                                                  </video>';
+                                        }
+                                    ?>
+                                    
                                     <br>
                                     <center>
-                                        <input id="files3" name="archivo" type="file" class="upload"/>
+                                        <input id="files3" name="archivo_video" type="file" class="upload"/>
                                     </center>
                                     <br>
                                     <div class="text-center textHelper">
@@ -263,10 +274,20 @@ include'menu.php';//Contiene a todo el menu.
                                     </div>
                                     
                                     <br>
-                                    <video id="video" muted controls style="display:none;"></video>
+                                    <?php 
+                                        if($temporal -> nombre_preview != ""){
+                                            echo '<video id="video2" muted controls style="height:350px;width:500px;display:table;margin:0 auto;">
+                                                    <source src="../vidProyectos/'.$temporal -> nombre_preview.'" id="mp4Source"  type="video/mp4">
+                                                  </video>';
+                                        }
+                                        else{
+                                            echo '<video id="video2" muted controls style="display:none;height:350px;width:500px;">
+                                                  </video>';
+                                        }
+                                    ?>
                                     <br>
                                     <center>
-                                        <input id="files4" name="archivo" type="file" class="upload"/>
+                                        <input id="files4" name="archivo_preview" type="file" class="upload"/>
                                     </center>
                                     <br>
                                     <div class="text-center textHelper">

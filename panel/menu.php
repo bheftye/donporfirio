@@ -5,7 +5,7 @@
         <?php $page = basename($_SERVER["SCRIPT_FILENAME"]);?>
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li <?php if ($page =="listvideoslide.php"  or $page == "formvideoslide.php"){ echo "class='active'";} ?>><a href="listvideoslide.php">Video Slide</a>
+                <li <?php if ($page == "formvideoslide.php"){ echo "class='active'";} ?>><a href="formvideoslide.php">Reel</a>
                 </li>
                 <hr class="hrmenu">           
                 <li <?php if ($page =="listproyecto.php"  or $page == "formproyecto.php"){ echo "class='active'";} ?>><a href="listproyecto.php">Proyectos</a>
