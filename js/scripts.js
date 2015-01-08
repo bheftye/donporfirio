@@ -23,3 +23,8 @@ function changecursor(){
 	console.log("cursor cambiado");
 	$(this).css( 'cursor', 'url("../img/cls.png"), auto' );
 }
+function showvideo(){
+	$(".contenido").animate({"top":"-100%"},2000);
+	$("#wraperfondo").animate({"width":"0"},2000);
+	$("#contacto").hide();
+}

@@ -9,13 +9,13 @@
 <video autoplay muted id="bgvid" loop>
 	<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4">
 </video>
-<div class="contenido">
+<div class="contenido collapse in">
 	<!-- Website Content -->
 	<div class="container">
 		<div class="row logohome">
 			<div class=" col-sm-1">
 				<div class="titulorojo2"><img src="<?=mypath?>img/logowr.png" /></div>
-				<img style="max-width:100%;" src="<?=mypath?>img/logow.png" />
+				<img src="<?=mypath?>img/logow.png" />
 			</div>
 		</div>
 		<div id="menu">
@@ -40,6 +40,10 @@
 			<div class="col-sm-3 col-sm-push-9">
 				<img style="max-width:100%;" src="<?=mypath?>img/bd.png" />
 			</div>
+		</div>
+		<div class="col-sm-6 col-sm-push-6 hometitle">
+			<h1><?=$lista_videos_slide[0]["titulo_video"]?></h1>
+			<button class="bwatch" onclick="showvideo()">watch</button>
 		</div>
 	</div>
 	<!-- Website Content -->
@@ -188,7 +192,7 @@
 		    var percent2 = null;
 		    var percent = 137*(vid.currentTime/vid.duration);
 		    var percent2 = 51*(vid.currentTime/vid.duration);
-		    console.log(percent);
+		    //console.log(percent);
 	        //$('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
 	        $(".titulorojo").width(percent+"px");
 	        $(".titulorojo2").width(percent2+"px");
