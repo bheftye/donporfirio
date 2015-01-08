@@ -98,7 +98,7 @@ include'menu.php';//Contiene a todo el menu.
                                       </video>';
                             }
                             else{
-                                echo '<video id="video" muted controls style="display:none;height:350px;width:500px;" >
+                                echo '<video id="video" muted controls style="display:none;height:350px;width:500px;margin:0 auto;" >
                                       </video>';
                             }
                         ?>

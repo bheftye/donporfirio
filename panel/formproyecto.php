@@ -501,6 +501,7 @@ include 'javascripts.html';
             video.src = url;
             //reader.revokeObjectURL(url);  //free up memory
             $(video).fadeIn();
+            $(video).css({display:"table", margin:"0 auto"});
             return;
         }
 
@@ -530,6 +531,7 @@ include 'javascripts.html';
             video2.src = url;
             //reader.revokeObjectURL(url);  //free up memory
             $(video2).fadeIn();
+            $(video2).css({display:"table", margin:"0 auto"});
             return;
         }
 
