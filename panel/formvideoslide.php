@@ -112,7 +112,28 @@ include'menu.php';//Contiene a todo el menu.
                             <br>
                             Tamaño máximo de archivo: 30MB.
                         </div>
-                        <br>                      
+                        <br>
+                         <?php 
+                            if($temporal -> nombre_video_hd != ""){
+                                echo '<video id="video2" muted controls style="height:350px;width:500px;display:table;margin:0 auto;">
+                                        <source src="../videosSlide/'.$temporal -> nombre_video_hd.'" id="mp4Source"  type="video/mp4">
+                                      </video>';
+                            }
+                            else{
+                                echo '<video id="video2" muted controls style="display:none;height:350px;width:500px;margin:0 auto;" >
+                                      </video>';
+                            }
+                        ?>
+                        <br>
+                    	<center>
+                            <input id="files5" name="archivo_hd" type="file" class="upload"/>
+                        </center>
+                        <br>
+                        <div class="text-center textHelper">
+                        	Tipo de archivos permitidos: mp4.
+                            <br>
+                            Tamaño máximo de archivo: ilimitado.
+                        </div>         
                     </div><!--Div de cierre col-lg-9-->
                     <div class="clearfix"></div>
                     <!--Este div contiene la barra inferior-->
@@ -221,6 +242,36 @@ include 'javascripts.html';
 	    reader = new window.FileReader();
 	    reader.onload = function(evt) {
 	       video.src = evt.target.result;
+	    };
+	    reader.readAsDataURL(file);
+	}, false);
+
+	  var video2 = document.getElementById('video2');
+	  var input2 = document.getElementById('files5');
+	  input2.addEventListener('change', function (evt) {
+	    var reader = new window.FileReader(),
+	        file = evt.target.files[0],
+	        url;
+
+	        reader = window.URL || window.webKitURL;
+
+	    if (reader && reader.createObjectURL) {
+	        url = window.URL.createObjectURL(file);
+	        video2.src = url;
+	        //reader.revokeObjectURL(url);  //free up memory
+	        $(video2).fadeIn();
+	        $(video2).css({display:"table", margin:"0 auto"});
+	        return;
+	    }
+
+	    if (!window.FileReader) {
+	        console.log('Sorry, not so much');
+	        return;
+	    }
+
+	    reader = new window.FileReader();
+	    reader.onload = function(evt) {
+	       video2.src = evt.target.result;
 	    };
 	    reader.readAsDataURL(file);
 	}, false);

@@ -13,6 +13,7 @@ class proyecto extends Archivo {
 	var $img_principal;
 	var $nombre_video;
 	var $nombre_preview;
+	var $nombre_video_hd;
 	var $titulo_esp;
 	var $titulo_eng;
 	var $subtitulo_esp;
@@ -32,6 +33,7 @@ class proyecto extends Archivo {
 	var $ruta_temporal;
 	var $ruta_temporal2;
 	var $ruta_temporal3;
+	var $ruta_temporal4;
 	var $orden;
 	var $meta_titulo_esp;
 	var $meta_titulo_eng;
@@ -40,7 +42,7 @@ class proyecto extends Archivo {
 	/*Variables para el paginador*/
 
 	
-	function proyecto($id_proyecto = 0, $img_principal = '', $ruta_temporal = '',$nombre_video = "", $ruta_temporal2 = "", $nombre_preview = "", $ruta_temporal3 = "", $titulo_esp = '',$titulo_eng = '',$subtitulo_esp = '',$subtitulo_eng = '', $descripcion_esp = '', $descripcion_eng = '', $behance = "",$url_amigable = '', $meta_titulo_esp = "", $meta_descripcion_esp = "", $meta_titulo_eng = "", $meta_descripcion_eng = "", $mostrar = 0, $status = 1) 
+	function proyecto($id_proyecto = 0, $img_principal = '', $ruta_temporal = '',$nombre_video = "", $ruta_temporal2 = "", $nombre_preview = "", $ruta_temporal3 = "", $nombre_video_hd = "", $ruta_temporal4 = "", $titulo_esp = '',$titulo_eng = '',$subtitulo_esp = '',$subtitulo_eng = '', $descripcion_esp = '', $descripcion_eng = '', $behance = "",$url_amigable = '', $meta_titulo_esp = "", $meta_descripcion_esp = "", $meta_titulo_eng = "", $meta_descripcion_eng = "", $mostrar = 0, $status = 1) 
 	{
 		$this -> id_proyecto = $id_proyecto;
 
@@ -71,6 +73,15 @@ class proyecto extends Archivo {
 			$this -> nombre_preview = '';
 		}
 
+		if ($nombre_video_hd != '') 
+		{
+			$this -> nombre_video_hd = $this -> obtenerExtensionArchivo($nombre_video_hd);
+		} 
+		else 
+		{
+			$this -> nombre_video_hd = '';
+		}
+
 		$this -> titulo_esp = $titulo_esp;
 		$this -> titulo_eng = $titulo_eng;
 
@@ -97,6 +108,7 @@ class proyecto extends Archivo {
 		$this -> ruta_temporal = $ruta_temporal;
 		$this -> ruta_temporal2 = $ruta_temporal2;
 		$this -> ruta_temporal3 = $ruta_temporal3;
+		$this -> ruta_temporal4 = $ruta_temporal4;
 		
 	}		
 	function insertar_proyecto() {
@@ -105,10 +117,11 @@ class proyecto extends Archivo {
 		$s = preg_replace ('~[^\w\d]+~', '-', str_replace ($from, $to, trim ($this -> titulo_eng)));
 		$url = strtolower (preg_replace ('/^-/', '', preg_replace ('/-$/', '',$s)));
 		$fechaCreacion = date("Y-m-d");
-		$sql = "INSERT INTO proyectos (img_principal, nombre_video, nombre_preview, titulo_esp, titulo_eng, subtitulo_esp, subtitulo_eng, descripcion_esp, descripcion_eng, behance, url_amigable, meta_titulo_esp, meta_descripcion_esp, meta_titulo_eng, meta_descripcion_eng, fecha_creacion, fecha_modificacion, mostrar, status ) 
+		$sql = "INSERT INTO proyectos (img_principal, nombre_video, nombre_preview, nombre_video_hd, titulo_esp, titulo_eng, subtitulo_esp, subtitulo_eng, descripcion_esp, descripcion_eng, behance, url_amigable, meta_titulo_esp, meta_descripcion_esp, meta_titulo_eng, meta_descripcion_eng, fecha_creacion, fecha_modificacion, mostrar, status ) 
 		values ('".$this -> img_principal."',
 		'".$this -> nombre_video."',
 		'".$this -> nombre_preview."',
+		'".$this -> nombre_video_hd."',
 		'".htmlspecialchars($this -> titulo_esp, ENT_QUOTES)."',
 		'".htmlspecialchars($this -> titulo_eng, ENT_QUOTES)."',
 		'".htmlspecialchars($this -> subtitulo_esp, ENT_QUOTES)."',
@@ -135,6 +148,10 @@ class proyecto extends Archivo {
 
 		$this -> ruta_final = $this -> directorio2 . $this -> nombre_preview;
 		$this -> ruta_temporal = $this -> ruta_temporal3;
+		$this -> subir_archivo();
+
+		$this -> ruta_final = $this -> directorio2 . $this -> nombre_video_hd;
+		$this -> ruta_temporal = $this -> ruta_temporal4;
 		$this -> subir_archivo();
 
 		$s = "UPDATE proyectos set orden = ".$this -> id_proyecto." where id_proyecto = ".$this -> id_proyecto."";
@@ -169,6 +186,15 @@ class proyecto extends Archivo {
 			$sql3 = '';
 		}	
 
+		if ($this -> nombre_video_hd != '') {
+			$proyecto = new proyecto($this -> id_proyecto);
+			$proyecto -> recuperar_proyecto();
+			$proyecto -> borrar_video_hd();
+			$sql4 = ' nombre_video_hd=\'' . $this -> nombre_video_hd . '\',';
+		} else {
+			$sql4 = '';
+		}	
+
 		$from = explode (',', "Á,Â,Ã,Ä,Å,Æ,Ç,È,É,Ê,Ë,Ì,Í,Î,Ï,Ð,Ñ,Ò,Ó,Ô,Õ,Ö,Ø,Ù,Ú,Û,Ü,Ý,ß,� ,á,â,ã,ä,å,æ,ç,è,é,ê,ë,ì,í,î,ï,ñ,ò,ó,ô,õ,ö,ø,ù,ú,û,ü,ý,ÿ,Ā,ā,Ă,ă,Ą,ą,Ć,ć,Ĉ,ĉ,Ċ,ċ,Č,č,Ď,ď,Đ,đ,Ē,ē,Ĕ,ĕ,Ė,ė,Ę,ę,Ě,ě,Ĝ,ĝ,Ğ,ğ,� ,ġ,Ģ,ģ,Ĥ,ĥ,Ħ,ħ,Ĩ,ĩ,Ī,ī,Ĭ,ĭ,Į,į,İ,ı,Ĳ,ĳ,Ĵ,ĵ,Ķ,ķ,Ĺ,ĺ,Ļ,ļ,Ľ,ľ,Ŀ,ŀ,Ł,ł,Ń,ń,Ņ,ņ,Ň,ň,ŉ,Ō,ō,Ŏ,ŏ,Ő,ő,Œ,œ,Ŕ,ŕ,Ŗ,ŗ,Ř,ř,Ś,ś,Ŝ,ŝ,Ş,ş,� ,š,Ţ,ţ,Ť,ť,Ŧ,ŧ,Ũ,ũ,Ū,ū,Ŭ,ŭ,Ů,ů,Ű,ű,Ų,ų,Ŵ,ŵ,Ŷ,ŷ,Ÿ,Ź,ź,Ż,ż,Ž,ž,ſ,ƒ,� ,ơ,Ư,ư,Ǎ,ǎ,Ǐ,ǐ,Ǒ,ǒ,Ǔ,ǔ,Ǖ,ǖ,Ǘ,ǘ,Ǚ,ǚ,Ǜ,ǜ,Ǻ,ǻ,Ǽ,ǽ,Ǿ,ǿ,(,),[,],'"); 
 		$to = explode (',', 'A,A,A,A,A,AE,C,E,E,E,E,I,I,I,I,D,N,O,O,O,O,O,O,U,U,U,U,Y,s,a,a,a,a,a,a,ae,c,e,e,e,e,i,i,i,i,n,o,o,o,o,o,o,u,u,u,u,y,y,A,a,A,a,A,a,C,c,C,c,C,c,C,c,D,d,D,d,E,e,E,e,E,e,E,e,E,e,G,g,G,g,G,g,G,g,H,h,H,h,I,i,I,i,I,i,I,i,I,i,IJ,ij,J,j,K,k,L,l,L,l,L,l,L,l,l,l,N,n,N,n,N,n,n,O,o,O,o,O,o,OE,oe,R,r,R,r,R,r,S,s,S,s,S,s,S,s,T,t,T,t,T,t,U,u,U,u,U,u,U,u,U,u,U,u,W,w,Y,y,Y,Z,z,Z,z,Z,z,s,f,O,o,U,u,A,a,I,i,O,o,U,u,U,u,U,u,U,u,U,u,A,a,AE,ae,O,o,,,,,,');
 		$s = preg_replace ('~[^\w\d]+~', '-', str_replace ($from, $to, trim ($this -> titulo_eng)));
@@ -176,7 +202,7 @@ class proyecto extends Archivo {
 		
 		$fecha_modificacion = date("Y-m-d");
 		$sql = "UPDATE proyectos set 
-		".$sql.$sql2.$sql3."
+		".$sql.$sql2.$sql3.$sql4."
 		titulo_esp ='".htmlspecialchars($this -> titulo_esp, ENT_QUOTES)."',
 		titulo_eng ='".htmlspecialchars($this -> titulo_eng, ENT_QUOTES)."',
 		subtitulo_esp = '".htmlspecialchars($this -> subtitulo_esp, ENT_QUOTES)."',
@@ -207,6 +233,12 @@ class proyecto extends Archivo {
 			$this -> subir_archivo();
 		}
 
+		if($this -> nombre_video_hd != ""){
+			$this -> ruta_final = $this -> directorio2 . $this -> nombre_video_hd;
+			$this -> ruta_temporal = $this -> ruta_temporal4;
+			$this -> subir_archivo();
+		}
+
 	}
 
 	function borrar_video(){
@@ -220,6 +252,13 @@ class proyecto extends Archivo {
 		if (is_file($this -> directorio2 . $this -> nombre_preview))
 		{
 			unlink($this -> directorio2 . $this -> nombre_preview);
+		}
+	}
+
+	function borrar_video_hd(){
+		if (is_file($this -> directorio2 . $this -> nombre_video_hd))
+		{
+			unlink($this -> directorio2 . $this -> nombre_video_hd);
 		}
 	}
 
@@ -303,6 +342,7 @@ class proyecto extends Archivo {
 			$registro['img_principal'] = $fila['img_principal'];
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
+			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -335,6 +375,7 @@ class proyecto extends Archivo {
 			$registro['img_principal'] = $fila['img_principal'];
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
+			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -368,6 +409,7 @@ class proyecto extends Archivo {
 			$registro['img_principal'] = $fila['img_principal'];
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
+			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -401,6 +443,7 @@ class proyecto extends Archivo {
 			$registro['img_principal'] = $fila['img_principal'];
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
+			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -435,6 +478,7 @@ class proyecto extends Archivo {
 			$registro['img_principal'] = $fila['img_principal'];
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
+			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -467,6 +511,7 @@ class proyecto extends Archivo {
 			$this -> img_principal = $fila['img_principal'];
 			$this -> nombre_video = $fila["nombre_video"];
 			$this -> nombre_preview = $fila["nombre_preview"];
+			$this -> nombre_video_hd = $fila["nombre_video_hd"];
 			$this -> titulo_esp = htmlspecialchars_decode($fila['titulo_esp']);
 			$this -> titulo_eng = htmlspecialchars_decode($fila['titulo_eng']);
 			$this -> subtitulo_esp = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -496,6 +541,7 @@ class proyecto extends Archivo {
 			$this -> img_principal = $fila['img_principal'];
 			$this -> nombre_video = $fila["nombre_video"];
 			$this -> nombre_preview = $fila["nombre_preview"];
+			$this -> nombre_video_hd = $fila["nombre_video_hd"];
 			$this -> titulo_esp = htmlspecialchars_decode($fila['titulo_esp']);
 			$this -> titulo_eng = htmlspecialchars_decode($fila['titulo_eng']);
 			$this -> subtitulo_esp = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -527,6 +573,7 @@ class proyecto extends Archivo {
 			$registro['img_principal'] = $fila['img_principal'];
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
+			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);

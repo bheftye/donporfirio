@@ -296,6 +296,33 @@ include'menu.php';//Contiene a todo el menu.
                                         Tamaño máximo de archivo: 30MB.
                                     </div>
                                     <br>                
+                                    <div class="espacios">
+                                        <span class="textHelper">Previsualizar:</span>
+                                    </div>
+                                    
+                                    <br>
+                                    <?php 
+                                        if($temporal -> nombre_video_hd != ""){
+                                            echo '<video id="video3" muted controls style="height:350px;width:500px;display:table;margin:0 auto;">
+                                                    <source src="../vidProyectos/'.$temporal -> nombre_video_hd.'" id="mp4Source"  type="video/mp4">
+                                                  </video>';
+                                        }
+                                        else{
+                                            echo '<video id="video3" muted controls style="display:none;height:350px;width:500px;">
+                                                  </video>';
+                                        }
+                                    ?>
+                                    <br>
+                                    <center>
+                                        <input id="files5" name="archivo_hd" type="file" class="upload"/>
+                                    </center>
+                                    <br>
+                                    <div class="text-center textHelper">
+                                        Tipo de archivos permitidos: mp4.
+                                        <br>
+                                        Tamaño máximo de archivo: 30MB.
+                                    </div>
+                                    <br>                
                                 </div>
 
                             </div>
@@ -543,6 +570,36 @@ include 'javascripts.html';
         reader = new window.FileReader();
         reader.onload = function(evt) {
            video2.src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+    }, false);
+
+      var video3 = document.getElementById('video3');
+      var input3 = document.getElementById('files5');
+      input3.addEventListener('change', function (evt) {
+        var reader = new window.FileReader(),
+            file = evt.target.files[0],
+            url;
+
+            reader = window.URL || window.webKitURL;
+
+        if (reader && reader.createObjectURL) {
+            url = window.URL.createObjectURL(file);
+            video3.src = url;
+            //reader.revokeObjectURL(url);  //free up memory
+            $(video3).fadeIn();
+            $(video3).css({display:"table", margin:"0 auto"});
+            return;
+        }
+
+        if (!window.FileReader) {
+            console.log('Sorry, not so much');
+            return;
+        }
+
+        reader = new window.FileReader();
+        reader.onload = function(evt) {
+           video3.src = evt.target.result;
         };
         reader.readAsDataURL(file);
     }, false);
