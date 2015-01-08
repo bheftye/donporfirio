@@ -78,6 +78,23 @@ class video_slide extends Archivo {
 			$this -> titulo_video = htmlspecialchars_decode($fila['titulo_video']);
 			$this -> ruta_final = $this -> directorio . $fila['nombre_video'];
 		}
-	}	
+	}
+
+	function listar_videos_slide_activos(){
+		$resultados=array();
+		$sql="SELECT * FROM videos_slide WHERE";
+		$con=new conexion();
+		$temporal= $con->ejecutar_sentencia($sql);
+		while ($fila=mysqli_fetch_array($temporal))
+		{
+			$registro=array();
+			$registro['id_video_slide']=$fila['id_video_slide'];
+			$registro['nombre_video']=$fila['nombre_video'];
+			$registro['titulo_video']=$fila['titulo_video'];
+			array_push($resultados, $registro);
+		}
+		mysqli_free_result($temporal);
+		return $resultados;
+	}
 }
 ?>
