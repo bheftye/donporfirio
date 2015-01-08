@@ -82,7 +82,7 @@ class video_slide extends Archivo {
 
 	function listar_videos_slide_activos(){
 		$resultados=array();
-		$sql="SELECT * FROM videos_slide WHERE";
+		$sql="SELECT * FROM videos_slide";
 		$con=new conexion();
 		$temporal= $con->ejecutar_sentencia($sql);
 		while ($fila=mysqli_fetch_array($temporal))
