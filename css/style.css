@@ -50,6 +50,16 @@ video#bgvid {
 	height: auto; 
 	z-index: -100;
 }
+video#bgvid2 {
+	position: relative; 
+	right: 0; 
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	width: auto; 
+	height: auto; 
+	z-index: -100;
+}
 h1{
 	font-size:105px;
 	font-family: 'AkzidenzGrotesk-Bold';
@@ -105,6 +115,9 @@ h1{
 	position:absolute;
 	width:1140px;
 	bottom:40px;
+}
+#fullscreenvideo{
+	display:none;
 }
 @media(max-width:1199px){
 	.logobottom{

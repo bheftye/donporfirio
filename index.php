@@ -6,6 +6,11 @@
 		$src_tmp = $lista_videos_slide[0]["nombre_video"];
 	}
 ?>
+<div id="fullscreenvideo">
+	<video id="bgvid2">
+		<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4">
+	</video>
+</div>
 <video autoplay muted id="bgvid" loop>
 	<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4">
 </video>
