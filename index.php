@@ -74,7 +74,9 @@
       }
 
       $(mp4Vid).attr('src', "videosSlide/"+videos_slide[count]);
+      $(player).fadeOut();
       player.load();
+      $(player).delay(1000).fadeIn();
       player.play();
       count++;
    }

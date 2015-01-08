@@ -116,7 +116,7 @@ include'menu.php';//Contiene a todo el menu.
                         <video id="video" muted controls style="display:none;"></video>
                         <br>
                     	<center>
-                            <input id="files2" name="archivo" type="file" class="upload"/>
+                            <input id="files3" name="archivo" type="file" class="upload"/>
                         </center>
                         <br>
                         <div class="text-center textHelper">
@@ -177,12 +177,12 @@ include 'javascripts.html';
     <script>
     /*
 	  function handleFileSelect(evt) {
-		var files2 = evt.target.files2; // FileList object
+		var file3 = evt.target.file3; // FileList object
 	
-		// Loop through the FileList and render image files2 as thumbnails.
-		for (var i = 0, f; f = files2[i]; i++) {
+		// Loop through the FileList and render image file3 as thumbnails.
+		for (var i = 0, f; f = file3[i]; i++) {
 	
-		  // Only process image files2.
+		  // Only process image file3.
 		  if (!f.type.match('video.*')) {
 			continue;
 		  }
@@ -206,9 +206,9 @@ include 'javascripts.html';
 		}
 	  }
 	
-	  document.getElementById('files2').addEventListener('change', handleFileSelect, false);*/
+	  document.getElementById('file3').addEventListener('change', handleFileSelect, false);*/
 	  var video = document.getElementById('video');
-	  var input = document.getElementById('files2');
+	  var input = document.getElementById('files3');
 	  input.addEventListener('change', function (evt) {
 	    var reader = new window.FileReader(),
 	        file = evt.target.files[0],
@@ -241,7 +241,7 @@ include 'javascripts.html';
  <!--Script que sirve para validar-->
 	<script>
 	function validar_campos(){
-		var val = $("#files2").val();
+		var val = $("#files3").val();
 		
 		if (form1.titulo_video.value == ''){
 			form1.titulo_video.focus();

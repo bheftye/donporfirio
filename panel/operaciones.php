@@ -32,6 +32,15 @@ switch($operaciones){
 				
 			}
 		}	
+		if($_REQUEST['desde'] == 'video_slide'){
+			$val = ($_REQUEST['idorden']);
+			for($i=0; $i < count($val); $i++)
+			{
+				$video_slide = new video_slide($val[$i]);
+				$video_slide -> ordenar_video_slide($i);
+				
+			}
+		}	
 		if($_REQUEST['desde'] == 'imgproyecto'){
 			$val = ($_REQUEST['idorden']);
 			$val2 = array_reverse($val);

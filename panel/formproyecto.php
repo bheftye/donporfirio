@@ -105,43 +105,60 @@ include'menu.php';//Contiene a todo el menu.
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                             <ul class="nav nav-tabs" role="tablist">
-                                <li class="active"><a href="#esp" role="tab" data-toggle="tab">Información</a></li>
+                                <li class="active"><a href="#esp" role="tab" data-toggle="tab">Español</a></li>
+                                <li><a href="#eng" role="tab" data-toggle="tab">English</a></li>
+                                 <li><a href="#beh" role="tab" data-toggle="tab">Behance</a></li>
                                 <li><a href="#img" role="tab" data-toggle="tab">Imágenes</a></li>
                                 <li><a href="#vid" role="tab" data-toggle="tab">Video</a></li>
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane active" id="esp">
-                                    <div id="titulo" class="input-group espacios">
+                                    <div id="titulo_esp" class="input-group espacios">
                                         <span class="input-group-addon es">Título del Proyecto*</span>
-                                        <input type="text"  name="titulo" class="form-control" placeholder="Ingrese el título aquí..." value="<?=$temporal->titulo?>">
+                                        <input type="text"  name="titulo_esp" class="form-control" placeholder="Ingrese el título aquí..." value="<?=$temporal->titulo_esp;?>">
                                     </div>
-                                    <div id="subtitulo" class="input-group espacios">
+                                    <div id="subtitulo_esp" class="input-group espacios">
                                         <span class="input-group-addon es">Subtítulo del Proyecto*</span>
-                                        <input type="text"  name="subtitulo" class="form-control" placeholder="Ingrese el subtítulo aquí..." value="<?=$temporal->subtitulo?>">
-                                    </div>
-                                     <div id="cliente" class="input-group espacios">
-                                        <span class="input-group-addon es">Nombre del Cliente*</span>
-                                        <input type="text"  name="cliente" class="form-control" placeholder="Ingrese el nombre del cliente aquí..." value="<?=$temporal->cliente?>">
+                                        <input type="text"  name="subtitulo_esp" class="form-control" placeholder="Ingrese el subtítulo aquí..." value="<?=$temporal->subtitulo_esp;?>">
                                     </div>
                                     <span class="textHelper">Ingrese la descripción del proyecto aquí*:</span>
-                                    <textarea name="descripcion" id="summernote2"><?=$temporal->descripcion;?></textarea>
+                                    <textarea name="descripcion_esp" id="summernote2"><?=$temporal->descripcion_esp;?></textarea>
                                     <br>
-                                    <div id="principal" class="input-group espacios">
-                                        <input type="checkbox" id="principal_check" name="principal" <?php echo ($temporal -> principal == 0)? "checked":""?> value="0">Seleccionar como proyecto principal
-                                        <label for="principal_check"><span></span></label>
-                                    </div>
-                                    <div id="caso_exito" class="input-group espacios">
-                                        <input type="checkbox" id="caso_exito_check" name="caso_exito" <?php echo ($temporal -> caso_exito == 0)? "checked":""?> value="0">Seleccionar como caso de éxito
-                                        <label for="caso_exito_check"><span></span></label>
-                                    </div>
-                                    <div id="meta_titulo" class="input-group espacios">
+                                    <div id="meta_titulo_esp" class="input-group espacios">
                                         <span class="input-group-addon es">Meta Título (70 caracteres máximo.)*</span>
-                                        <input type="text" name="meta_titulo" id="meta_titulo_input" maxlength="70" value="<?=$temporal -> meta_titulo;?>"/>
+                                        <input type="text" name="meta_titulo_esp" id="meta_titulo_input" maxlength="70" value="<?=$temporal -> meta_titulo_esp;?>"/>
                                     </div>
-                                    <div id="meta_descripcion" class="input-group espacios">
+                                    <div id="meta_descripcion_esp" class="input-group espacios">
                                         <span class="input-group-addon es">Meta Descripción (160 caracteres máximo.)*</span>
-                                    <textarea name="meta_descripcion" class="col-lg-12" rows="5" maxlength="160" style="resize:none;"><?=$temporal -> meta_descripcion;?></textarea>
+                                    <textarea name="meta_descripcion_esp" class="col-lg-12" rows="5" maxlength="160" style="resize:none;"><?=$temporal -> meta_descripcion_esp;?></textarea>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="eng">
+                                    <div id="titulo_eng" class="input-group espacios">
+                                        <span class="input-group-addon es">Proyect's Title*</span>
+                                        <input type="text"  name="titulo_eng" class="form-control" placeholder="Set title here..." value="<?=$temporal->titulo_eng?>">
+                                    </div>
+                                    <div id="subtitulo_eng" class="input-group espacios">
+                                        <span class="input-group-addon es">Proyect's Subtitle*</span>
+                                        <input type="text"  name="subtitulo_eng" class="form-control" placeholder="Set the subtitle here..." value="<?=$temporal->subtitulo_eng?>">
+                                    </div>
+                                    <span class="textHelper">Set the proyect's description*:</span>
+                                    <textarea name="descripcion_eng" id="summernote3"><?=$temporal->descripcion_eng;?></textarea>
+                                    <br>
+                                    <div id="meta_titulo_eng" class="input-group espacios">
+                                        <span class="input-group-addon es">Meta title (70 caracteres máximo.)*</span>
+                                        <input type="text" name="meta_titulo_eng" id="meta_titulo_input" maxlength="70" value="<?=$temporal -> meta_titulo_eng;?>"/>
+                                    </div>
+                                    <div id="meta_descripcion_eng" class="input-group espacios">
+                                        <span class="input-group-addon es">Meta description (160 caracteres máximo.)*</span>
+                                    <textarea name="meta_descripcion_eng" class="col-lg-12" rows="5" maxlength="160" style="resize:none;"><?=$temporal -> meta_descripcion_eng;?></textarea>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="beh">
+                                    <div id="behance" class="input-group espacios">
+                                        <span class="input-group-addon es">Link de Behance del proyecto*</span>
+                                        <input type="text"  name="behance" class="form-control" placeholder="Ingrese el link de behance..." value="<?=$temporal->behance?>">
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="img">
@@ -224,14 +241,40 @@ include'menu.php';//Contiene a todo el menu.
 
                                 </div>
                                 <div class="tab-pane" id="vid">
-                                    <div id="link_video" class="input-group espacios">
-                                        <span class="input-group-addon es">Link Video*</span>
-                                        <input type="text"   name="link_video" class="form-control" placeholder="Ingrese el link del video aquí..." value="<?=$temporal->link_video?>">
+                                    <div class="espacios">
+                                        <span class="textHelper">Previsualizar:</span>
                                     </div>
-                                    <select name="tipo" id="link_video_select" class="selectpicker">
-                                        <option value="y" <?php echo ($temporal -> tipo == "y")? "selected":"";?>>Youtube</option>
-                                        <option value="v" <?php echo ($temporal -> tipo == "v")? "selected":"";?>>Vimeo</option>
-                                    </select>
+                                    
+                                    <br>
+                                    <video id="video" muted controls style="display:none;"></video>
+                                    <br>
+                                    <center>
+                                        <input id="files3" name="archivo" type="file" class="upload"/>
+                                    </center>
+                                    <br>
+                                    <div class="text-center textHelper">
+                                        Tipo de archivos permitidos: mp4.
+                                        <br>
+                                        Tamaño máximo de archivo: 30MB.
+                                    </div>
+                                    <br>  
+                                    <div class="espacios">
+                                        <span class="textHelper">Previsualizar:</span>
+                                    </div>
+                                    
+                                    <br>
+                                    <video id="video" muted controls style="display:none;"></video>
+                                    <br>
+                                    <center>
+                                        <input id="files4" name="archivo" type="file" class="upload"/>
+                                    </center>
+                                    <br>
+                                    <div class="text-center textHelper">
+                                        Tipo de archivos permitidos: mp4.
+                                        <br>
+                                        Tamaño máximo de archivo: 30MB.
+                                    </div>
+                                    <br>                
                                 </div>
 
                             </div>
@@ -326,8 +369,35 @@ include 'javascripts.html';
 		
 				}
   			});
+            jQuery('#summernote3').summernote({
+                height: 200,
+                toolbar: [
+                            //[groupname, [button list]]
+                            ['style', ['bold', 'italic', 'underline', 'clear']],
+                            ['Misc', ['fullscreen']],
+                        ],
+                onpaste: function(e) {
+                    //alert('entre');
+                    var thisNote = $(this);
+                    //alert(thisNote);
+                    var updatePastedText = function(someNote){
+                        var original = someNote.code();
+                        //alert(original);
+                        var cleaned = CleanPastedHTML(original); //this is where to call whatever clean function you want. I have mine in a different file, called CleanPastedHTML.
+                        someNote.code('').html(cleaned); //this sets the displayed content editor to the cleaned pasted code.
+                    };
+                    setTimeout(function () {
+                        //this kinda sucks, but if you don't do a setTimeout, 
+                        //the function is called before the text is really pasted.
+                        updatePastedText(thisNote);
+                    }, 10);
+        
+        
+                }
+            });
   			$('#form-validation').on('submit', function (e) {
-       			 var content = $('textarea[name="descripcion"]').html($('#summernote2').code());
+       			 var content = $('textarea[name="descripcion_esp"]').html($('#summernote2').code());
+                 var content = $('textarea[name="descripcion_eng"]').html($('#summernote3').code());
      		 });
 		});
 		
@@ -395,6 +465,64 @@ include 'javascripts.html';
 	  }
 	
 	  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+      var video = document.getElementById('video');
+      var input = document.getElementById('files3');
+      input.addEventListener('change', function (evt) {
+        var reader = new window.FileReader(),
+            file = evt.target.files[0],
+            url;
+
+            reader = window.URL || window.webKitURL;
+
+        if (reader && reader.createObjectURL) {
+            url = window.URL.createObjectURL(file);
+            video.src = url;
+            //reader.revokeObjectURL(url);  //free up memory
+            $(video).fadeIn();
+            return;
+        }
+
+        if (!window.FileReader) {
+            console.log('Sorry, not so much');
+            return;
+        }
+
+        reader = new window.FileReader();
+        reader.onload = function(evt) {
+           video.src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+    }, false);
+
+      var video2 = document.getElementById('video2');
+      var input2 = document.getElementById('files4');
+      input2.addEventListener('change', function (evt) {
+        var reader = new window.FileReader(),
+            file = evt.target.files[0],
+            url;
+
+            reader = window.URL || window.webKitURL;
+
+        if (reader && reader.createObjectURL) {
+            url = window.URL.createObjectURL(file);
+            video2.src = url;
+            //reader.revokeObjectURL(url);  //free up memory
+            $(video2).fadeIn();
+            return;
+        }
+
+        if (!window.FileReader) {
+            console.log('Sorry, not so much');
+            return;
+        }
+
+        reader = new window.FileReader();
+        reader.onload = function(evt) {
+           video2.src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+    }, false);
 	</script>
     <!--Previsualizar imagenes 2-->
 	<script>
