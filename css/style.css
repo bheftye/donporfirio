@@ -81,3 +81,72 @@ video#bgvid {
 #contacto .container{
 	margin-top:70px;
 }
+.textbold{
+	font-family: 'AkzidenzGrotesk-BoldItalic';
+}
+.textMedIt{
+	font-family: 'AkzidenzGrotesk-MediumItalic';
+	font-size:13px;
+}
+.textitalic{
+	font-family: 'AkzidenzGrotesk-Italic';
+}
+.tabborder{
+	border: 1px solid #000;
+}
+.bdbtm{
+	border-bottom: 1px solid #000;
+}
+.tbdefault{
+	font-family: 'AkzidenzGrotesk-Italic';
+	font-size:12px;
+	padding: 0 5px;
+}
+.bgblack{
+	font-family: 'AkzidenzGrotesk-MediumItalic';
+	border-bottom: 1px solid #000;
+	background:#000;
+	color:#fff;
+}
+.topsec{
+	margin-bottom:60px;
+}
+button.redes{
+	width:100%;
+	border:1px solid #000;
+	padding:4px 0;
+	text-align: center;
+	cursor:pointer;
+	background:#fff;
+	color:#000;
+	text-decoration:none;
+}
+button.redes:hover{
+	background:#000;
+	color:#fff;
+}
+/******************************FUENTES**************************************************/
+@font-face{
+	font-family: 'AkzidenzGrotesk-BoldItalic';
+	src: url('../fonts/AkzidenzGrotesk-BoldItalic.woff');
+}
+@font-face{
+	font-family: 'AkzidenzGrotesk-Bold';
+	src: url('../fonts/AkzidenzGrotesk-Bold.woff');
+}
+@font-face{
+	font-family: 'AkzidenzGrotesk-Italic';
+	src: url('../fonts/AkzidenzGrotesk-Italic.woff');
+}
+@font-face{
+	font-family: 'AkzidenzGrotesk-Medium';
+	src: url('../fonts/AkzidenzGrotesk-Medium.woff');
+}
+@font-face{
+	font-family: 'AkzidenzGrotesk-MediumItalic';
+	src: url('../fonts/AkzidenzGrotesk-MediumItalic.woff');
+}
+@font-face{
+	font-family: 'AkzidenzGrotesk-Regular';
+	src: url('../fonts/AkzidenzGrotesk-Regular.woff');
+}

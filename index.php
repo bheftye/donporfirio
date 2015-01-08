@@ -35,7 +35,94 @@
 <div id="contacto">
 	<span class="closebutton" onclick="hidecontact()"><img src="<?=mypath?>img/cls.png" /></span>
 	<div class="container">
-		<div class="col-sm-9"></div>
+		<div class="col-sm-9" style="padding:0;">
+			<div class="row topsec">
+				<div class="col-sm-4">
+					<span class="textbold">Roberto Puig</span><br/>
+					<span class="textitalic">Director General & Creativo</span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
+						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<span class="textbold">Roberto Puig</span><br/>
+					<span class="textitalic">Director General & Creativo</span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
+						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<span class="textMedIt">We are always looking for fresh new talent, please send us your demo reel to: </span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack" style="border:none;">info@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bdbtm" style="border:none;">Thank You!</div>
+					</div>
+				</div>
+			</div>
+			<div class="row topsec">
+				<div class="col-sm-4">
+					<span class="textbold">Roberto Puig</span><br/>
+					<span class="textitalic">Director General & Creativo</span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
+						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<span class="textbold">Roberto Puig</span><br/>
+					<span class="textitalic">Director General & Creativo</span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
+						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<span class="textbold">FOLLOW US:</span><br/>
+					<br/>
+					<div class="row">
+						<div class="col-sm-3" style="padding:0;">
+							<a href="#" target="_blank" style="display: block;">
+								<button class="redes">
+									<i class="fa fa-vimeo-square fa-2x"></i>
+								</button>
+							</a>
+						</div>
+						<div class="col-sm-3" style="padding:0;">
+							<a href="#" target="_blank" style="display: block;">
+								<button class="redes">
+									<i class="fa fa-behance fa-2x"></i>
+								</button>
+							</a>
+						</div>
+						<div class="col-sm-3" style="padding:0;">
+							<a href="#" target="_blank" style="display: block;">
+								<button class="redes">
+									<i class="fa fa-twitter fa-2x"></i>
+								</button>
+							</a>
+						</div>
+						<div class="col-sm-3" style="padding:0;">
+							<a href="#" target="_blank" style="display: block;">
+								<button class="redes">
+									<i class="fa fa-facebook fa-2x"></i>
+								</button>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="padding-left:15px;">
+				<span class="textMedIt">
+					Copyright 2015 | Don Porfirio. All rights reserved.
+				</span>
+			</div>
+		</div>
 		<div class="col-sm-3" style="text-align: center;">
 			<img style="max-width:100%;" src="<?=mypath?>img/logo.png" />
 		</div>
