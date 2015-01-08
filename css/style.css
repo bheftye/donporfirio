@@ -120,7 +120,12 @@ video#bgvid {
 }
 .logobottom{
 	position:absolute;
-	width:100%;
+	width:1140px;
+	bottom:40px;
+}
+.logobottomr{
+	position:absolute;
+	width:1140px;
 	bottom:40px;
 }
 /*********************************CONTACTO******************************************/

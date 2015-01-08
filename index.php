@@ -6,7 +6,7 @@
 		$src_tmp = $lista_videos_slide[0]["nombre_video"];
 	}
 ?>
-<video autoplay muted id="bgvid">
+<video autoplay muted id="bgvid" auto>
 	<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4">
 </video>
 <div class="contenido">
@@ -19,7 +19,7 @@
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a href="#home" class="active">Home</a></li>
+				<li><a href="#home" onclick="changecursor()" class="active">Home</a></li>
 				<li><a href="#news">News</a></li>
 				<li><a href="#work" onclick="openmenu()">Work</a></li>
 				<li><a href="#about">About</a></li>
@@ -28,8 +28,16 @@
 			</ul>
 		</div>
 		<div class="row logobottom">
+			<div class="progress progress-striped active">
+			    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
 			<div class="col-sm-2">
 				<img style="max-width:100%;" src="<?=mypath?>img/dptitle.png" />
+			</div>
+		</div>
+		<div class="row logobottomr">
+			<div class="col-sm-3 col-sm-push-9">
+				<img style="max-width:100%;" src="<?=mypath?>img/bd.png" />
 			</div>
 		</div>
 	</div>
@@ -205,23 +213,15 @@
       player.play();
       count++;
    }
+   //console.log(document.getElementById('bgvid'));
    function onProgress(e){
 
-    var vid = document.getElementById('bgvid');
-    var percent = null;
-
-    if (vid.buffered.length > 0 && vid.buffered.end && vid.duration) {
-        percent = vid.buffered.end(0) / vid.duration;
-    } else if (vid.bytesTotal != undefined && vid.bytesTotal > 0 && vid.bufferedBytes != undefined) {
-        percent = vid.bufferedBytes / vid.bytesTotal;
-    }
-
-    if (percent !== null) {
-        percent = 100 * Math.min(1, Math.max(0, percent));
-
-        console.log(percent);
-    }
-
-}
+	    var vid = document.getElementById('bgvid');
+	    var percent = null;
+	    var percent = (vid.currentTime/vid.duration)*100;
+	    console.log(percent);
+	        $('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
+	
+	}
 
 </script>

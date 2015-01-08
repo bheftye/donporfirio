@@ -19,3 +19,7 @@ function hidecontact(){
 	$("#contacto").animate({"top":"0"},600);
 	$("#bgvid").animate({"top":"0"},600);
 }
+function changecursor(){
+	console.log("cursor cambiado");
+	$(this).css( 'cursor', 'url("../img/cls.png"), auto' );
+}
