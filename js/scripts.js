@@ -54,8 +54,8 @@ function verabout(){
 	$(".bgall").fadeOut(600);
 	$("#bgvid")[0].pause();
 	$(".all").fadeOut(600);
-	$(".titulorojo").width(0);
-	$(".titulorojo2").width(0);
+	$(".titulorojo").animate({"width":"0"},600);;
+	$(".titulorojo2").animate({"width":"0"},600);;
 	$(".aboutbg").delay(600).fadeIn(600);
 	$(".about").delay(600).fadeIn(600);
 }
@@ -75,14 +75,16 @@ function verhome(){
 
 $(document).ready(function(){
 	var hashTag = window.location.hash
-	console.log(hashTag);
+	//console.log(hashTag);
 	if(hashTag=="#home"){
 		verhome();
-	}
-	if(hashTag=="#about"){
+	}else if(hashTag=="#about"){
 		verabout();
-	}
-	if(hashTag=="#work"){
+	}else if(hashTag=="#work"){
 		openmenu();
+	}else if(hashTag=="#contact"){
+		viewcontact();
+	}else{
+		console.log(hashTag);	
 	}
 });

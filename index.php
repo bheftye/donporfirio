@@ -31,7 +31,7 @@
 				<li><a class="pmenu mwork" href="#work" onclick="openmenu()">Work</a></li>
 				<li><a class="pmenu mabout" href="#about" onclick="verabout()">About</a></li>
 				<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()">Contact</a></li>
-				<li class="idioma"><a href="#">ENG</a> / <a href="#" class="active">ESP</a></li>
+				<li class="idioma"><a class="aen" href="<?=mypath?>en/">ENG</a> / <a href="<?=mypath?>es/" class="aes active">ESP</a></li>
 			</ul>
 		</div>
 		<div class="row logobottom"><!--

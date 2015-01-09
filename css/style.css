@@ -97,10 +97,24 @@ h2{
 	h1{
 		font-size:90px;
 	}
+	h2{
+		font-size:30px;
+	}
 }
 @media(max-width:991px){
 	h1{
 		font-size:70px;
+	}
+	h2{
+		font-size:25px;
+	}
+	html,body{
+		font-size:12px;
+	}
+}
+@media(max-height:680px){
+	h1{
+		font-size:90px;
 	}
 }
 /**********************************MENU********************************************/
@@ -281,6 +295,11 @@ button.redesb:hover{
 	background:#fff;
 	color:#000;
 }
+@media(max-width:991px){
+	.textboldw{
+		margin-right:40px;
+	}
+}
 /*********************************CONTACTO******************************************/
 #contacto{
 	position:relative;
@@ -348,6 +367,11 @@ button.redes{
 button.redes:hover{
 	background:#000;
 	color:#fff;
+}
+@media(max-width:991px){
+	.textMedIt{
+		font-size:12px;
+	}
 }
 /******************************FUENTES**************************************************/
 @font-face{
