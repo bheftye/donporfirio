@@ -103,6 +103,85 @@ h2{
 		font-size:70px;
 	}
 }
+/**********************************MENU********************************************/
+.menuright{
+	position:absolute;
+	right:-60%;
+	top:0;
+	width:60%;
+	height:100%;
+	background:#fff;
+	z-index:1000;
+	border: 2px solid #fff;
+	overflow-y: auto;
+	overflow-x:hidden;
+	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
+	-o-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+.menuheader{
+	height:65px;
+	width:100%;
+}
+#menu{
+	position:absolute;
+	top:50%;
+	margin-top:-90px;
+}
+#menu ul{
+	padding:0;
+	margin:0;
+}
+#menu ul li{
+	list-style:none;
+	padding:5px 0;
+	color:#fff;
+}
+#menu ul li a{
+	font-family: 'AkzidenzGrotesk-Regular';
+	text-transform: uppercase;
+	color:#fff;
+	text-decoration: none;
+	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
+	-o-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+#menu ul li a.active, #menu ul li a:hover{
+	font-family: 'AkzidenzGrotesk-Bold';
+	color:#ff5858;
+}
+.idioma a{
+	font-family: 'AkzidenzGrotesk-Italic' !important;
+	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
+	-o-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+.idioma a.active, .idioma a:hover{
+	font-family: 'AkzidenzGrotesk-Italic' !important;
+	color:#ff5858;
+}
+.sidemenu ul{
+	padding:20px 0;
+	margin:0;
+}
+.sidemenu ul li{
+	display:inline;
+	list-style:none;
+	font-family: 'AkzidenzGrotesk-Bold';
+	padding:0 5px;
+	text-transform: uppercase;
+	cursor:pointer;
+	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
+	-o-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+.sidemenu ul li.active, .sidemenu ul li:hover{
+	color:#ff5858;
+}
 /*************************************INICIO***************************************/
 .titulorojo, .titulorojo2{
 	position:absolute;
@@ -176,7 +255,8 @@ h2{
 	margin-top:-1px;
 }
 .redesabout a{
-	display: inline !important;
+	display: inline-block !important;
+	margin-left: -5px;
 }
 .textboldw{
 	font-family: 'AkzidenzGrotesk-BoldItalic';
@@ -186,6 +266,7 @@ h2{
 button.redesb{
 	border:1px solid #fff;
 	padding:5px 15px;
+	width:50px;
 	text-align: center;
 	cursor:pointer;
 	background:none;
@@ -199,80 +280,6 @@ button.redesb{
 button.redesb:hover{
 	background:#fff;
 	color:#000;
-}
-/**********************************MENU********************************************/
-.menuright{
-	position:absolute;
-	right:-60%;
-	top:0;
-	width:60%;
-	height:100%;
-	background:#fff;
-	z-index:1000;
-	border: 2px solid #fff;
-	overflow-y: auto;
-	overflow-x:hidden;
-	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
-	-o-transition: all 0.6s;
-	-moz-transition: all 0.6s;
-    transition: all 0.6s;
-}
-.menuheader{
-	height:65px;
-	width:100%;
-}
-#menu{
-	position:absolute;
-	top:50%;
-	margin-top:-90px;
-}
-#menu ul{
-	padding:0;
-	margin:0;
-}
-#menu ul li{
-	list-style:none;
-	padding:5px 0;
-}
-#menu ul li a{
-	font-family: 'AkzidenzGrotesk-Regular';
-	text-transform: uppercase;
-	color:#fff;
-	text-decoration: none;
-	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
-	-o-transition: all 0.6s;
-	-moz-transition: all 0.6s;
-    transition: all 0.6s;
-}
-#menu ul li a.active, #menu ul li a:hover{
-	font-family: 'AkzidenzGrotesk-Bold';
-	color:#ff5858;
-}
-.idioma a{
-	font-family: 'AkzidenzGrotesk-Italic' !important;
-}
-.idioma a.active, .idioma a:hover{
-	font-family: 'AkzidenzGrotesk-Italic' !important;
-	color:#ff5858;
-}
-.sidemenu ul{
-	padding:20px 0;
-	margin:0;
-}
-.sidemenu ul li{
-	display:inline;
-	list-style:none;
-	font-family: 'AkzidenzGrotesk-Bold';
-	padding:0 5px;
-	text-transform: uppercase;
-	cursor:pointer;
-	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
-	-o-transition: all 0.6s;
-	-moz-transition: all 0.6s;
-    transition: all 0.6s;
-}
-.sidemenu ul li.active, .sidemenu ul li:hover{
-	color:#ff5858;
 }
 /*********************************CONTACTO******************************************/
 #contacto{

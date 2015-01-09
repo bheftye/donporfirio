@@ -23,6 +23,7 @@ function changecursor(){
 	console.log("cursor cambiado");
 	$('body').css('cursor', 'url(./img/cls.png),auto');
 }*/
+
 function showvideo(){
 	$(".contenido").fadeOut(1000);
 	$("#wraperfondo").fadeOut(1000);
@@ -34,6 +35,7 @@ function showvideo(){
 	$("#bgvid2")[0].currentTime = 0;
 	$("#bgvid2")[0].play();
 }
+
 $("#fullscreenvideo").on('click',function(){
 	$("#fullscreenvideo").hide();
 	$("#bgvid2")[0].pause();
@@ -45,6 +47,7 @@ $("#fullscreenvideo").on('click',function(){
 	$("#bgvid")[0].currentTime = 0;
 	$("#bgvid")[0].play();
 });
+
 function verabout(){
 	$(".pmenu").removeClass("active");
 	$(".mabout").addClass("active");
@@ -56,6 +59,7 @@ function verabout(){
 	$(".aboutbg").delay(600).fadeIn(600);
 	$(".about").delay(600).fadeIn(600);
 }
+
 function verhome(){
 	$(".pmenu").removeClass("active");
 	$(".mhome").addClass("active");
@@ -68,3 +72,17 @@ function verhome(){
 	});
 	$(".hometitle").delay(600).fadeIn(600);
 }
+
+$(document).ready(function(){
+	var hashTag = window.location.hash
+	console.log(hashTag);
+	if(hashTag=="#home"){
+		verhome();
+	}
+	if(hashTag=="#about"){
+		verabout();
+	}
+	if(hashTag=="#work"){
+		openmenu();
+	}
+});
