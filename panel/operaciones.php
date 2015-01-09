@@ -62,6 +62,15 @@ switch($operaciones){
 				
 			}			
 		}
+		if($_REQUEST['desde'] == 'categoria'){
+			$val = ($_REQUEST['idorden']);
+			for($i=0; $i < count($val); $i++)
+			{
+				$categoria = new categoria($val[$i]);
+				$categoria -> ordenar_categoria($i);
+				
+			}
+		}	
 	break;
 	case 'listaprueba':
 		$dr = new userend();
@@ -347,6 +356,7 @@ switch($operaciones){
 		$meta_titulo_eng = (isset($_REQUEST['meta_titulo_eng']) && $_REQUEST['meta_titulo_eng'] != "")? $_REQUEST['meta_titulo_eng'] : $titulo_eng;
 		$meta_descripcion_eng = (isset($_REQUEST['meta_descripcion_eng']) && $_REQUEST['meta_descripcion_eng'] != "")? htmlspecialchars($_REQUEST['meta_descripcion_eng'], ENT_QUOTES) : substr($descripcion_eng, 0,160);
 
+		$categorias = (isset($_REQUEST['categorias']))? $_REQUEST['categorias'] : array();
 
 
 		if(isset($_FILES['archivo']['name']))
@@ -414,6 +424,10 @@ switch($operaciones){
 	            	} 
 				}
 			}
+
+			foreach ($categorias as $id_categoria) {
+				$proyecto -> asociar_proyecto_con_categoria($id_categoria);
+			}
 		}
 
 		header('location: listproyecto.php?success='.$success);
@@ -438,6 +452,7 @@ switch($operaciones){
 		$meta_titulo_eng = (isset($_REQUEST['meta_titulo_eng']) && $_REQUEST['meta_titulo_eng'] != "")? $_REQUEST['meta_titulo_eng'] : $titulo_eng;
 		$meta_descripcion_eng = (isset($_REQUEST['meta_descripcion_eng']) && $_REQUEST['meta_descripcion_eng'] != "")? htmlspecialchars($_REQUEST['meta_descripcion_eng'], ENT_QUOTES) : substr($descripcion_eng, 0,160);
 
+		$categorias = (isset($_REQUEST['categorias']))? $_REQUEST['categorias'] : array();
 
 
 		if(isset($_FILES['archivo']['name']))
@@ -514,6 +529,10 @@ switch($operaciones){
 		            	$proyecto -> modificar_img_secundaria_proyecto($_REQUEST['id_img_proyecto'][$i], $titulo, $name, $tmp_name);  
 					}			
 				}	
+			}
+			$proyecto -> eliminar_asociasiones_proyecto_con_categoria();
+			foreach ($categorias as $id_categoria) {
+				$proyecto -> asociar_proyecto_con_categoria($id_categoria);
 			}
 
 			header('location: listproyecto.php?success=2');
@@ -598,52 +617,70 @@ switch($operaciones){
 		break;
 /**********TERMINAN LAS OPERACIONES DE PRODCUTOS***********/
 /**********************************************************/
-/*Contenido de Marca*/
-		case "modificar_contenidom":
-			$id_contenidom = 1;
-			$link_video = (isset($_REQUEST['link_video']) && $_REQUEST['link_video'] != "")? $_REQUEST['link_video'] : "";
-			$tipo = (isset($_REQUEST['tipo']) && $_REQUEST['tipo'] != "")? $_REQUEST['tipo'] : "";
-
-			if($link_video != "" && $tipo != ""){
-				$contenidom = new contenidom($id_contenidom,$link_video,$tipo);
-				$contenidom -> modificar_contenidom();
+//COMIENZAN LAS OPERACIONES DE CATEGORIA
+		case 'agregar_categoria':
+			$nombre_esp = (isset($_REQUEST['nombre_esp']))? $_REQUEST['nombre_esp'] : "";
+			$nombre_eng = (isset($_REQUEST['nombre_eng']))? $_REQUEST['nombre_eng'] : "";
+	
+			$categoria = new categoria(0, $nombre_esp, $nombre_eng);
+			$categoria -> insertar_categoria();    
+			header('location: listcategoria.php');
+		break;
+		case 'modificar_categoria':
+			$id_categoria = (isset($_REQUEST['id_categoria']))? $_REQUEST['id_categoria'] : "";
+			$nombre_esp = (isset($_REQUEST['nombre_esp']))? $_REQUEST['nombre_esp'] : "";
+			$nombre_eng = (isset($_REQUEST['nombre_eng']))? $_REQUEST['nombre_eng'] : "";
+	
+			$categoria = new categoria($id_categoria, $nombre_esp, $nombre_eng);
+			$categoria -> modificar_categoria();    
+			header('location: listcategoria.php');
+		break;
+		case 'operacategoria':
+			if(isset($_REQUEST['id_categoria'])){
+				$select=$_REQUEST['operador'];
+				$imgp=0;
+				if ($select == 'Eliminar'){
+					foreach ($_REQUEST['id_categoria'] as $elemento_proyecto) {
+						$categoria = new categoria();
+						$categoria -> id_categoria = $elemento_proyecto;
+						$categoria->eliminar_categoria();
+					}
+					header('location: listcategoria.php?success=3');
+				}
+				if ($select == 'Mostrar'){
+					foreach ($_REQUEST['id_categoria'] as $elemento) {
+						$categoria = new categoria();
+						$categoria -> id_categoria = $elemento;						
+						$categoria -> activar_categoria();
+					}
+					header('location: listcategoria.php?success=4');
+				}
+				if ($select == 'No Mostrar'){
+					foreach ($_REQUEST['id_categoria'] as $elemento) {
+						$categoria = new categoria();
+						$categoria -> id_categoria = $elemento;						
+						$categoria -> desactivar_categoria();
+					}
+					header('location: listcategoria.php?success=5');
+				}			
 			}
-			header('location: formcontenidom.php');
-
-		break;
-/*Contenido de Marca*/
-/*Nosotros*/
-		case "modificar_nosotros":
-			$id_nosotros = 1;
-			$link_video = (isset($_REQUEST['link_video']) && $_REQUEST['link_video'] != "")? $_REQUEST['link_video'] : "";
-			$tipo = (isset($_REQUEST['tipo']) && $_REQUEST['tipo'] != "")? $_REQUEST['tipo'] : "";
-
-			if($link_video != "" && $tipo != ""){
-				$nosotros = new nosotros($id_nosotros,$link_video,$tipo);
-				$nosotros -> modificar_nosotros();
+			else {
+				header('location: listcategoria.php');
 			}
-			header('location: formnosotros.php');
-
 		break;
-/*Nosotros*/
-/*PANTALLAS*/
-		case "modificar_pantallas":
-			$id_pantallas = 1;
-			$link_video1 = (isset($_REQUEST['link_video1']) && $_REQUEST['link_video1'] != "")? $_REQUEST['link_video1'] : "";
-			$tipo1 = (isset($_REQUEST['tipo1']) && $_REQUEST['tipo1'] != "")? $_REQUEST['tipo1'] : "";
-
-			$link_video2 = (isset($_REQUEST['link_video2']) && $_REQUEST['link_video2'] != "")? $_REQUEST['link_video2'] : "";
-			$tipo2 = (isset($_REQUEST['tipo2']) && $_REQUEST['tipo2'] != "")? $_REQUEST['tipo2'] : "";
-
-			$link_video3 = (isset($_REQUEST['link_video3']) && $_REQUEST['link_video3'] != "")? $_REQUEST['link_video3'] : "";
-			$tipo3 = (isset($_REQUEST['tipo3']) && $_REQUEST['tipo3'] != "")? $_REQUEST['tipo3'] : "";
-
-			$pantallas = new pantallas($id_pantallas, $link_video1, $tipo1, $link_video2, $tipo2, $link_video3, $tipo3);
-			$pantallas -> modificar_pantallas();
-			header('location: formpantallas.php');
-
+		case 'activar_categoria':
+			 $categoria = new categoria();
+			 $categoria -> id_categoria = $_REQUEST['id'];
+			 $categoria -> activar_categoria();
 		break;
-/*PANTALLAS*/
+		case 'desactivar_categoria':
+			 $categoria = new categoria();
+			 $categoria -> id_categoria = $_REQUEST['id'];
+			 $categoria -> desactivar_categoria();
+		break;
+
+//COMIENZAN LAS OPERACIONES DE CATEGORIA
+
 //COMIENZAN LAS OPERACIONES DE SLIDE
 		
 		case 'modificar_video_slide':

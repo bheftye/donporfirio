@@ -6,19 +6,19 @@ function __autoload($ClassName){
 	$seguridad = new seguridad();
 	$seguridad->candado();
 	
-if(isset($_REQUEST['idboletin'])){
-	$id=$_REQUEST['idboletin'];
-	$operacion='modificarboletin';
-	$palabra='Editar Boletín';
-	$temporal = new boletin($id);
-	$temporal -> obtenerBoletin();
+if(isset($_REQUEST['id_categoria'])){
+	$id=$_REQUEST['id_categoria'];
+	$operacion='modificar_categoria';
+	$palabra='Editar Categoría';
+	$temporal = new categoria($id);
+	$temporal -> obtener_categoria();
 }
 else{
 	$id=0;
-	$operacion='agregarboletin';
-	$palabra='Nuevo Boletín';
+	$operacion='agregar_categoria';
+	$palabra='Nueva Categoría';
 	$img='';
-	$temporal = new boletin($id);
+	$temporal = new categoria($id);
 }
 
 ?>
@@ -26,7 +26,7 @@ else{
 <?php
 include 'head.html';//contiene los estilos y los metas
 ?>
-	<title>Formulario De Boletines</title>
+	<title>Formulario De Categorías</title>
 <?php
 include'header.html';//contiene las barras de arriba y los menus.
 include'menu.php';//Contiene a todo el menu.
@@ -44,7 +44,7 @@ include'menu.php';//Contiene a todo el menu.
                         <p class="titulo"><?=$palabra?></p>
                     </div>
                     <form id="form-validation" style="display: inline" name="form1" action="operaciones.php" method="post" onsubmit="return validar_campos()" enctype="multipart/form-data">
-                    		<input type="hidden" name="idboletin" value="<?=$temporal->idBoletin?>"/>
+                    		<input type="hidden" name="idboletin" value="<?=$temporal->id_categoria?>"/>
                     		<input type="hidden" name="status" value="<?=$temporal->status?>"/>	                    		
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     		<button type="submit" <?php if($seguridad->valida_permiso_usuario($_SESSION['idusuario'],$clave)==0) echo ' disabled ';?> name="operaciones" value="<?=$operacion?>" class="buttonguardar">Guardar y Publicar</button>
@@ -62,9 +62,13 @@ include'menu.php';//Contiene a todo el menu.
                     	<div class='notifications top-right'></div>
                     </div>
                     <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
-                    	<div id="correo" class="input-group espacios">
-                        	<span class="input-group-addon es">Correo</span>
-                        	<input type="text"  name="correo" class="form-control" placeholder="Ingrese el correo aquí..." value="<?=$temporal->correo?>">
+                    	<div id="nombre_esp" class="input-group espacios">
+                        	<span class="input-group-addon es">Nombre de la cateogoría</span>
+                        	<input type="text"  name="nombre_esp" class="form-control" placeholder="Ingrese el nombre aquí..." value="<?=$temporal->nombre_esp?>">
+                        </div>
+                        <div id="nombre_eng" class="input-group espacios">
+                            <span class="input-group-addon es">Category's name</span>
+                            <input type="text"  name="nombre_eng" class="form-control" placeholder="Set name here..." value="<?=$temporal->nombre_eng?>">
                         </div>
                         
                         <br>
@@ -133,21 +137,34 @@ include 'javascripts.html';
  <!--Script que sirve para validar-->
 	<script>
 	function validar_campos(){
-		var val = $("#files").val();
 		
-		if (form1.correo.value == ''){
-			form1.correo.focus();
-			$('#correo').removeClass("form-group").addClass("form-group has-error");
+		if (form1.nombre_esp.value == '')
+        {
+			form1.nombre_esp.focus();
+			$('#nombre_esp').removeClass("form-group").addClass("form-group has-error");
 			$('.top-right').notify({
-    			message: { text: 'El Campo del correo esta vacío, para poder continuar asigne un corre al boletín' },
+    			message: { text: 'El campo del nombre esta vacío, para poder continuar asigne un nombre a la categoría' },
     			type:'blackgloss',
   			}).show();
 			return false;
-			}
+		}
 		else{
-			$('#correo').removeClass("form-group has-error").addClass("form-group has-success");
+			$('#nombre_esp').removeClass("form-group has-error").addClass("form-group has-success");
 		}	
-		<?=$validator?>
+
+        if (form1.nombre_eng.value == '')
+        {
+            form1.nombre_eng.focus();
+            $('#nombre_eng').removeClass("form-group").addClass("form-group has-error");
+            $('.top-right').notify({
+                message: { text: 'El campo del nombre esta vacío, para poder continuar asigne un nombre a la categoría' },
+                type:'blackgloss',
+            }).show();
+            return false;
+        }
+        else{
+            $('#nombre_eng').removeClass("form-group has-error").addClass("form-group has-success");
+        }   
 	}
 	</script>
 

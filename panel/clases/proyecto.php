@@ -280,6 +280,64 @@ class proyecto extends Archivo {
 		return $id_proyecto_principal;
 	}
 
+	function listar_proyectos_por_categoria($id_categoria){
+		$resultados = array();
+		$sql = "SELECT A.* FROM proyectos A JOIN proyectos_categorias B ON (A.id_proyecto = B.id_proyecto) ORDER BY A.orden";
+		$con = new conexion();
+		$temporal = $con -> ejecutar_sentencia($sql);
+		while ($fila = mysqli_fetch_array($temporal)) {
+			$registro = array();
+			$registro['id_proyecto'] = $fila['id_proyecto'];
+			$registro['img_principal'] = $fila['img_principal'];
+			$registro['nombre_video'] = $fila['nombre_video'];
+			$registro['nombre_preview'] = $fila['nombre_preview'];
+			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
+			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
+			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
+			$registro['subtitulo_eng'] = htmlspecialchars_decode($fila['subtitulo_eng']);
+			$registro['behance'] = $fila['behance'];
+			$registro['descripcion_esp'] = htmlspecialchars_decode($fila['descripcion_esp'],ENT_QUOTES);
+			$registro['descripcion_eng'] = htmlspecialchars_decode($fila['descripcion_eng'],ENT_QUOTES);
+			$registro['url_amigable'] = $fila['url_amigable'];
+			$registro['meta_titulo_esp'] = $fila["meta_titulo_esp"];
+			$registro['meta_titulo_eng'] = $fila["meta_titulo_eng"];
+			$registro['meta_descripcion_esp'] = $fila["meta_descripcion_esp"];
+			$registro['meta_descripcion_eng'] = $fila["meta_descripcion_eng"];
+			$registro['fecha_creacion'] = $fila['fecha_creacion'];
+			$registro['fecha_modificacion'] = $fila['fecha_modificacion'];
+			$registro['status'] = $fila['status'];
+			$registro['mostrar'] = $fila['mostrar'];
+			array_push($resultados, $registro);
+		}
+		mysqli_free_result($temporal);
+		return $resultados;
+	}
+
+	function listar_ids_categorias_asociadas(){
+		$resultados = array();
+		$sql = "SELECT id_categoria FROM `proyectos_categorias` WHERE id_proyecto = ".$this -> id_proyecto."";
+		$con = new conexion();
+		$temporal = $con -> ejecutar_sentencia($sql);
+		while ($fila = mysqli_fetch_array($temporal)) {
+			array_push($resultados, $fila['id_categoria']);
+		}
+		mysqli_free_result($temporal);
+		return $resultados;
+	}
+
+	function asociar_proyecto_con_categoria($id_categoria){
+		$sql = "INSERT INTO proyectos_categorias (id_proyecto, id_categoria) VALUES (".$this -> id_proyecto.", ".$id_categoria.") ";
+		$con = new conexion();
+		$con -> ejecutar_sentencia($sql);
+	}
+
+	function eliminar_asociasiones_proyecto_con_categoria(){
+		$sql = "DELETE FROM proyectos_categorias WHERE id_proyecto = ".$this -> id_proyecto;
+		$con = new conexion();
+		$con -> ejecutar_sentencia($sql);
+	}
+
 	function obtener_id_proyecto_siguiente(){
 		$sql = "SELECT * FROM proyectos WHERE orden = ".($this -> orden + 1)." AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
 		$con = new conexion();

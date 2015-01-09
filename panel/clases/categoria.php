@@ -5,12 +5,12 @@ class categoria
 {
 	var $id_categoria;
 	var $nombre_esp;
-	var $nombre_eng
+	var $nombre_eng;
 	var $mostrar;
 	var $status;
 	var $orden;
 
-	function categoria($id_categoria = 0,$nombre_esp='', $nombre_eng)
+	function categoria($id_categoria = 0,$nombre_esp='', $nombre_eng, $status = 0, $mostrar = 0)
 	{
 		$this -> id_categoria = $id_categoria;
 		$this -> nombre_esp = $nombre_esp;
@@ -23,7 +23,7 @@ class categoria
 		$conexion = new conexion();
 		$sql = "INSERT INTO categorias_proyectos (nombre_esp, nombre_eng, status, mostrar) values('". $this -> nombre_esp ."', '". $this -> nombre_eng ."', 0 , 0)";
 		$this -> id_categoria = $conexion -> ejecutar_sentencia($sql);
-		$sql = "UPDATE categorias_proyectos (orden) values('". $this -> id_categoria ."')";
+		$sql = "UPDATE categorias_proyectos SET orden = '". $this -> id_categoria ."'";
 		$conexion -> ejecutar_sentencia($sql);
 	}
 	
@@ -42,7 +42,7 @@ class categoria
 
 	function activar_categoria(){
 		$conexion = new conexion();
-		$sql = "UPDATE categorias_proyectos SET status = 0  WHERE id_categoria = ". $this -> id_categoria;
+		echo $sql = "UPDATE categorias_proyectos SET status = 0  WHERE id_categoria = ". $this -> id_categoria;
 		return $conexion -> ejecutar_sentencia($sql);
 	}
 
@@ -71,16 +71,16 @@ class categoria
 		return $conexion->ejecutar_sentencia($sql);
 	}
 
-	function ordenar_categoria(){
+	function ordenar_categoria($orden = 0){
 		$conexion=new conexion();
-		$sql="UPDATE categorias_proyectos SET mostrar = 1 WHERE id_categoria=".$this->id_categoria;
+		$sql="UPDATE categorias_proyectos SET orden = ".$orden." WHERE id_categoria=".$this->id_categoria;
 		return $conexion->ejecutar_sentencia($sql);
 	}
 
 	function listar_categorias()
 	{
 		$conexion=new conexion();
-		$sql="SELECT * FROM categorias_proyectos ORDER BY orden ASC";
+		$sql="SELECT * FROM categorias_proyectos WHERE mostrar = 0 ORDER BY orden ASC";
 		$result=$conexion->ejecutar_sentencia($sql);
 		$resultados=array();
 			while ($row=mysqli_fetch_array($result))
@@ -98,7 +98,7 @@ class categoria
 
 	function listar_categorias_activas(){
 		$conexion=new conexion();
-		$sql="SELECT * FROM categorias_proyectos ORDER BY nombre ASC";
+		$sql="SELECT * FROM categorias_proyectos WHERE status = 0 ORDER BY orden ASC";
 		$result=$conexion->ejecutar_sentencia($sql);
 		$resultados=array();
 			while ($row=mysqli_fetch_array($result))

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 09-01-2015 a las 00:51:30
+-- Tiempo de generación: 09-01-2015 a las 18:32:09
 -- Versión del servidor: 5.5.38
 -- Versión de PHP: 5.5.14
 
@@ -13,6 +13,21 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `donporfirio`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias_proyectos`
+--
+
+CREATE TABLE `categorias_proyectos` (
+`id_categoria` int(11) NOT NULL,
+  `nombre_esp` text COLLATE utf8_unicode_ci NOT NULL,
+  `nombre_eng` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  `orden` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -440,18 +455,24 @@ CREATE TABLE `videos_slide` (
   `titulo_video` text COLLATE utf8_unicode_ci NOT NULL,
   `nombre_video` text COLLATE utf8_unicode_ci NOT NULL,
   `nombre_video_hd` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `videos_slide`
 --
 
 INSERT INTO `videos_slide` (`id_video_slide`, `titulo_video`, `nombre_video`, `nombre_video_hd`) VALUES
-(1, 'MOTION DESIGN REEL 2014', '0b80379e.mp4', 'f95ea549.mp4');
+(1, 'MOTION DESIGN REEL 2014', '0b80379e.mp4', '25fb8659.mp4');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `categorias_proyectos`
+--
+ALTER TABLE `categorias_proyectos`
+ ADD PRIMARY KEY (`id_categoria`);
 
 --
 -- Indices de la tabla `contenido_marca`
@@ -518,6 +539,11 @@ ALTER TABLE `videos_slide`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categorias_proyectos`
+--
+ALTER TABLE `categorias_proyectos`
+MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `img_proyecto`
 --
 ALTER TABLE `img_proyecto`
@@ -546,4 +572,4 @@ MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 -- AUTO_INCREMENT de la tabla `videos_slide`
 --
 ALTER TABLE `videos_slide`
-MODIFY `id_video_slide` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_video_slide` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;

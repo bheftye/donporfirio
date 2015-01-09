@@ -51,6 +51,7 @@ else{
 		else{
 			$("#imgprin").removeClass("btn-danger").addClass("btn-success"); 
 		}';
+    $lista_categorias_asociadas = array();
 }
 $clave = 'ModProy';
 $clave2='SortImgProy';
@@ -61,6 +62,16 @@ if($seguridad->valida_permiso_usuario($_SESSION['idusuario'],$clave2)==0){
 }else{
   $handle = 'handle sortimg';
 } 
+
+$categoria = new categoria();
+$categorias_proyectos = $categoria -> listar_categorias_activas();
+
+
+$ids_categorias_asocidas = array();
+
+if($id != 0){
+    $ids_categorias_asocidas = $temporal -> listar_ids_categorias_asociadas();
+}
 
 ?>
 
@@ -107,7 +118,8 @@ include'menu.php';//Contiene a todo el menu.
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="active"><a href="#esp" role="tab" data-toggle="tab">Español</a></li>
                                 <li><a href="#eng" role="tab" data-toggle="tab">English</a></li>
-                                 <li><a href="#beh" role="tab" data-toggle="tab">Behance</a></li>
+                                <li><a href="#cat" role="tab" data-toggle="tab">Categorías</a></li>
+                                <li><a href="#beh" role="tab" data-toggle="tab">Behance</a></li>
                                 <li><a href="#img" role="tab" data-toggle="tab">Imágenes</a></li>
                                 <li><a href="#vid" role="tab" data-toggle="tab">Video</a></li>
                             </ul>
@@ -154,6 +166,22 @@ include'menu.php';//Contiene a todo el menu.
                                         <span class="input-group-addon es">Meta description (160 caracteres máximo.)*</span>
                                     <textarea name="meta_descripcion_eng" class="col-lg-12" rows="5" maxlength="160" style="resize:none;"><?=$temporal -> meta_descripcion_eng;?></textarea>
                                     </div>
+                                </div>
+                                <div class="tab-pane" id="cat">
+                                    <p style="margin-top: 25px;">Selecciona las categorías a las que pertenece el proyecto</p>
+                                    <select id="categorias_proyectos" name="categorias[]" class="select-picker col-lg-12" multiple title='Seleccione las categorías del proyecto' >
+                                        <?php
+                                            foreach ($categorias_proyectos as $una_categoria) {
+                                                if(in_array($una_categoria["id_categoria"], $ids_categorias_asocidas)){
+                                                    echo " <option selected value=\"".$una_categoria["id_categoria"]."\">".$una_categoria["nombre_esp"]."</option>";
+                                                }
+                                                else{
+                                                    echo " <option value=\"".$una_categoria["id_categoria"]."\">".$una_categoria["nombre_esp"]."</option>";
+                                                }
+                                                
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="tab-pane" id="beh">
                                     <div id="behance" class="input-group espacios">
@@ -673,6 +701,11 @@ include 'javascripts.html';
 	
  <!--Script que sirve para validar-->
 	<script>
+
+    $('#categorias_productos').selectpicker();
+
+    $('.select-picker').selectpicker();
+
 	function validar_campos(){
 		var val = $("#files").val();
         

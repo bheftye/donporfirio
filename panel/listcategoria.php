@@ -172,7 +172,7 @@ include('menu.php');
                	<?php
                  	foreach ($lista_categorias as $elemento) {
                  			if($seguridad->valida_permiso_usuario($_SESSION['idusuario'],$clave3)==0){
-								if($elemento['status']!=0){
+								if($elemento['status']!=1){
 									$img='img/visible.png';
 									$funcion='';
 									$class = 'nover';
@@ -184,7 +184,7 @@ include('menu.php');
 							   }	
 							}
 							else{
-								if($elemento['status']!=0){
+								if($elemento['status']!=1){
 									$img='img/visible.png';
 									$funcion='Desactivar('.$elemento['id_categoria'].')';
 									$class = 'nover';
@@ -202,7 +202,7 @@ include('menu.php');
                                 	<input type="checkbox" id="'.$elemento['id_categoria'].'" name="id_categoria[]" value="'.$elemento['id_categoria'].'">
 									<label for="'.$elemento['id_categoria'].'"><span></span></label>
                                 </td>                    
-                                <td><a href="formboletin.php?id_categoria='.$elemento['id_categoria'].'">'.$elemento['correo'].'</a></td>
+                                <td><a href="formcategoria.php?id_categoria='.$elemento['id_categoria'].'">'.$elemento['nombre_esp'].'</a></td>
                                 <td class="text-center visible-lg visible-md">'.$handle.'<img class="manita '.$class.'" onclick="'.$funcion.'" id="temp'.$elemento['id_categoria'].'" src="'.$img.'"></td>
                               </tr>';
 					}
@@ -269,6 +269,7 @@ include('javascripts.html');
 			url:"operaciones.php",
 			data:"id="+id+"&operaciones=activar_categoria",
 			success:function(data){
+          console.log(data);
 					$("#temp"+id).attr("src", "img/visible.png");
 					$("#temp"+id).attr("onclick", "Desactivar("+id+")");
 					$("#temp"+id).tooltip('hide');		
@@ -288,7 +289,8 @@ include('javascripts.html');
 			contentType: "application/x-www-form-urlencoded",
 			url:"operaciones.php",
 			data:"id="+id+"&operaciones=desactivar_categoria",
-			success:function(data){				
+			success:function(data){			
+        console.log(data);	
 				$("#temp"+id).attr("src", "img/invisible.png");
 				$("#temp"+id).attr("onclick", "Activar("+id+")");
 				$("#temp"+id).tooltip('hide');
