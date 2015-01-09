@@ -7,6 +7,7 @@
 		$src_hd = $lista_videos_slide[0]["nombre_video_hd"];
 	}
 ?>
+<div class="aboutbg"></div>
 <div id="fullscreenvideo">
 	<video id="bgvid2">
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
@@ -26,10 +27,10 @@
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a href="#home" onclick="changecursor()" class="active">Home</a></li>
-				<li><a href="#work" onclick="openmenu()">Work</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#contact" onclick="viewcontact()">Contact</a></li>
+				<li><a class="pmenu mhome active" href="#home" onclick="changecursor()">Home</a></li>
+				<li><a class="pmenu mwork" href="#work" onclick="openmenu()">Work</a></li>
+				<li><a class="pmenu mabout" href="#about" onclick="verabout()">About</a></li>
+				<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()">Contact</a></li>
 				<li class="idioma"><a href="#">ENG</a> / <a href="#" class="active">ESP</a></li>
 			</ul>
 		</div>
@@ -50,6 +51,39 @@
 		<div class="col-sm-6 col-sm-push-6 hometitle">
 			<h1><?=$lista_videos_slide[0]["titulo_video"]?></h1>
 			<button class="bwatch" onclick="showvideo()">watch</button>
+		</div>
+		<div class="col-sm-8 col-sm-push-4 about">
+			<h2>ABOUT</h2>
+			<h1>BROADCAST DESIGN & MOTION GRAPHICS</h1>
+			<div class="row">
+				<div class="col-sm-9 col-sm-push-3 aboutborder">
+					<p>Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design. We are a team of graphic artists in search for new challenges and opportunities to create original concepts while we do what we love most... design.</p>
+					<p style="margin:0;">Driven by passion, creativity and love for great design, we create high impact animation.</p>
+				</div>
+				<div class="col-sm-9 col-sm-push-3 redesabout">
+					<span class="textbold">FOLLOW US:</span>
+					<a href="#" target="_blank" style="display: block;">
+						<button class="redesb">
+							<i class="fa fa-vimeo-square" style="font-size:15px;"></i>
+						</button>
+					</a>
+					<a href="#" target="_blank" style="display: block;">
+						<button class="redesb">
+							<i class="fa fa-behance" style="font-size:15px;"></i>
+						</button>
+					</a>
+					<a href="#" target="_blank" style="display: block;">
+						<button class="redesb">
+							<i class="fa fa-twitter" style="font-size:15px;"></i>
+						</button>
+					</a>
+					<a href="#" target="_blank" style="display: block;">
+						<button class="redesb">
+							<i class="fa fa-facebook" style="font-size:15px;"></i>
+						</button>
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- Website Content -->
