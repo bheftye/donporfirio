@@ -45,3 +45,13 @@ $("#fullscreenvideo").on('click',function(){
 	$("#bgvid")[0].currentTime = 0;
 	$("#bgvid")[0].play();
 });
+function verabout(){
+	$(".pmenu").removeClass("active");
+	$(".mabout").addClass("active");
+	$("#bgvid").fadeOut(1000);
+	$("#bgvid")[0].pause();
+	$(".hometitle").fadeOut(600,function(){
+		$(".about").fadeIn(600);
+		$(".aboutbg").fadeIn(600);
+	});
+}
