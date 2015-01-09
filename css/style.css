@@ -15,7 +15,7 @@ html,body{
 #wraper{
 	position:relative;
 	height:100%;
-	border: 2px solid #fff;
+	/*border: 2px solid #fff;*/
 	overflow:hidden;
 }
 #wraperfondo{
@@ -24,6 +24,7 @@ html,body{
 	width:100%;
 	z-index:10;
 	background:url('../img/bg.png');
+	border: solid 2px #fff;
 }
 .contenido{
 	position:relative;
