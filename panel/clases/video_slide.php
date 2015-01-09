@@ -72,8 +72,9 @@ class video_slide extends Archivo {
 		$con -> ejecutar_sentencia($sql);
 		$this -> subir_archivo();
 
-		if($this -> nombre_video_hd){
+		if($this -> nombre_video_hd != ""){
 			$this -> ruta_final = $this -> directorio . $this -> nombre_video_hd;
+			$this -> ruta_temporal = $this -> ruta_temporal_2;
 			$this -> subir_archivo();
 		}
 	}
@@ -92,7 +93,7 @@ class video_slide extends Archivo {
 		while ($fila = mysqli_fetch_array($resultados)) {
 			$this -> id_video_slide = $fila['id_video_slide'];
 			$this -> nombre_video = $fila['nombre_video'];
-			$this -> nombre_video_hd = $fila['nombre_video'];
+			$this -> nombre_video_hd = $fila['nombre_video_hd'];
 			$this -> titulo_video = htmlspecialchars_decode($fila['titulo_video']);
 			$this -> ruta_final = $this -> directorio . $fila['nombre_video'];
 		}
@@ -104,7 +105,7 @@ class video_slide extends Archivo {
 		while ($fila = mysqli_fetch_array($resultados)) {
 			$this -> id_video_slide = $fila['id_video_slide'];
 			$this -> nombre_video = $fila['nombre_video'];
-			$this -> nombre_video_hd = $fila['nombre_video'];
+			$this -> nombre_video_hd = $fila['nombre_video_hd'];
 			$this -> titulo_video = htmlspecialchars_decode($fila['titulo_video']);
 			$this -> ruta_final = $this -> directorio . $fila['nombre_video'];
 		}
