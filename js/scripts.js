@@ -1,9 +1,20 @@
 function openmenu(){
 	$(".menuright").animate({"right":"0"},100);
+	$(".mwork").addClass("active");
+}
+
+function opengallery(){
+	console.log("galeria");
+	$(".galleryright").animate({"right":"0"},100);
 }
 
 function closemenu(){
+	$(".mwork").removeClass("active");
 	$(".menuright").animate({"right":"-60%"},100);
+}
+
+function closegallery(){
+	$(".galleryright").animate({"right":"-60%"},100);
 }
 
 function viewcontact(){
@@ -53,7 +64,7 @@ function verabout(){
 	$(".mabout").addClass("active");
 	$(".bgall").fadeOut(600);
 	$("#bgvid")[0].pause();
-	//$("#bgvid3")[0].pause();
+	$(".videoproyecto").empty();
 	$(".all").fadeOut(600);
 	$(".titulorojo").animate({"width":"0"},600);
 	$(".titulorojo2").animate({"width":"0"},600);
@@ -65,7 +76,6 @@ function verhome(){
 	$(".pmenu").removeClass("active");
 	$(".mhome").addClass("active");
 	$(".bgall").fadeOut(600);
-	//$("#bgvid3")[0].pause();
 	$(".videoproyecto").empty();
 	//$(".bgall")[0].pause();
 	$(".all").fadeOut(600);
@@ -80,7 +90,7 @@ function reproduceproyecto(){
 	$("#bgvid3").on(
 	    "timeupdate", 
    			function (event){
-   			console.log("entro");
+   			//console.log("entro");
 		    var vid = document.getElementById('bgvid3');
 		    var percent = null;
 		    var percent2 = null;
@@ -95,6 +105,10 @@ function reproduceproyecto(){
 
 function verproyecto(id){
 	closemenu();
+	closegallery();
+	$(".galleryright").empty();
+	$(".videoproyecto").empty();
+	$(".proyecto").empty();
 	$(".pmenu").removeClass("active");
 	$(".mwork").addClass("active");
 	$(".bgall").fadeOut(600);
@@ -102,10 +116,14 @@ function verproyecto(id){
 	//$(".bgall")[0].pause();
 	html='';
 	html2='';
+	html3='';
 	html+='<h2>Subtitulo</h2>';
 	html+='<h1>NOMBRE CORTO</h1>';
 	html+='<div class="row aboutborder">';
-	html+='<p>Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.</p>';
+	html+='<p style="margin:0;">Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.</p>';
+	html+='</div>';
+	html+='<div class="row">';
+	html+='<div class="col-sm-3 proylink"><button onclick="opengallery()">GALLERY</button></div>';
 	html+='</div>';
 	$(".proyecto").append(html);
 	html2+='<video id="bgvid3" loop muted>';
@@ -113,7 +131,13 @@ function verproyecto(id){
 	html2+='</video>';
 	//console.log(html);
 	$(".videoproyecto").append(html2);
+	html3+='<div class="row">';
+	html3+='<div class="col-sm-10 sidemenu"><ul><li>Gallery</li></ul></div>';
+	html3+='<span class="closebutton" onclick="closegallery()"><img src="http://localhost:8080/donporfirio2/donporfirio/img/cls.png" /></span>';
+	html3+='</div>';
+	$(".galleryright").append(html3);
 	$(".all").fadeOut(600);
+	$(".galleryright").delay(600).fadeIn(600);
 	$(".videoproyecto").delay(600).fadeIn(600,function(){
 		reproduceproyecto();
 		$("#bgvid3")[0].currentTime = 0;

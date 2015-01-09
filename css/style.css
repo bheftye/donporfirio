@@ -88,7 +88,7 @@ h2{
 .bwatch{
 	padding:2px 40px;
 	font-family: 'AkzidenzGrotesk-BoldItalic';
-	color:#ff5858;
+	color:#f90e32;
 	text-transform:uppercase;
 	background:#fff;
 	border:none;
@@ -99,7 +99,7 @@ h2{
     transition: all 0.6s;
 }
 .bwatch:hover{
-	background:#ff5858;
+	background:#f90e32;
 	color:#fff;
 }
 @media(max-width:1199px){
@@ -173,7 +173,7 @@ h2{
 }
 #menu ul li a.active, #menu ul li a:hover{
 	font-family: 'AkzidenzGrotesk-Bold';
-	color:#ff5858;
+	color:#f90e32;
 }
 .idioma a{
 	font-family: 'AkzidenzGrotesk-Italic' !important;
@@ -184,7 +184,7 @@ h2{
 }
 .idioma a.active, .idioma a:hover{
 	font-family: 'AkzidenzGrotesk-Italic' !important;
-	color:#ff5858;
+	color:#f90e32;
 }
 .sidemenu ul{
 	padding:20px 0;
@@ -203,7 +203,7 @@ h2{
     transition: all 0.6s;
 }
 .sidemenu ul li.active, .sidemenu ul li:hover{
-	color:#ff5858;
+	color:#f90e32;
 }
 /*************************************INICIO***************************************/
 .titulorojo, .titulorojo2{
@@ -301,8 +301,8 @@ button.redesb{
     transition: all 0.6s;
 }
 button.redesb:hover{
-	background:#fff;
-	color:#000;
+	background:#f90e32;
+	color:#fff;
 }
 @media(max-width:991px){
 	.textboldw{
@@ -315,6 +315,23 @@ button.redesb:hover{
 }
 .videoproyecto{
 	display:none;
+}
+.galleryright{
+	display:none;
+	position:absolute;
+	right:-60%;
+	top:0;
+	width:60%;
+	height:100%;
+	background:#fff;
+	z-index:900;
+	border: 2px solid #fff;
+	overflow-y: auto;
+	overflow-x:hidden;
+	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
+	-o-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+    transition: all 0.6s;
 }
 /*********************************CONTACTO******************************************/
 #contacto{
@@ -381,7 +398,7 @@ button.redes{
     transition: all 0.6s;
 }
 button.redes:hover{
-	background:#000;
+	background:#f90e32;
 	color:#fff;
 }
 @media(max-width:991px){

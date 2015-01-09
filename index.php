@@ -124,6 +124,12 @@
 		}
 		?>
 	</div>
+	<div class="galleryright">
+		<div class="row">
+				<div class="col-sm-10 sidemenu"></div>
+			<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
+		</div>
+	</div>
 </div>
 <div id="contacto">
 	<span class="closebutton" onclick="hidecontact()"><img src="<?=mypath?>img/cls.png" /></span>
