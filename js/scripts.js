@@ -48,10 +48,23 @@ $("#fullscreenvideo").on('click',function(){
 function verabout(){
 	$(".pmenu").removeClass("active");
 	$(".mabout").addClass("active");
-	$("#bgvid").fadeOut(1000);
+	$(".bgall").fadeOut(600);
 	$("#bgvid")[0].pause();
-	$(".hometitle").fadeOut(600,function(){
-		$(".about").fadeIn(600);
-		$(".aboutbg").fadeIn(600);
+	$(".all").fadeOut(600);
+	$(".titulorojo").width(0);
+	$(".titulorojo2").width(0);
+	$(".aboutbg").delay(600).fadeIn(600);
+	$(".about").delay(600).fadeIn(600);
+}
+function verhome(){
+	$(".pmenu").removeClass("active");
+	$(".mhome").addClass("active");
+	$(".bgall").fadeOut(600);
+	//$(".bgall")[0].pause();
+	$(".all").fadeOut(600);
+	$("#bgvid").delay(600).fadeIn(600,function(){
+		$("#bgvid")[0].currentTime = 0;
+		$("#bgvid")[0].play();
 	});
+	$(".hometitle").delay(600).fadeIn(600);
 }

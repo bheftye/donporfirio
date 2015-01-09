@@ -41,5 +41,5 @@ include_once('lang/'.$idioma.'.php');
         <title>Don Porfirio</title>
 </head>
 <body>
-<div id="wraper">
 <div id="wraperfondo"></div>
+<div id="wraper">

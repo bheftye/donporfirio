@@ -7,13 +7,13 @@
 		$src_hd = $lista_videos_slide[0]["nombre_video_hd"];
 	}
 ?>
-<div class="aboutbg"></div>
+<div class="bgall aboutbg"></div>
 <div id="fullscreenvideo">
 	<video id="bgvid2">
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
 	</video>
 </div>
-<video autoplay muted id="bgvid" loop>
+<video autoplay muted id="bgvid" class="bgall" loop>
 	<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4">
 </video>
 <div class="contenido collapse in">
@@ -27,7 +27,7 @@
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a class="pmenu mhome active" href="#home" onclick="changecursor()">Home</a></li>
+				<li><a class="pmenu mhome active" href="#home" onclick="verhome()">Home</a></li>
 				<li><a class="pmenu mwork" href="#work" onclick="openmenu()">Work</a></li>
 				<li><a class="pmenu mabout" href="#about" onclick="verabout()">About</a></li>
 				<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()">Contact</a></li>
@@ -48,11 +48,11 @@
 				<img style="max-width:100%;" src="<?=mypath?>img/bd.png" />
 			</div>
 		</div>
-		<div class="col-sm-6 col-sm-push-6 hometitle">
+		<div class="col-sm-6 col-sm-push-6 hometitle all">
 			<h1><?=$lista_videos_slide[0]["titulo_video"]?></h1>
 			<button class="bwatch" onclick="showvideo()">watch</button>
 		</div>
-		<div class="col-sm-8 col-sm-push-4 about">
+		<div class="col-sm-8 col-sm-push-4 about all">
 			<h2>ABOUT</h2>
 			<h1>BROADCAST DESIGN & MOTION GRAPHICS</h1>
 			<div class="row">
@@ -61,7 +61,7 @@
 					<p style="margin:0;">Driven by passion, creativity and love for great design, we create high impact animation.</p>
 				</div>
 				<div class="col-sm-9 col-sm-push-3 redesabout">
-					<span class="textbold">FOLLOW US:</span>
+					<span class="textboldw">FOLLOW US:</span>
 					<a href="#" target="_blank" style="display: block;">
 						<button class="redesb">
 							<i class="fa fa-vimeo-square" style="font-size:15px;"></i>
@@ -180,28 +180,28 @@
 						<div class="col-sm-3" style="padding:0;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-vimeo-square fa-2x"></i>
+									<i class="fa fa-vimeo-square" style="font-size:15px;"></i>
 								</button>
 							</a>
 						</div>
 						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-behance fa-2x"></i>
+									<i class="fa fa-behance" style="font-size:15px;"></i>
 								</button>
 							</a>
 						</div>
 						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-twitter fa-2x"></i>
+									<i class="fa fa-twitter" style="font-size:15px;"></i>
 								</button>
 							</a>
 						</div>
 						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-facebook fa-2x"></i>
+									<i class="fa fa-facebook" style="font-size:15px;"></i>
 								</button>
 							</a>
 						</div>

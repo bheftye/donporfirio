@@ -15,7 +15,7 @@ html,body{
 #wraper{
 	position:relative;
 	height:100%;
-	border: 2px solid #fff;
+	/*border: 2px solid #fff;*/
 	overflow:hidden;
 }
 #wraperfondo{
@@ -170,8 +170,18 @@ h2{
 	font-family: 'AkzidenzGrotesk-Regular';
 	text-align: justify;
 }
+.redesabout{
+	text-align:right;
+	padding:0;
+	margin-top:-1px;
+}
 .redesabout a{
 	display: inline !important;
+}
+.textboldw{
+	font-family: 'AkzidenzGrotesk-BoldItalic';
+	color:#fff;
+	margin-right:60px;
 }
 button.redesb{
 	border:1px solid #fff;
