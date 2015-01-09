@@ -4,11 +4,12 @@
 	$lista_videos_slide = $video_slide -> listar_videos_slide_activos();
 	if(count($lista_videos_slide) > 0){
 		$src_tmp = $lista_videos_slide[0]["nombre_video"];
+		$src_hd = $lista_videos_slide[0]["nombre_video_hd"];
 	}
 ?>
 <div id="fullscreenvideo">
 	<video id="bgvid2">
-		<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4">
+		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
 	</video>
 </div>
 <video autoplay muted id="bgvid" loop>
