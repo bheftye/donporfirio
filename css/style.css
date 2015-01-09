@@ -60,6 +60,15 @@ video#bgvid2 {
 	width: auto; 
 	height: auto; 
 }
+video#bgvid3 {
+	position: fixed; 
+	right: 0; 
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	width: auto; 
+	height: auto; 
+}
 h1{
 	font-size:105px;
 	font-family: 'AkzidenzGrotesk-Bold';
@@ -299,6 +308,13 @@ button.redesb:hover{
 	.textboldw{
 		margin-right:40px;
 	}
+}
+/********************************PROYECTOS*******************************************/
+.proyecto{
+	display:none;
+}
+.videoproyecto{
+	display:none;
 }
 /*********************************CONTACTO******************************************/
 #contacto{

@@ -53,9 +53,10 @@ function verabout(){
 	$(".mabout").addClass("active");
 	$(".bgall").fadeOut(600);
 	$("#bgvid")[0].pause();
+	//$("#bgvid3")[0].pause();
 	$(".all").fadeOut(600);
-	$(".titulorojo").animate({"width":"0"},600);;
-	$(".titulorojo2").animate({"width":"0"},600);;
+	$(".titulorojo").animate({"width":"0"},600);
+	$(".titulorojo2").animate({"width":"0"},600);
 	$(".aboutbg").delay(600).fadeIn(600);
 	$(".about").delay(600).fadeIn(600);
 }
@@ -64,6 +65,8 @@ function verhome(){
 	$(".pmenu").removeClass("active");
 	$(".mhome").addClass("active");
 	$(".bgall").fadeOut(600);
+	//$("#bgvid3")[0].pause();
+	$(".videoproyecto").empty();
 	//$(".bgall")[0].pause();
 	$(".all").fadeOut(600);
 	$("#bgvid").delay(600).fadeIn(600,function(){
@@ -71,6 +74,52 @@ function verhome(){
 		$("#bgvid")[0].play();
 	});
 	$(".hometitle").delay(600).fadeIn(600);
+}
+
+function reproduceproyecto(){
+	$("#bgvid3").on(
+	    "timeupdate", 
+   			function (event){
+   			console.log("entro");
+		    var vid = document.getElementById('bgvid3');
+		    var percent = null;
+		    var percent2 = null;
+		    var percent = 137*(vid.currentTime/vid.duration);
+		    var percent2 = 51*(vid.currentTime/vid.duration);
+		    //console.log(percent);
+	        //$('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
+	        $(".titulorojo").width(percent+"px");
+	        $(".titulorojo2").width(percent2+"px");
+	});
+}
+
+function verproyecto(id){
+	closemenu();
+	$(".pmenu").removeClass("active");
+	$(".mwork").addClass("active");
+	$(".bgall").fadeOut(600);
+	$("#bgvid")[0].pause();
+	//$(".bgall")[0].pause();
+	html='';
+	html2='';
+	html+='<h2>Subtitulo</h2>';
+	html+='<h1>NOMBRE CORTO</h1>';
+	html+='<div class="row aboutborder">';
+	html+='<p>Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.</p>';
+	html+='</div>';
+	$(".proyecto").append(html);
+	html2+='<video id="bgvid3" loop muted>';
+	html2+='<source src="http://localhost:8080/donporfirio2/donporfirio/vidProyectos/482c2daa.mp4" id="mp4Source"  type="video/mp4">';
+	html2+='</video>';
+	//console.log(html);
+	$(".videoproyecto").append(html2);
+	$(".all").fadeOut(600);
+	$(".videoproyecto").delay(600).fadeIn(600,function(){
+		reproduceproyecto();
+		$("#bgvid3")[0].currentTime = 0;
+		$("#bgvid3")[0].play();
+	});
+	$(".proyecto").delay(600).fadeIn(600);
 }
 
 $(document).ready(function(){
@@ -87,4 +136,22 @@ $(document).ready(function(){
 	}else{
 		console.log(hashTag);	
 	}
+});
+
+$(document).ready(function(){
+		//console.log("hola");
+	$("#bgvid").on(
+	    "timeupdate", 
+   			function (event){
+   			//console.log("entro");
+		    var vid = document.getElementById('bgvid');
+		    var percent = null;
+		    var percent2 = null;
+		    var percent = 137*(vid.currentTime/vid.duration);
+		    var percent2 = 51*(vid.currentTime/vid.duration);
+		    //console.log(percent);
+	        //$('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
+	        $(".titulorojo").width(percent+"px");
+	        $(".titulorojo2").width(percent2+"px");
+	});
 });

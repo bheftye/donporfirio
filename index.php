@@ -8,6 +8,7 @@
 	}
 ?>
 <div class="bgall aboutbg"></div>
+<div class="bgall videoproyecto"></div>
 <div id="fullscreenvideo">
 	<video id="bgvid2">
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
@@ -85,6 +86,7 @@
 				</div>
 			</div>
 		</div>
+		<div class="col-sm-6 col-sm-push-6 proyecto all"></div>
 	</div>
 	<!-- Website Content -->
 	<div class="menuright">
@@ -116,7 +118,7 @@
 		$i=0;
 		while($i<6){
 		?>
-		<img style="width:100%; margin: 1px 0;" src="<?=mypath?>img/ejemwork.jpg" />
+		<a href="#proyecto" onclick="verproyecto(1)"><img style="width:100%; margin: 1px 0;" src="<?=mypath?>img/ejemwork.jpg" /></a>
 		<?php
 		$i++;
 		}
@@ -220,22 +222,3 @@
 	</div>
 </div>
 <?php include_once('includes/footer.php') ?>
-<script type='text/javascript'>
-	$(document).ready(function(){
-		//console.log("hola");
-	  $("#bgvid").on(
-	    "timeupdate", 
-   			function (event){
-   			//console.log("entro");
-		    var vid = document.getElementById('bgvid');
-		    var percent = null;
-		    var percent2 = null;
-		    var percent = 137*(vid.currentTime/vid.duration);
-		    var percent2 = 51*(vid.currentTime/vid.duration);
-		    //console.log(percent);
-	        //$('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
-	        $(".titulorojo").width(percent+"px");
-	        $(".titulorojo2").width(percent2+"px");
-			});
-	});
-</script>
