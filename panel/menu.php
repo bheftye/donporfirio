@@ -11,5 +11,8 @@
                 <li <?php if ($page =="listproyecto.php"  or $page == "formproyecto.php"){ echo "class='active'";} ?>><a href="listproyecto.php">Proyectos</a>
                 </li>
                 <hr class="hrmenu">
+                <li <?php if ($page =="listcategoria.php"  or $page == "formcategoria.php"){ echo "class='active'";} ?>><a href="listcategoria.php">Categorías</a>
+                </li>
+                <hr class="hrmenu">
             </ul>
         </div>
