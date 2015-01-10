@@ -1,3 +1,5 @@
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/';
+
 function openmenu(){
 	$(".menuright").animate({"right":"0"},100);
 	$(".mwork").addClass("active");
@@ -22,6 +24,7 @@ function viewcontact(){
 	$(".contenido").animate({"top":"-400px"},600);
 	$("#contacto").animate({"top":"-400px"},600);
 	$("#bgvid").animate({"top":"-400px"},600);
+	$("#bgvid3").animate({"top":"-400px"},600);
 }
 
 function hidecontact(){
@@ -29,6 +32,7 @@ function hidecontact(){
 	$(".contenido").animate({"top":"0"},600);
 	$("#contacto").animate({"top":"0"},600);
 	$("#bgvid").animate({"top":"0"},600);
+	$("#bgvid3").animate({"top":"0"},600);
 }/*
 function changecursor(){
 	console.log("cursor cambiado");
@@ -40,7 +44,7 @@ function showvideo(){
 	$("#wraperfondo").fadeOut(1000);
 	$("#bgvid").fadeOut(1000);
 	$("#contacto").hide();
-	$('body').css('cursor', 'url(./img/cls.png),auto');
+	$('body').css('cursor', 'url(./img/clsr.png),auto');
 	$("#bgvid")[0].pause();
 	$("#fullscreenvideo").show();
 	$("#bgvid2")[0].currentTime = 0;
@@ -57,6 +61,18 @@ $("#fullscreenvideo").on('click',function(){
 	$('body').css('cursor','auto');
 	$("#bgvid")[0].currentTime = 0;
 	$("#bgvid")[0].play();
+});
+
+$("#fullscreenvideo2").on('click',function(){
+	$("#fullscreenvideo2").hide();
+	$("#bgvid4")[0].pause();
+	$(".contenido").fadeIn(1000);
+	$("#wraperfondo").fadeIn(1000);
+	$("#bgvid3").fadeIn(1000);
+	$("#contacto").show();
+	$('body').css('cursor','auto');
+	$("#bgvid3")[0].currentTime = 0;
+	$("#bgvid3")[0].play();
 });
 
 function verabout(){
@@ -103,6 +119,18 @@ function reproduceproyecto(){
 	});
 }
 
+function reproduceproyectohd(){
+	$(".contenido").fadeOut(1000);
+	$("#wraperfondo").fadeOut(1000);
+	$("#bgvid3").fadeOut(1000);
+	$("#contacto").hide();
+	$('body').css('cursor', 'url(./img/clsr.png),auto');
+	$("#bgvid3")[0].pause();
+	$("#fullscreenvideo2").show();
+	$("#bgvid4")[0].currentTime = 0;
+	$("#bgvid4")[0].play();
+}
+
 function verproyecto(id){
 	closemenu();
 	closegallery();
@@ -117,27 +145,43 @@ function verproyecto(id){
 	html='';
 	html2='';
 	html3='';
+	html4='';
 	html+='<h2>Subtitulo</h2>';
 	html+='<h1>NOMBRE CORTO</h1>';
 	html+='<div class="row aboutborder">';
 	html+='<p style="margin:0;">Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.</p>';
 	html+='</div>';
 	html+='<div class="row">';
-	html+='<div class="col-sm-3 proylink"><button onclick="opengallery()">GALLERY</button></div>';
+	html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">WATCH</button></div>';
+	html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">GALLERY</button></div>';
+	html+='<div class="col-sm-3 proylink"><button class="proybutton">BEHANCE</button></div>';
+	html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">SHARE</button></div>';
+	html+='</div>';
+	html+='<div class="row" style="margin-top:-1px;">';
+	html+='<div class="col-sm-6 proylink"><button class="proybutton">PREVIOUS PROJECT</button></div>';
+	html+='<div class="col-sm-6 proylink"><button class="proybutton">NEXT PROJECT</button></div>';
 	html+='</div>';
 	$(".proyecto").append(html);
 	html2+='<video id="bgvid3" loop muted>';
-	html2+='<source src="http://localhost:8080/donporfirio2/donporfirio/vidProyectos/482c2daa.mp4" id="mp4Source"  type="video/mp4">';
+	html2+='<source src="'+mypath+'vidProyectos/482c2daa.mp4" id="mp4Source"  type="video/mp4">';
 	html2+='</video>';
 	//console.log(html);
 	$(".videoproyecto").append(html2);
 	html3+='<div class="row">';
 	html3+='<div class="col-sm-10 sidemenu"><ul><li>Gallery</li></ul></div>';
-	html3+='<span class="closebutton" onclick="closegallery()"><img src="http://localhost:8080/donporfirio2/donporfirio/img/cls.png" /></span>';
+	html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
 	html3+='</div>';
+	html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'img/ejemwork.jpg" />';
+	html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'img/ejemwork.jpg" />';
+	html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'img/ejemwork.jpg" />';
 	$(".galleryright").append(html3);
+	html4+='<video id="bgvid4">';
+	html4+='<source src="'+mypath+'vidProyectos/a35e3627.mp4" id="mp4Source"  type="video/mp4">';
+	html4+='</video>';
+	$("#fullscreenvideo2").append(html4);
 	$(".all").fadeOut(600);
 	$(".galleryright").delay(600).fadeIn(600);
+	//$("#fullscreenvideo2").delay(600).fadeIn(600);
 	$(".videoproyecto").delay(600).fadeIn(600,function(){
 		reproduceproyecto();
 		$("#bgvid3")[0].currentTime = 0;

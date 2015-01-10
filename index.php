@@ -9,6 +9,7 @@
 ?>
 <div class="bgall aboutbg"></div>
 <div class="bgall videoproyecto"></div>
+<div id="fullscreenvideo2"></div>
 <div id="fullscreenvideo">
 	<video id="bgvid2">
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">

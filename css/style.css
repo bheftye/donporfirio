@@ -69,6 +69,15 @@ video#bgvid3 {
 	width: auto; 
 	height: auto; 
 }
+video#bgvid4 {
+	position: relative; 
+	right: 0; 
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	width: auto; 
+	height: auto; 
+}
 h1{
 	font-size:105px;
 	font-family: 'AkzidenzGrotesk-Bold';
@@ -124,6 +133,14 @@ h2{
 @media(max-height:680px){
 	h1{
 		font-size:90px;
+	}
+}
+@media(max-height:640px){
+	h2{
+		font-size:25px;
+	}
+	h1{
+		font-size:70px;
 	}
 }
 /**********************************MENU********************************************/
@@ -332,6 +349,34 @@ button.redesb:hover{
 	-o-transition: all 0.6s;
 	-moz-transition: all 0.6s;
     transition: all 0.6s;
+}
+.proylink{
+	padding:0px;
+	margin-top:-1px;
+}
+button.proybutton{
+	width:100%;
+	text-align:center;
+	border:1px solid #fff;
+	background:none;
+	font-family: 'AkzidenzGrotesk-BoldItalic';
+	padding:2px 0;
+	color:#fff;
+	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
+	-o-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+button.watchproy{
+	background:#fff;
+	color:#f90e32;
+}
+button.proybutton:hover{
+	background:#f90e32;
+	color:#fff;
+}
+#fullscreenvideo2{
+	display:none;
 }
 /*********************************CONTACTO******************************************/
 #contacto{
