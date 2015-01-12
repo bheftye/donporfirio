@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 09-01-2015 a las 18:32:09
+-- Tiempo de generación: 12-01-2015 a las 18:41:53
 -- Versión del servidor: 5.5.38
 -- Versión de PHP: 5.5.14
 
@@ -27,7 +27,17 @@ CREATE TABLE `categorias_proyectos` (
   `status` tinyint(1) NOT NULL,
   `mostrar` tinyint(1) NOT NULL,
   `orden` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+
+--
+-- Volcado de datos para la tabla `categorias_proyectos`
+--
+
+INSERT INTO `categorias_proyectos` (`id_categoria`, `nombre_esp`, `nombre_eng`, `status`, `mostrar`, `orden`) VALUES
+(4, 'DISEÃ‘O DE EMISIÃ“N', 'BROADCAST DESIGN', 0, 0, 0),
+(5, '3D', '3D', 0, 0, 2),
+(6, '2D', '2D', 0, 0, 3),
+(7, 'DEPORTES', 'SPORTS', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -225,7 +235,7 @@ CREATE TABLE `permiso` (
   `nompermiso` varchar(255) NOT NULL,
   `clavepermiso` varchar(255) NOT NULL,
   `status` int(5) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=88 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=89 ;
 
 --
 -- Volcado de datos para la tabla `permiso`
@@ -270,7 +280,8 @@ INSERT INTO `permiso` (`idpermiso`, `nompermiso`, `clavepermiso`, `status`) VALU
 (84, 'Eliminar Proyecto', 'ElimProy', 1),
 (85, 'Activar y Desactivar Proyecto', 'AcDcProy', 1),
 (86, 'Editar Proyecto', 'ModProy', 1),
-(87, 'Ordenar Tabla de Videoslides', 'SortTableVidSli', 1);
+(87, 'Ordenar Tabla de Videoslides', 'SortTableVidSli', 1),
+(88, 'Ordenar CategorÃ­as de Proyectos', 'SortTableCat', 1);
 
 -- --------------------------------------------------------
 
@@ -309,11 +320,36 @@ CREATE TABLE `proyectos` (
 
 INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_esp`, `subtitulo_eng`, `descripcion_esp`, `descripcion_eng`, `nombre_video`, `nombre_preview`, `nombre_video_hd`, `img_principal`, `orden`, `status`, `mostrar`, `meta_titulo_esp`, `meta_descripcion_esp`, `url_amigable`, `fecha_creacion`, `fecha_modificacion`, `behance`, `meta_titulo_eng`, `meta_descripcion_eng`) VALUES
 (26, 'SPORTS PACKAGE 2014', 'CBC SPORTS', 'CBC SPORTS', 'SPORTS PACKAGE 2014', '&lt;p&gt;Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.&lt;br&gt;&lt;br&gt;Esta vez fuimos comisionados para diseÃ±ar el look de los paquetes graficos tanto para invierno como para verano de CBC Sports. Desarrollamos una serie de ambientes que nos sirvieron para dar vida a estas piezas llenas de energia que celebran el amor por el deporte.&lt;br&gt;&lt;/p&gt;', 'Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.&lt;br&gt;', '5a243ee6.mp4', '5a9035dc.mp4', '525cd72a.mp4', '957ec1a6.jpg', 26, 0, 0, 'SPORTS PACKAGE 2014', 'Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.\r\n\r\nEsta vez fuimos comisionados para diseÃ±a', 'cbc-sports', '2015-01-08', '2015-01-09', '', 'CBC SPORTS', 'Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comis'),
-(27, 'LONDON CALLING 2014', 'LONDON CALLING 2014', 'BBC ENTERTAINMENT', 'BBC ENTERTAINMENT', '&lt;p&gt;Fuimos comisionados para desarrollar el nuevo paquete grÃ¡fico para London Calling, inspirado en el Underground de la ciudad de Londres. Generamos una serie completa de ambientes subterrÃ¡neos y utilizamos estos espacios para dar vida a los diferentes elementos que conforman el paquete.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;We were invited to create the graphics package for BBC&#039;s London Calling inspired in the Underground of London. We generated a series of cg underground environments that we used to give life to the different elements that integrate this cool package.&lt;br&gt;&lt;/p&gt;', '81b42f33.mp4', '5586711c.mp4', '', 'dfb825aa.jpg', 27, 0, 0, 'LONDON CALLING 2014', '&lt;p&gt;Fuimos comisionados para desarrollar el nuevo paquete grÃ¡fico para London Calling, inspirado en el Underground de la ciudad de Londres. Generamos una ', 'london-calling-2014', '2015-01-08', '2015-01-08', '', 'LONDON CALLING 2014', '&lt;p&gt;We were invited to create the graphics package for BBC&#039;s London Calling inspired in the Underground of London. We generated a series of cg undergr'),
-(28, 'CONFERENCE OPENING TITLES', 'CONFERENCE OPENING TITLES', 'DH17', 'DH17', '&lt;div&gt;Nuestros amigos de&amp;nbsp;TIPOS LIBRES&amp;nbsp;organizadores de uno de los eventos de diseÃ±o mÃ¡s importantes en MÃ©xico conocido como&amp;nbsp;&quot;DEJANDO HUELLA&quot;, nos invitaron a colaborar con ellos en el desarrollo de la secuencia de tÃ­tulos en su ediciÃ³n No.17&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;El&amp;nbsp;DH17&amp;nbsp;tuvo como concepto general la temÃ¡tica&amp;nbsp;&quot;HAY MUCHAS HISTORIAS POR CONTAR&quot;&amp;nbsp;por lo que nos pareciÃ³ interesante que los tÃ­tulos contaran la historia de algo que nos une a todos los creativos y diseÃ±adores sin importar la especialidad. Nuestro proceso creativo.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;La secuencia de entrada, explora el proceso creativo a travÃ©z de diferentes Ã¡ngulos mostrando la diversa manera en que nosotros los creativos podemos atacar un proyecto en busca de una soluciÃ³n grÃ¡fica. Es una historia que nos habla de inpisraciÃ³n, creaciÃ³n y genio creativo para finalizar en el nacimiento de una nueva ediciÃ³n de este gran evento, el&amp;nbsp;DH17.&lt;/div&gt;', '&lt;div&gt;Our friends at TIPOS LIBRES, organize every year one of the top design conferences in Mexico and this year they inveited us to create the opening titles for them.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;This year&#039;s event was based on the concept &quot;THERE ARE MANY STORIES TO TELL&quot;. This is why we found very interesting to play with an idea that all we creatives share... our creative process.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;The opening titles explore the creative process of every designer trough a series of shots and that show different stages of creation and inspiration.&lt;/div&gt;', '7befe482.mp4', '', '', '67539e76.jpg', 28, 0, 0, 'CONFERENCE OPENING TITLES', '&lt;div&gt;Nuestros amigos de&amp;nbsp;TIPOS LIBRES&amp;nbsp;organizadores de uno de los eventos de diseÃ±o mÃ¡s importantes en MÃ©xico conocido como&amp;nbsp;&', 'conference-opening-titles', '2015-01-08', '2015-01-08', '', 'CONFERENCE OPENING TITLES', '&lt;div&gt;Our friends at TIPOS LIBRES, organize every year one of the top design conferences in Mexico and this year they inveited us to create the opening tit'),
-(29, 'CINEMATIC TRAILER', 'CINEMATIC TRAILER', 'BBC EARTH + CINEMARK', 'BBC EARTH + CINEMARK', '&lt;p&gt;Creamos para BBC los tÃ­tulos animados que forman parte del trailer oficial para esta nueva e increible serie de documentales que se podrÃ¡n ver en las salas de Cinemark en LatinoamÃ©rica.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;We created for BBC the animated titles that are included in the official trailer for their upcoming series of incredible documentaries that will hit Latinoamerica on Cinemark.&lt;br&gt;&lt;/p&gt;', 'a35e3627.mp4', '', '', '70ca98e3.jpg', 29, 0, 0, 'CINEMATIC TRAILER', '&lt;p&gt;Creamos para BBC los tÃ­tulos animados que forman parte del trailer oficial para esta nueva e increible serie de documentales que se podrÃ¡n ver en las', 'cinematic-trailer', '2015-01-08', '2015-01-08', '', 'CINEMATIC TRAILER', '&lt;p&gt;We created for BBC the animated titles that are included in the official trailer for their upcoming series of incredible documentaries that will hit La'),
-(30, 'NIDO', 'NIDO', 'NIDO', 'NIDO', '&lt;div&gt;En esta maternal pieza creada para el lanzamiento de la promocion de NIDO para el dia de las madres, se buscaba generar una pieza que pareciera intervenida por niÃ±os donde ademÃ¡s se mostrara el regalo incluido debajo de la tapa del producto, de una manera dinÃ¡mica y elegante.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;Desarrollamos tÃ­tulos animados en 2D con tÃ©cnicas tradicionales y generamos los productos 3D realistas integrÃ¡ndolos a un ambiente fotogrÃ¡fico para generar una pieza alegre y llena de vida, con una interesante secuencia de producto&lt;/div&gt;', '&lt;div&gt;This is a piece created to promote the campaign for Mother&#039;s Day. The intention was to give the piece a real feel of kids talking to their moms, which is why we created titles drawn by hand&amp;nbsp; and animated with traditional techniques that mimic a kid style and personalty.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;We also created the CG product animated sequence that shows the gift that comes inside every product.&lt;/div&gt;', '9b2abb2b.mp4', '', '', '5d4f7c81.jpg', 30, 0, 0, 'NIDO', '&lt;div&gt;En esta maternal pieza creada para el lanzamiento de la promocion de NIDO para el dia de las madres, se buscaba generar una pieza que pareciera inter', 'nido', '2015-01-08', '2015-01-08', '', 'NIDO', '&lt;div&gt;This is a piece created to promote the campaign for Mother&#039;s Day. The intention was to give the piece a real feel of kids talking to their moms,'),
-(31, 'GAMEDAY GRAPHICS PACKAGE', 'GAMEDAY GRAPHICS PACKAGE', 'CBC SPORTS ', 'CBC SPORTS ', '&lt;p&gt;GAMEDAY es un show de CBC Sports acerca de la NHL y lo que pasa en el mundo del Hockey profesional. Big Studios Inc. nos invito a desarrollamos el paquete grafico para el show.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;GAMEDAY is a CBC Sports show about the NHL and everything related to the world of professional hockey. Big Studios Inc invited us to create the Graphics Package for the show.&lt;br&gt;&lt;/p&gt;', '482c2daa.mp4', '', '', '129ee070.jpg', 31, 0, 0, 'GAMEDAY GRAPHICS PACKAGE', '&lt;p&gt;GAMEDAY es un show de CBC Sports acerca de la NHL y lo que pasa en el mundo del Hockey profesional. Big Studios Inc. nos invito a desarrollamos el paqu', 'gameday-graphics-package', '2015-01-08', '2015-01-08', '', 'GAMEDAY GRAPHICS PACKAGE', '&lt;p&gt;GAMEDAY is a CBC Sports show about the NHL and everything related to the world of professional hockey. Big Studios Inc invited us to create the Graphic');
+(27, 'LONDON CALLING 2014', 'LONDON CALLING 2014', 'BBC ENTERTAINMENT', 'BBC ENTERTAINMENT', '&lt;p&gt;Fuimos comisionados para desarrollar el nuevo paquete grÃ¡fico para London Calling, inspirado en el Underground de la ciudad de Londres. Generamos una serie completa de ambientes subterrÃ¡neos y utilizamos estos espacios para dar vida a los diferentes elementos que conforman el paquete.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;We were invited to create the graphics package for BBC&#039;s London Calling inspired in the Underground of London. We generated a series of cg underground environments that we used to give life to the different elements that integrate this cool package.&lt;br&gt;&lt;/p&gt;', '81b42f33.mp4', '5586711c.mp4', '', 'dfb825aa.jpg', 27, 0, 0, 'LONDON CALLING 2014', '&lt;p&gt;Fuimos comisionados para desarrollar el nuevo paquete grÃ¡fico para London Calling, inspirado en el Underground de la ciudad de Londres. Generamos una ', 'london-calling-2014', '2015-01-08', '2015-01-09', '', 'LONDON CALLING 2014', '&lt;p&gt;We were invited to create the graphics package for BBC&#039;s London Calling inspired in the Underground of London. We generated a series of cg undergr'),
+(28, 'CONFERENCE OPENING TITLES', 'CONFERENCE OPENING TITLES', 'DH17', 'DH17', '&lt;div&gt;Nuestros amigos de&amp;nbsp;TIPOS LIBRES&amp;nbsp;organizadores de uno de los eventos de diseÃ±o mÃ¡s importantes en MÃ©xico conocido como&amp;nbsp;&quot;DEJANDO HUELLA&quot;, nos invitaron a colaborar con ellos en el desarrollo de la secuencia de tÃ­tulos en su ediciÃ³n No.17&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;El&amp;nbsp;DH17&amp;nbsp;tuvo como concepto general la temÃ¡tica&amp;nbsp;&quot;HAY MUCHAS HISTORIAS POR CONTAR&quot;&amp;nbsp;por lo que nos pareciÃ³ interesante que los tÃ­tulos contaran la historia de algo que nos une a todos los creativos y diseÃ±adores sin importar la especialidad. Nuestro proceso creativo.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;La secuencia de entrada, explora el proceso creativo a travÃ©z de diferentes Ã¡ngulos mostrando la diversa manera en que nosotros los creativos podemos atacar un proyecto en busca de una soluciÃ³n grÃ¡fica. Es una historia que nos habla de inpisraciÃ³n, creaciÃ³n y genio creativo para finalizar en el nacimiento de una nueva ediciÃ³n de este gran evento, el&amp;nbsp;DH17.&lt;/div&gt;', '&lt;div&gt;Our friends at TIPOS LIBRES, organize every year one of the top design conferences in Mexico and this year they inveited us to create the opening titles for them.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;This year&#039;s event was based on the concept &quot;THERE ARE MANY STORIES TO TELL&quot;. This is why we found very interesting to play with an idea that all we creatives share... our creative process.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;The opening titles explore the creative process of every designer trough a series of shots and that show different stages of creation and inspiration.&lt;/div&gt;', '7befe482.mp4', '', '', '67539e76.jpg', 28, 0, 0, 'CONFERENCE OPENING TITLES', '&lt;div&gt;Nuestros amigos de&amp;nbsp;TIPOS LIBRES&amp;nbsp;organizadores de uno de los eventos de diseÃ±o mÃ¡s importantes en MÃ©xico conocido como&amp;nbsp;&amp;', 'conference-opening-titles', '2015-01-08', '2015-01-09', '', 'CONFERENCE OPENING TITLES', '&lt;div&gt;Our friends at TIPOS LIBRES, organize every year one of the top design conferences in Mexico and this year they inveited us to create the opening tit'),
+(29, 'CINEMATIC TRAILER', 'CINEMATIC TRAILER', 'BBC EARTH + CINEMARK', 'BBC EARTH + CINEMARK', '&lt;p&gt;Creamos para BBC los tÃ­tulos animados que forman parte del trailer oficial para esta nueva e increible serie de documentales que se podrÃ¡n ver en las salas de Cinemark en LatinoamÃ©rica.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;We created for BBC the animated titles that are included in the official trailer for their upcoming series of incredible documentaries that will hit Latinoamerica on Cinemark.&lt;br&gt;&lt;/p&gt;', 'a35e3627.mp4', '', '', '70ca98e3.jpg', 29, 0, 0, 'CINEMATIC TRAILER', '&lt;p&gt;Creamos para BBC los tÃ­tulos animados que forman parte del trailer oficial para esta nueva e increible serie de documentales que se podrÃ¡n ver en las', 'cinematic-trailer', '2015-01-08', '2015-01-09', '', 'CINEMATIC TRAILER', '&lt;p&gt;We created for BBC the animated titles that are included in the official trailer for their upcoming series of incredible documentaries that will hit La'),
+(30, 'NIDO', 'NIDO', 'NIDO', 'NIDO', '&lt;div&gt;En esta maternal pieza creada para el lanzamiento de la promocion de NIDO para el dia de las madres, se buscaba generar una pieza que pareciera intervenida por niÃ±os donde ademÃ¡s se mostrara el regalo incluido debajo de la tapa del producto, de una manera dinÃ¡mica y elegante.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;Desarrollamos tÃ­tulos animados en 2D con tÃ©cnicas tradicionales y generamos los productos 3D realistas integrÃ¡ndolos a un ambiente fotogrÃ¡fico para generar una pieza alegre y llena de vida, con una interesante secuencia de producto&lt;/div&gt;', '&lt;div&gt;This is a piece created to promote the campaign for Mother&#039;s Day. The intention was to give the piece a real feel of kids talking to their moms, which is why we created titles drawn by hand&amp;nbsp; and animated with traditional techniques that mimic a kid style and personalty.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;We also created the CG product animated sequence that shows the gift that comes inside every product.&lt;/div&gt;', '9b2abb2b.mp4', '', '', '5d4f7c81.jpg', 30, 0, 0, 'NIDO', '&lt;div&gt;En esta maternal pieza creada para el lanzamiento de la promocion de NIDO para el dia de las madres, se buscaba generar una pieza que pareciera inter', 'nido', '2015-01-08', '2015-01-09', '', 'NIDO', '&lt;div&gt;This is a piece created to promote the campaign for Mother&#039;s Day. The intention was to give the piece a real feel of kids talking to their moms,'),
+(31, 'GAMEDAY GRAPHICS PACKAGE', 'GAMEDAY GRAPHICS PACKAGE', 'CBC SPORTS ', 'CBC SPORTS ', '&lt;p&gt;GAMEDAY es un show de CBC Sports acerca de la NHL y lo que pasa en el mundo del Hockey profesional. Big Studios Inc. nos invito a desarrollamos el paquete grafico para el show.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;GAMEDAY is a CBC Sports show about the NHL and everything related to the world of professional hockey. Big Studios Inc invited us to create the Graphics Package for the show.&lt;br&gt;&lt;/p&gt;', '482c2daa.mp4', '', '', '129ee070.jpg', 31, 0, 0, 'GAMEDAY GRAPHICS PACKAGE', '&lt;p&gt;GAMEDAY es un show de CBC Sports acerca de la NHL y lo que pasa en el mundo del Hockey profesional. Big Studios Inc. nos invito a desarrollamos el paqu', 'gameday-graphics-package', '2015-01-08', '2015-01-09', '', 'GAMEDAY GRAPHICS PACKAGE', '&lt;p&gt;GAMEDAY is a CBC Sports show about the NHL and everything related to the world of professional hockey. Big Studios Inc invited us to create the Graphic');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proyectos_categorias`
+--
+
+CREATE TABLE `proyectos_categorias` (
+  `id_proyecto` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `proyectos_categorias`
+--
+
+INSERT INTO `proyectos_categorias` (`id_proyecto`, `id_categoria`) VALUES
+(26, 4),
+(26, 7),
+(27, 4),
+(28, 4),
+(29, 5),
+(30, 4),
+(31, 4),
+(31, 7);
 
 -- --------------------------------------------------------
 
@@ -421,7 +457,8 @@ INSERT INTO `tipousuarioxpermiso` (`idtipousuario`, `idpermiso`) VALUES
 (9, 84),
 (9, 85),
 (9, 86),
-(9, 87);
+(9, 87),
+(9, 88);
 
 -- --------------------------------------------------------
 
@@ -511,6 +548,12 @@ ALTER TABLE `proyectos`
  ADD PRIMARY KEY (`id_proyecto`);
 
 --
+-- Indices de la tabla `proyectos_categorias`
+--
+ALTER TABLE `proyectos_categorias`
+ ADD PRIMARY KEY (`id_proyecto`,`id_categoria`);
+
+--
 -- Indices de la tabla `redes_sociales`
 --
 ALTER TABLE `redes_sociales`
@@ -542,7 +585,7 @@ ALTER TABLE `videos_slide`
 -- AUTO_INCREMENT de la tabla `categorias_proyectos`
 --
 ALTER TABLE `categorias_proyectos`
-MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `img_proyecto`
 --
@@ -552,7 +595,7 @@ MODIFY `id_img_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 -- AUTO_INCREMENT de la tabla `permiso`
 --
 ALTER TABLE `permiso`
-MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=88;
+MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=89;
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
