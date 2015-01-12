@@ -201,7 +201,7 @@ function verproyecto(id){
 		html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
 		html3+='</div>';
 		for(var i = 0; i < resultado[0].img_secundarias.length; i++){
-			html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/'+resultado[0].img_secundarias[i].ruta+'" />';
+			html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[i].ruta+'" />';
 		}
 		$(".galleryright").append(html3);
 		html4+='<video id="bgvid4">';
