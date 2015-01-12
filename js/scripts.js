@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/';
+var mypath ='http://localhost:8888/donporfirio/'; 
 
 function openmenu(){
 	$(".menuright").animate({"right":"0"},100);
