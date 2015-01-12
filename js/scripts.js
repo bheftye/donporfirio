@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 
 function openmenu(){
 	$(".menuright").animate({"right":"0"},100);
@@ -263,6 +263,7 @@ $(document).ready(function(){
 
 function showpreview(id){
 	//console.log("hover");
+	//$(".videono"+id).empty();
 	var html="";
 	html+='<div id="video-container">';
 	html+='<video autoplay loop muted class="fillWidth">';
@@ -271,11 +272,12 @@ function showpreview(id){
 	html+='</video>';
 	html+='</div>';
 	$(".videono"+id).append(html);
-	$(".videono"+id).show();
+	$(".videono"+id).fadeIn(600);
 }
 
 function hidepreview(id){
 	//console.log("unhover");
-	$(".videono"+id).hide();
-	$(".videono"+id).empty();
+	$(".videono"+id).fadeOut(600, function(){
+		$(".videono"+id).empty();
+	});
 }
