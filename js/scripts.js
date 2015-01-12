@@ -271,8 +271,8 @@ function showpreview(id){
 	html+='Your browser does not support the video tag. I suggest you upgrade your browser.';
 	html+='</video>';
 	html+='</div>';
-	$(".videono"+id).append(html);
-	$(".videono"+id).fadeIn(600);
+	$(".videono"+id).append(html).delay(600).fadeIn(600);
+	//$(".videono"+id).fadeIn(600);
 }
 
 function hidepreview(id){
