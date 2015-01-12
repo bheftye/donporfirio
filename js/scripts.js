@@ -223,3 +223,22 @@ $(document).ready(function(){
 	        $(".titulorojo2").width(percent2+"px");
 	});
 });
+
+function showpreview(id){
+	//console.log("hover");
+	var html="";
+	html+='<div id="video-container">';
+	html+='<video autoplay loop muted class="fillWidth">';
+	html+='<source src="'+mypath+'vidProyectos/482c2daa.mp4" type="video/mp4"/>';
+	html+='Your browser does not support the video tag. I suggest you upgrade your browser.';
+	html+='</video>';
+	html+='</div>';
+	$(".videono"+id).append(html);
+	$(".videono"+id).show();
+}
+
+function hidepreview(id){
+	//console.log("unhover");
+	$(".videono"+id).hide();
+	$(".videono"+id).empty();
+}

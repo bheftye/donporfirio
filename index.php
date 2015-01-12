@@ -119,7 +119,10 @@
 		$i=0;
 		while($i<6){
 		?>
-		<a href="#proyecto" onclick="verproyecto(1)"><img style="width:100%; margin: 1px 0;" src="<?=mypath?>img/ejemwork.jpg" /></a>
+		<div class="proyectofondo" onmouseover="showpreview(<?=$i?>)" onmouseout="hidepreview(<?=$i?>)">
+			<a href="#proyecto" onclick="verproyecto(1)"><img style="width:100%;" src="<?=mypath?>img/ejemwork.jpg" /></a>
+			<div class="vidpreview videono<?=$i?>"></div>
+		</div>
 		<?php
 		$i++;
 		}
