@@ -268,18 +268,6 @@ class proyecto extends Archivo {
 		$con -> ejecutar_sentencia($sql);
 	}
 
-	function obtener_id_proyecto_principal(){
-		$sql = "SELECT * FROM proyectos WHERE principal = 0 AND mostrar = 0 AND status = 0";
-		$con = new conexion();
-		$id_proyecto_principal = 0;
-		$temporal = $con -> ejecutar_sentencia($sql);
-		while ($fila = mysqli_fetch_array($temporal)) {
-			$id_proyecto_principal = $fila['id_proyecto'];
-		}
-		mysqli_free_result($temporal);
-		return $id_proyecto_principal;
-	}
-
 	function listar_proyectos_por_categoria($id_categoria){
 		$resultados = array();
 		$sql = "SELECT A.* FROM proyectos A JOIN proyectos_categorias B ON (A.id_proyecto = B.id_proyecto) ORDER BY A.orden";
@@ -424,7 +412,7 @@ class proyecto extends Archivo {
 	}
 	function listar_proyectos_activos($offset = 0) {
 		$resultados = array();
-		$sql = "SELECT * FROM proyectos WHERE status = 0 and mostrar = 0 AND principal = 1 ORDER BY orden ASC LIMIT ".$offset.",9";
+		$sql = "SELECT * FROM proyectos WHERE status = 0 and mostrar = 0  ORDER BY orden ASC LIMIT ".$offset.",9";
 		$con = new conexion();
 		$temporal = $con -> ejecutar_sentencia($sql);
 		while ($fila = mysqli_fetch_array($temporal)) {
@@ -589,7 +577,44 @@ class proyecto extends Archivo {
 			$this -> fecha_modificacion=$fila['fecha_modificacion'];
 			$this -> ruta_final = $this -> directorio . $fila['img_principal'];
 		}
-	}	
+	}
+
+	function obtener_proyecto_ajax(){
+		$resultados = array();
+		$sql = "SELECT * FROM proyectos WHERE id_proyecto =".$this -> id_proyecto.";";
+		$con = new conexion();
+		$temporal = $con -> ejecutar_sentencia($sql);
+		while ($fila = mysqli_fetch_array($temporal)) {
+			$registro = array();
+			$registro['id_proyecto'] = $fila['id_proyecto'];
+			$registro['img_principal'] = $fila['img_principal'];
+			$registro['nombre_video'] = $fila['nombre_video'];
+			$registro['nombre_preview'] = $fila['nombre_preview'];
+			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
+			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
+			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
+			$registro['subtitulo_eng'] = htmlspecialchars_decode($fila['subtitulo_eng']);
+			$registro['behance'] = $fila['behance'];
+			$registro['descripcion_esp'] = htmlspecialchars_decode($fila['descripcion_esp'],ENT_QUOTES);
+			$registro['descripcion_eng'] = htmlspecialchars_decode($fila['descripcion_eng'],ENT_QUOTES);
+			$registro['url_amigable'] = $fila['url_amigable'];
+			$registro['meta_titulo_esp'] = $fila["meta_titulo_esp"];
+			$registro['meta_titulo_eng'] = $fila["meta_titulo_eng"];
+			$registro['meta_descripcion_esp'] = $fila["meta_descripcion_esp"];
+			$registro['meta_descripcion_eng'] = $fila["meta_descripcion_eng"];
+			$registro['fecha_creacion'] = $fila['fecha_creacion'];
+			$registro['fecha_modificacion'] = $fila['fecha_modificacion'];
+			$registro['status'] = $fila['status'];
+			$registro['mostrar'] = $fila['mostrar'];
+			$this -> listar_img_secundarias_proyecto();
+			$registro["img_secundarias"] = $this -> lista_imagenes_secundarias;
+			array_push($resultados, $registro);
+		}
+		mysqli_free_result($temporal);
+		echo json_encode($resultados);
+	}
+
 	function recuperar_proyecto() {
 		$sql = "SELECT * FROM proyectos WHERE id_proyecto =" . $this -> id_proyecto . ";";
 		$con = new conexion();
@@ -648,6 +673,7 @@ class proyecto extends Archivo {
 			$registro['fecha_modificacion'] = $fila['fecha_modificacion'];
 			$registro['status'] = $fila['status'];
 			$registro['mostrar'] = $fila['mostrar'];
+			
 			array_push($resultados, $registro);
 		}
 		mysqli_free_result($temporal);

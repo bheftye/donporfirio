@@ -6,6 +6,12 @@
 		$src_tmp = $lista_videos_slide[0]["nombre_video"];
 		$src_hd = $lista_videos_slide[0]["nombre_video_hd"];
 	}
+
+	$categoria = new categoria();
+	$cateogrias = $categoria -> listar_categorias_activas();
+
+	$proyecto = new proyecto();
+	$lista_proyectos = $proyecto -> listar_proyectos_activos();
 ?>
 <div class="bgall aboutbg"></div>
 <div class="bgall videoproyecto"></div>
@@ -96,35 +102,33 @@
 				<div class="col-sm-10 sidemenu">
 					<ul>
 						<li class="active">
-							all
+							<?php
+									$nombre = ($idioma == "es")? "TODOS":"ALL"; 
+									echo $nombre;
+							?>
 						</li>
-						<li>
-							BROADCAST DESIGN
-						</li>
-						<li>
-							sports
-						</li>
-						<li>
-							2d
-						</li>
-						<li>
-							3d
-						</li>
+						<?php
+							foreach ($cateogrias as $una_categoria) {
+								$nombre = ($idioma == "es")? $una_categoria["nombre_esp"]:$una_categoria["nombre_eng"]; 
+								echo "<li>".$nombre."</li>";
+							}
+						?>
 					</ul>
 				</div>
 				<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
 			</div>
 		</div>
 		<?php
-		$i=0;
-		while($i<6){
-		?>
-		<div class="proyectofondo" onmouseover="showpreview(<?=$i?>)" onmouseout="hidepreview(<?=$i?>)">
-			<a href="#proyecto" onclick="verproyecto(1)"><img style="width:100%;" src="<?=mypath?>img/ejemwork.jpg" /></a>
-			<div class="vidpreview videono<?=$i?>"></div>
-		</div>
-		<?php
 		$i++;
+		foreach ($lista_proyectos as $un_proyecto) {
+			$titulo_proyecto = ($idioma == "es")? $un_proyecto["titulo_esp"] : $un_proyecto["titulo_eng"];
+			$subtitulo_proyecto = ($idioma == "es")? $un_proyecto["subtitulo_esp"] : $un_proyecto["subtitulo_eng"];
+			$video_preview = $un_proyecto["nombre_preview"];
+
+			echo '<a href="#'.$un_proyecto["url_amigable"].'" style="display:block;" onclick="verproyecto('.$un_proyecto["id_proyecto"].')" ><div  class="proyectofondo" onmouseover="showpreview('.$un_proyecto["id_proyecto"].')" onmouseout="hidepreview('.$un_proyecto["id_proyecto"].')">
+					<img style="width:100%; margin: 1px 0;" src="'.mypath.'imgProyectos/'.$un_proyecto["img_principal"].'" />
+					<div class="vidpreview videono'.$un_proyecto["id_proyecto"].'"></div>
+				</div></a>';
 		}
 		?>
 	</div>
@@ -231,4 +235,9 @@
 		</div>
 	</div>
 </div>
+<?php
+	echo "<script>
+			var idioma = ".json_encode($idioma).";
+	</script>";
+?>
 <?php include_once('includes/footer.php') ?>

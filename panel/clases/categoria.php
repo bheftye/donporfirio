@@ -10,7 +10,7 @@ class categoria
 	var $status;
 	var $orden;
 
-	function categoria($id_categoria = 0,$nombre_esp='', $nombre_eng, $status = 0, $mostrar = 0)
+	function categoria($id_categoria = 0,$nombre_esp='', $nombre_eng = "", $status = 0, $mostrar = 0)
 	{
 		$this -> id_categoria = $id_categoria;
 		$this -> nombre_esp = $nombre_esp;
@@ -98,7 +98,7 @@ class categoria
 
 	function listar_categorias_activas(){
 		$conexion=new conexion();
-		$sql="SELECT * FROM categorias_proyectos WHERE status = 0 ORDER BY orden ASC";
+		$sql="SELECT * FROM categorias_proyectos WHERE status = 0 AND mostrar = 0 ORDER BY orden ASC";
 		$result=$conexion->ejecutar_sentencia($sql);
 		$resultados=array();
 			while ($row=mysqli_fetch_array($result))
