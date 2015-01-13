@@ -304,6 +304,26 @@ include('javascripts.html');
 			cache:false
 		});			
 	}	
+
+  function guardarOrdenProyecto(){
+       var orden = new Array;   
+       $(".idorden").each(function(){    
+        orden.push($(this).val());
+       });
+       
+      
+       $.ajax({
+         async:true,
+         type: "POST",
+         dataType: "html",
+         contentType: "application/x-www-form-urlencoded",
+         url:"operaciones.php",
+         data:{"idorden":orden,"operaciones":"ordenar","desde":'proyecto'},
+         success:function(data){
+         },
+         cache:false
+        });
+    }
 </script>
 <script>
 $(function() {
