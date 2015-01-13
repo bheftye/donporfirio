@@ -189,8 +189,8 @@ function verproyecto(id){
 		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">SHARE</button></div>';
 		html+='</div>';
 		html+='<div class="row" style="margin-top:-1px;">';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton">PREVIOUS PROJECT</button></div>';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton">NEXT PROJECT</button></div>';
+		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="nextproyect('+resultado[0].id_proyecto+')">PREVIOUS PROJECT</button></div>';
+		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="prevproyect('+resultado[0].id_proyecto+')">NEXT PROJECT</button></div>';
 		html+='</div>';
 		$(".proyecto").append(html);
 		html2+='<video id="bgvid3" loop muted>';
@@ -322,4 +322,50 @@ function lxcategoria(idcat){
                 }
             }
         });
+}
+
+function nextproyect(id){
+	var data = new FormData;
+        data.append('operaciones',"siguiente_proyecto");
+        data.append("id_proyecto", id);
+    var resultado;
+	$.ajax({ 
+            url: mypath+"functions.php",
+            type:'POST',
+            contentType:false,
+            data:data,
+            processData:false,
+            cache:false,
+            async:false,
+            success:function(data){
+                //console.log(data);
+                if(data != ""){
+                	resultado = JSON.parse(data);
+                	console.log(resultado);              	
+                }
+            }
+    });
+}
+
+function prevproyect(id){
+	var data = new FormData;
+        data.append('operaciones',"anterior_proyecto");
+        data.append("id_proyecto", id);
+    var resultado;
+	$.ajax({ 
+            url: mypath+"functions.php",
+            type:'POST',
+            contentType:false,
+            data:data,
+            processData:false,
+            cache:false,
+            async:false,
+            success:function(data){
+                //console.log(data);
+                if(data != ""){
+                	resultado = JSON.parse(data);
+                	console.log(resultado);              	
+                }
+            }
+    });
 }
