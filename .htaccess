@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+
+	RewriteEngine On	
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^es$ index.php?idioma=es [L]
+	RewriteRule ^en$ index.php?idioma=en [L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d		
+			
+</IfModule>
