@@ -326,6 +326,18 @@ class proyecto extends Archivo {
 		$con -> ejecutar_sentencia($sql);
 	}
 
+	function obtener_id_proyecto_por_urlamigable(){
+		$sql = "SELECT id_proyecto FROM proyectos WHERE url_amigable = ".$this -> url_amigable." AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
+		$con = new conexion();
+		$id_proyecto = 0;
+		$temporal = $con -> ejecutar_sentencia($sql);
+		while ($fila = mysqli_fetch_array($temporal)) {
+			$id_proyecto = $fila['id_proyecto'];
+		}
+		mysqli_free_result($temporal);
+		return $id_proyecto;
+	}
+
 	function obtener_id_proyecto_siguiente(){
 		$sql = "SELECT * FROM proyectos WHERE orden = ".($this -> orden + 1)." AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
 		$con = new conexion();

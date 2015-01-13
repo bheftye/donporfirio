@@ -24,13 +24,18 @@ switch ($operaciones) {
 		$proyecto = new proyecto($id_proyecto);
 		$proyecto -> obtener_proyecto();
 		echo $id_proyecto_siguiente = $proyecto -> obtener_id_proyecto_siguiente();
-		
 	break;
 	case "obtener_proyecto_anterior":
 		$id_proyecto = $_REQUEST["id_proyecto"];
 		$proyecto = new proyecto($id_proyecto);
 		$proyecto -> obtener_proyecto();
 		echo $id_proyecto_anterior = $proyecto -> obtener_id_proyecto_anterior();
+	break;
+	case "obtener_proyecto_por_urlamigable":
+		$url_amigable = $_REQUEST["url_amigable"];
+		$proyecto = new proyecto();
+		$proyecto -> url_amigable = $url_amigable;
+		echo $proyecto -> obtener_id_proyecto_por_urlamigable();
 	break;
 	default:
 	break;
