@@ -326,14 +326,6 @@ function lxcategoria(idcat){
 }
 
 function nextproyect(id){
-	closemenu();
-	closegallery();
-	$(".galleryright").empty();
-	$(".videoproyecto").empty();
-	$(".proyecto").empty();
-	$(".pmenu").removeClass("active");
-	$(".mwork").addClass("active");
-	$(".bgall").fadeOut(600);
 
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_siguiente");
@@ -353,81 +345,18 @@ function nextproyect(id){
                 if(data != ""){
                 	proyecto_existente = true;
                 	resultado = JSON.parse(data);
-                	//console.log(resultado);              	
+                	verproyecto(resultado);           	
                 }
             }
     });
-
-    if(proyecto_existente){
-		var titulo = (idioma == "es")? resultado[0].titulo_esp : resultado[0].titulo_eng;
-		var subtitulo = (idioma == "es")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
-		var descripcion = (idioma == "es")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
-
-		html='';
-		html2='';
-		html3='';
-		html4='';
-		html+='<h2>'+subtitulo+'</h2>';
-		html+='<h1>'+titulo+'</h1>';
-		html+='<div class="row aboutborder">';
-		html+='<p style="margin:0;">'+descripcion+'</p>';
-		html+='</div>';
-		html+='<div class="row">';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">WATCH</button></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">GALLERY</button></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton">BEHANCE</button></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">SHARE</button></div>';
-		html+='</div>';
-		html+='<div class="row" style="margin-top:-1px;">';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="prevproyect('+resultado[0].id_proyecto+')">PREVIOUS PROJECT</button></div>';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="nextproyect('+resultado[0].id_proyecto+')">NEXT PROJECT</button></div>';
-		html+='</div>';
-		$(".proyecto").append(html);
-		html2+='<video id="bgvid3" loop muted>';
-		html2+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video+'" id="mp4Source"  type="video/mp4">';
-		html2+='</video>';
-		//console.log(html);
-		$(".videoproyecto").append(html2);
-		html3+='<div class="row">';
-		html3+='<div class="col-sm-10 sidemenu"><ul><li>Gallery</li></ul></div>';
-		html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
-		html3+='</div>';
-		for(var i = 0; i < resultado[0].img_secundarias.length; i++){
-			html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[i].ruta+'" />';
-		}
-		$(".galleryright").append(html3);
-		html4+='<video id="bgvid4">';
-		html4+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video_hd+'" id="mp4Source"  type="video/mp4">';
-		html4+='</video>';
-
-		$("#fullscreenvideo2").append(html4);
-		$(".all").fadeOut(600);
-		$(".galleryright").delay(600).fadeIn(600);
-		//$("#fullscreenvideo2").delay(600).fadeIn(600);
-		$(".videoproyecto").delay(600).fadeIn(600,function(){
-			reproduceproyecto();
-			$("#bgvid3")[0].currentTime = 0;
-			$("#bgvid3")[0].play();
-		});
-		$(".proyecto").delay(600).fadeIn(600);
-	}
 }
 
 function prevproyect(id){
-	closemenu();
-	closegallery();
-	$(".galleryright").empty();
-	$(".videoproyecto").empty();
-	$(".proyecto").empty();
-	$(".pmenu").removeClass("active");
-	$(".mwork").addClass("active");
-	$(".bgall").fadeOut(600);
 
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_anterior");
         data.append("id_proyecto", id);
     var resultado;
-    var proyecto_existente = false;
 
 	$.ajax({ 
             url: mypath+"functions.php",
@@ -442,61 +371,8 @@ function prevproyect(id){
                 if(data != ""){
                 	proyecto_existente = true;
                 	resultado = JSON.parse(data);
-                	console.log(resultado);              	
+                	verproyecto(resultado);        	
                 }
             }
     });
-    if(proyecto_existente){
-		var titulo = (idioma == "es")? resultado[0].titulo_esp : resultado[0].titulo_eng;
-		var subtitulo = (idioma == "es")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
-		var descripcion = (idioma == "es")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
-
-		html='';
-		html2='';
-		html3='';
-		html4='';
-		html+='<h2>'+subtitulo+'</h2>';
-		html+='<h1>'+titulo+'</h1>';
-		html+='<div class="row aboutborder">';
-		html+='<p style="margin:0;">'+descripcion+'</p>';
-		html+='</div>';
-		html+='<div class="row">';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">WATCH</button></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">GALLERY</button></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton">BEHANCE</button></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">SHARE</button></div>';
-		html+='</div>';
-		html+='<div class="row" style="margin-top:-1px;">';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="nextproyect('+resultado[0].id_proyecto+')">PREVIOUS PROJECT</button></div>';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="prevproyect('+resultado[0].id_proyecto+')">NEXT PROJECT</button></div>';
-		html+='</div>';
-		$(".proyecto").append(html);
-		html2+='<video id="bgvid3" loop muted>';
-		html2+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video+'" id="mp4Source"  type="video/mp4">';
-		html2+='</video>';
-		//console.log(html);
-		$(".videoproyecto").append(html2);
-		html3+='<div class="row">';
-		html3+='<div class="col-sm-10 sidemenu"><ul><li>Gallery</li></ul></div>';
-		html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
-		html3+='</div>';
-		for(var i = 0; i < resultado[0].img_secundarias.length; i++){
-			html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[i].ruta+'" />';
-		}
-		$(".galleryright").append(html3);
-		html4+='<video id="bgvid4">';
-		html4+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video_hd+'" id="mp4Source"  type="video/mp4">';
-		html4+='</video>';
-
-		$("#fullscreenvideo2").append(html4);
-		$(".all").fadeOut(600);
-		$(".galleryright").delay(600).fadeIn(600);
-		//$("#fullscreenvideo2").delay(600).fadeIn(600);
-		$(".videoproyecto").delay(600).fadeIn(600,function(){
-			reproduceproyecto();
-			$("#bgvid3")[0].currentTime = 0;
-			$("#bgvid3")[0].play();
-		});
-		$(".proyecto").delay(600).fadeIn(600);
-	}
 }
