@@ -13,7 +13,7 @@ var $conexion;
 		/*$this->user='locker07_yelmy';
 		$this->password='ympm16mc';*/
 		$this->user= 'root';//'locker07_brent';
-		$this->password= ''; //'10Hooligans92';
+		$this->password= 'root'; //'10Hooligans92';
 		$this->bd= 'donporfirio';//'locker07_erase_una_vez';
 	}
 	
