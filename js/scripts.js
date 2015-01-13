@@ -185,7 +185,7 @@ function verproyecto(id){
 		html+='<div class="row">';
 		html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">WATCH</button></div>';
 		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">GALLERY</button></div>';
-		html+='<div class="col-sm-3 proylink"><a href="'+resultado[0].behance+'"><button class="proybutton">BEHANCE</button></a></div>';
+		html+='<div class="col-sm-3 proylink"><a href="'+resultado[0].behance+'" target="_blank"><button class="proybutton">BEHANCE</button></a></div>';
 		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">SHARE</button></div>';
 		html+='</div>';
 		html+='<div class="row" style="margin-top:-1px;">';
