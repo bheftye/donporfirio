@@ -18,6 +18,7 @@ switch ($operaciones) {
 		$id_categoria = $_REQUEST["id_categoria"];
 		$proyecto = new proyecto();
 		$proyecto -> listar_proyecto_categoria_ajax($id_categoria);
+	break;
 	case "obtener_proyecto_siguiente":
 		$id_proyecto = $_REQUEST["id_proyecto"];
 		$proyecto = new proyecto($id_proyecto);

@@ -731,17 +731,15 @@ class proyecto extends Archivo {
 	/***********************************************MODIFICACIONES ISRAEL********************************************/
 	function listar_proyecto_categoria_ajax($id_categoria){
 		$resultados = array();
-		if($id_categoria!=0){
-			$cat="B.id_categoria=".$id_categoria." AND ";
+		if($id_categoria != 0){
+			$cat="B.id_categoria =".$id_categoria." AND ";
 		}
 		else{
 			$cat="";
 		}
 		$sql = "SELECT A.* FROM proyectos A 
 		JOIN proyectos_categorias B ON (A.id_proyecto = B.id_proyecto) 
-		WHERE ".$cat."status = 0 AND mostrar = 0
-		GROUP BY A.id_proyecto
-		ORDER BY A.orden";
+		WHERE ".$cat."status = 0 AND mostrar = 0 GROUP BY A.id_proyecto ORDER BY A.orden ASC";
 		$con = new conexion();
 		$temporal = $con -> ejecutar_sentencia($sql);
 		while ($fila = mysqli_fetch_array($temporal)) {
