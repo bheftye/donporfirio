@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
+var mypath ='http://localhost:8888/donporfirio/'; 
 
 function openmenu(){
 	$(".menuright").animate({"right":"0"},100);
@@ -163,7 +163,7 @@ function verproyecto(id){
                 if(data != ""){
                 	proyecto_existente = true;
                 	resultado = JSON.parse(data);
-                	console.log(resultado);              	
+                	//console.log(resultado);              	
                 }
             }
         });
@@ -258,7 +258,7 @@ $(document).ready(function(){
 });
 
 function showpreview(id,vp){
-	console.log(vp);
+	//console.log(vp);
 	//$(".videono"+id).empty();
 	var html="";
 	html+='<div id="video-container">';
@@ -302,7 +302,7 @@ function lxcategoria(idcat){
                 //console.log(data);
                 if(data != ""){
                 	proy_cat_existente = true;
-                	console.log(data)
+                	//console.log(data)
                 	resultado_cat = JSON.parse(data);
                 	//console.log(resultado_cat);
                 	var html="";
@@ -327,6 +327,7 @@ function lxcategoria(idcat){
 
 function nextproyect(id){
 	$(".proyecto").fadeOut(600);
+	$(".bgall").fadeOut(600);
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_siguiente");
         data.append("id_proyecto", id);
@@ -343,7 +344,10 @@ function nextproyect(id){
                 console.log(data);
                 if(data != ""){
                 	resultado = JSON.parse(data);
-                	verproyecto(resultado);           	
+                	setTimeout(function(){
+                		verproyecto(resultado); 
+                	}, 600);
+                	          	
                 }
             }
     });
@@ -351,6 +355,7 @@ function nextproyect(id){
 
 function prevproyect(id){
 	$(".proyecto").fadeOut(600);
+	$(".bgall").fadeOut(600);
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_anterior");
         data.append("id_proyecto", id);
@@ -365,10 +370,12 @@ function prevproyect(id){
             cache:false,
             async:false,
             success:function(data){
-                console.log(data);
+                //console.log(data);
                 if(data != ""){
                 	resultado = JSON.parse(data);
-                	verproyecto(resultado);        	
+                	setTimeout(function(){
+                		verproyecto(resultado); 
+                	}, 600);
                 }
             }
     });
