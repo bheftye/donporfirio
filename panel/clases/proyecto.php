@@ -356,12 +356,12 @@ class proyecto extends Archivo {
 			$id_proyecto_anterior = $fila['id_proyecto'];
 		}
 		mysqli_free_result($temporal);
-		if($id_proyecto_siguiente == 0){
+		if($id_proyecto_anterior == 0){
 			$sql = "SELECT id_proyecto FROM proyectos WHERE mostrar = 0 AND status = 0 ORDER BY orden DESC LIMIT 1";
 			$con = new conexion();
 			$temporal = $con -> ejecutar_sentencia($sql);
 			while ($fila = mysqli_fetch_array($temporal)) {
-				$id_proyecto_siguiente = $fila['id_proyecto'];
+				$id_proyecto_anterior = $fila['id_proyecto'];
 			}
 			mysqli_free_result($temporal);
 		}

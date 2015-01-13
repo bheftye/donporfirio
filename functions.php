@@ -21,12 +21,14 @@ switch ($operaciones) {
 	case "obtener_proyecto_siguiente":
 		$id_proyecto = $_REQUEST["id_proyecto"];
 		$proyecto = new proyecto($id_proyecto);
+		$proyecto -> obtener_proyecto();
 		echo $id_proyecto_siguiente = $proyecto -> obtener_id_proyecto_siguiente();
 		
 	break;
-	case "obtener_proyect_anterior":
+	case "obtener_proyecto_anterior":
 		$id_proyecto = $_REQUEST["id_proyecto"];
 		$proyecto = new proyecto($id_proyecto);
+		$proyecto -> obtener_proyecto();
 		echo $id_proyecto_anterior = $proyecto -> obtener_id_proyecto_anterior();
 	break;
 	default:

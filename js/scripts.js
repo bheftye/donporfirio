@@ -189,8 +189,8 @@ function verproyecto(id){
 		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">SHARE</button></div>';
 		html+='</div>';
 		html+='<div class="row" style="margin-top:-1px;">';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="nextproyect('+resultado[0].id_proyecto+')">PREVIOUS PROJECT</button></div>';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="prevproyect('+resultado[0].id_proyecto+')">NEXT PROJECT</button></div>';
+		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="prevproyect('+resultado[0].id_proyecto+')">PREVIOUS PROJECT</button></div>';
+		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="nextproyect('+resultado[0].id_proyecto+')">NEXT PROJECT</button></div>';
 		html+='</div>';
 		$(".proyecto").append(html);
 		html2+='<video id="bgvid3" loop muted>';
@@ -331,7 +331,6 @@ function nextproyect(id){
         data.append('operaciones',"obtener_proyecto_siguiente");
         data.append("id_proyecto", id);
     var resultado;
-    var proyecto_existente = false;
 	$.ajax({ 
             url: mypath+"functions.php",
             type:'POST',
@@ -341,9 +340,8 @@ function nextproyect(id){
             cache:false,
             async:false,
             success:function(data){
-                console.log("NEXT_PROYECT:"+data);
+                console.log(data);
                 if(data != ""){
-                	proyecto_existente = true;
                 	resultado = JSON.parse(data);
                 	verproyecto(resultado);           	
                 }
@@ -367,9 +365,8 @@ function prevproyect(id){
             cache:false,
             async:false,
             success:function(data){
-                //console.log(data);
+                console.log(data);
                 if(data != ""){
-                	proyecto_existente = true;
                 	resultado = JSON.parse(data);
                 	verproyecto(resultado);        	
                 }
