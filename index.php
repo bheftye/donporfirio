@@ -93,7 +93,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-7 col-sm-push-5 proyecto all"></div>
+		<div class="col-lg-6 col-lg-push-6 col-md-8 col-md-push-4 col-sm-9 col-sm-push-3 proyecto all"></div>
 	</div>
 	<!-- Website Content -->
 	<div class="menuright">
