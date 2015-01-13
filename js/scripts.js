@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 
 function openmenu(){
 	$(".menuright").animate({"right":"0"},100);
@@ -326,7 +326,7 @@ function lxcategoria(idcat){
 }
 
 function nextproyect(id){
-
+	$(".proyecto").fadeOut(600);
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_siguiente");
         data.append("id_proyecto", id);
@@ -350,7 +350,7 @@ function nextproyect(id){
 }
 
 function prevproyect(id){
-
+	$(".proyecto").fadeOut(600);
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_anterior");
         data.append("id_proyecto", id);
