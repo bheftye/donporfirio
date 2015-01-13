@@ -236,9 +236,10 @@ $(document).ready(function(){
 		viewcontact();
 	}else{
 		//console.log(hashTag);	
+		var url = hashTag.substring(1);
 		var data = new FormData;
         data.append('operaciones',"obtener_proyecto_por_urlamigable");
-        data.append("url_amigable", hashTag);
+        data.append("url_amigable", url);
 	    var resultado;
 		$.ajax({ 
 	            url: mypath+"functions.php",
@@ -249,7 +250,7 @@ $(document).ready(function(){
 	            cache:false,
 	            async:false,
 	            success:function(data){
-	                console.log(data);
+	                //console.log(data);
 	                if(data != ""){
 	                	resultado = JSON.parse(data);
 	                	setTimeout(function(){

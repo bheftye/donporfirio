@@ -327,7 +327,7 @@ class proyecto extends Archivo {
 	}
 
 	function obtener_id_proyecto_por_urlamigable(){
-		$sql = "SELECT id_proyecto FROM proyectos WHERE url_amigable = ".$this -> url_amigable." AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
+		$sql = "SELECT id_proyecto FROM proyectos WHERE url_amigable = '".$this -> url_amigable."' AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
 		$con = new conexion();
 		$id_proyecto = 0;
 		$temporal = $con -> ejecutar_sentencia($sql);
