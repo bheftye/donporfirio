@@ -93,7 +93,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-6 col-sm-push-6 proyecto all"></div>
+		<div class="col-sm-7 col-sm-push-5 proyecto all"></div>
 	</div>
 	<!-- Website Content -->
 	<div class="menuright">
@@ -101,7 +101,7 @@
 			<div class="row">
 				<div class="col-sm-10 sidemenu">
 					<ul>
-						<li class="active">
+						<li class="cat0 active" onclick="lxcategoria(0)">
 							<?php
 									$nombre = ($idioma == "es")? "TODOS":"ALL"; 
 									echo $nombre;
@@ -110,7 +110,7 @@
 						<?php
 							foreach ($cateogrias as $una_categoria) {
 								$nombre = ($idioma == "es")? $una_categoria["nombre_esp"]:$una_categoria["nombre_eng"]; 
-								echo "<li>".$nombre."</li>";
+								echo "<li class='cat".$una_categoria["id_categoria"]."' onclick='lxcategoria(".$una_categoria["id_categoria"].")'>".$nombre."</li>";
 							}
 						?>
 					</ul>
@@ -118,6 +118,7 @@
 				<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
 			</div>
 		</div>
+		<div class="listproyectos">
 		<?php
 		foreach ($lista_proyectos as $un_proyecto) {
 			$titulo_proyecto = ($idioma == "es")? $un_proyecto["titulo_esp"] : $un_proyecto["titulo_eng"];
@@ -130,6 +131,7 @@
 				</div></a>';
 		}
 		?>
+		</div>
 	</div>
 	<div class="galleryright">
 		<div class="row">

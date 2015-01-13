@@ -14,6 +14,11 @@ switch ($operaciones) {
 		$proyecto = new proyecto($id_proyecto);
 		$proyecto -> obtener_proyecto_ajax();
 	break;
+	case "listar_proyecto_categoria":
+		$id_categoria = $_REQUEST["id_categoria"];
+		$proyecto = new proyecto();
+		$proyecto -> listar_proyecto_categoria_ajax($id_categoria);
+	break;
 	default:
 	break;
 }

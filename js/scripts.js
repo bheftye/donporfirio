@@ -25,6 +25,7 @@ function viewcontact(){
 	$("#contacto").animate({"top":"-400px"},600);
 	$("#bgvid").animate({"top":"-400px"},600);
 	$("#bgvid3").animate({"top":"-400px"},600);
+	$(".aboutbg").animate({"top":"-400px"},600);
 }
 
 function hidecontact(){
@@ -33,6 +34,7 @@ function hidecontact(){
 	$("#contacto").animate({"top":"0"},600);
 	$("#bgvid").animate({"top":"0"},600);
 	$("#bgvid3").animate({"top":"0"},600);
+	$(".aboutbg").animate({"top":"0"},600);
 }/*
 function changecursor(){
 	console.log("cursor cambiado");
@@ -43,7 +45,7 @@ function showvideo(){
 	$(".contenido").fadeOut(1000);
 	$("#wraperfondo").fadeOut(1000);
 	$("#bgvid").fadeOut(1000);
-	$("#contacto").hide();
+	$("#contacto").fadeOut(1000);
 	$('body').css('cursor', 'url(./img/clsr.png),auto');
 	$("#bgvid")[0].pause();
 	$("#fullscreenvideo").show();
@@ -57,7 +59,7 @@ $("#fullscreenvideo").on('click',function(){
 	$(".contenido").fadeIn(1000);
 	$("#wraperfondo").fadeIn(1000);
 	$("#bgvid").fadeIn(1000);
-	$("#contacto").show();
+	$("#contacto").fadeIn(1000);;
 	$('body').css('cursor','auto');
 	$("#bgvid")[0].currentTime = 0;
 	$("#bgvid")[0].play();
@@ -69,7 +71,7 @@ $("#fullscreenvideo2").on('click',function(){
 	$(".contenido").fadeIn(1000);
 	$("#wraperfondo").fadeIn(1000);
 	$("#bgvid3").fadeIn(1000);
-	$("#contacto").show();
+	$("#contacto").fadeIn(1000);
 	$('body').css('cursor','auto');
 	$("#bgvid3")[0].currentTime = 0;
 	$("#bgvid3")[0].play();
@@ -123,7 +125,7 @@ function reproduceproyectohd(){
 	$(".contenido").fadeOut(1000);
 	$("#wraperfondo").fadeOut(1000);
 	$("#bgvid3").fadeOut(1000);
-	$("#contacto").hide();
+	$("#contacto").fadeOut(1000);
 	$('body').css('cursor', 'url(./img/clsr.png),auto');
 	$("#bgvid3")[0].pause();
 	$("#fullscreenvideo2").show();
@@ -218,13 +220,7 @@ function verproyecto(id){
 			$("#bgvid3")[0].play();
 		});
 		$(".proyecto").delay(600).fadeIn(600);
-	}
-	
-
-
-
-
-	
+	}	
 }
 
 $(document).ready(function(){
@@ -280,4 +276,50 @@ function hidepreview(id){
 	$(".videono"+id).fadeOut(600, function(){
 		$(".videono"+id).empty();
 	});
+}
+
+function lxcategoria(idcat){
+	var proy_cat_existente = false;
+	var data = new FormData;
+        data.append('operaciones',"listar_proyecto_categoria");
+        data.append("id_categoria", idcat);
+    var resultado_cat;
+    $(".sidemenu ul li").removeClass("active");
+    $(".cat"+idcat).addClass("active");
+    //$(".listproyectos").fadeOut(600, function(){
+    	$(".listproyectos").empty();
+    	//$(".listproyectos").show();  
+    //});
+	$.ajax({ 
+            url: mypath+"functions.php",
+            type:'POST',
+            contentType:false,
+            data:data,
+            processData:false,
+            cache:false,
+            async:false,
+            success:function(data){
+                //console.log(data);
+                if(data != ""){
+                	proy_cat_existente = true;
+                	resultado_cat = JSON.parse(data);
+                	//console.log(resultado_cat);
+                	var html="";
+                	//$(".listproyectos").show();
+                	for (var x in resultado_cat){
+                		var titulo_proyecto = (idioma == "es")? resultado_cat[x].titulo_esp : resultado_cat[x].titulo_eng;
+						var subtitulo_proyecto = (idioma == "es")? resultado_cat[x].subtitulo_esp : resultado_cat[x].subtitulo_eng;
+						var video_preview = resultado_cat[x].nombre_preview;
+	                	html+='<a href="#'+resultado_cat[x].url_amigable+'" style="display:block;" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >';
+						html+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
+						html+='<div class="vidpreview videono'+resultado_cat[x].id_proyecto+'"></div>';
+						html+='</div></a>';
+						//$(".listproyectos").append(html);
+                	}
+                	//console.log(html);
+                	$(html).appendTo(".listproyectos");
+                	//$(".listproyectos").fadeIn(600);         	
+                }
+            }
+        });
 }
