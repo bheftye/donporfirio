@@ -754,7 +754,7 @@ class proyecto extends Archivo {
 		mysqli_free_result($temporal);
 		echo json_encode($resultados);
 	}
-	function obtener_id_proyecto_siguiente(){
+	function obtener_id_proyecto_siguiente_ajax(){
 		$sql = "SELECT * FROM proyectos WHERE orden = ".($this -> orden + 1)." AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
 		$con = new conexion();
 		$id_proyecto_siguiente = 0;
@@ -766,7 +766,7 @@ class proyecto extends Archivo {
 		echo json_encode($id_proyecto_siguiente);
 	}
 
-	function obtener_id_proyecto_anterior(){
+	function obtener_id_proyecto_anterior_ajax(){
 		$sql = "SELECT * FROM proyectos WHERE orden = ".($this -> orden - 1)." AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
 		$con = new conexion();
 		$id_proyecto_anterior = 0;

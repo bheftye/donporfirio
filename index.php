@@ -124,8 +124,8 @@
 			$titulo_proyecto = ($idioma == "es")? $un_proyecto["titulo_esp"] : $un_proyecto["titulo_eng"];
 			$subtitulo_proyecto = ($idioma == "es")? $un_proyecto["subtitulo_esp"] : $un_proyecto["subtitulo_eng"];
 			$video_preview = $un_proyecto["nombre_preview"];
-
-			echo '<a href="#'.$un_proyecto["url_amigable"].'" style="display:block;" onclick="verproyecto('.$un_proyecto["id_proyecto"].')" onmouseenter="showpreview('.$un_proyecto["id_proyecto"].')" onmouseleave="hidepreview('.$un_proyecto["id_proyecto"].')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >
+			$vp = "'".$video_preview."'";
+			echo '<a href="#'.$un_proyecto["url_amigable"].'" style="display:block;" onclick="verproyecto('.$un_proyecto["id_proyecto"].')" onmouseenter="showpreview('.$un_proyecto["id_proyecto"].','.$vp.')" onmouseleave="hidepreview('.$un_proyecto["id_proyecto"].')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >
 					<img style="width:100%; margin: 1px 0;" src="'.mypath.'imgProyectos/'.$un_proyecto["img_principal"].'" />
 					<div class="vidpreview videono'.$un_proyecto["id_proyecto"].'"></div>
 				</div></a>';

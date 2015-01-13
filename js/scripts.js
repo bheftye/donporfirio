@@ -257,13 +257,13 @@ $(document).ready(function(){
 	});
 });
 
-function showpreview(id){
-	//console.log("hover");
+function showpreview(id,vp){
+	console.log(vp);
 	//$(".videono"+id).empty();
 	var html="";
 	html+='<div id="video-container">';
 	html+='<video autoplay loop muted class="fillWidth">';
-	html+='<source src="'+mypath+'vidProyectos/482c2daa.mp4" type="video/mp4"/>';
+	html+='<source src="'+mypath+'vidProyectos/'+vp+'" type="video/mp4"/>';
 	html+='Your browser does not support the video tag. I suggest you upgrade your browser.';
 	html+='</video>';
 	html+='</div>';
