@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 
 function openmenu(){
 	$(".menuright").animate({"right":"0"},100);
@@ -235,7 +235,29 @@ $(document).ready(function(){
 	}else if(hashTag=="#contact"){
 		viewcontact();
 	}else{
-		console.log(hashTag);	
+		//console.log(hashTag);	
+		var data = new FormData;
+        data.append('operaciones',"obtener_proyecto_por_urlamigable");
+        data.append("url_amigable", hashTag);
+	    var resultado;
+		$.ajax({ 
+	            url: mypath+"functions.php",
+	            type:'POST',
+	            contentType:false,
+	            data:data,
+	            processData:false,
+	            cache:false,
+	            async:false,
+	            success:function(data){
+	                console.log(data);
+	                if(data != ""){
+	                	resultado = JSON.parse(data);
+	                	setTimeout(function(){
+	                		verproyecto(resultado); 
+	                	}, 600);
+	                }
+	            }
+	    });
 	}
 });
 
@@ -328,6 +350,7 @@ function lxcategoria(idcat){
 function nextproyect(id){
 	$(".proyecto").fadeOut(600);
 	$(".bgall").fadeOut(600);
+	$("#bgvid4").remove();
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_siguiente");
         data.append("id_proyecto", id);
@@ -356,6 +379,7 @@ function nextproyect(id){
 function prevproyect(id){
 	$(".proyecto").fadeOut(600);
 	$(".bgall").fadeOut(600);
+	$("#bgvid4").remove();
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_anterior");
         data.append("id_proyecto", id);
