@@ -1,4 +1,8 @@
 var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
+var resultadonext ="";
+var resultadoprev ="";
+var idnext ="";
+var idprev ="";
 
 function openmenu(){
 	$(".menuright").animate({"right":"0"},100);
@@ -169,6 +173,12 @@ function verproyecto(id){
         });
 
 	if(proyecto_existente){
+		nextproyect(resultado[0].id_proyecto);
+		prevproyect(resultado[0].id_proyecto);
+		//console.log(resultadonext);
+		//console.log(resultadoprev);
+		console.log(idprev);
+		console.log(idnext);
 		var titulo = (idioma == "es")? resultado[0].titulo_esp : resultado[0].titulo_eng;
 		var subtitulo = (idioma == "es")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
 		var descripcion = (idioma == "es")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
@@ -189,8 +199,8 @@ function verproyecto(id){
 		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">SHARE</button></div>';
 		html+='</div>';
 		html+='<div class="row" style="margin-top:-1px;">';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="prevproyect('+resultado[0].id_proyecto+')">PREVIOUS PROJECT</button></div>';
-		html+='<div class="col-sm-6 proylink"><button class="proybutton" onclick="nextproyect('+resultado[0].id_proyecto+')">NEXT PROJECT</button></div>';
+		html+='<div class="col-sm-6 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">PREVIOUS PROJECT</button></a></div>';
+		html+='<div class="col-sm-6 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">NEXT PROJECT</button></a></div>';
 		html+='</div>';
 		$(".proyecto").append(html);
 		html2+='<video id="bgvid3" loop muted>';
@@ -349,9 +359,9 @@ function lxcategoria(idcat){
 }
 
 function nextproyect(id){
-	$(".proyecto").fadeOut(600);
+	/*$(".proyecto").fadeOut(600);
 	$(".bgall").fadeOut(600);
-	$("#bgvid4").remove();
+	$("#bgvid4").remove();*/
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_siguiente");
         data.append("id_proyecto", id);
@@ -365,12 +375,15 @@ function nextproyect(id){
             cache:false,
             async:false,
             success:function(data){
-                console.log(data);
+                //console.log(data);
                 if(data != ""){
-                	resultado = JSON.parse(data);
-                	setTimeout(function(){
+                	resultados = JSON.parse(data);
+                	resultadonext = resultados.url_proyecto_siguiente;
+                	idnext = resultados.id_proyecto_siguiente;
+                	//return resultadonext;
+                	/*setTimeout(function(){
                 		verproyecto(resultado); 
-                	}, 600);
+                	}, 600);*/
                 	          	
                 }
             }
@@ -378,9 +391,9 @@ function nextproyect(id){
 }
 
 function prevproyect(id){
-	$(".proyecto").fadeOut(600);
+	/*$(".proyecto").fadeOut(600);
 	$(".bgall").fadeOut(600);
-	$("#bgvid4").remove();
+	$("#bgvid4").remove();*/
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto_anterior");
         data.append("id_proyecto", id);
@@ -397,10 +410,16 @@ function prevproyect(id){
             success:function(data){
                 //console.log(data);
                 if(data != ""){
-                	resultado = JSON.parse(data);
-                	setTimeout(function(){
+                	//console.log()
+                	resultados = JSON.parse(data);
+					resultadoprev = resultados.url_proyecto_anterior;
+					idprev = resultados.id_proyecto_anterior;
+                	//console.log(resultados.id_proyecto_anterior);
+                	//console.log(resultados.url_proyecto_anterior);
+                	//return resultadoprev;
+                	/*setTimeout(function(){
                 		verproyecto(resultado); 
-                	}, 600);
+                	}, 600);*/
                 }
             }
     });

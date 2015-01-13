@@ -339,45 +339,51 @@ class proyecto extends Archivo {
 	}
 
 	function obtener_id_proyecto_siguiente(){
-		$sql = "SELECT * FROM proyectos WHERE orden = ".($this -> orden + 1)." AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
+		$sql = "SELECT * FROM proyectos WHERE orden = ".($this -> orden + 1)." AND mostrar = 0 AND status = 0 ORDER BY orden ASC limit 1";
 		$con = new conexion();
-		$id_proyecto_siguiente = 0;
+		$resultado= array();
+		$resultado['id_proyecto_siguiente'] = 0;
 		$temporal = $con -> ejecutar_sentencia($sql);
 		while ($fila = mysqli_fetch_array($temporal)) {
-			$id_proyecto_siguiente = $fila['id_proyecto'];
+			$resultado['id_proyecto_siguiente'] = $fila['id_proyecto'];
+			$resultado['url_proyecto_siguiente'] = $fila['url_amigable'];
 		}
 		mysqli_free_result($temporal);
-		if($id_proyecto_siguiente == 0){
+		if($resultado['id_proyecto_siguiente'] == 0){
 			$sql = "SELECT * FROM proyectos WHERE orden = 0 AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
 			$con = new conexion();
 			$temporal = $con -> ejecutar_sentencia($sql);
 			while ($fila = mysqli_fetch_array($temporal)) {
-				$id_proyecto_siguiente = $fila['id_proyecto'];
+				$resultado['id_proyecto_siguiente'] = $fila['id_proyecto'];
+				$resultado['url_proyecto_siguiente'] = $fila['url_amigable'];
 			}
 			mysqli_free_result($temporal);
 		}
-		return $id_proyecto_siguiente;
+		echo json_encode($resultado);
 	}
 
 	function obtener_id_proyecto_anterior(){
-		$sql = "SELECT id_proyecto FROM proyectos WHERE orden = ".($this -> orden - 1)." AND mostrar = 0 AND status = 0 ORDER BY orden ASC";
+		$sql = "SELECT * FROM proyectos WHERE orden = ".($this -> orden - 1)." AND mostrar = 0 AND status = 0 ORDER BY orden ASC limit 1";
 		$con = new conexion();
-		$id_proyecto_anterior = 0;
+		$resultado= array();
+		$resultado['id_proyecto_anterior'] = 0;
 		$temporal = $con -> ejecutar_sentencia($sql);
 		while ($fila = mysqli_fetch_array($temporal)) {
-			$id_proyecto_anterior = $fila['id_proyecto'];
+			$resultado['id_proyecto_anterior'] = $fila['id_proyecto'];
+			$resultado['$url_proyecto_anterior'] = $fila['url_amigable'];
 		}
 		mysqli_free_result($temporal);
-		if($id_proyecto_anterior == 0){
-			$sql = "SELECT id_proyecto FROM proyectos WHERE mostrar = 0 AND status = 0 ORDER BY orden DESC LIMIT 1";
+		if($resultado['id_proyecto_anterior'] == 0){
+			$sql = "SELECT * FROM proyectos WHERE mostrar = 0 AND status = 0 ORDER BY orden DESC LIMIT 1";
 			$con = new conexion();
 			$temporal = $con -> ejecutar_sentencia($sql);
 			while ($fila = mysqli_fetch_array($temporal)) {
-				$id_proyecto_anterior = $fila['id_proyecto'];
+				$resultado['id_proyecto_anterior'] = $fila['id_proyecto'];
+				$resultado['url_proyecto_anterior'] = $fila['url_amigable'];
 			}
 			mysqli_free_result($temporal);
 		}
-		return $id_proyecto_anterior;
+		echo json_encode($resultado);
 	}
 
 	function ordenar_proyecto($orden)
