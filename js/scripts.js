@@ -147,6 +147,7 @@ function verproyecto(id){
 	$(".mwork").addClass("active");
 	$(".bgall").fadeOut(600);
 	$("#bgvid")[0].pause();
+	$("#bgvid4").remove();
 	//$(".bgall")[0].pause();
 	var proyecto_existente = false;
 	var data = new FormData;
@@ -175,8 +176,8 @@ function verproyecto(id){
 	if(proyecto_existente){
 		nextproyect(resultado[0].id_proyecto);
 		prevproyect(resultado[0].id_proyecto);
-		//console.log(resultadonext);
-		//console.log(resultadoprev);
+		console.log(resultadonext);
+		console.log(resultadoprev);
 		console.log(idprev);
 		console.log(idnext);
 		var titulo = (idioma == "es")? resultado[0].titulo_esp : resultado[0].titulo_eng;
