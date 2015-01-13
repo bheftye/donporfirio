@@ -9,6 +9,10 @@ html,body{
 	word-wrap:break-word;
 	background-color: #000;
 }
+.container{
+	width:100%;
+	padding:0 30px;
+}
 .row{
 	margin:0;
 }
@@ -261,32 +265,20 @@ h2{
 }
 .logobottom{
 	position:absolute;
-	width:1140px;
+	width:100%;
+	left:0;
+	padding:0 30px;
 	bottom:40px;
 }
 .logobottomr{
 	position:absolute;
-	width:1140px;
+	width:100%;
+	left:0;
+	padding:0 30px;
 	bottom:40px;
 }
 #fullscreenvideo{
 	display:none;
-}
-@media(max-width:1199px){
-	.logobottom{
-		width:940px;
-	}
-	.logobottomr{
-		width:940px;
-	}
-}
-@media(max-width:991px){
-	.logobottom{
-		width:750px;
-	}
-	.logobottomr{
-		width:750px;
-	}
 }
 .hometitle{
 	margin-top:10%;
@@ -358,6 +350,7 @@ button.redesb:hover{
 .proyecto{
 	display:none;
 	color: #fff;
+	font-family: 'AkzidenzGrotesk-Regular';
 }
 .videoproyecto{
 	display:none;

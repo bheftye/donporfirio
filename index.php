@@ -42,16 +42,16 @@
 				<li class="idioma"><a class="aen" href="<?=mypath?>en/">ENG</a> / <a href="<?=mypath?>es/" class="aes active">ESP</a></li>
 			</ul>
 		</div>
-		<div class="row logobottom"><!--
+		<div class="row logobottom" style="padding:0 30px;"><!--
 			<div class="progress progress-striped active">
 			    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 			</div>-->
-			<div class="col-sm-2">
+			<div class="col-sm-2" style="padding:0;">
 				<div class="titulorojo"><img src="<?=mypath?>img/dptitler.png" /></div>
 				<img src="<?=mypath?>img/dptitle.png" />
 			</div>
 		</div>
-		<div class="row logobottomr">
+		<div class="row logobottomr" style="text-align: right; padding:0 30px;">
 			<div class="col-sm-3 col-sm-push-9">
 				<img style="max-width:100%;" src="<?=mypath?>img/bd.png" />
 			</div>
