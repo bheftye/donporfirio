@@ -12,6 +12,14 @@
 
 	$proyecto = new proyecto();
 	$lista_proyectos = $proyecto -> listar_proyectos_activos();
+
+	$redes_sociales = new redes_sociales(1);
+	$redes_sociales -> obtener_redes_sociales();
+
+	$url_twitter = $redes_sociales -> twitter;
+	$url_facebook = $redes_sociales -> facebook;
+	$url_behance = $redes_sociales -> behance;
+	$url_vimeo = $redes_sociales -> vimeo;
 ?>
 <div class="bgall aboutbg"></div>
 <div class="bgall videoproyecto"></div>
