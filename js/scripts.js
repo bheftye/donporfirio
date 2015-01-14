@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
+var mypath ='http://localhost:8888/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -206,14 +206,14 @@ function verproyecto(id){
 		//console.log(resultadoprev);
 		//console.log(idprev);
 		//console.log(idnext);
-		var titulo = (idioma == "es")? resultado[0].titulo_esp : resultado[0].titulo_eng;
-		var subtitulo = (idioma == "es")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
-		var descripcion = (idioma == "es")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
-		var ver = (idioma == "es")? "VER" : "WATCH";
-		var galeria = (idioma == "es")? "GALERÍA" : "GALLERY";
-		var share = (idioma == "es")? "COMPARTIR" : "SHARE";
-		var pprev = (idioma == "es")? "PROYECTO ANTERIOR" : "PREVIOUS PROYECT";
-		var pnext = (idioma == "es")? "SIGUIENTE PROYECTO" : "NEXT PROJECT";
+		var titulo = (idioma == "esp")? resultado[0].titulo_esp : resultado[0].titulo_eng;
+		var subtitulo = (idioma == "esp")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
+		var descripcion = (idioma == "esp")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
+		var ver = (idioma == "esp")? "VER" : "WATCH";
+		var galeria = (idioma == "esp")? "GALERÍA" : "GALLERY";
+		var share = (idioma == "esp")? "COMPARTIR" : "SHARE";
+		var pprev = (idioma == "esp")? "PROYECTO ANTERIOR" : "PREVIOUS PROYECT";
+		var pnext = (idioma == "esp")? "SIGUIENTE PROYECTO" : "NEXT PROJECT";
 
 		html='';
 		html2='';
@@ -304,7 +304,7 @@ $(document).ready(function(){
 		    });
 		}
 	}
-	if(idioma == "es"){
+	if(idioma == "esp"){
 		$(".aen").removeClass("active");
 		$(".aes").addClass("active");
 	}
@@ -388,8 +388,8 @@ function lxcategoria(idcat){
                 	var html="";
                 	//$(".listproyectos").show();
                 	for (var x in resultado_cat){
-                		var titulo_proyecto = (idioma == "es")? resultado_cat[x].titulo_esp : resultado_cat[x].titulo_eng;
-						var subtitulo_proyecto = (idioma == "es")? resultado_cat[x].subtitulo_esp : resultado_cat[x].subtitulo_eng;
+                		var titulo_proyecto = (idioma == "esp")? resultado_cat[x].titulo_esp : resultado_cat[x].titulo_eng;
+						var subtitulo_proyecto = (idioma == "esp")? resultado_cat[x].subtitulo_esp : resultado_cat[x].subtitulo_eng;
 						var video_preview = resultado_cat[x].nombre_preview;
 						var vp = "'"+video_preview+"'";
 	                	html+='<a href="#'+resultado_cat[x].url_amigable+'" style="display:block;" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+','+vp+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >';
@@ -471,4 +471,21 @@ function prevproyect(id){
                 }
             }
     });
+}
+
+function changelang(lang){
+    var data = new FormData;
+    data.append('operaciones', 'cambiar_idioma'); 
+    data.append('lang', lang);  
+     $.ajax({ 
+            url: mypath+"functions.php",
+            type:'POST',
+            contentType:false,
+            data:data,
+            processData:false,
+            cache:false,
+            success:function(data){
+                location.reload();
+            }
+        });
 }

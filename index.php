@@ -47,7 +47,7 @@
 				<li><a class="pmenu mwork" href="#work" onclick="openmenu()"><?=WORK?></a></li>
 				<li><a class="pmenu mabout" href="#about" onclick="verabout()"><?=ABOUT?></a></li>
 				<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()"><?=CONTACT?></a></li>
-				<li class="idioma"><a class="aen active" href="<?=mypath?>en">ENG</a> / <a href="<?=mypath?>es" class="aes">ESP</a></li>
+				<li class="idioma"><a class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></li>
 			</ul>
 		</div>
 		<div class="row logobottom" style="padding:0 60px;"><!--
@@ -129,13 +129,13 @@
 					<ul>
 						<li class="cat0 active" onclick="lxcategoria(0)">
 							<?php
-									$nombre = ($idioma == "es")? "TODOS":"ALL"; 
+									$nombre = ($idioma == "esp")? "TODOS":"ALL"; 
 									echo $nombre;
 							?>
 						</li>
 						<?php
 							foreach ($cateogrias as $una_categoria) {
-								$nombre = ($idioma == "es")? $una_categoria["nombre_esp"]:$una_categoria["nombre_eng"]; 
+								$nombre = ($idioma == "esp")? $una_categoria["nombre_esp"]:$una_categoria["nombre_eng"]; 
 								echo "<li class='cat".$una_categoria["id_categoria"]."' onclick='lxcategoria(".$una_categoria["id_categoria"].")'>".$nombre."</li>";
 							}
 						?>

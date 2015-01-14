@@ -1,19 +1,15 @@
 <?php
-        function __autoload($nombre_clase) {
-                $nombre_clase = strtolower($nombre_clase);
-                include_once 'panel/clases/'.$nombre_clase .'.php';
+function __autoload($nombre_clase) {
+        $nombre_clase = strtolower($nombre_clase);
+        include_once 'panel/clases/'.$nombre_clase .'.php';
+}
+
+
+        session_start();
+        if(!isset($_SESSION["lang"])){
+            $_SESSION["lang"] = "eng";
         }
-if(isset($_REQUEST['idioma'])){
-	if($_REQUEST['idioma']=='es'){
-		$idioma = 'es';
-	}
-	else{
-		$idioma = 'en';
-	}
-}
-else{
-	$idioma = 'en';
-}
+        $idioma = $_SESSION["lang"];
 include_once('lang/'.$idioma.'.php');
 ?>
 <!DOCTYPE html>
