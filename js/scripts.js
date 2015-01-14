@@ -44,12 +44,12 @@ function closegallery(){
 }
 
 function viewcontact(){
-	//$("#wraperfondo").animate({"top":"-400px"},600);
-	//$(".contenido").animate({"top":"-400px"},600);
+	$("#wraperfondo").animate({"top":"-400px"},600);
+	$(".contenido").animate({"top":"-400px"},600);
 	$("#contacto").animate({"top":"-400px"},600);
-	//$("#bgvid").animate({"top":"-400px"},600);
-	//$("#bgvid3").animate({"top":"-400px"},600);
-	//$(".aboutbg").animate({"top":"-400px"},600);
+	$("#bgvid").animate({"top":"-400px"},600);
+	$("#bgvid3").animate({"top":"-400px"},600);
+	$(".aboutbg").animate({"top":"-400px"},600);
 }
 
 //$('#contacto').click(function(event){
@@ -58,12 +58,12 @@ function viewcontact(){
 //});
 
 function hidecontact(){
-	//$("#wraperfondo").animate({"top":"0"},600);
-	//$(".contenido").animate({"top":"0"},600);
+	$("#wraperfondo").animate({"top":"0"},600);
+	$(".contenido").animate({"top":"0"},600);
 	$("#contacto").animate({"top":"0"},600);
-	//$("#bgvid").animate({"top":"0"},600);
-	//$("#bgvid3").animate({"top":"0"},600);
-	//$(".aboutbg").animate({"top":"0"},600);
+	$("#bgvid").animate({"top":"0"},600);
+	$("#bgvid3").animate({"top":"0"},600);
+	$(".aboutbg").animate({"top":"0"},600);
 }/*
 function changecursor(){
 	console.log("cursor cambiado");
