@@ -174,15 +174,21 @@ function verproyecto(id){
         });
 
 	if(proyecto_existente){
+		console.log("entro");
 		nextproyect(resultado[0].id_proyecto);
 		prevproyect(resultado[0].id_proyecto);
-		console.log(resultadonext);
-		console.log(resultadoprev);
-		console.log(idprev);
-		console.log(idnext);
+		//console.log(resultadonext);
+		//console.log(resultadoprev);
+		//console.log(idprev);
+		//console.log(idnext);
 		var titulo = (idioma == "es")? resultado[0].titulo_esp : resultado[0].titulo_eng;
 		var subtitulo = (idioma == "es")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
 		var descripcion = (idioma == "es")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
+		var ver = (idioma == "es")? "VER" : "WATCH";
+		var galeria = (idioma == "es")? "GALERÍA" : "GALLERY";
+		var share = (idioma == "es")? "COMPARTIR" : "SHARE";
+		var pprev = (idioma == "es")? "PROYECTO ANTERIOR" : "PREVIOUS PROYECT";
+		var pnext = (idioma == "es")? "SIGUIENTE PROYECTO" : "NEXT PROJECT";
 
 		html='';
 		html2='';
@@ -194,14 +200,14 @@ function verproyecto(id){
 		html+='<p style="margin:0;">'+descripcion+'</p>';
 		html+='</div>';
 		html+='<div class="row">';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">WATCH</button></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">GALLERY</button></div>';
+		html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">'+ver+'</button></div>';
+		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">'+galeria+'</button></div>';
 		html+='<div class="col-sm-3 proylink"><a href="'+resultado[0].behance+'" target="_blank"><button class="proybutton">BEHANCE</button></a></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">SHARE</button></div>';
+		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">'+share+'/button></div>';
 		html+='</div>';
 		html+='<div class="row" style="margin-top:-1px;">';
-		html+='<div class="col-sm-6 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">PREVIOUS PROJECT</button></a></div>';
-		html+='<div class="col-sm-6 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">NEXT PROJECT</button></a></div>';
+		html+='<div class="col-sm-6 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">'+pprev+'</button></a></div>';
+		html+='<div class="col-sm-6 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">'+pnext+'</button></a></div>';
 		html+='</div>';
 		$(".proyecto").append(html);
 		html2+='<video id="bgvid3" loop muted>';
@@ -210,7 +216,7 @@ function verproyecto(id){
 		//console.log(html);
 		$(".videoproyecto").append(html2);
 		html3+='<div class="row">';
-		html3+='<div class="col-sm-10 sidemenu"><ul><li>Gallery</li></ul></div>';
+		html3+='<div class="col-sm-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
 		html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
 		html3+='</div>';
 		for(var i = 0; i < resultado[0].img_secundarias.length; i++){
@@ -236,40 +242,42 @@ function verproyecto(id){
 
 $(document).ready(function(){
 	var hashTag = window.location.hash
-	//console.log(hashTag);
-	if(hashTag=="#home"){
-		verhome();
-	}else if(hashTag=="#about"){
-		verabout();
-	}else if(hashTag=="#work"){
-		openmenu();
-	}else if(hashTag=="#contact"){
-		viewcontact();
-	}else{
-		//console.log(hashTag);	
-		var url = hashTag.substring(1);
-		var data = new FormData;
-        data.append('operaciones',"obtener_proyecto_por_urlamigable");
-        data.append("url_amigable", url);
-	    var resultado;
-		$.ajax({ 
-	            url: mypath+"functions.php",
-	            type:'POST',
-	            contentType:false,
-	            data:data,
-	            processData:false,
-	            cache:false,
-	            async:false,
-	            success:function(data){
-	                //console.log(data);
-	                if(data != ""){
-	                	resultado = JSON.parse(data);
-	                	setTimeout(function(){
-	                		verproyecto(resultado); 
-	                	}, 600);
-	                }
-	            }
-	    });
+	console.log(hashTag);
+	if(hashTag!=""){
+		if(hashTag=="#home"){
+			verhome();
+		}else if(hashTag=="#about"){
+			verabout();
+		}else if(hashTag=="#work"){
+			openmenu();
+		}else if(hashTag=="#contact"){
+			viewcontact();
+		}else{
+			//console.log(hashTag);	
+			var url = hashTag.substring(1);
+			var data = new FormData;
+	        data.append('operaciones',"obtener_proyecto_por_urlamigable");
+	        data.append("url_amigable", url);
+		    var resultado;
+			$.ajax({ 
+		            url: mypath+"functions.php",
+		            type:'POST',
+		            contentType:false,
+		            data:data,
+		            processData:false,
+		            cache:false,
+		            async:false,
+		            success:function(data){
+		                //console.log(data);
+		                if(data != ""){
+		                	resultado = JSON.parse(data);
+		                	setTimeout(function(){
+		                		verproyecto(resultado); 
+		                	}, 600);
+		                }
+		            }
+		    });
+		}
 	}
 });
 

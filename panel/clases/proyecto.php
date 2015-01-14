@@ -370,7 +370,7 @@ class proyecto extends Archivo {
 		$temporal = $con -> ejecutar_sentencia($sql);
 		while ($fila = mysqli_fetch_array($temporal)) {
 			$resultado['id_proyecto_anterior'] = $fila['id_proyecto'];
-			$resultado['$url_proyecto_anterior'] = $fila['url_amigable'];
+			$resultado['url_proyecto_anterior'] = $fila['url_amigable'];
 		}
 		mysqli_free_result($temporal);
 		if($resultado['id_proyecto_anterior'] == 0){

@@ -35,11 +35,11 @@
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a class="pmenu mhome active" href="#home" onclick="verhome()">Home</a></li>
-				<li><a class="pmenu mwork" href="#work" onclick="openmenu()">Work</a></li>
-				<li><a class="pmenu mabout" href="#about" onclick="verabout()">About</a></li>
-				<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()">Contact</a></li>
-				<li class="idioma"><a class="aen" href="<?=mypath?>en/">ENG</a> / <a href="<?=mypath?>es/" class="aes active">ESP</a></li>
+				<li><a class="pmenu mhome active" href="#home" onclick="verhome()"><?=HOME?></a></li>
+				<li><a class="pmenu mwork" href="#work" onclick="openmenu()"><?=WORK?></a></li>
+				<li><a class="pmenu mabout" href="#about" onclick="verabout()"><?=ABOUT?></a></li>
+				<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()"><?=CONTACT?></a></li>
+				<li class="idioma"><a class="aen" href="<?=mypath?>en">ENG</a> / <a href="<?=mypath?>es" class="aes active">ESP</a></li>
 			</ul>
 		</div>
 		<div class="row logobottom" style="padding:0 30px;"><!--
@@ -58,18 +58,18 @@
 		</div>
 		<div class="col-sm-6 col-sm-push-6 hometitle all">
 			<h1><?=$lista_videos_slide[0]["titulo_video"]?></h1>
-			<button class="bwatch" onclick="showvideo()">watch</button>
+			<button class="bwatch" onclick="showvideo()"><?=WATCH?></button>
 		</div>
 		<div class="col-sm-8 col-sm-push-4 about all">
-			<h2>ABOUT</h2>
-			<h1>BROADCAST DESIGN & MOTION GRAPHICS</h1>
+			<h2><?=AB2?></h2>
+			<h1>BROADCAST DESIGN &amp; MOTION GRAPHICS</h1>
 			<div class="row">
 				<div class="col-sm-9 col-sm-push-3 aboutborder">
 					<p>Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design. We are a team of graphic artists in search for new challenges and opportunities to create original concepts while we do what we love most... design.</p>
 					<p style="margin:0;">Driven by passion, creativity and love for great design, we create high impact animation.</p>
 				</div>
 				<div class="col-sm-9 col-sm-push-3 redesabout">
-					<span class="textboldw">FOLLOW US:</span>
+					<span class="textboldw"><?=FOLLOW?></span>
 					<a href="#" target="_blank" style="display: block;">
 						<button class="redesb">
 							<i class="fa fa-vimeo-square" style="font-size:15px;"></i>
@@ -147,7 +147,7 @@
 			<div class="row topsec">
 				<div class="col-sm-4">
 					<span class="textbold">Roberto Puig</span><br/>
-					<span class="textitalic">Director General & Creativo</span><br/>
+					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
 						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
 						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
@@ -156,7 +156,7 @@
 				</div>
 				<div class="col-sm-4">
 					<span class="textbold">Roberto Puig</span><br/>
-					<span class="textitalic">Director General & Creativo</span><br/>
+					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
 						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
 						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
@@ -167,14 +167,14 @@
 					<span class="textMedIt">We are always looking for fresh new talent, please send us your demo reel to: </span><br/>
 					<div class="row tabborder">
 						<div class="col-sm-6 tbdefault bgblack" style="border:none;">info@donporfirio.tv</div>
-						<div class="col-sm-6 tbdefault bdbtm" style="border:none;">Thank You!</div>
+						<div class="col-sm-6 tbdefault bdbtm" style="border:none;"><?=THANK?></div>
 					</div>
 				</div>
 			</div>
 			<div class="row topsec">
 				<div class="col-sm-4">
 					<span class="textbold">Roberto Puig</span><br/>
-					<span class="textitalic">Director General & Creativo</span><br/>
+					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
 						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
 						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
@@ -183,7 +183,7 @@
 				</div>
 				<div class="col-sm-4">
 					<span class="textbold">Roberto Puig</span><br/>
-					<span class="textitalic">Director General & Creativo</span><br/>
+					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
 						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
 						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
@@ -191,7 +191,7 @@
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<span class="textbold">FOLLOW US:</span><br/>
+					<span class="textbold"><?=FOLLOW?></span><br/>
 					<br/>
 					<div class="row">
 						<div class="col-sm-3" style="padding:0;">
@@ -227,7 +227,7 @@
 			</div>
 			<div class="row" style="padding-left:15px;">
 				<span class="textMedItBottom">
-					Copyright 2015 | Don Porfirio. All rights reserved.
+					<?=COPY?>
 				</span>
 			</div>
 		</div>
