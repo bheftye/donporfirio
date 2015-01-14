@@ -115,6 +115,9 @@ h2{
 	background:#f90e32;
 	color:#fff;
 }
+.all{
+	padding:0 !important;
+}
 @media(max-width:1199px){
 	h1{
 		font-size:90px;

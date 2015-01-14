@@ -50,7 +50,7 @@
 				<li class="idioma"><a class="aen active" href="<?=mypath?>en">ENG</a> / <a href="<?=mypath?>es" class="aes">ESP</a></li>
 			</ul>
 		</div>
-		<div class="row logobottom" style="padding:0 30px;"><!--
+		<div class="row logobottom" style="padding:0 60px;"><!--
 			<div class="progress progress-striped active">
 			    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 			</div>-->
@@ -59,8 +59,8 @@
 				<img src="<?=mypath?>img/dptitle.png" />
 			</div>
 		</div>
-		<div class="row logobottomr" style="text-align: right; padding:0 30px;">
-			<div class="col-sm-3 col-sm-push-9">
+		<div class="row logobottomr" style="text-align: right; padding:0 60px;">
+			<div class="col-sm-3 col-sm-push-9" style="padding:0;">
 				<img style="max-width:100%;" src="<?=mypath?>img/bd.png" />
 			</div>
 		</div>
