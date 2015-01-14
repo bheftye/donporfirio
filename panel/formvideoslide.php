@@ -85,55 +85,59 @@ include'menu.php';//Contiene a todo el menu.
                         	<input type="text"  name="titulo_video" class="form-control" placeholder="Ingrese el titulo aquí..." value="<?=$temporal->titulo_video?>">
                         </div>
 
-                        <br>       
-                        <div class="espacios">
-                    		<span class="textHelper">Previsualizar:</span>
-                    	</div>
-                        
                         <br>
-                        <?php 
-                            if($temporal -> nombre_video != ""){
-                                echo '<video id="video" muted controls style="height:350px;width:500px;display:table;margin:0 auto;">
-                                        <source src="../videosSlide/'.$temporal -> nombre_video.'" id="mp4Source"  type="video/mp4">
-                                      </video>';
-                            }
-                            else{
-                                echo '<video id="video" muted controls style="display:none;height:350px;width:500px;margin:0 auto;" >
-                                      </video>';
-                            }
-                        ?>
-                        <br>
-                    	<center>
-                            <input id="files3" name="archivo" type="file" class="upload"/>
-                        </center>
-                        <br>
-                        <div class="text-center textHelper">
-                        	Tipo de archivos permitidos: mp4.
-                            <br>
-                            Tamaño máximo de archivo: 30MB.
+                        <div class="col-lg-6">
+	                        <div class="espacios">
+	                    		<span class="textHelper">Previsualizar el video de fondo de baja calidad:</span>
+	                    	</div>
+	                        <?php 
+	                            if($temporal -> nombre_video != ""){
+	                                echo '<video id="video" muted controls style="height:350px;width:100%;display:table;margin:0 auto;">
+	                                        <source src="../videosSlide/'.$temporal -> nombre_video.'" id="mp4Source"  type="video/mp4">
+	                                      </video>';
+	                            }
+	                            else{
+	                                echo '<video id="video" muted controls style="display:none;height:350px;width:100%;margin:0 auto;" >
+	                                      </video>';
+	                            }
+	                        ?>
+	                        <br>
+	                    	<center>
+	                            <input id="files6" name="archivo" type="file" class="upload"/>
+	                        </center>
+	                        <br>
+	                        <div class="text-center textHelper">
+	                        	Tipo de archivos permitidos: mp4.
+	                            <br>
+	                            Tamaño máximo de archivo: 8MB.
+	                        </div>
                         </div>
-                        <br>
-                         <?php 
-                            if($temporal -> nombre_video_hd != ""){
-                                echo '<video id="video2" muted controls style="height:350px;width:500px;display:table;margin:0 auto;">
-                                        <source src="../videosSlide/'.$temporal -> nombre_video_hd.'" id="mp4Source"  type="video/mp4">
-                                      </video>';
-                            }
-                            else{
-                                echo '<video id="video2" muted controls style="display:none;height:350px;width:500px;margin:0 auto;" >
-                                      </video>';
-                            }
-                        ?>
-                        <br>
-                    	<center>
-                            <input id="files5" name="archivo_hd" type="file" class="upload"/>
-                        </center>
-                        <br>
-                        <div class="text-center textHelper">
-                        	Tipo de archivos permitidos: mp4.
-                            <br>
-                            Tamaño máximo de archivo: ilimitado.
-                        </div>         
+                        <div class="col-lg-6">
+	                         <div class="espacios">
+		                    	<span class="textHelper">Previsualizar el video en HD:</span>
+		                     </div>
+	                         <?php 
+	                            if($temporal -> nombre_video_hd != ""){
+	                                echo '<video id="video2" muted controls style="height:350px;width:100%;display:table;margin:0 auto;">
+	                                        <source src="../videosSlide/'.$temporal -> nombre_video_hd.'" id="mp4Source"  type="video/mp4">
+	                                      </video>';
+	                            }
+	                            else{
+	                                echo '<video id="video2" muted controls style="display:none;height:350px;width:100%;margin:0 auto;" >
+	                                      </video>';
+	                            }
+	                        ?>
+	                        <br>
+	                    	<center>
+	                            <input id="files5" name="archivo_hd" type="file" class="upload"/>
+	                        </center>
+	                        <br>
+	                        <div class="text-center textHelper">
+	                        	Tipo de archivos permitidos: mp4.
+	                            <br>
+	                            Tamaño máximo de archivo: 15MB.
+	                        </div>         
+                       </div>
                     </div><!--Div de cierre col-lg-9-->
                     <div class="clearfix"></div>
                     <!--Este div contiene la barra inferior-->
@@ -217,7 +221,7 @@ include 'javascripts.html';
 	
 	  document.getElementById('file3').addEventListener('change', handleFileSelect, false);*/
 	  var video = document.getElementById('video');
-	  var input = document.getElementById('files3');
+	  var input = document.getElementById('files6');
 	  input.addEventListener('change', function (evt) {
 	    var reader = new window.FileReader(),
 	        file = evt.target.files[0],
