@@ -52,6 +52,11 @@ function viewcontact(){
 	//$(".aboutbg").animate({"top":"-400px"},600);
 }
 
+//$('#contacto').click(function(event){
+    //event.stopPropagation();
+    //console.log("cerrar");
+//});
+
 function hidecontact(){
 	//$("#wraperfondo").animate({"top":"0"},600);
 	//$(".contenido").animate({"top":"0"},600);

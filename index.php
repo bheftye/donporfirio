@@ -72,11 +72,11 @@
 			<h2><?=AB2?></h2>
 			<h1>BROADCAST DESIGN &amp; MOTION GRAPHICS</h1>
 			<div class="row">
-				<div class="col-sm-9 col-sm-push-3 aboutborder">
+				<div class="col-sm-7 col-sm-push-5 aboutborder">
 					<p>Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design. We are a team of graphic artists in search for new challenges and opportunities to create original concepts while we do what we love most... design.</p>
 					<p style="margin:0;">Driven by passion, creativity and love for great design, we create high impact animation.</p>
 				</div>
-				<div class="col-sm-9 col-sm-push-3 redesabout">
+				<div class="col-sm-7 col-sm-push-5 redesabout">
 					<span class="textboldw"><?=FOLLOW?></span>
 					<a href="#" target="_blank" style="display: block;">
 						<button class="redesb">
@@ -205,28 +205,28 @@
 						<div class="col-sm-3" style="padding:0;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-vimeo-square" style="font-size:15px;"></i>
+									<i class="fa fa-vimeo-square fa-2x"></i>
 								</button>
 							</a>
 						</div>
 						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-behance" style="font-size:15px;"></i>
+									<i class="fa fa-behance fa-2x"></i>
 								</button>
 							</a>
 						</div>
 						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-twitter" style="font-size:15px;"></i>
+									<i class="fa fa-twitter fa-2x"></i>
 								</button>
 							</a>
 						</div>
 						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
 							<a href="#" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-facebook" style="font-size:15px;"></i>
+									<i class="fa fa-facebook fa-2x"></i>
 								</button>
 							</a>
 						</div>
