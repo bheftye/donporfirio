@@ -4,15 +4,15 @@
                 include_once 'panel/clases/'.$nombre_clase .'.php';
         }
 if(isset($_REQUEST['idioma'])){
-	if($_REQUEST['idioma']=='en'){
-		$idioma = 'en';
+	if($_REQUEST['idioma']=='es'){
+		$idioma = 'es';
 	}
 	else{
-		$idioma = 'es';
+		$idioma = 'en';
 	}
 }
 else{
-	$idioma = 'es';
+	$idioma = 'en';
 }
 include_once('lang/'.$idioma.'.php');
 ?>

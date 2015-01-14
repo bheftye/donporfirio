@@ -39,7 +39,7 @@
 				<li><a class="pmenu mwork" href="#work" onclick="openmenu()"><?=WORK?></a></li>
 				<li><a class="pmenu mabout" href="#about" onclick="verabout()"><?=ABOUT?></a></li>
 				<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()"><?=CONTACT?></a></li>
-				<li class="idioma"><a class="aen" href="<?=mypath?>en">ENG</a> / <a href="<?=mypath?>es" class="aes active">ESP</a></li>
+				<li class="idioma"><a class="aen active" href="<?=mypath?>en">ENG</a> / <a href="<?=mypath?>es" class="aes">ESP</a></li>
 			</ul>
 		</div>
 		<div class="row logobottom" style="padding:0 30px;"><!--
