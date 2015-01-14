@@ -37,6 +37,11 @@ switch ($operaciones) {
 		$proyecto -> url_amigable = $url_amigable;
 		echo $proyecto -> obtener_id_proyecto_por_urlamigable();
 	break;
+	case "cambiar_idioma":
+			$lang = $_REQUEST["lang"];
+            session_start();
+            $_SESSION['lang'] = $lang;
+    break;
 	default:
 	break;
 }
