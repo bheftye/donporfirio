@@ -78,26 +78,44 @@
 				</div>
 				<div class="col-sm-8 col-sm-push-4 redesabout">
 					<span class="textboldw"><?=FOLLOW?></span>
-					<a href="#" target="_blank" style="display: block;">
+					<?php
+					if($url_vimeo!=""){
+					?>
+					<a href="<?=$url_vimeo?>" target="_blank" style="display: block;">
 						<button class="redesb">
 							<i class="fa fa-vimeo-square"></i>
 						</button>
 					</a>
-					<a href="#" target="_blank" style="display: block;">
+					<?php
+					}
+					if($url_behance!=""){
+					?>
+					<a href="<?=$url_behance?>" target="_blank" style="display: block;">
 						<button class="redesb">
 							<i class="fa fa-behance"></i>
 						</button>
 					</a>
-					<a href="#" target="_blank" style="display: block;">
+					<?php
+					}
+					if($url_twitter!=""){
+					?>
+					<a href="<?=$url_twitter?>" target="_blank" style="display: block;">
 						<button class="redesb">
 							<i class="fa fa-twitter"></i>
 						</button>
 					</a>
-					<a href="#" target="_blank" style="display: block;">
+					<?php
+					}
+					if($url_facebook!=""){
+					?>
+					<a href="<?=$url_facebook?>" target="_blank" style="display: block;">
 						<button class="redesb">
 							<i class="fa fa-facebook"></i>
 						</button>
 					</a>
+					<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
@@ -202,34 +220,52 @@
 					<span class="textbold"><?=FOLLOW?></span><br/>
 					<br/>
 					<div class="row">
+						<?php
+						if($url_vimeo!=""){
+						?>
 						<div class="col-sm-3" style="padding:0;">
-							<a href="#" target="_blank" style="display: block;">
+							<a href="<?=$url_vimeo?>" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-vimeo-square fa-2x"></i>
 								</button>
 							</a>
 						</div>
+						<?php
+						}
+						if($url_behance!=""){
+						?>
 						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
-							<a href="#" target="_blank" style="display: block;">
+							<a href="<?=$url_behance?>" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-behance fa-2x"></i>
 								</button>
 							</a>
 						</div>
+						<?php
+						}
+						if($url_twitter!=""){
+						?>
 						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
-							<a href="#" target="_blank" style="display: block;">
+							<a href="<?=$url_twitter?>" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-twitter fa-2x"></i>
 								</button>
 							</a>
 						</div>
+						<?php
+						}
+						if($url_facebook!=""){
+						?>
 						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
-							<a href="#" target="_blank" style="display: block;">
+							<a href="<?=$url_facebook?>" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-facebook fa-2x"></i>
 								</button>
 							</a>
 						</div>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 			</div>
