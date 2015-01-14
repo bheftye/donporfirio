@@ -36,7 +36,7 @@
 	<!-- Website Content -->
 	<div class="container">
 		<div class="row logohome">
-			<div class=" col-sm-1">
+			<div class=" col-sm-1" style="padding:0;">
 				<div class="titulorojo2"><img src="<?=mypath?>img/logowr.png" /></div>
 				<img src="<?=mypath?>img/logow.png" />
 			</div>
