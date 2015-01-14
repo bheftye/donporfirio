@@ -17,7 +17,7 @@
 <div class="bgall videoproyecto"></div>
 <div id="fullscreenvideo2"></div>
 <div id="fullscreenvideo">
-	<video id="bgvid2">
+	<video id="bgvid2" loop>
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
 	</video>
 </div>
@@ -149,7 +149,7 @@
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
-						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bgblack"><a href="mailto:rpuig@donporfirio.tv">rpuig@donporfirio.tv</a></div>
 						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
@@ -158,7 +158,7 @@
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
-						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bgblack"><a href="mailto:rpuig@donporfirio.tv">rpuig@donporfirio.tv</a></div>
 						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
@@ -166,7 +166,7 @@
 				<div class="col-sm-4">
 					<span class="textMedIt">We are always looking for fresh new talent, please send us your demo reel to: </span><br/>
 					<div class="row tabborder">
-						<div class="col-sm-6 tbdefault bgblack" style="border:none;">info@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bgblack" style="border:none;"><a href="mailto:info@donporfirio.tv">info@donporfirio.tv</a></div>
 						<div class="col-sm-6 tbdefault bdbtm" style="border:none;"><?=THANK?></div>
 					</div>
 				</div>
@@ -176,7 +176,7 @@
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
-						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bgblack"><a href="mailto:rpuig@donporfirio.tv">rpuig@donporfirio.tv</a></div>
 						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
@@ -185,7 +185,7 @@
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
-						<div class="col-sm-6 tbdefault bgblack">rpuig@donporfirio.tv</div>
+						<div class="col-sm-6 tbdefault bgblack"><a href="mailto:rpuig@donporfirio.tv">rpuig@donporfirio.tv</a></div>
 						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>

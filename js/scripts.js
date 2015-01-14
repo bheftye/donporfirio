@@ -4,6 +4,26 @@ var resultadoprev ="";
 var idnext ="";
 var idprev ="";
 
+$(document).ready(function() {
+    var j;
+    $(document).mousemove(function() {
+        clearTimeout(j);
+        //$('#fullscreenvideo').css({cursor: 'default'});
+        j = setTimeout('hidecursor();', 1000);
+    });
+    $('#fullscreenvideo').mousemove(function(e){
+    	$('#fullscreenvideo').css({cursor: 'url(./img/clsr.png),auto'});
+    });
+    $('#fullscreenvideo2').mousemove(function(e){
+    	$('#fullscreenvideo2').css({cursor: 'url(./img/clsr.png),auto'});
+    });
+});
+
+function hidecursor() {
+    $('#fullscreenvideo').css({cursor: 'none'});
+    $('#fullscreenvideo2').css({cursor: 'none'});
+}
+
 function openmenu(){
 	$(".menuright").animate({"right":"0"},100);
 	$(".mwork").addClass("active");
@@ -287,6 +307,11 @@ $(document).ready(function(){
 		$(".aes").removeClass("active");
 		$(".aen").addClass("active");
 	}
+	/*$(".contenido").click(function(){
+		closegallery();
+		closemenu();
+		hidecontact();
+	});*/
 });
 
 $(document).ready(function(){
@@ -361,7 +386,8 @@ function lxcategoria(idcat){
                 		var titulo_proyecto = (idioma == "es")? resultado_cat[x].titulo_esp : resultado_cat[x].titulo_eng;
 						var subtitulo_proyecto = (idioma == "es")? resultado_cat[x].subtitulo_esp : resultado_cat[x].subtitulo_eng;
 						var video_preview = resultado_cat[x].nombre_preview;
-	                	html+='<a href="#'+resultado_cat[x].url_amigable+'" style="display:block;" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >';
+						var vp = "'"+video_preview+"'";
+	                	html+='<a href="#'+resultado_cat[x].url_amigable+'" style="display:block;" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+','+vp+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >';
 						html+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
 						html+='<div class="vidpreview videono'+resultado_cat[x].id_proyecto+'"></div>';
 						html+='</div></a>';

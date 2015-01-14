@@ -134,9 +134,19 @@ h2{
 		font-size:12px;
 	}
 }
+@media(min-height:681px){
+	.aboutborder{
+		max-height:250px;
+		overflow:auto;
+	}
+}
 @media(max-height:680px){
 	h1{
 		font-size:90px;
+	}
+	.aboutborder{
+		max-height:180px;
+		overflow:auto;
 	}
 }
 @media(max-height:640px){
@@ -145,6 +155,10 @@ h2{
 	}
 	h1{
 		font-size:70px;
+	}
+	.aboutborder{
+		max-height:140px;
+		overflow:auto;
 	}
 }
 /**********************************MENU********************************************/
@@ -442,6 +456,9 @@ button.proybutton:hover{
 	font-family: 'AkzidenzGrotesk-MediumItalic';
 	border-bottom: 1px solid #000;
 	background:#000;
+	color:#fff;
+}
+.bgblack a{
 	color:#fff;
 }
 .topsec{
