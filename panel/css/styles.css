@@ -1034,17 +1034,17 @@ span label.img{
 	color:#000;
 }
 
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+/*.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
 	background-color:transparent;
 	color:#000;
-}
+}*/
 
 .nav-tabs > li.active a{
 	color:#fff !important;
 	background-color:rgb(0,174,239);
 }
 
-.nav-tabs > li.active a:hover{
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
 	color:#fff !important;
 	background-color:rgb(0,174,239);
 }

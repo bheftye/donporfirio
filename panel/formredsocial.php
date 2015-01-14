@@ -64,13 +64,17 @@ include'menu.php';//Contiene a todo el menu.
                         	<span class="input-group-addon es">Perfil de Facebook</span>
                         	<input type="text"  name="facebook" class="form-control" placeholder="Ingrese el link aquí..." value="<?=$temporal->facebook?>">
                         </div>
-                        <div id="youtube" class="input-group espacios">
-                            <span class="input-group-addon es">Canal de Youtube</span>
-                            <input type="text"  name="youtube" class="form-control" placeholder="Ingrese el link aquí..." value="<?=$temporal->youtube?>">
+                        <div id="twitter" class="input-group espacios">
+                            <span class="input-group-addon es">Perfil de Twitter</span>
+                            <input type="text"  name="twitter" class="form-control" placeholder="Ingrese el link aquí..." value="<?=$temporal->twitter?>">
                         </div>
                         <div id="vimeo" class="input-group espacios">
                             <span class="input-group-addon es">Canal de Vimeo</span>
                             <input type="text"  name="vimeo" class="form-control" placeholder="Ingrese el link aquí..." value="<?=$temporal->vimeo?>">
+                        </div>
+                        <div id="behance" class="input-group espacios">
+                            <span class="input-group-addon es">Perfil de Behance</span>
+                            <input type="text"  name="behance" class="form-control" placeholder="Ingrese el link aquí..." value="<?=$temporal->behance?>">
                         </div>
                        
                     </div><!--Div de cierre col-lg-9-->
@@ -136,7 +140,7 @@ include 'javascripts.html';
            form1.facebook.focus();
            $('#facebook').removeClass("form-group").addClass("form-group has-error");
            $('.top-right').notify({
-               message: { text: 'Esta no es una link válida (Ej. de link válida https://www.youtube.com/watch?v=_zR6ROjoOX0&spfreload=10)' },
+               message: { text: 'Esta no es una link válida (Ej. de link válida https://www.facebook.com/DonPorfirioTV)' },
                type:'blackgloss',
              }).show();
            return false;
@@ -149,12 +153,12 @@ include 'javascripts.html';
             return false;
         }
 
-        if(form1.youtube.value != ""){
-            if (form1.youtube.value.length < 2 || !myRegExp.test(form1.youtube.value)){
+        if(form1.twitter.value != ""){
+            if (form1.twitter.value.length < 2 || !myRegExp.test(form1.twitter.value)){
            form1.youtube.focus();
-           $('#youtube').removeClass("form-group").addClass("form-group has-error");
+           $('#twitter').removeClass("form-group").addClass("form-group has-error");
            $('.top-right').notify({
-               message: { text: 'Esta no es una link válida (Ej. de link válida https://www.youtube.com/watch?v=_zR6ROjoOX0&spfreload=10)' },
+               message: { text: 'Esta no es una link válida (Ej. de link válida https://www.twitter.com/donporfirio)' },
                type:'blackgloss',
              }).show();
            return false;
@@ -172,13 +176,31 @@ include 'javascripts.html';
            form1.vimeo.focus();
            $('#vimeo').removeClass("form-group").addClass("form-group has-error");
            $('.top-right').notify({
-               message: { text: 'Esta no es una link válida (Ej. de link válida https://www.youtube.com/watch?v=_zR6ROjoOX0&spfreload=10)' },
+               message: { text: 'Esta no es una link válida (Ej. de link válida https://www.vimeo.com/donporfirio)' },
                type:'blackgloss',
              }).show();
            return false;
            }
           else{
            $('#vimeo').removeClass("form-group has-error").addClass("form-group has-success");
+          }
+        }
+        else{
+            return false;
+        }
+
+        if(form1.behance.value != ""){
+            if (form1.behance.value.length < 2 || !myRegExp.test(form1.behance.value)){
+           form1.behance.focus();
+           $('#behance').removeClass("form-group").addClass("form-group has-error");
+           $('.top-right').notify({
+               message: { text: 'Esta no es una link válida (Ej. de link válida https://www.behance.com/donporfirio)' },
+               type:'blackgloss',
+             }).show();
+           return false;
+           }
+          else{
+           $('#behance').removeClass("form-group has-error").addClass("form-group has-success");
           }
         }
         else{
