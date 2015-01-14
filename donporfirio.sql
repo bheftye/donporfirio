@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 13-01-2015 a las 19:37:32
+-- Tiempo de generación: 14-01-2015 a las 18:27:40
 -- Versión del servidor: 5.5.38
 -- Versión de PHP: 5.5.14
 
@@ -79,7 +79,7 @@ CREATE TABLE `contacto` (
 --
 
 INSERT INTO `contacto` (`idcontacto`, `correo`, `emisor`) VALUES
-(1, 'gmarcin@eraseunavez.mx', 'noreply@eraseunavez.mx');
+(1, 'hola@locker.com.mx', 'hola@locker.com.mx');
 
 -- --------------------------------------------------------
 
@@ -360,16 +360,17 @@ INSERT INTO `proyectos_categorias` (`id_proyecto`, `id_categoria`) VALUES
 CREATE TABLE `redes_sociales` (
   `id_redes_sociales` tinyint(1) NOT NULL,
   `facebook` text COLLATE utf8_unicode_ci NOT NULL,
-  `youtube` text COLLATE utf8_unicode_ci NOT NULL,
-  `vimeo` text COLLATE utf8_unicode_ci NOT NULL
+  `twitter` text COLLATE utf8_unicode_ci NOT NULL,
+  `vimeo` text COLLATE utf8_unicode_ci NOT NULL,
+  `behance` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `redes_sociales`
 --
 
-INSERT INTO `redes_sociales` (`id_redes_sociales`, `facebook`, `youtube`, `vimeo`) VALUES
-(1, 'https://www.facebook.com/eraseunavezbc', 'https://www.youtube.com/user/EraseunavezMX', 'http://vimeo.com/user9855938');
+INSERT INTO `redes_sociales` (`id_redes_sociales`, `facebook`, `twitter`, `vimeo`, `behance`) VALUES
+(1, 'https://www.facebook.com/DonPorfirioTV', 'https://twitter.com/donporfirio_tv', 'http://vimeo.com/donporfirio', 'https://www.behance.net/donporfirio');
 
 -- --------------------------------------------------------
 
