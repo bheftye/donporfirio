@@ -365,13 +365,26 @@ button.redesb{
 	-moz-transition: all 0.6s;
     transition: all 0.6s;
 }
+.redesb fa{
+	font-size:15px;
+}
 button.redesb:hover{
 	background:#f90e32;
 	color:#fff;
 }
 @media(max-width:991px){
 	.textboldw{
-		margin-right:40px;
+		margin-right:5px;
+		font-size:12px;
+	}
+	button.redesb{
+		font-size:15px;
+		width:40px;
+		padding:5px 0;
+		text-align: center;
+	}
+	.redesb fa{
+		font-size:12px;
 	}
 }
 /********************************PROYECTOS*******************************************/

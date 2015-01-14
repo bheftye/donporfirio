@@ -68,34 +68,34 @@
 			<h1><?=$lista_videos_slide[0]["titulo_video"]?></h1>
 			<button class="bwatch" onclick="showvideo()"><?=WATCH?></button>
 		</div>
-		<div class="col-sm-8 col-sm-push-4 about all">
+		<div class="col-sm-7 col-sm-push-5 about all">
 			<h2><?=AB2?></h2>
 			<h1>BROADCAST DESIGN &amp; MOTION GRAPHICS</h1>
 			<div class="row">
-				<div class="col-sm-7 col-sm-push-5 aboutborder">
+				<div class="col-sm-8 col-sm-push-4 aboutborder">
 					<p>Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design. We are a team of graphic artists in search for new challenges and opportunities to create original concepts while we do what we love most... design.</p>
 					<p style="margin:0;">Driven by passion, creativity and love for great design, we create high impact animation.</p>
 				</div>
-				<div class="col-sm-7 col-sm-push-5 redesabout">
+				<div class="col-sm-8 col-sm-push-4 redesabout">
 					<span class="textboldw"><?=FOLLOW?></span>
 					<a href="#" target="_blank" style="display: block;">
 						<button class="redesb">
-							<i class="fa fa-vimeo-square" style="font-size:15px;"></i>
+							<i class="fa fa-vimeo-square"></i>
 						</button>
 					</a>
 					<a href="#" target="_blank" style="display: block;">
 						<button class="redesb">
-							<i class="fa fa-behance" style="font-size:15px;"></i>
+							<i class="fa fa-behance"></i>
 						</button>
 					</a>
 					<a href="#" target="_blank" style="display: block;">
 						<button class="redesb">
-							<i class="fa fa-twitter" style="font-size:15px;"></i>
+							<i class="fa fa-twitter"></i>
 						</button>
 					</a>
 					<a href="#" target="_blank" style="display: block;">
 						<button class="redesb">
-							<i class="fa fa-facebook" style="font-size:15px;"></i>
+							<i class="fa fa-facebook"></i>
 						</button>
 					</a>
 				</div>
