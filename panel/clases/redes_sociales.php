@@ -5,22 +5,24 @@ class redes_sociales
 {
 var $id_redes_sociales;
 var $facebook;
-var $youtube;
+var $twitter;
 var $vimeo;
+var $behance;
 
 
-	function redes_sociales($id_redes_sociales = 0, $facebook='', $youtube = '', $vimeo = "")
+	function redes_sociales($id_redes_sociales = 0, $facebook='', $twitter = '', $vimeo = "", $behance = "")
 	{
 		$this -> id_redes_sociales=$id_redes_sociales;
 		$this -> facebook = $facebook;
-		$this -> youtube = $youtube;
+		$this -> twitter = $twitter;
 		$this -> vimeo = $vimeo;
+		$this -> behance = $behance;
 	}
 	
 	function modificar_redes_sociales()
 	{
 		$conexion = new conexion();
-		$sql = "UPDATE redes_sociales SET facebook = '".htmlspecialchars($this -> facebook, ENT_QUOTES)."', youtube = '".htmlspecialchars($this -> youtube, ENT_QUOTES)."', vimeo = '".htmlspecialchars($this -> vimeo, ENT_QUOTES)."'  WHERE id_redes_sociales = ". $this -> id_redes_sociales;
+		$sql = "UPDATE redes_sociales SET facebook = '".htmlspecialchars($this -> facebook, ENT_QUOTES)."', twitter = '".htmlspecialchars($this -> twitter, ENT_QUOTES)."', vimeo = '".htmlspecialchars($this -> vimeo, ENT_QUOTES)."', behance = '".htmlspecialchars($this -> behance, ENT_QUOTES)."'  WHERE id_redes_sociales = ". $this -> id_redes_sociales;
 		return $conexion -> ejecutar_sentencia($sql);
 	}
 	
@@ -34,8 +36,9 @@ var $vimeo;
 			{
 				$this -> id_redes_sociales = $row['id_redes_sociales'];
 				$this -> facebook =$row['facebook'];
-				$this -> youtube =$row['youtube'];
+				$this -> twitter =$row['twitter'];
 				$this -> vimeo =$row['vimeo'];
+				$this -> behance = $row["behance"];
 			}
 		mysqli_free_result($result);
 	}

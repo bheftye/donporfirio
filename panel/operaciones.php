@@ -86,10 +86,11 @@ switch($operaciones){
 	/***********REDES SOCIALES***************/
 	case 'modificar_redes_sociales':
 		$facebook = (isset($_REQUEST['facebook']))? $_REQUEST['facebook'] : "";
-		$youtube = (isset($_REQUEST['youtube']))? $_REQUEST['youtube'] : "";
+		$twitter = (isset($_REQUEST['twitter']))? $_REQUEST['twitter'] : "";
 		$vimeo = (isset($_REQUEST['vimeo']))? $_REQUEST['vimeo'] : "";
+		$behance = (isset($_REQUEST['behance']))? $_REQUEST['behance'] : "";
 
-		$redes_sociales = new redes_sociales(1, $facebook, $youtube, $vimeo);
+		$redes_sociales = new redes_sociales(1, $facebook, $twitter, $vimeo, $behance);
 		$redes_sociales -> modificar_redes_sociales();
 		header('location: formredsocial.php?success=2');
 	break;

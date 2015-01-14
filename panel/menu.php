@@ -14,5 +14,8 @@
                 <li <?php if ($page =="listcategoria.php"  or $page == "formcategoria.php"){ echo "class='active'";} ?>><a href="listcategoria.php">Categorías</a>
                 </li>
                 <hr class="hrmenu">
+                <li <?php if ($page == "formredsocial.php"){ echo "class='active'";} ?>><a href="formredsocial.php">Redes Sociales</a>
+                </li>
+                <hr class="hrmenu">
             </ul>
         </div>
