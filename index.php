@@ -159,7 +159,14 @@
 					<h4>'.$subtitulo_proyecto.'</h4>
 					<h3>'.$titulo_proyecto.'</h3>
 					</div>
-					<div class="vidpreview videono'.$un_proyecto["id_proyecto"].'"></div>
+					<div class="vidpreview videono'.$un_proyecto["id_proyecto"].'">
+					<div id="video-container">
+					<video autoplay loop muted class="fillWidth">
+					<source src="'.mypath.'vidProyectos/'.$video_preview.'" type="video/mp4"/>
+					Your browser does not support the video tag. I suggest you upgrade your browser.
+					</video>
+					</div>
+					</div>
 					</div>
 				</a>';
 		}

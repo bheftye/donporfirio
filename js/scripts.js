@@ -424,22 +424,26 @@ $(document).ready(function(){
 function showpreview(id,vp){
 	//console.log(vp);
 	//$(".videono"+id).empty();
-	var html="";
+	/*var html="";
 	html+='<div id="video-container">';
 	html+='<video autoplay loop muted class="fillWidth">';
 	html+='<source src="'+mypath+'vidProyectos/'+vp+'" type="video/mp4"/>';
 	html+='Your browser does not support the video tag. I suggest you upgrade your browser.';
 	html+='</video>';
 	html+='</div>';
-	$(".videono"+id).append(html).delay(600).fadeIn(600);
+	$(".videono"+id).append(html).delay(600).fadeIn(600);*/
+	$(".videono"+id).fadeIn(600);
+	$(".fillWidth")[0].play();
 	//$(".videono"+id).fadeIn(600);
 }
 
 function hidepreview(id){
 	//console.log("unhover");
-	$(".videono"+id).fadeOut(600, function(){
+	/*$(".videono"+id).fadeOut(600, function(){
 		$(".videono"+id).empty();
-	});
+	});*/
+	$(".videono"+id).fadeOut(600);
+	$(".fillWidth")[0].pause();
 }
 
 function lxcategoria(idcat){
