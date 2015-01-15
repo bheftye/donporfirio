@@ -24,9 +24,16 @@ function checksize(){
 	}
 }
 
-$(document).on('click','.container',function(){
+$(".contenido").on('click',function(){
 	if($("#contacto").hasClass("cabierto")){
-		//hidecontact();
+		//console.log($("#contacto").attr('class'));
+		hidecontact();
+	}
+	if($(".menuright").hasClass("mabierto")){
+		closemenu();
+	}
+	if($(".galleryright").hasClass("gabierto")){
+		closegallery();
 	}
 });
 
@@ -66,10 +73,11 @@ function hidecursor() {
 
 function openmenu(){
 	if($(".menuright").hasClass("mcerrado")){
-		$(".menuright").animate({"right":"0"},100);
+		$(".menuright").animate({"right":"0"},100,function(){
+			$(".menuright").removeClass("mcerrado");
+			$(".menuright").addClass("mabierto");
+		});
 		$(".mwork").addClass("active");
-		$(".menuright").removeClass("mcerrado");
-		$(".menuright").addClass("mabierto");
 	}
 	else{
 		closemenu();
@@ -78,9 +86,10 @@ function openmenu(){
 
 function opengallery(){
 	if($(".galleryright").hasClass("gcerrado")){
-		$(".galleryright").animate({"right":"0"},100);
-		$(".galleryright").removeClass("gcerrado");
-		$(".galleryright").addClass("gabierto");
+		$(".galleryright").animate({"right":"0"},100,function(){
+			$(".galleryright").removeClass("gcerrado");
+			$(".galleryright").addClass("gabierto");
+		});
 	}
 	else{
 		closegallery();
@@ -104,12 +113,13 @@ function viewcontact(){
 	if($("#contacto").hasClass("ccerrado")){
 		$("#wraperfondo").animate({"top":"-400px"},600);
 		$(".contenido").animate({"top":"-400px"},600);
-		$("#contacto").animate({"top":"-400px"},600);
+		$("#contacto").animate({"top":"-400px"},600,function(){
+			$("#contacto").removeClass("ccerrado");
+			$("#contacto").addClass("cabierto");
+		});
 		$("#bgvid").animate({"top":"-400px"},600);
 		$("#bgvid3").animate({"top":"-400px"},600);
 		$(".aboutbg").animate({"top":"-400px"},600);
-		$("#contacto").removeClass("ccerrado");
-		$("#contacto").addClass("cabierto");
 	}
 	else{
 		hidecontact();
@@ -416,8 +426,8 @@ $(document).ready(function(){
 		    var percent2 = 51*(vid.currentTime/vid.duration);
 		    //console.log(percent);
 	        //$('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
-	        $(".titulorojo").width(percent+"px");
-	        $(".titulorojo2").width(percent2+"px");
+	        //$(".titulorojo").width(percent+"px");
+	        //$(".titulorojo2").width(percent2+"px");
 	});
 });
 
