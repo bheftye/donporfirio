@@ -430,6 +430,10 @@ button.redesb:hover{
 	display:none;
 	color: #fff;
 	font-family: 'AkzidenzGrotesk-Regular';
+	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
+	-o-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+    transition: all 0.6s;
 }
 .videoproyecto{
 	display:none;

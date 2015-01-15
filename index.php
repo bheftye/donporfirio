@@ -122,7 +122,7 @@
 		<div class="col-lg-6 col-lg-push-6 col-md-8 col-md-push-4 col-sm-9 col-sm-push-3 proyecto all"></div>
 	</div>
 	<!-- Website Content -->
-	<div class="menuright">
+	<div class="menuright mcerrado">
 		<div class="menuheader">
 			<div class="row">
 				<div class="col-sm-10 sidemenu">
@@ -166,14 +166,14 @@
 		?>
 		</div>
 	</div>
-	<div class="galleryright">
+	<div class="galleryright gcerrado">
 		<div class="row">
 				<div class="col-sm-10 sidemenu"></div>
 			<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
 		</div>
 	</div>
 </div>
-<div id="contacto">
+<div id="contacto" class="ccerrado">
 	<span class="closebutton" onclick="hidecontact()"><img src="<?=mypath?>img/cls.png" /></span>
 	<div class="container">
 		<div class="col-sm-9" style="padding:0;">
