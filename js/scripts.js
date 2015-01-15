@@ -3,8 +3,21 @@ var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
 var idprev ="";
+var viewportWidth = $(window).width();
+var viewportHeight = $(window).height();
+
+$(window).resize(function() {
+	viewportWidth = $(window).width();
+	viewportHeight = $(window).height();
+	//console.log(viewportWidth);
+	if(viewportWidth>=768){
+		centervert();
+	}
+});
 
 $(document).ready(function() {
+	var viewportWidth = $(window).width();
+	var viewportHeight = $(window).height();
     var j;
     $(document).mousemove(function() {
         clearTimeout(j);
@@ -18,6 +31,10 @@ $(document).ready(function() {
     	$('#fullscreenvideo2').css({cursor: 'url(./img/clsr.png),auto'});
     });
 });
+
+function centervert(){
+	console.log("centrar");
+}
 
 function hidecursor() {
     $('#fullscreenvideo').css({cursor: 'none'});
