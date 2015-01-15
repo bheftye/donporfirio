@@ -33,9 +33,28 @@ include_once('lang/'.$idioma.'.php');
         <link href="<?=mypath?>css/bootstrap.css" rel="stylesheet">
         <link href="<?=mypath?>css/style.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?=mypath?>css/jquery.mCustomScrollbar.css" />
 
         <title>Don Porfirio</title>
 </head>
 <body>
+<style>
+	.mCustomScrollBox {
+		direction: ltr !important;
+	}
+	.mCSB_container{
+		margin-left:15px;
+		padding-top:15px;
+	}
+	.mCustomScrollBox>.mCSB_scrollTools{
+		opacity:1;
+	}
+	.mCSB_scrollTools .mCSB_draggerRail{
+		background: rgba(255,255,255,1);
+	}
+	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+		background: rgba(249,14,50,1);
+	}
+</style>
 <div id="wraperfondo"></div>
 <div id="wraper">

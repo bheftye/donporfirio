@@ -107,18 +107,6 @@ h2{
 	line-height:0.8em;
 	margin:0;
 }
-h3{
-	position:absolute;
-	width:100%;
-	text-align:center;
-	font-size:36px;
-	font-family: 'AkzidenzGrotesk-Regular';
-	color:#fff;
-	margin:0;
-	top:50%;
-	margin-top:-20px;
-	z-index:10;
-}
 .bwatch{
 	padding:2px 40px;
 	font-family: 'AkzidenzGrotesk-BoldItalic';
@@ -301,6 +289,29 @@ h3{
 	opacity:0.3;
 	background:#000;
 }
+h4{
+	text-align:center;
+	font-size:18px;
+	font-family: 'AkzidenzGrotesk-Regular';
+	color:#fff;
+	margin:0;
+	line-height:0.8em;
+}
+h3{
+	text-align:center;
+	font-size:36px;
+	font-family: 'AkzidenzGrotesk-Bold';
+	color:#fff;
+	margin:0;
+	line-height: .8em;
+}
+.cattitulos{
+	position:absolute;
+	width:100%;
+	top:50%;
+	margin-top:-25px;
+	z-index:10;
+}
 /*************************************INICIO***************************************/
 .titulorojo, .titulorojo2{
 	position:absolute;
@@ -349,7 +360,9 @@ h3{
 }
 .aboutborder{
 	border:1px solid #fff;
-	padding:15px;
+	padding:0;
+	padding-right:15px;
+	padding-bottom:15px;
 }
 .aboutborder p{
 	color:#fff;

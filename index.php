@@ -155,7 +155,10 @@
 					<div style="max-height:200px; overflow:hidden; position:relative;"  class="proyectofondo" >
 					<img style="width:100%; margin: 1px 0;" src="'.mypath.'imgProyectos/'.$un_proyecto["img_principal"].'" />
 					<div class="fcategoria"></div>
+					<div class="cattitulos">
+					<h4>'.$subtitulo_proyecto.'</h4>
 					<h3>'.$titulo_proyecto.'</h3>
+					</div>
 					<div class="vidpreview videono'.$un_proyecto["id_proyecto"].'"></div>
 					</div>
 				</a>';

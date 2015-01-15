@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -117,7 +117,22 @@ function verabout(){
 	$(".titulorojo2").animate({"width":"0"},600);
 	$(".aboutbg").delay(600).fadeIn(600);
 	$(".about").delay(600).fadeIn(600);
+	//$(".aboutborder").mCustomScrollbar();
 }
+
+(function($) {  
+  $(window).load(function() {  
+    $(".aboutborder").mCustomScrollbar({  
+      scrollEasing:"easeOutCirc",  
+      mouseWheel:"auto",   
+      autoDraggerLength:true,   
+      advanced:{  
+        updateOnBrowserResize:true,   
+        updateOnContentResize:true   
+      } // removed extra commas  
+    });  
+  });  
+})(jQuery);
 
 function verhome(){
 	$(".pmenu").removeClass("active");
@@ -262,6 +277,7 @@ function verproyecto(id){
 			$("#bgvid3")[0].play();
 		});
 		$(".proyecto").delay(600).fadeIn(600);
+		//$(".aboutborder").mCustomScrollbar();
 	}	
 }
 
@@ -394,6 +410,11 @@ function lxcategoria(idcat){
 						var vp = "'"+video_preview+"'";
 	                	html+='<a href="#'+resultado_cat[x].url_amigable+'" style="display:block;" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+','+vp+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >';
 						html+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
+						html+='<div class="fcategoria"></div>';
+						html+='<div class="cattitulos">';
+						html+='<h4>'+titulo_proyecto+'</h4>';
+						html+='<h3>'+subtitulo_proyecto+'</h3>';
+						html+='</div>';
 						html+='<div class="vidpreview videono'+resultado_cat[x].id_proyecto+'"></div>';
 						html+='</div></a>';
 						//$(".listproyectos").append(html);
