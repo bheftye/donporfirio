@@ -35,6 +35,12 @@ $(".contenido").on('click',function(){
 		closegallery();
 	}
 });
+$('.menuright').click(function(event){
+   event.stopPropagation();
+});
+$('.galleryright').click(function(event){
+   event.stopPropagation();
+});
 
 $(document).ready(function() {
 	var viewportWidth = $(window).width();
@@ -235,8 +241,8 @@ function reproduceproyecto(){
 		    var percent2 = 51*(vid.currentTime/vid.duration);
 		    //console.log(percent);
 	        //$('.progress-bar').css('width', percent+'%').attr('aria-valuenow', percent);
-	        $(".titulorojo").width(percent+"px");
-	        $(".titulorojo2").width(percent2+"px");
+	        //$(".titulorojo").width(percent+"px");
+	        //$(".titulorojo2").width(percent2+"px");
 	});
 }
 
@@ -344,14 +350,14 @@ function verproyecto(id){
 
 		$("#fullscreenvideo2").append(html4);
 		$(".all").fadeOut(600);
-		$(".galleryright").delay(600).fadeIn(600);
+		$(".galleryright").delay(1200).fadeIn(600);
 		//$("#fullscreenvideo2").delay(600).fadeIn(600);
-		$(".videoproyecto").delay(600).fadeIn(600,function(){
+		$(".videoproyecto").delay(1200).fadeIn(600,function(){
 			reproduceproyecto();
 			$("#bgvid3")[0].currentTime = 0;
 			$("#bgvid3")[0].play();
 		});
-		$(".proyecto").delay(600).fadeIn(600, function(){
+		$(".proyecto").delay(1200).fadeIn(600, function(){
 			checksize();
 		});
 		//$(".aboutborder").mCustomScrollbar();
@@ -463,10 +469,6 @@ function lxcategoria(idcat){
     var resultado_cat;
     $(".sidemenu ul li").removeClass("active");
     $(".cat"+idcat).addClass("active");
-    //$(".listproyectos").fadeOut(600, function(){
-    	$(".listproyectos").empty();
-    	//$(".listproyectos").show();  
-    //});
 	$.ajax({ 
             url: mypath+"functions.php",
             type:'POST',
@@ -501,8 +503,11 @@ function lxcategoria(idcat){
 						//$(".listproyectos").append(html);
                 	}
                 	//console.log(html);
-                	$(html).appendTo(".listproyectos");
-                	//$(".listproyectos").fadeIn(600);         	
+                	console.log("in");
+                	$(".listproyectos").animate({marginLeft:"100%"},600,function(){
+                		$(".listproyectos").empty().append(html).delay(600).animate({marginLeft:"0"},600);
+                	})
+                	//$(".listproyectos").delay(600).animate({marginLeft:"0"},600);         	
                 }
             }
         });
