@@ -262,14 +262,10 @@ function verproyecto(id){
 	closemenu();
 	closegallery();
 	$(".galleryright").empty();
-	$(".videoproyecto").empty();
-	$(".proyecto").empty();
 	$(".pmenu").removeClass("active");
 	$(".mwork").addClass("active");
-	$(".bgall").fadeOut(600);
 	$("#bgvid")[0].pause();
 	$("#bgvid4").remove();
-	//$(".bgall")[0].pause();
 	var proyecto_existente = false;
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto");
@@ -285,11 +281,9 @@ function verproyecto(id){
             cache:false,
             async:false,
             success:function(data){
-                //console.log(data);
                 if(data != ""){
                 	proyecto_existente = true;
                 	resultado = JSON.parse(data);
-                	//console.log(resultado);              	
                 }
             }
         });
@@ -298,10 +292,6 @@ function verproyecto(id){
 		console.log("entro");
 		nextproyect(resultado[0].id_proyecto);
 		prevproyect(resultado[0].id_proyecto);
-		//console.log(resultadonext);
-		//console.log(resultadoprev);
-		//console.log(idprev);
-		//console.log(idnext);
 		var titulo = (idioma == "esp")? resultado[0].titulo_esp : resultado[0].titulo_eng;
 		var subtitulo = (idioma == "esp")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
 		var descripcion = (idioma == "esp")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
@@ -330,12 +320,9 @@ function verproyecto(id){
 		html+='<div class="col-sm-6 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">'+pprev+'</button></a></div>';
 		html+='<div class="col-sm-6 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">'+pnext+'</button></a></div>';
 		html+='</div>';
-		$(".proyecto").append(html);
 		html2+='<video id="bgvid3" loop muted>';
 		html2+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video+'" id="mp4Source"  type="video/mp4">';
 		html2+='</video>';
-		//console.log(html);
-		$(".videoproyecto").append(html2);
 		html3+='<div class="row">';
 		html3+='<div class="col-sm-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
 		html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
@@ -347,20 +334,21 @@ function verproyecto(id){
 		html4+='<video id="bgvid4">';
 		html4+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video_hd+'" id="mp4Source"  type="video/mp4">';
 		html4+='</video>';
-
 		$("#fullscreenvideo2").append(html4);
+		
 		$(".all").fadeOut(600);
-		$(".galleryright").delay(1200).fadeIn(600);
-		//$("#fullscreenvideo2").delay(600).fadeIn(600);
-		$(".videoproyecto").delay(1200).fadeIn(600,function(){
+		$(".proyecto").delay(700).empty().append(html).fadeIn(600, function(){
+			checksize();
+		});
+		
+		$(".bgall").fadeOut(600);
+		$(".videoproyecto").delay(700).empty().append(html2).fadeIn(600,function(){
 			reproduceproyecto();
 			$("#bgvid3")[0].currentTime = 0;
 			$("#bgvid3")[0].play();
 		});
-		$(".proyecto").delay(1200).fadeIn(600, function(){
-			checksize();
-		});
-		//$(".aboutborder").mCustomScrollbar();
+		
+		$(".galleryright").fadeIn(600);
 	}	
 }
 
