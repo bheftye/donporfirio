@@ -486,7 +486,14 @@ function lxcategoria(idcat){
 						html+='<h4>'+titulo_proyecto+'</h4>';
 						html+='<h3>'+subtitulo_proyecto+'</h3>';
 						html+='</div>';
-						html+='<div class="vidpreview videono'+resultado_cat[x].id_proyecto+'"></div>';
+						html+='<div class="vidpreview videono'+resultado_cat[x].id_proyecto+'">';
+						html+='<div id="video-container">';
+						html+='<video autoplay loop muted class="fillWidth">';
+						html+='<source src="'+mypath+'vidProyectos/'+video_preview+'" type="video/mp4"/>';
+						html+='Your browser does not support the video tag. I suggest you upgrade your browser.';
+						html+='</video>';
+						html+='</div>';
+						html+='</div>';
 						html+='</div></a>';
 						//$(".listproyectos").append(html);
                 	}
