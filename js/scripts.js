@@ -34,11 +34,17 @@ $(".contenido").on('click',function(){
 	if($(".galleryright").hasClass("gabierto")){
 		closegallery();
 	}
+	if($(".vimeoright").hasClass("vabierto")){
+		closevimeo();
+	}
 });
 $('.menuright').click(function(event){
    event.stopPropagation();
 });
 $('.galleryright').click(function(event){
+   event.stopPropagation();
+});
+$('.vimeoright').click(function(event){
    event.stopPropagation();
 });
 
@@ -101,6 +107,19 @@ function opengallery(){
 	}
 }
 
+function openvimeo(){
+	console.log("vimeo");
+	if($(".vimeoright").hasClass("vcerrado")){
+		$(".vimeoright").animate({"right":"0"},100,function(){
+			$(".vimeoright").removeClass("vcerrado");
+			$(".vimeoright").addClass("vabierto");
+		});
+	}
+	else{
+		closevimeo();
+	}
+}
+
 function closemenu(){
 	$(".mwork").removeClass("active");
 	$(".menuright").animate({"right":"-60%"},100);
@@ -112,6 +131,12 @@ function closegallery(){
 	$(".galleryright").animate({"right":"-60%"},100);
 	$(".galleryright").removeClass("gabierto");
 	$(".galleryright").addClass("gcerrado");
+}
+
+function closevimeo(){
+	$(".vimeoright").animate({"right":"-60%"},100);
+	$(".vimeoright").removeClass("vabierto");
+	$(".vimeoright").addClass("vcerrado");
 }
 
 function viewcontact(){
@@ -262,6 +287,7 @@ function verproyecto(id){
 	closemenu();
 	closegallery();
 	$(".galleryright").empty();
+	$(".vimeoright").empty();
 	$(".pmenu").removeClass("active");
 	$(".mwork").addClass("active");
 	$("#bgvid")[0].pause();
@@ -305,13 +331,15 @@ function verproyecto(id){
 		html2='';
 		html3='';
 		html4='';
+		html5='';
 		html+='<h2>'+subtitulo+'</h2>';
 		html+='<h1>'+titulo+'</h1>';
 		html+='<div class="row aboutborder">';
 		html+='<p style="margin:0;">'+descripcion+'</p>';
 		html+='</div>';
 		html+='<div class="row">';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">'+ver+'</button></div>';
+		//html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">'+ver+'</button></div>';
+		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="openvimeo()">VIMEO</button></div>';
 		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">'+galeria+'</button></div>';
 		html+='<div class="col-sm-3 proylink"><a href="'+resultado[0].behance+'" target="_blank"><button class="proybutton">BEHANCE</button></a></div>';
 		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">'+share+'</button></div>';
@@ -335,6 +363,11 @@ function verproyecto(id){
 		html4+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video_hd+'" id="mp4Source"  type="video/mp4">';
 		html4+='</video>';
 		$("#fullscreenvideo2").append(html4);
+		html5+='<div class="row">';
+		html5+='<div class="col-sm-10 sidemenu"><ul><li>Vimeo</li></ul></div>';
+		html5+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
+		html5+='</div>';
+		$(".vimeoright").append(html5);
 		
 		$(".all").fadeOut(600);
 		$(".proyecto").delay(700).empty().append(html).fadeIn(600, function(){
@@ -349,6 +382,7 @@ function verproyecto(id){
 		});
 		
 		$(".galleryright").fadeIn(600);
+		$(".vimeoright").fadeIn(600);
 	}	
 }
 

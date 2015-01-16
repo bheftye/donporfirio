@@ -175,7 +175,13 @@
 	</div>
 	<div class="galleryright gcerrado">
 		<div class="row">
-				<div class="col-sm-10 sidemenu"></div>
+			<div class="col-sm-10 sidemenu"></div>
+			<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
+		</div>
+	</div>
+	<div class="vimeoright vcerrado">
+		<div class="row">
+			<div class="col-sm-10 sidemenu"></div>
 			<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
 		</div>
 	</div>
