@@ -26,7 +26,6 @@ function checksize(){
 
 $(".contenido").on('click',function(){
 	if($("#contacto").hasClass("cabierto")){
-		//console.log($("#contacto").attr('class'));
 		hidecontact();
 	}
 	if($(".menuright").hasClass("mabierto")){
