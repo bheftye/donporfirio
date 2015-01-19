@@ -358,6 +358,7 @@ switch($operaciones){
 		$meta_descripcion_eng = (isset($_REQUEST['meta_descripcion_eng']) && $_REQUEST['meta_descripcion_eng'] != "")? htmlspecialchars($_REQUEST['meta_descripcion_eng'], ENT_QUOTES) : substr($descripcion_eng, 0,160);
 
 		$categorias = (isset($_REQUEST['categorias']))? $_REQUEST['categorias'] : array();
+		$links_videos = (isset($_REQUEST['links_videos']))? $_REQUEST['links_videos'] : array();
 
 
 		if(isset($_FILES['archivo']['name']))
@@ -392,22 +393,12 @@ switch($operaciones){
 			$nombre_preview = '';
 			$nombre_preview_temporal = '';
 		}
-
-		if(isset($_FILES['archivo_hd']['name']))
-		{
-			$nombre_video_hd = $_FILES['archivo_hd']['name'];
-			$nombre_video_hd_temporal = $_FILES['archivo_hd']['tmp_name'];
-		}
-		else
-		{
-			$nombre_video_hd = '';
-			$nombre_video_hd_temporal = '';
-		}
+		$nombre_video_hd = (isset($_REQUEST['nombre_video_hd']))? $_REQUEST['nombre_video_hd'] : "";
 		
 	 				    
 		//	function proyecto($id_proyecto = 0, $img_principal = '', $ruta_temporal = '',$nombre_video = "", $ruta_temporal2 = "", $nombre_preview = "", $ruta_temporal3 = "", $titulo_esp = '',$titulo_eng = '',$subtitulo_esp = '',$subtitulo_eng = '', $descripcion_esp = '', $descripcion_eng = '', $behance = "",$url_amigable = '', $meta_titulo_esp = "", $meta_descripcion_esp = "", $meta_titulo_eng = "", $meta_descripcion_eng = "", $mostrar = 0, $status = 1) 
 
-		$proyecto = new proyecto(0, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $nombre_video_hd, $nombre_video_hd_temporal ,$titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
+		$proyecto = new proyecto(0, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $nombre_video_hd, $titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
 		$proyecto -> insertar_proyecto();
 		if ($proyecto -> id_proyecto == 'error'){
 			$success = 0;
@@ -424,6 +415,10 @@ switch($operaciones){
 	            		$proyecto -> insertar_img_secundaria_proyecto("",$name,$tmp_name);       
 	            	} 
 				}
+			}
+
+			foreach ($links_videos as $link_video) {
+				$proyecto -> insertar_link_video($link_video);
 			}
 
 			foreach ($categorias as $id_categoria) {
@@ -454,6 +449,7 @@ switch($operaciones){
 		$meta_descripcion_eng = (isset($_REQUEST['meta_descripcion_eng']) && $_REQUEST['meta_descripcion_eng'] != "")? htmlspecialchars($_REQUEST['meta_descripcion_eng'], ENT_QUOTES) : substr($descripcion_eng, 0,160);
 
 		$categorias = (isset($_REQUEST['categorias']))? $_REQUEST['categorias'] : array();
+		$links_videos = (isset($_REQUEST['links_videos']))? $_REQUEST['links_videos'] : array();
 
 
 		if(isset($_FILES['archivo']['name']))
@@ -489,19 +485,10 @@ switch($operaciones){
 			$nombre_preview_temporal = '';
 		}
 
-		if(isset($_FILES['archivo_hd']['name']))
-		{
-			$nombre_video_hd = $_FILES['archivo_hd']['name'];
-			$nombre_video_hd_temporal = $_FILES['archivo_hd']['tmp_name'];
-		}
-		else
-		{
-			$nombre_video_hd = '';
-			$nombre_video_hd_temporal = '';
-		}
+		$nombre_video_hd = (isset($_REQUEST['nombre_video_hd']))? $_REQUEST['nombre_video_hd'] : "";
 		
 
-		$proyecto = new proyecto($id_proyecto, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $nombre_video_hd, $nombre_video_hd_temporal ,$titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
+		$proyecto = new proyecto($id_proyecto, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $nombre_video_hd, $titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
 		
 		if($proyecto -> id_proyecto != 0){
 			$proyecto -> modificar_proyecto();
@@ -531,6 +518,11 @@ switch($operaciones){
 					}			
 				}	
 			}
+
+			foreach ($links_videos as $link_video) {
+				$proyecto -> insertar_link_video($link_video);
+			}
+
 			$proyecto -> eliminar_asociasiones_proyecto_con_categoria();
 			foreach ($categorias as $id_categoria) {
 				$proyecto -> asociar_proyecto_con_categoria($id_categoria);
@@ -555,6 +547,19 @@ switch($operaciones){
 			}
 			
 		break;
+		case 'eliminar_link_video':
+			$id_link = (isset($_REQUEST['id_link']))? $_REQUEST["id_link"]: 0;
+			if($id_link != 0){
+				$proyecto = new proyecto();
+				$proyecto->eliminar_link_video($id_link);
+				echo "true";
+			}
+			else{
+				echo "false";
+			}
+			
+		break;
+
 		case 'operaproyecto':
 			if(isset($_REQUEST['id_proyecto'])){
 				$select=$_REQUEST['operador'];

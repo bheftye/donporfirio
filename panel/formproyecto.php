@@ -271,18 +271,18 @@ include'menu.php';//Contiene a todo el menu.
                                 <div class="tab-pane" id="vid">
                                     
                                     <br>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                     <div class="espacios">
                                         <span class="textHelper">Previsualizar Video de Fondo:</span>
                                     </div>
                                         <?php 
                                             if($temporal -> nombre_video != ""){
-                                                echo '<video id="video" muted controls style="height:350px;width:100%;display:table;maring:0 auto;">
+                                                echo '<video id="video" muted controls style="height:auto;width:100%;display:table;maring:0 auto;">
                                                         <source src="../vidProyectos/'.$temporal -> nombre_video.'" id="mp4Source"  type="video/mp4">
                                                       </video>';
                                             }
                                             else{
-                                                echo '<video id="video" muted controls style="display:none;height:350px;width:500px;" >
+                                                echo '<video id="video" muted controls style="display:none;height:auto;width:500px;" >
                                                       </video>';
                                             }
                                         ?>
@@ -301,18 +301,18 @@ include'menu.php';//Contiene a todo el menu.
                                     </div>
                                     
                                    
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                          <div class="espacios">
                                             <span class="textHelper">Previsualizar Video de Vista Previa:</span>
                                         </div>
                                             <?php 
                                                 if($temporal -> nombre_preview != ""){
-                                                    echo '<video id="video2" muted controls style="height:350px;width:100%;display:table;margin:0 auto;">
+                                                    echo '<video id="video2" muted controls style="height:auto;width:100%;display:table;margin:0 auto;">
                                                             <source src="../vidProyectos/'.$temporal -> nombre_preview.'" id="mp4Source"  type="video/mp4">
                                                           </video>';
                                                 }
                                                 else{
-                                                    echo '<video id="video2" muted controls style="display:none;height:350px;width:100%;">
+                                                    echo '<video id="video2" muted controls style="display:none;height:auto;width:100%;">
                                                           </video>';
                                                 }
                                             ?>
@@ -327,37 +327,79 @@ include'menu.php';//Contiene a todo el menu.
                                                 Tamaño máximo de archivo: 30MB.
                                             </div>
                                     </div>
-                                    <div class="col-lg-4">                
-                                        <div class="espacios">
-                                            <span class="textHelper">Previsualizar Video de Fondo en HD:</span>
-                                        </div>
-                                        <?php 
-                                            if($temporal -> nombre_video_hd != ""){
-                                                echo '<video id="video3" muted controls style="height:350px;width:100%;display:table;margin:0 auto;">
-                                                        <source src="../vidProyectos/'.$temporal -> nombre_video_hd.'" id="mp4Source"  type="video/mp4">
-                                                      </video>';
-                                            }
-                                            else{
-                                                echo '<video id="video3" muted controls style="display:none;height:350px;width:500px;">
-                                                      </video>';
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <hr class="hrmenu">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <button type="button" name="operaciones" style="float:left;" data-toggle="modal" data-target="#myModal" class="buttonguardar">Agregar Video Vimeo</button>
+                                        <div id="videos" class="col-lg-12"></div>
+                                        <div class="clearfix"></div>
+                                        <div id="sortableVid">
+                                        <?php
+                                            if($id != 0){
+                                                    $temporal->listar_links_videos();
+                                                    foreach ($temporal->lista_links_videos as $link_video) {  
+                                                        $video_url_exploded = explode(".com/",$link_video['link_video']);
+                                                        $video_id = $video_url_exploded[1];
+                                        ?>
+                                        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12" id="link_video_<?=$link_video['id_link']?>">
+                                            <div class="image-wrapper">
+                                                <span class="image-options">
+                                                    <ul class="ulmenuoptions">
+                                                        <li onclick="deleteLinkVideo(<?=$link_video['id_link'];?>)"  class="limenuoptions manita">
+                                                            <span class="inputUploadFont fontOptionsImg">Eliminar <i class="fa fa-times"></i></span>
+                                                        </li>   
+                                                        <li class="limenuoptions manita">
+                                                            <div class="fileUpload" style="width:100%; border-color: none important!">
+                                                                <input type="hidden" name="ids_links_videos[]" value="<?=$link_video['id_link'];?>"/>
+                                                                <input type="hidden" class="idorden" name="idorden_vid[]" value="<?=$link_video['id_link'];?>"/>
+                                                            </div>
+                                                        </li>   
+                                                    </ul>
+                                                </span> 
+                                              
+                                                <div id="vid_edit<?=$link_video['id_link'];?>" class="<?=$handle?>" >
+                                                    <iframe id="player<?=$link_video['id_link'];?>" src="//player.vimeo.com/video/<?=$video_id;?>?api=1&player_id=player<?=$link_video['id_link'];?>&color=ee396a" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                                </div>
+                                            </div>                                              
+                                        </div>          
+                                        <?php
+                                                    }
+                                            }else{
+                                                echo '';
                                             }
                                         ?>
-                                        <br>
-                                        <center>
-                                            <input id="files5" name="archivo_hd" type="file" class="upload"/>
-                                        </center>
-                                        <br>
-                                        <div class="text-center textHelper">
-                                            Tipo de archivos permitidos: mp4.
-                                            <br>
-                                            Tamaño máximo de archivo: 30MB.
                                         </div>
-                                        <br>
-                                    </div>          
+                                    </div>
+
+
                                 </div>
 
                             </div>
                         <br>
+                        <div class="modal fade" id="myModal">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Agregar Link Video de Vimeo</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div id="link_video_nuevo" class="input-group espacios">
+                                    <span class="input-group-addon es">Link Video Vimeo*</span>
+                                    <input type="text" id="input_link_video" class="form-control" placeholder="Introduce el link aqui.... " >
+                                </div>
+                                <br>
+                                <p id="mensaje_modal"></p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                <button type="button" onclick="guardarVideo()" class="btn btn-primary">Guardar</button>
+                              </div>
+                            </div><!-- /.modal-content -->
+                          </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
                     	
                         <!--Aquí es donde se previsualiza la imagen-->
                                            
@@ -498,6 +540,31 @@ include 'javascripts.html';
 			  }
 			  return output;
 		}
+
+        var videos = 0;
+        function guardarVideo(){
+            var link_video = $("#input_link_video").val();
+
+            if(link_video != ""){
+                $("#input_link_video").css("border", "solid 1px green");
+                var regVimeo = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
+                if(regVimeo.test(link_video)){
+                    var splitted_link = link_video.split(".com/");
+                    var video_id = splitted_link[1];
+                    var html = '<div id="vid_edit'+videos+'"  class="col-lg-4" style="height:300px;" >'+
+                                    '<iframe id="player'+videos+'" src="//player.vimeo.com/video/'+video_id+'?api=1&player_id=player'+videos+'" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'+
+                                    '<input type="hidden" value="'+link_video+'">'+
+                                '</div>';
+                    $("#videos").append(html);
+                    $("#mensaje_modal").html("").css("color","green");
+                    $('#myModal').modal('toggle')
+                }
+            }
+            else{
+                $("#input_link_video").css("border", "solid 1px red");
+                $("#mensaje_modal").html("El campo esta vacío.").css("color","red");
+            }
+        }
 	</script>
     <!--Script que permite previsualizar la imagen primaria-->
     <script>
