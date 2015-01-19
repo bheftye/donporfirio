@@ -367,6 +367,14 @@ function verproyecto(id){
 		html5+='<div class="col-sm-10 sidemenu"><ul><li>Vimeo</li></ul></div>';
 		html5+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
 		html5+='</div>';
+		for(var i = 0; i < resultado[0].links_videos.length; i++){
+			var link_video = resultado[0].links_videos[i].link_video;
+			var splitted_link = link_video.split(".com/");
+            var video_id = splitted_link[1];
+			html5+='<div style="height:646px;width:100%;" >'+
+                        '<iframe id="player'+resultado[0].links_videos[i].id_link+'" src="//player.vimeo.com/video/'+video_id+'?api=1&player_id=player'+resultado[0].links_videos[i].id_link+'" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'+
+                    '</div>';
+		}
 		$(".vimeoright").append(html5);
 		
 		$(".all").fadeOut(600);

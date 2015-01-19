@@ -613,6 +613,8 @@ class proyecto extends Archivo {
 			$registro['mostrar'] = $fila['mostrar'];
 			$this -> listar_img_secundarias_proyecto();
 			$registro["img_secundarias"] = $this -> lista_imagenes_secundarias;
+			$this -> listar_links_videos();
+			$registro["links_videos"] = $this -> lista_links_videos;
 			array_push($resultados, $registro);
 		}
 		mysqli_free_result($temporal);
