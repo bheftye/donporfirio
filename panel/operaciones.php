@@ -70,7 +70,17 @@ switch($operaciones){
 				$categoria -> ordenar_categoria($i);
 				
 			}
-		}	
+		}
+		if($_REQUEST['desde'] == 'links_videos'){
+			$val = ($_REQUEST['idorden']);
+			$val2 = array_reverse($val);
+			for($i=0; $i < count($val2); $i++)
+			{
+				$proyecto = new proyecto();
+				$proyecto -> ordenar_link_video($val2[$i],$i);
+				
+			}		
+		}
 	break;
 	case 'listaprueba':
 		$dr = new userend();
@@ -548,7 +558,7 @@ switch($operaciones){
 			
 		break;
 		case 'eliminar_link_video':
-			$id_link = (isset($_REQUEST['id_link']))? $_REQUEST["id_link"]: 0;
+			$id_link = (isset($_REQUEST['id']))? $_REQUEST["id"]: 0;
 			if($id_link != 0){
 				$proyecto = new proyecto();
 				$proyecto->eliminar_link_video($id_link);

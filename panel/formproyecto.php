@@ -334,8 +334,9 @@ include'menu.php';//Contiene a todo el menu.
                                     <div class="col-lg-12">
                                         <button type="button" name="operaciones" style="float:left;" data-toggle="modal" data-target="#myModal" class="buttonguardar">Agregar Video Vimeo</button>
                                         <div id="videos" class="col-lg-12"></div>
+
                                         <div class="clearfix"></div>
-                                        <div id="sortableVid">
+                                        <div id="sortableVid" style="margin-top:20px;">
                                         <?php
                                             if($id != 0){
                                                     $temporal->listar_links_videos();
@@ -343,7 +344,8 @@ include'menu.php';//Contiene a todo el menu.
                                                         $video_url_exploded = explode(".com/",$link_video['link_video']);
                                                         $video_id = $video_url_exploded[1];
                                         ?>
-                                        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12" id="link_video_<?=$link_video['id_link']?>">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 "  id="link_video_<?=$link_video['id_link']?>">
+                                            <div type="button" class="<?=$handle?>" style="position:absolute;top:0;right:-3px;height:20px;width:20px;background-color:#00afef;text-align:center;">+</div>
                                             <div class="image-wrapper">
                                                 <span class="image-options">
                                                     <ul class="ulmenuoptions">
@@ -353,14 +355,14 @@ include'menu.php';//Contiene a todo el menu.
                                                         <li class="limenuoptions manita">
                                                             <div class="fileUpload" style="width:100%; border-color: none important!">
                                                                 <input type="hidden" name="ids_links_videos[]" value="<?=$link_video['id_link'];?>"/>
-                                                                <input type="hidden" class="idorden" name="idorden_vid[]" value="<?=$link_video['id_link'];?>"/>
+                                                                <input type="hidden" class="idorden_links" name="idorden_vid[]" value="<?=$link_video['id_link'];?>"/>
                                                             </div>
                                                         </li>   
                                                     </ul>
                                                 </span> 
                                               
-                                                <div id="vid_edit<?=$link_video['id_link'];?>" class="<?=$handle?>" >
-                                                    <iframe id="player<?=$link_video['id_link'];?>" src="//player.vimeo.com/video/<?=$video_id;?>?api=1&player_id=player<?=$link_video['id_link'];?>&color=ee396a" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                                <div id="vid_edit<?=$link_video['id_link'];?>" class="" style="height:300px;width:100%;" >
+                                                    <iframe id="player<?=$link_video['id_link'];?>" src="//player.vimeo.com/video/<?=$video_id;?>?api=1&player_id=player<?=$link_video['id_link'];?>" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                                 </div>
                                             </div>                                              
                                         </div>          
@@ -551,13 +553,18 @@ include 'javascripts.html';
                 if(regVimeo.test(link_video)){
                     var splitted_link = link_video.split(".com/");
                     var video_id = splitted_link[1];
-                    var html = '<div id="vid_edit'+videos+'"  class="col-lg-4" style="height:300px;" >'+
+                    var html = '<div class="col-lg-4"><div id="vid_edit'+videos+'"  style="height:300px;width:100%;" >'+
                                     '<iframe id="player'+videos+'" src="//player.vimeo.com/video/'+video_id+'?api=1&player_id=player'+videos+'" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'+
-                                    '<input type="hidden" value="'+link_video+'">'+
-                                '</div>';
+                                    '<input type="hidden" name="links_videos[]" value="'+link_video+'">'+
+                                '</div></div>';
                     $("#videos").append(html);
                     $("#mensaje_modal").html("").css("color","green");
-                    $('#myModal').modal('toggle')
+                    $("#input_link_video").val("");
+                    $('#myModal').modal('toggle');
+                }
+                else{
+                    $("#input_link_video").css("border", "solid 1px red");
+                    $("#mensaje_modal").html("El link es inválido.").css("color","red");
                 }
             }
             else{
@@ -565,6 +572,23 @@ include 'javascripts.html';
                 $("#mensaje_modal").html("El campo esta vacío.").css("color","red");
             }
         }
+
+        function deleteLinkVideo(id){
+        $.ajaxSetup({ cache: false });
+        $.ajax({
+            async:true,
+            type: "POST",
+            dataType: "html",
+            contentType: "application/x-www-form-urlencoded",
+            url:"operaciones.php",
+            data:"id="+id+"&operaciones=eliminar_link_video",
+            success:function(data){ 
+                // console.log(data)            
+                $("#link_video_"+id).fadeOut('slow');          
+            },
+            cache:false
+        });     
+    }
 	</script>
     <!--Script que permite previsualizar la imagen primaria-->
     <script>

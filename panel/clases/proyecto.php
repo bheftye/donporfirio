@@ -35,7 +35,6 @@ class proyecto extends Archivo {
 	var $ruta_temporal;
 	var $ruta_temporal2;
 	var $ruta_temporal3;
-	var $ruta_temporal4;
 	var $orden;
 	var $meta_titulo_esp;
 	var $meta_titulo_eng;
@@ -103,7 +102,6 @@ class proyecto extends Archivo {
 		$this -> ruta_temporal = $ruta_temporal;
 		$this -> ruta_temporal2 = $ruta_temporal2;
 		$this -> ruta_temporal3 = $ruta_temporal3;
-		$this -> ruta_temporal4 = $ruta_temporal4;
 		
 	}		
 	function insertar_proyecto() {
@@ -727,7 +725,7 @@ class proyecto extends Archivo {
 		$this -> lista_links_videos = $img_proyecto_temp -> listar_links_videos();
 	}
 	//insertar_imagen($_REQUEST['titulo'],$_FILES['archivo']['name'],$_FILES['archivo']['tmp_name']);
-	function insertar_link_video($tit, $link_video) {
+	function insertar_link_video($link_video) {
 		$img_proyecto_temp = new link_video(0, $this -> id_proyecto, $link_video);
 		$img_proyecto_temp -> insertar_link_video();
 	}	//$noticia_temporal->modificar_imagen($_REQUEST['id_imagen'],$_REQUEST['titulo'],$_FILES['archivo']['name'],$_FILES['archivo']['tmp_name']);

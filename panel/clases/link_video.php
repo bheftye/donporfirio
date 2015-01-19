@@ -28,7 +28,6 @@ class link_video
 		$sql="INSERT INTO links_videos (id_proyecto, link_video) values (".$this -> id_proyecto.", '".$this -> link_video."');";
 		$con = new conexion();
 		$this -> id_link = $con -> ejecutar_sentencia($sql);
-		$this -> subir_archivo();
 		$s = "UPDATE links_videos SET orden = ".$this->id_link." WHERE id_link = ".$this->id_link."";
 		$con -> ejecutar_sentencia($s);
 	}

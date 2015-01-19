@@ -147,13 +147,37 @@
 	    });
 	    $( "#sortableImg" ).disableSelection();
 	  });
+	  $(function() {
+	    $( "#sortableVid" ).sortable({
+	    	cursor: "move",
+	    	delay: 150,
+	    	distance: 5,
+	    	forceHelperSize: true,
+	    	handle: ".handle",
+	    	opacity: 0.5,
+	    	revert: true,
+	    	update : function(e, ui) {
+	    		guardarOrden('links_videos');
+	    	}
+	    });
+	    $( "#sortableVid" ).disableSelection();
+	  });
    	</script>
    	<script type="text/javascript">
    		function guardarOrden(desde){
-		   var orden = new Array;   
-		   $(".idorden").each(function(){    
-		    orden.push($(this).val());
-		   });
+   			if(desde != "links_videos"){
+   				 var orden = new Array;   
+				 $(".idorden").each(function(){    
+				    orden.push($(this).val());
+				 });
+   			}
+   			else{
+   				var orden = new Array;   
+				 $(".idorden_links").each(function(){    
+				    orden.push($(this).val());
+				 });
+   			}
+		  
 		   
 		  
 		   $.ajax({
