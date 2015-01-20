@@ -2,22 +2,22 @@
 -- version 4.2.5
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:8889
--- Generation Time: Jan 14, 2015 at 08:49 PM
--- Server version: 5.5.38
--- PHP Version: 5.5.14
+-- Servidor: localhost:8889
+-- Tiempo de generación: 20-01-2015 a las 16:32:09
+-- Versión del servidor: 5.5.38
+-- Versión de PHP: 5.5.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `donporfirio`
+-- Base de datos: `donporfirio`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias_proyectos`
+-- Estructura de tabla para la tabla `categorias_proyectos`
 --
 
 CREATE TABLE `categorias_proyectos` (
@@ -30,7 +30,7 @@ CREATE TABLE `categorias_proyectos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `categorias_proyectos`
+-- Volcado de datos para la tabla `categorias_proyectos`
 --
 
 INSERT INTO `categorias_proyectos` (`id_categoria`, `nombre_esp`, `nombre_eng`, `status`, `mostrar`, `orden`) VALUES
@@ -42,7 +42,7 @@ INSERT INTO `categorias_proyectos` (`id_categoria`, `nombre_esp`, `nombre_eng`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `config_mailing`
+-- Estructura de tabla para la tabla `config_mailing`
 --
 
 CREATE TABLE `config_mailing` (
@@ -56,7 +56,7 @@ CREATE TABLE `config_mailing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `config_mailing`
+-- Volcado de datos para la tabla `config_mailing`
 --
 
 INSERT INTO `config_mailing` (`idconfig`, `correo_noreply`, `correo_standard`, `facebook`, `twitter`, `instagram`, `youtube`) VALUES
@@ -65,7 +65,7 @@ INSERT INTO `config_mailing` (`idconfig`, `correo_noreply`, `correo_standard`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contacto`
+-- Estructura de tabla para la tabla `contacto`
 --
 
 CREATE TABLE `contacto` (
@@ -75,7 +75,7 @@ CREATE TABLE `contacto` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `contacto`
+-- Volcado de datos para la tabla `contacto`
 --
 
 INSERT INTO `contacto` (`idcontacto`, `correo`, `emisor`) VALUES
@@ -84,7 +84,7 @@ INSERT INTO `contacto` (`idcontacto`, `correo`, `emisor`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contenido_marca`
+-- Estructura de tabla para la tabla `contenido_marca`
 --
 
 CREATE TABLE `contenido_marca` (
@@ -94,7 +94,7 @@ CREATE TABLE `contenido_marca` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `contenido_marca`
+-- Volcado de datos para la tabla `contenido_marca`
 --
 
 INSERT INTO `contenido_marca` (`id_contenidom`, `link_video`, `tipo`) VALUES
@@ -103,7 +103,7 @@ INSERT INTO `contenido_marca` (`id_contenidom`, `link_video`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `datosusuario`
+-- Estructura de tabla para la tabla `datosusuario`
 --
 
 CREATE TABLE `datosusuario` (
@@ -115,7 +115,7 @@ CREATE TABLE `datosusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `datosusuario`
+-- Volcado de datos para la tabla `datosusuario`
 --
 
 INSERT INTO `datosusuario` (`idusuario`, `nombre`, `email`, `telefono`, `token`) VALUES
@@ -126,7 +126,7 @@ INSERT INTO `datosusuario` (`idusuario`, `nombre`, `email`, `telefono`, `token`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `img_proyecto`
+-- Estructura de tabla para la tabla `img_proyecto`
 --
 
 CREATE TABLE `img_proyecto` (
@@ -138,20 +138,20 @@ CREATE TABLE `img_proyecto` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=71 ;
 
 --
--- Dumping data for table `img_proyecto`
+-- Volcado de datos para la tabla `img_proyecto`
 --
 
 INSERT INTO `img_proyecto` (`id_img_proyecto`, `id_proyecto`, `ruta`, `orden`, `titulo`) VALUES
 (41, 27, '7b060a07.jpg', 41, ''),
 (40, 27, 'e31d55e3.jpg', 40, ''),
 (39, 27, 'de0e384e.jpg', 39, ''),
-(38, 26, 'd287abc6.jpg', 38, ''),
-(37, 26, '03216386.jpg', 37, ''),
-(36, 26, '1d6321b2.jpg', 36, ''),
-(35, 26, '7eaeaacb.jpg', 35, ''),
-(34, 26, '8058b1f0.jpg', 34, ''),
-(33, 26, '4932c02a.jpg', 33, ''),
-(32, 26, 'de03b67a.jpg', 32, ''),
+(38, 26, 'd287abc6.jpg', 5, ''),
+(37, 26, '03216386.jpg', 4, ''),
+(36, 26, '1d6321b2.jpg', 3, ''),
+(35, 26, '7eaeaacb.jpg', 2, ''),
+(34, 26, '8058b1f0.jpg', 1, ''),
+(33, 26, '4932c02a.jpg', 6, ''),
+(32, 26, 'de03b67a.jpg', 0, ''),
 (42, 27, 'a4c72aaf.jpg', 42, ''),
 (43, 27, '574a5db2.jpg', 43, ''),
 (44, 27, '2642ba9d.jpg', 44, ''),
@@ -185,7 +185,30 @@ INSERT INTO `img_proyecto` (`id_img_proyecto`, `id_proyecto`, `ruta`, `orden`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nosotros`
+-- Estructura de tabla para la tabla `links_videos`
+--
+
+CREATE TABLE `links_videos` (
+`id_link` int(11) NOT NULL,
+  `id_proyecto` int(11) NOT NULL,
+  `link_video` text COLLATE utf8_unicode_ci NOT NULL,
+  `orden` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+
+--
+-- Volcado de datos para la tabla `links_videos`
+--
+
+INSERT INTO `links_videos` (`id_link`, `id_proyecto`, `link_video`, `orden`) VALUES
+(5, 26, 'http://vimeo.com/70268949', 10),
+(6, 26, 'http://vimeo.com/25190094', 6),
+(7, 26, 'http://vimeo.com/12442982', 7),
+(9, 26, 'http://vimeo.com/91720520', 9);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `nosotros`
 --
 
 CREATE TABLE `nosotros` (
@@ -195,7 +218,7 @@ CREATE TABLE `nosotros` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `nosotros`
+-- Volcado de datos para la tabla `nosotros`
 --
 
 INSERT INTO `nosotros` (`id_nosotros`, `link_video`, `tipo`) VALUES
@@ -204,7 +227,7 @@ INSERT INTO `nosotros` (`id_nosotros`, `link_video`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pantallas`
+-- Estructura de tabla para la tabla `pantallas`
 --
 
 CREATE TABLE `pantallas` (
@@ -218,7 +241,7 @@ CREATE TABLE `pantallas` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `pantallas`
+-- Volcado de datos para la tabla `pantallas`
 --
 
 INSERT INTO `pantallas` (`id_pantallas`, `link_video1`, `tipo1`, `link_video2`, `tipo2`, `link_video3`, `tipo3`) VALUES
@@ -227,7 +250,7 @@ INSERT INTO `pantallas` (`id_pantallas`, `link_video1`, `tipo1`, `link_video2`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permiso`
+-- Estructura de tabla para la tabla `permiso`
 --
 
 CREATE TABLE `permiso` (
@@ -238,7 +261,7 @@ CREATE TABLE `permiso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=89 ;
 
 --
--- Dumping data for table `permiso`
+-- Volcado de datos para la tabla `permiso`
 --
 
 INSERT INTO `permiso` (`idpermiso`, `nompermiso`, `clavepermiso`, `status`) VALUES
@@ -286,7 +309,7 @@ INSERT INTO `permiso` (`idpermiso`, `nompermiso`, `clavepermiso`, `status`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyectos`
+-- Estructura de tabla para la tabla `proyectos`
 --
 
 CREATE TABLE `proyectos` (
@@ -315,11 +338,11 @@ CREATE TABLE `proyectos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=32 ;
 
 --
--- Dumping data for table `proyectos`
+-- Volcado de datos para la tabla `proyectos`
 --
 
 INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_esp`, `subtitulo_eng`, `descripcion_esp`, `descripcion_eng`, `nombre_video`, `nombre_preview`, `nombre_video_hd`, `img_principal`, `orden`, `status`, `mostrar`, `meta_titulo_esp`, `meta_descripcion_esp`, `url_amigable`, `fecha_creacion`, `fecha_modificacion`, `behance`, `meta_titulo_eng`, `meta_descripcion_eng`) VALUES
-(26, 'SPORTS PACKAGE 2014', 'CBC SPORTS', 'CBC SPORTS', 'SPORTS PACKAGE 2014', '&lt;p&gt;Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.&lt;br&gt;&lt;br&gt;Esta vez fuimos comisionados para diseÃ±ar el look de los paquetes graficos tanto para invierno como para verano de CBC Sports. Desarrollamos una serie de ambientes que nos sirvieron para dar vida a estas piezas llenas de energia que celebran el amor por el deporte.&lt;br&gt;&lt;/p&gt;', 'Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.&lt;br&gt;', '5a243ee6.mp4', '5a9035dc.mp4', '525cd72a.mp4', '957ec1a6.jpg', 0, 0, 0, 'SPORTS PACKAGE 2014', 'Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.\r\n\r\nEsta vez fuimos comisionados para diseÃ±a', 'cbc-sports', '2015-01-08', '2015-01-13', 'http://on.be.net/1wJ9AcN', 'CBC SPORTS', 'Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comis'),
+(26, 'SPORTS PACKAGE 2014', 'CBC SPORTS', 'CBC SPORTS', 'SPORTS PACKAGE 2014', '&lt;p&gt;Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.&lt;br&gt;&lt;br&gt;Esta vez fuimos comisionados para diseÃ±ar el look de los paquetes graficos tanto para invierno como para verano de CBC Sports. Desarrollamos una serie de ambientes que nos sirvieron para dar vida a estas piezas llenas de energia que celebran el amor por el deporte.&lt;br&gt;&lt;/p&gt;', 'Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comisioned to design the look for CBC Sports both Winter and Summer Graphics Package. We developed a series of cool environments and animated this high energy pieces that celebrate the love for sports.&lt;br&gt;', '5a243ee6.mp4', '5a9035dc.mp4', '', '957ec1a6.jpg', 0, 0, 0, 'SPORTS PACKAGE 2014', 'Una vez mas nuestros buenos amigos de Big Studios Inc en Toronto nos invitaron a colaborar en otro magnifico proyecto.\r\n\r\nEsta vez fuimos comisionados para diseÃ±a', 'cbc-sports', '2015-01-08', '2015-01-20', 'http://on.be.net/1wJ9AcN', 'CBC SPORTS', 'Once again our good friends from Big Studios in Toronto invited us to collaborate with them on another great project.&lt;br&gt;&lt;br&gt;This time we were comis'),
 (27, 'LONDON CALLING 2014', 'LONDON CALLING 2014', 'BBC ENTERTAINMENT', 'BBC ENTERTAINMENT', '&lt;p&gt;Fuimos comisionados para desarrollar el nuevo paquete grÃ¡fico para London Calling, inspirado en el Underground de la ciudad de Londres. Generamos una serie completa de ambientes subterrÃ¡neos y utilizamos estos espacios para dar vida a los diferentes elementos que conforman el paquete.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;We were invited to create the graphics package for BBC&#039;s London Calling inspired in the Underground of London. We generated a series of cg underground environments that we used to give life to the different elements that integrate this cool package.&lt;br&gt;&lt;/p&gt;', '81b42f33.mp4', '5586711c.mp4', 'efffd363.mp4', 'dfb825aa.jpg', 1, 0, 0, 'LONDON CALLING 2014', '&lt;p&gt;Fuimos comisionados para desarrollar el nuevo paquete grÃ¡fico para London Calling, inspirado en el Underground de la ciudad de Londres. Generamos una ', 'london-calling-2014', '2015-01-08', '2015-01-13', 'http://on.be.net/1wDapUt', 'LONDON CALLING 2014', '&lt;p&gt;We were invited to create the graphics package for BBC&#039;s London Calling inspired in the Underground of London. We generated a series of cg undergr'),
 (28, 'CONFERENCE OPENING TITLES', 'CONFERENCE OPENING TITLES', 'DH17', 'DH17', '&lt;div&gt;Nuestros amigos de&amp;nbsp;TIPOS LIBRES&amp;nbsp;organizadores de uno de los eventos de diseÃ±o mÃ¡s importantes en MÃ©xico conocido como&amp;nbsp;&quot;DEJANDO HUELLA&quot;, nos invitaron a colaborar con ellos en el desarrollo de la secuencia de tÃ­tulos en su ediciÃ³n No.17&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;El&amp;nbsp;DH17&amp;nbsp;tuvo como concepto general la temÃ¡tica&amp;nbsp;&quot;HAY MUCHAS HISTORIAS POR CONTAR&quot;&amp;nbsp;por lo que nos pareciÃ³ interesante que los tÃ­tulos contaran la historia de algo que nos une a todos los creativos y diseÃ±adores sin importar la especialidad. Nuestro proceso creativo.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;La secuencia de entrada, explora el proceso creativo a travÃ©z de diferentes Ã¡ngulos mostrando la diversa manera en que nosotros los creativos podemos atacar un proyecto en busca de una soluciÃ³n grÃ¡fica. Es una historia que nos habla de inpisraciÃ³n, creaciÃ³n y genio creativo para finalizar en el nacimiento de una nueva ediciÃ³n de este gran evento, el&amp;nbsp;DH17.&lt;/div&gt;', '&lt;div&gt;Our friends at TIPOS LIBRES, organize every year one of the top design conferences in Mexico and this year they inveited us to create the opening titles for them.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;This year&#039;s event was based on the concept &quot;THERE ARE MANY STORIES TO TELL&quot;. This is why we found very interesting to play with an idea that all we creatives share... our creative process.&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;The opening titles explore the creative process of every designer trough a series of shots and that show different stages of creation and inspiration.&lt;/div&gt;', '7befe482.mp4', '', '', '67539e76.jpg', 2, 0, 0, 'CONFERENCE OPENING TITLES', '&lt;div&gt;Nuestros amigos de&amp;nbsp;TIPOS LIBRES&amp;nbsp;organizadores de uno de los eventos de diseÃ±o mÃ¡s importantes en MÃ©xico conocido como&amp;nbsp;&amp;', 'conference-opening-titles', '2015-01-08', '2015-01-09', '', 'CONFERENCE OPENING TITLES', '&lt;div&gt;Our friends at TIPOS LIBRES, organize every year one of the top design conferences in Mexico and this year they inveited us to create the opening tit'),
 (29, 'CINEMATIC TRAILER', 'CINEMATIC TRAILER', 'BBC EARTH + CINEMARK', 'BBC EARTH + CINEMARK', '&lt;p&gt;Creamos para BBC los tÃ­tulos animados que forman parte del trailer oficial para esta nueva e increible serie de documentales que se podrÃ¡n ver en las salas de Cinemark en LatinoamÃ©rica.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;We created for BBC the animated titles that are included in the official trailer for their upcoming series of incredible documentaries that will hit Latinoamerica on Cinemark.&lt;br&gt;&lt;/p&gt;', 'a35e3627.mp4', '', '2c9d9116.mp4', '70ca98e3.jpg', 3, 0, 0, 'CINEMATIC TRAILER', '&lt;p&gt;Creamos para BBC los tÃ­tulos animados que forman parte del trailer oficial para esta nueva e increible serie de documentales que se podrÃ¡n ver en las', 'cinematic-trailer', '2015-01-08', '2015-01-13', '', 'CINEMATIC TRAILER', '&lt;p&gt;We created for BBC the animated titles that are included in the official trailer for their upcoming series of incredible documentaries that will hit La'),
@@ -329,7 +352,7 @@ INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_e
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyectos_categorias`
+-- Estructura de tabla para la tabla `proyectos_categorias`
 --
 
 CREATE TABLE `proyectos_categorias` (
@@ -338,7 +361,7 @@ CREATE TABLE `proyectos_categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `proyectos_categorias`
+-- Volcado de datos para la tabla `proyectos_categorias`
 --
 
 INSERT INTO `proyectos_categorias` (`id_proyecto`, `id_categoria`) VALUES
@@ -354,7 +377,7 @@ INSERT INTO `proyectos_categorias` (`id_proyecto`, `id_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `redes_sociales`
+-- Estructura de tabla para la tabla `redes_sociales`
 --
 
 CREATE TABLE `redes_sociales` (
@@ -366,7 +389,7 @@ CREATE TABLE `redes_sociales` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `redes_sociales`
+-- Volcado de datos para la tabla `redes_sociales`
 --
 
 INSERT INTO `redes_sociales` (`id_redes_sociales`, `facebook`, `twitter`, `vimeo`, `behance`) VALUES
@@ -375,7 +398,7 @@ INSERT INTO `redes_sociales` (`id_redes_sociales`, `facebook`, `twitter`, `vimeo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tiposusuario`
+-- Estructura de tabla para la tabla `tiposusuario`
 --
 
 CREATE TABLE `tiposusuario` (
@@ -385,7 +408,7 @@ CREATE TABLE `tiposusuario` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `tiposusuario`
+-- Volcado de datos para la tabla `tiposusuario`
 --
 
 INSERT INTO `tiposusuario` (`idtipousuario`, `nomtipousuario`, `status`) VALUES
@@ -395,7 +418,7 @@ INSERT INTO `tiposusuario` (`idtipousuario`, `nomtipousuario`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipousuarioxpermiso`
+-- Estructura de tabla para la tabla `tipousuarioxpermiso`
 --
 
 CREATE TABLE `tipousuarioxpermiso` (
@@ -404,7 +427,7 @@ CREATE TABLE `tipousuarioxpermiso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tipousuarioxpermiso`
+-- Volcado de datos para la tabla `tipousuarioxpermiso`
 --
 
 INSERT INTO `tipousuarioxpermiso` (`idtipousuario`, `idpermiso`) VALUES
@@ -464,7 +487,7 @@ INSERT INTO `tipousuarioxpermiso` (`idtipousuario`, `idpermiso`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -476,7 +499,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`idusuario`, `nomusuario`, `password`, `status`, `idtipousuario`) VALUES
@@ -485,7 +508,7 @@ INSERT INTO `usuario` (`idusuario`, `nomusuario`, `password`, `status`, `idtipou
 -- --------------------------------------------------------
 
 --
--- Table structure for table `videos_slide`
+-- Estructura de tabla para la tabla `videos_slide`
 --
 
 CREATE TABLE `videos_slide` (
@@ -496,124 +519,135 @@ CREATE TABLE `videos_slide` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `videos_slide`
+-- Volcado de datos para la tabla `videos_slide`
 --
 
 INSERT INTO `videos_slide` (`id_video_slide`, `titulo_video`, `nombre_video`, `nombre_video_hd`) VALUES
 (1, 'MOTION DESIGN REEL 2014', '0b80379e.mp4', '25fb8659.mp4');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `categorias_proyectos`
+-- Indices de la tabla `categorias_proyectos`
 --
 ALTER TABLE `categorias_proyectos`
  ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indexes for table `contenido_marca`
+-- Indices de la tabla `contenido_marca`
 --
 ALTER TABLE `contenido_marca`
  ADD PRIMARY KEY (`id_contenidom`);
 
 --
--- Indexes for table `img_proyecto`
+-- Indices de la tabla `img_proyecto`
 --
 ALTER TABLE `img_proyecto`
  ADD PRIMARY KEY (`id_img_proyecto`,`id_proyecto`);
 
 --
--- Indexes for table `nosotros`
+-- Indices de la tabla `links_videos`
+--
+ALTER TABLE `links_videos`
+ ADD PRIMARY KEY (`id_link`,`id_proyecto`);
+
+--
+-- Indices de la tabla `nosotros`
 --
 ALTER TABLE `nosotros`
  ADD PRIMARY KEY (`id_nosotros`);
 
 --
--- Indexes for table `pantallas`
+-- Indices de la tabla `pantallas`
 --
 ALTER TABLE `pantallas`
  ADD PRIMARY KEY (`id_pantallas`);
 
 --
--- Indexes for table `permiso`
+-- Indices de la tabla `permiso`
 --
 ALTER TABLE `permiso`
  ADD PRIMARY KEY (`idpermiso`);
 
 --
--- Indexes for table `proyectos`
+-- Indices de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
  ADD PRIMARY KEY (`id_proyecto`);
 
 --
--- Indexes for table `proyectos_categorias`
+-- Indices de la tabla `proyectos_categorias`
 --
 ALTER TABLE `proyectos_categorias`
  ADD PRIMARY KEY (`id_proyecto`,`id_categoria`);
 
 --
--- Indexes for table `redes_sociales`
+-- Indices de la tabla `redes_sociales`
 --
 ALTER TABLE `redes_sociales`
  ADD PRIMARY KEY (`id_redes_sociales`);
 
 --
--- Indexes for table `tiposusuario`
+-- Indices de la tabla `tiposusuario`
 --
 ALTER TABLE `tiposusuario`
  ADD PRIMARY KEY (`idtipousuario`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
  ADD PRIMARY KEY (`idusuario`);
 
 --
--- Indexes for table `videos_slide`
+-- Indices de la tabla `videos_slide`
 --
 ALTER TABLE `videos_slide`
  ADD PRIMARY KEY (`id_video_slide`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `categorias_proyectos`
+-- AUTO_INCREMENT de la tabla `categorias_proyectos`
 --
 ALTER TABLE `categorias_proyectos`
 MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `img_proyecto`
+-- AUTO_INCREMENT de la tabla `img_proyecto`
 --
 ALTER TABLE `img_proyecto`
 MODIFY `id_img_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
--- AUTO_INCREMENT for table `permiso`
+-- AUTO_INCREMENT de la tabla `links_videos`
+--
+ALTER TABLE `links_videos`
+MODIFY `id_link` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT de la tabla `permiso`
 --
 ALTER TABLE `permiso`
 MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=89;
 --
--- AUTO_INCREMENT for table `proyectos`
+-- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
 MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
--- AUTO_INCREMENT for table `tiposusuario`
+-- AUTO_INCREMENT de la tabla `tiposusuario`
 --
 ALTER TABLE `tiposusuario`
 MODIFY `idtipousuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
 MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
--- AUTO_INCREMENT for table `videos_slide`
+-- AUTO_INCREMENT de la tabla `videos_slide`
 --
 ALTER TABLE `videos_slide`
 MODIFY `id_video_slide` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
