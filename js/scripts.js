@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
