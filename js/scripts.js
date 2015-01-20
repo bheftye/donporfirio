@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
+var mypath ='http://localhost:8888/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -286,12 +286,14 @@ function reproduceproyectohd(){
 function verproyecto(id){
 	closemenu();
 	closegallery();
-	$(".galleryright").empty();
-	$(".vimeoright").empty();
+	$(".all").fadeOut('slow');
+	//$(".galleryright").empty();
+	//$(".vimeoright").empty();
 	$(".pmenu").removeClass("active");
 	$(".mwork").addClass("active");
 	$("#bgvid")[0].pause();
 	$("#bgvid4").remove();
+
 	var proyecto_existente = false;
 	var data = new FormData;
         data.append('operaciones',"obtener_proyecto");
@@ -315,7 +317,7 @@ function verproyecto(id){
         });
 
 	if(proyecto_existente){
-		console.log("entro");
+		//console.log("entro");
 		nextproyect(resultado[0].id_proyecto);
 		prevproyect(resultado[0].id_proyecto);
 		var titulo = (idioma == "esp")? resultado[0].titulo_esp : resultado[0].titulo_eng;
@@ -358,11 +360,11 @@ function verproyecto(id){
 		for(var i = 0; i < resultado[0].img_secundarias.length; i++){
 			html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[i].ruta+'" />';
 		}
-		$(".galleryright").append(html3);
+		$(".galleryright").html(html3);
 		html4+='<video id="bgvid4">';
 		html4+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video_hd+'" id="mp4Source"  type="video/mp4">';
 		html4+='</video>';
-		$("#fullscreenvideo2").append(html4);
+		$("#fullscreenvideo2").html(html4);
 		html5+='<div class="row">';
 		html5+='<div class="col-sm-10 sidemenu"><ul><li>Vimeo</li></ul></div>';
 		html5+='<span class="closebutton" onclick="closevimeo()"><img src="'+mypath+'img/cls.png" /></span>';
@@ -375,22 +377,24 @@ function verproyecto(id){
                         '<iframe id="player'+resultado[0].links_videos[i].id_link+'" src="//player.vimeo.com/video/'+video_id+'?api=1&player_id=player'+resultado[0].links_videos[i].id_link+'" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'+
                     '</div>';
 		}
-		$(".vimeoright").append(html5);
+		$(".vimeoright").html(html5);
 		
-		$(".all").stop().fadeOut(600);
-		$(".proyecto").delay(1000).empty().append(html).fadeIn(600, function(){
-			checksize();
-		});
+		setTimeout(function(){
+			$(".proyecto").html(html).fadeIn('slow', function(){
+				checksize();
+			});
+		}, 1500);
+		
 		
 		$(".bgall").fadeOut(600);
-		$(".videoproyecto").delay(1000).empty().append(html2).fadeIn(600,function(){
+		$(".videoproyecto").delay(1000).html(html2).fadeIn('fast',function(){
 			reproduceproyecto();
 			$("#bgvid3")[0].currentTime = 0;
 			$("#bgvid3")[0].play();
 		});
 		
-		$(".galleryright").fadeIn(600);
-		$(".vimeoright").fadeIn(600);
+		$(".galleryright").show();
+		$(".vimeoright").show();
 	}	
 }
 
