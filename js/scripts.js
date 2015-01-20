@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -365,7 +365,7 @@ function verproyecto(id){
 		$("#fullscreenvideo2").append(html4);
 		html5+='<div class="row">';
 		html5+='<div class="col-sm-10 sidemenu"><ul><li>Vimeo</li></ul></div>';
-		html5+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
+		html5+='<span class="closebutton" onclick="closevimeo()"><img src="'+mypath+'img/cls.png" /></span>';
 		html5+='</div>';
 		for(var i = 0; i < resultado[0].links_videos.length; i++){
 			var link_video = resultado[0].links_videos[i].link_video;
@@ -378,12 +378,12 @@ function verproyecto(id){
 		$(".vimeoright").append(html5);
 		
 		$(".all").fadeOut(600);
-		$(".proyecto").delay(700).empty().append(html).fadeIn(600, function(){
+		$(".proyecto").delay(1000).empty().append(html).fadeIn(600, function(){
 			checksize();
 		});
 		
 		$(".bgall").fadeOut(600);
-		$(".videoproyecto").delay(700).empty().append(html2).fadeIn(600,function(){
+		$(".videoproyecto").delay(1000).empty().append(html2).fadeIn(600,function(){
 			reproduceproyecto();
 			$("#bgvid3")[0].currentTime = 0;
 			$("#bgvid3")[0].play();
