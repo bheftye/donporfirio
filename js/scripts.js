@@ -75,6 +75,7 @@ function centervert(){
             left:'auto',
             top: (viewportHeight - proHeight)/2
         });
+	
 }
 
 function hidecursor() {
@@ -286,7 +287,11 @@ function reproduceproyectohd(){
 function verproyecto(id){
 	closemenu();
 	closegallery();
-	$(".all").fadeOut('slow');
+	$(".hometitle").fadeOut('slow');
+	$(".proyecto").css("right","-1000px");
+	if($("#bgvid3").length > 0){
+		$("#bgvid3")[0].pause();
+	}
 	//$(".galleryright").empty();
 	//$(".vimeoright").empty();
 	$(".pmenu").removeClass("active");
