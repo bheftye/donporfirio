@@ -334,7 +334,9 @@ include'menu.php';//Contiene a todo el menu.
                                     <div class="col-lg-12">
                                         <button type="button" name="operaciones" style="float:left;" data-toggle="modal" data-target="#myModal" class="buttonguardar">Agregar Video Vimeo</button>
                                         <div id="videos" class="col-lg-12"></div>
-
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <hr class="hrmenu">
+                                        </div>
                                         <div class="clearfix"></div>
                                         <div id="sortableVid" style="margin-top:20px;">
                                         <?php
@@ -344,7 +346,7 @@ include'menu.php';//Contiene a todo el menu.
                                                         $video_url_exploded = explode(".com/",$link_video['link_video']);
                                                         $video_id = $video_url_exploded[1];
                                         ?>
-                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 "  id="link_video_<?=$link_video['id_link']?>">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 "  id="link_video_<?=$link_video['id_link']?>" style="margin-top:20px;">
                                             <div type="button" class="<?=$handle?>" style="position:absolute;top:0;right:-3px;height:20px;width:20px;background-color:#00afef;text-align:center;">+</div>
                                             <div class="image-wrapper">
                                                 <span class="image-options">
@@ -550,10 +552,10 @@ include 'javascripts.html';
             if(link_video != ""){
                 $("#input_link_video").css("border", "solid 1px green");
                 var regVimeo = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
-                if(regVimeo.test(link_video)){
+                if(regVimeo.test(link_video) && link_video.indexOf("iframe") == -1){
                     var splitted_link = link_video.split(".com/");
                     var video_id = splitted_link[1];
-                    var html = '<div class="col-lg-4"><div id="vid_edit'+videos+'"  style="height:300px;width:100%;" >'+
+                    var html = '<div class="col-lg-4"><div id="vid_edit'+videos+'"  style="height:300px;width:100%;margin-top:20px;" >'+
                                     '<iframe id="player'+videos+'" src="//player.vimeo.com/video/'+video_id+'?api=1&player_id=player'+videos+'" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'+
                                     '<input type="hidden" name="links_videos[]" value="'+link_video+'">'+
                                 '</div></div>';
