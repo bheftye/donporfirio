@@ -241,20 +241,6 @@ function verabout(){
   });  
 })(jQuery);
 
-(function($) {  
-  $(window).load(function() {  
-    $(".proyecto").mCustomScrollbar({  
-      scrollEasing:"easeOutCirc",  
-      mouseWheel:"auto",   
-      autoDraggerLength:true,   
-      advanced:{  
-        updateOnBrowserResize:true,   
-        updateOnContentResize:true   
-      } // removed extra commas  
-    });  
-  });  
-})(jQuery);
-
 function verhome(){
 	$(".pmenu").removeClass("active");
 	$(".mhome").addClass("active");
