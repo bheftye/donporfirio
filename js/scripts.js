@@ -377,7 +377,7 @@ function verproyecto(id){
 		}
 		$(".vimeoright").append(html5);
 		
-		$(".all").fadeOut(600);
+		$(".all").stop().fadeOut(600);
 		$(".proyecto").delay(1000).empty().append(html).fadeIn(600, function(){
 			checksize();
 		});
