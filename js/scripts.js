@@ -383,6 +383,16 @@ function verproyecto(id){
                     '</div>';
 		}
 		$(".vimeoright").html(html5);
+
+		$(".bgall").fadeOut('slow');
+
+		setTimeout(function(){
+			$(".videoproyecto").delay(1000).html(html2).fadeIn('fast',function(){
+			reproduceproyecto();
+			$("#bgvid3")[0].currentTime = 0;
+			$("#bgvid3")[0].play();
+		});
+		}, 1000);
 		
 		setTimeout(function(){
 			$(".proyecto").html(html).fadeIn('slow', function(){
@@ -391,12 +401,8 @@ function verproyecto(id){
 		}, 1500);
 		
 		
-		$(".bgall").fadeOut(600);
-		$(".videoproyecto").delay(1000).html(html2).fadeIn('fast',function(){
-			reproduceproyecto();
-			$("#bgvid3")[0].currentTime = 0;
-			$("#bgvid3")[0].play();
-		});
+		
+		
 		
 		$(".galleryright").show();
 		$(".vimeoright").show();
