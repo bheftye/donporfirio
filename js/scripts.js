@@ -239,6 +239,15 @@ function verabout(){
 				$(".loader4").animate({"top":"100%"},600);
 			});
 		});
+		$(".aboutborder").mCustomScrollbar({  
+	      scrollEasing:"easeOutCirc",  
+	      mouseWheel:"auto",   
+	      autoDraggerLength:true,   
+	      advanced:{  
+	        updateOnBrowserResize:true,   
+	        updateOnContentResize:true   
+	      } // removed extra commas  
+	    }); 
 		//$(".aboutborder").mCustomScrollbar();
 	});
 }
@@ -247,7 +256,7 @@ function playslider(){
 	$(".imgloading2").width("0px");
     $(".imgloading2").animate({"width":"51px"},600,playslider);//^callback function
 }  
-
+/*
 (function($) {  
   $(window).load(function() {  
     $(".aboutborder").mCustomScrollbar({  
@@ -261,7 +270,7 @@ function playslider(){
     });  
   });  
 })(jQuery);
-
+*/
 function verhome(){
 	$(".loader2").animate({"left":"0"},600);
 	$(".loader3").animate({"left":"0"},600);
@@ -452,7 +461,17 @@ function verproyecto(id){
 						$(".loader4").animate({"top":"100%"},600);
 					});
 				});
+				$(".aboutborder").mCustomScrollbar({  
+			      scrollEasing:"easeOutCirc",  
+			      mouseWheel:"auto",   
+			      autoDraggerLength:true,   
+			      advanced:{  
+			        updateOnBrowserResize:true,   
+			        updateOnContentResize:true   
+			      } // removed extra commas  
+			    }); 
 			}, 1500);
+			
 			$(".galleryright").show();
 			$(".vimeoright").show();
 		}	
