@@ -1,3 +1,4 @@
+var mypath ='http://localhost:8888/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -226,16 +227,17 @@ function verabout(){
 		$("#bgvid")[0].pause();
 		$(".videoproyecto").empty();
 		$(".all").fadeOut(600);
-		$(".titulorojo").animate({"width":"0"},600);
-		$(".titulorojo2").animate({"width":"0"},600);
+		//$(".titulorojo").animate({"width":"0"},600);
+		//$(".titulorojo2").animate({"width":"0"},600);
 		$(".aboutbg").delay(600).fadeIn(600);
 		$(".about").delay(600).fadeIn(600,function(){
-			$('.imgloading').hide();
+			
 			$('.imgloading2').hide(function(){
 				$(".loader").animate({"top":"-100%"},600);
 				$(".loader2").animate({"left":"-100%"},600);
 				$(".loader3").animate({"left":"100%"},600);
 				$(".loader4").animate({"top":"100%"},600);
+				$('.imgloading').hide();
 			});
 		});
 		$(".aboutborder").mCustomScrollbar({  
@@ -253,7 +255,7 @@ function verabout(){
 
 function playslider(){
 	$(".imgloading2").width("0px");
-    $(".imgloading2").animate({"width":"51px"},600,playslider);//^callback function
+    $(".imgloading2").animate({"width":"51px"},1500,playslider);//^callback function
 }  
 /*
 (function($) {  
@@ -289,12 +291,13 @@ function verhome(){
 			$("#bgvid")[0].play();
 		});
 		$(".hometitle").delay(600).fadeIn(600,function(){
-			$('.imgloading').hide();
+			
 			$('.imgloading2').hide(function(){
 				$(".loader").animate({"top":"-100%"},600);
 				$(".loader2").animate({"left":"-100%"},600);
 				$(".loader3").animate({"left":"100%"},600);
 				$(".loader4").animate({"top":"100%"},600);
+				$('.imgloading').hide();
 			});
 		});
 	});
@@ -452,12 +455,13 @@ function verproyecto(id){
 			setTimeout(function(){
 				$(".proyecto").html(html).fadeIn('slow', function(){
 					checksize();
-					$('.imgloading').hide();
+					
 					$('.imgloading2').hide(function(){
 						$(".loader").animate({"top":"-100%"},600);
 						$(".loader2").animate({"left":"-100%"},600);
 						$(".loader3").animate({"left":"100%"},600);
 						$(".loader4").animate({"top":"100%"},600);
+						$('.imgloading').hide();
 					});
 				});
 				$(".aboutborder").mCustomScrollbar({  
