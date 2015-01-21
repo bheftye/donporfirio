@@ -58,3 +58,10 @@ include_once('lang/'.$idioma.'.php');
 </style>
 <div id="wraperfondo"></div>
 <div id="wraper">
+<div id="popupDiv" class="loader hidden-xs">
+	<div class="imgloading" ><img src="<?=mypath?>img/logow.png" /></div>
+	<div class="imgloading2" ><img src="<?=mypath?>img/logowr.png" /></div>
+</div>
+<div id="popupDiv" class="loader2 hidden-xs"></div>
+<div id="popupDiv" class="loader3 hidden-xs"></div>
+<div id="popupDiv" class="loader4 hidden-xs"></div>

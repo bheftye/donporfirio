@@ -214,18 +214,39 @@ $("#fullscreenvideo2").on('click',function(){
 });
 
 function verabout(){
-	$(".pmenu").removeClass("active");
-	$(".mabout").addClass("active");
-	$(".bgall").fadeOut(600);
-	$("#bgvid")[0].pause();
-	$(".videoproyecto").empty();
-	$(".all").fadeOut(600);
-	$(".titulorojo").animate({"width":"0"},600);
-	$(".titulorojo2").animate({"width":"0"},600);
-	$(".aboutbg").delay(600).fadeIn(600);
-	$(".about").delay(600).fadeIn(600);
-	//$(".aboutborder").mCustomScrollbar();
+	$(".loader2").animate({"left":"0"},600);
+	$(".loader3").animate({"left":"0"},600);
+	$(".loader4").animate({"top":"0"},600);
+	$(".loader").animate({"top":"0"},600,function(){
+		$('.imgloading').show();
+		$('.imgloading2').show();
+		playslider();
+		$(".pmenu").removeClass("active");
+		$(".mabout").addClass("active");
+		$(".bgall").fadeOut(600);
+		$("#bgvid")[0].pause();
+		$(".videoproyecto").empty();
+		$(".all").fadeOut(600);
+		$(".titulorojo").animate({"width":"0"},600);
+		$(".titulorojo2").animate({"width":"0"},600);
+		$(".aboutbg").delay(600).fadeIn(600);
+		$(".about").delay(600).fadeIn(600,function(){
+			$('.imgloading').hide();
+			$('.imgloading2').hide(function(){
+				$(".loader").animate({"top":"-100%"},600);
+				$(".loader2").animate({"left":"-100%"},600);
+				$(".loader3").animate({"left":"100%"},600);
+				$(".loader4").animate({"top":"100%"},600);
+			});
+		});
+		//$(".aboutborder").mCustomScrollbar();
+	});
 }
+
+function playslider(){
+	$(".imgloading2").width("0px");
+    $(".imgloading2").animate({"width":"51px"},600,playslider);//^callback function
+}  
 
 (function($) {  
   $(window).load(function() {  
@@ -242,17 +263,33 @@ function verabout(){
 })(jQuery);
 
 function verhome(){
-	$(".pmenu").removeClass("active");
-	$(".mhome").addClass("active");
-	$(".bgall").fadeOut(600);
-	$(".videoproyecto").empty();
-	//$(".bgall")[0].pause();
-	$(".all").fadeOut(600);
-	$("#bgvid").delay(600).fadeIn(600,function(){
-		$("#bgvid")[0].currentTime = 0;
-		$("#bgvid")[0].play();
+	$(".loader2").animate({"left":"0"},600);
+	$(".loader3").animate({"left":"0"},600);
+	$(".loader4").animate({"top":"0"},600);
+	$(".loader").animate({"top":"0"},600,function(){
+		$('.imgloading').show();
+		$('.imgloading2').show();
+		playslider();
+		$(".pmenu").removeClass("active");
+		$(".mhome").addClass("active");
+		$(".bgall").fadeOut(600);
+		$(".videoproyecto").empty();
+		//$(".bgall")[0].pause();
+		$(".all").fadeOut(600);
+		$("#bgvid").delay(600).fadeIn(600,function(){
+			$("#bgvid")[0].currentTime = 0;
+			$("#bgvid")[0].play();
+		});
+		$(".hometitle").delay(600).fadeIn(600,function(){
+			$('.imgloading').hide();
+			$('.imgloading2').hide(function(){
+				$(".loader").animate({"top":"-100%"},600);
+				$(".loader2").animate({"left":"-100%"},600);
+				$(".loader3").animate({"left":"100%"},600);
+				$(".loader4").animate({"top":"100%"},600);
+			});
+		});
 	});
-	$(".hometitle").delay(600).fadeIn(600);
 }
 
 function reproduceproyecto(){
@@ -285,128 +322,138 @@ function reproduceproyectohd(){
 }
 
 function verproyecto(id){
-	closemenu();
-	closegallery();
-	$(".hometitle").fadeOut('slow');
-	$(".proyecto").css("right","-1000px");
-	if($("#bgvid3").length > 0){
-		$("#bgvid3")[0].pause();
-	}
-	//$(".galleryright").empty();
-	//$(".vimeoright").empty();
-	$(".pmenu").removeClass("active");
-	$(".mwork").addClass("active");
-	$("#bgvid")[0].pause();
-	$("#bgvid4").remove();
-
-	var proyecto_existente = false;
-	var data = new FormData;
-        data.append('operaciones',"obtener_proyecto");
-        data.append("id_proyecto", id);
-    var resultado;
-
-	$.ajax({ 
-            url: mypath+"functions.php",
-            type:'POST',
-            contentType:false,
-            data:data,
-            processData:false,
-            cache:false,
-            async:false,
-            success:function(data){
-                if(data != ""){
-                	proyecto_existente = true;
-                	resultado = JSON.parse(data);
-                }
-            }
-        });
-
-	if(proyecto_existente){
-		//console.log("entro");
-		nextproyect(resultado[0].id_proyecto);
-		prevproyect(resultado[0].id_proyecto);
-		var titulo = (idioma == "esp")? resultado[0].titulo_esp : resultado[0].titulo_eng;
-		var subtitulo = (idioma == "esp")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
-		var descripcion = (idioma == "esp")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
-		var ver = (idioma == "esp")? "VER" : "WATCH";
-		var galeria = (idioma == "esp")? "GALERÍA" : "GALLERY";
-		var share = (idioma == "esp")? "COMPARTIR" : "SHARE";
-		var pprev = (idioma == "esp")? "PROYECTO ANTERIOR" : "PREVIOUS PROYECT";
-		var pnext = (idioma == "esp")? "SIGUIENTE PROYECTO" : "NEXT PROJECT";
-
-		html='';
-		html2='';
-		html3='';
-		html4='';
-		html5='';
-		html+='<h2>'+subtitulo+'</h2>';
-		html+='<h1>'+titulo+'</h1>';
-		html+='<div class="row aboutborder">';
-		html+='<p style="margin:0;">'+descripcion+'</p>';
-		html+='</div>';
-		html+='<div class="row">';
-		//html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">'+ver+'</button></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="openvimeo()">VIMEO</button></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">'+galeria+'</button></div>';
-		html+='<div class="col-sm-3 proylink"><a href="'+resultado[0].behance+'" target="_blank"><button class="proybutton">BEHANCE</button></a></div>';
-		html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">'+share+'</button></div>';
-		html+='</div>';
-		html+='<div class="row" style="margin-top:-1px;">';
-		html+='<div class="col-sm-6 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">'+pprev+'</button></a></div>';
-		html+='<div class="col-sm-6 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">'+pnext+'</button></a></div>';
-		html+='</div>';
-		html2+='<video id="bgvid3" loop muted>';
-		html2+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video+'" id="mp4Source"  type="video/mp4">';
-		html2+='</video>';
-		html3+='<div class="row">';
-		html3+='<div class="col-sm-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
-		html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
-		html3+='</div>';
-		for(var i = 0; i < resultado[0].img_secundarias.length; i++){
-			html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[i].ruta+'" />';
+	$(".loader2").animate({"left":"0"},600);
+	$(".loader3").animate({"left":"0"},600);
+	$(".loader4").animate({"top":"0"},600);
+	$(".loader").animate({"top":"0"},600,function(){
+		$('.imgloading').show();
+		$('.imgloading2').show();
+		playslider();
+		closemenu();
+		closegallery();
+		$(".hometitle").fadeOut('slow');
+		$(".proyecto").css("right","-1000px");
+		if($("#bgvid3").length > 0){
+			$("#bgvid3")[0].pause();
 		}
-		$(".galleryright").html(html3);
-		html4+='<video id="bgvid4">';
-		html4+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video_hd+'" id="mp4Source"  type="video/mp4">';
-		html4+='</video>';
-		$("#fullscreenvideo2").html(html4);
-		html5+='<div class="row">';
-		html5+='<div class="col-sm-10 sidemenu"><ul><li>Vimeo</li></ul></div>';
-		html5+='<span class="closebutton" onclick="closevimeo()"><img src="'+mypath+'img/cls.png" /></span>';
-		html5+='</div>';
-		for(var i = 0; i < resultado[0].links_videos.length; i++){
-			var link_video = resultado[0].links_videos[i].link_video;
-			var splitted_link = link_video.split(".com/");
-            var video_id = splitted_link[1];
-			html5+='<div style="height:646px;width:100%;" >'+
-                        '<iframe id="player'+resultado[0].links_videos[i].id_link+'" src="//player.vimeo.com/video/'+video_id+'?api=1&player_id=player'+resultado[0].links_videos[i].id_link+'" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'+
-                    '</div>';
-		}
-		$(".vimeoright").html(html5);
-
-		$(".bgall").fadeOut('slow');
-
-		setTimeout(function(){
-			$(".videoproyecto").delay(1000).html(html2).fadeIn('fast',function(){
-			reproduceproyecto();
-			$("#bgvid3")[0].currentTime = 0;
-			$("#bgvid3")[0].play();
-		});
-		}, 1000);
-		
-		setTimeout(function(){
-			$(".proyecto").html(html).fadeIn('slow', function(){
-				checksize();
+		//$(".galleryright").empty();
+		//$(".vimeoright").empty();
+		$(".pmenu").removeClass("active");
+		$(".mwork").addClass("active");
+		$("#bgvid")[0].pause();
+		$("#bgvid4").remove();
+	
+		var proyecto_existente = false;
+		var data = new FormData;
+	        data.append('operaciones',"obtener_proyecto");
+	        data.append("id_proyecto", id);
+	    var resultado;
+	
+		$.ajax({ 
+	            url: mypath+"functions.php",
+	            type:'POST',
+	            contentType:false,
+	            data:data,
+	            processData:false,
+	            cache:false,
+	            async:false,
+	            success:function(data){
+	                if(data != ""){
+	                	proyecto_existente = true;
+	                	resultado = JSON.parse(data);
+	                }
+	            }
+	        });
+	
+		if(proyecto_existente){
+			//console.log("entro");
+			nextproyect(resultado[0].id_proyecto);
+			prevproyect(resultado[0].id_proyecto);
+			var titulo = (idioma == "esp")? resultado[0].titulo_esp : resultado[0].titulo_eng;
+			var subtitulo = (idioma == "esp")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
+			var descripcion = (idioma == "esp")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
+			var ver = (idioma == "esp")? "VER" : "WATCH";
+			var galeria = (idioma == "esp")? "GALERÍA" : "GALLERY";
+			var share = (idioma == "esp")? "COMPARTIR" : "SHARE";
+			var pprev = (idioma == "esp")? "PROYECTO ANTERIOR" : "PREVIOUS PROYECT";
+			var pnext = (idioma == "esp")? "SIGUIENTE PROYECTO" : "NEXT PROJECT";
+	
+			html='';
+			html2='';
+			html3='';
+			html4='';
+			html5='';
+			html+='<h2>'+subtitulo+'</h2>';
+			html+='<h1>'+titulo+'</h1>';
+			html+='<div class="row aboutborder">';
+			html+='<p style="margin:0;">'+descripcion+'</p>';
+			html+='</div>';
+			html+='<div class="row">';
+			//html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">'+ver+'</button></div>';
+			html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="openvimeo()">VIMEO</button></div>';
+			html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">'+galeria+'</button></div>';
+			html+='<div class="col-sm-3 proylink"><a href="'+resultado[0].behance+'" target="_blank"><button class="proybutton">BEHANCE</button></a></div>';
+			html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">'+share+'</button></div>';
+			html+='</div>';
+			html+='<div class="row" style="margin-top:-1px;">';
+			html+='<div class="col-sm-6 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">'+pprev+'</button></a></div>';
+			html+='<div class="col-sm-6 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">'+pnext+'</button></a></div>';
+			html+='</div>';
+			html2+='<video id="bgvid3" loop muted>';
+			html2+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video+'" id="mp4Source"  type="video/mp4">';
+			html2+='</video>';
+			html3+='<div class="row">';
+			html3+='<div class="col-sm-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
+			html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
+			html3+='</div>';
+			for(var i = 0; i < resultado[0].img_secundarias.length; i++){
+				html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[i].ruta+'" />';
+			}
+			$(".galleryright").html(html3);
+			html4+='<video id="bgvid4">';
+			html4+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video_hd+'" id="mp4Source"  type="video/mp4">';
+			html4+='</video>';
+			$("#fullscreenvideo2").html(html4);
+			html5+='<div class="row">';
+			html5+='<div class="col-sm-10 sidemenu"><ul><li>Vimeo</li></ul></div>';
+			html5+='<span class="closebutton" onclick="closevimeo()"><img src="'+mypath+'img/cls.png" /></span>';
+			html5+='</div>';
+			for(var i = 0; i < resultado[0].links_videos.length; i++){
+				var link_video = resultado[0].links_videos[i].link_video;
+				var splitted_link = link_video.split(".com/");
+	            var video_id = splitted_link[1];
+				html5+='<div style="height:646px;width:100%;" >'+
+	                        '<iframe id="player'+resultado[0].links_videos[i].id_link+'" src="//player.vimeo.com/video/'+video_id+'?api=1&player_id=player'+resultado[0].links_videos[i].id_link+'" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'+
+	                    '</div>';
+			}
+			$(".vimeoright").html(html5);
+	
+			$(".bgall").fadeOut('slow');
+	
+			setTimeout(function(){
+				$(".videoproyecto").delay(1000).html(html2).fadeIn('fast',function(){
+				reproduceproyecto();
+				$("#bgvid3")[0].currentTime = 0;
+				$("#bgvid3")[0].play();
 			});
-		}, 1500);
-		
-		
-		
-		
-		
-		$(".galleryright").show();
-		$(".vimeoright").show();
-	}	
+			}, 1000);
+			
+			setTimeout(function(){
+				$(".proyecto").html(html).fadeIn('slow', function(){
+					checksize();
+					$('.imgloading').hide();
+					$('.imgloading2').hide(function(){
+						$(".loader").animate({"top":"-100%"},600);
+						$(".loader2").animate({"left":"-100%"},600);
+						$(".loader3").animate({"left":"100%"},600);
+						$(".loader4").animate({"top":"100%"},600);
+					});
+				});
+			}, 1500);
+			$(".galleryright").show();
+			$(".vimeoright").show();
+		}	
+	});	
 }
 
 $(document).ready(function(){
