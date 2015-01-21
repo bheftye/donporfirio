@@ -428,6 +428,7 @@ function verproyecto(id){
 			}
 			$(".vimeoright").html(html5);
 	
+			$(".all").fadeOut('slow');
 			$(".bgall").fadeOut('slow');
 	
 			setTimeout(function(){
@@ -458,7 +459,14 @@ function verproyecto(id){
 
 $(document).ready(function(){
 	var hashTag = window.location.hash
-	console.log(hashTag);
+	//console.log(hashTag);
+	$('.imgloading').hide();
+	$('.imgloading2').hide(function(){
+		$(".loader").animate({"top":"-100%"},600);
+		$(".loader2").animate({"left":"-100%"},600);
+		$(".loader3").animate({"left":"100%"},600);
+		$(".loader4").animate({"top":"100%"},600);
+	});
 	if(hashTag!=""){
 		if(hashTag=="#home"){
 			verhome();
