@@ -3,6 +3,21 @@
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
 <script src="<?=mypath?>js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="<?=mypath?>js/bootstrap.min.js"></script>
+<?php
+if(strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPad')) {
+?>
+<script>
+	var ipad = true;
+</script>
+<?php
+}else{
+?>
+<script>
+	var ipad = false;
+</script>
+<?php
+}
+?>
 <script src="<?=mypath?>js/scripts.js"></script>
 </body>
 </html>

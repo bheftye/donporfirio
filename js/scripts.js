@@ -399,9 +399,11 @@ function verproyecto(id){
 			html+='<div class="col-sm-6 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">'+pprev+'</button></a></div>';
 			html+='<div class="col-sm-6 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">'+pnext+'</button></a></div>';
 			html+='</div>';
+			if(ipad == false){
 			html2+='<video id="bgvid3" loop muted>';
 			html2+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video+'" id="mp4Source"  type="video/mp4">';
 			html2+='</video>';
+			}
 			html3+='<div class="row">';
 			html3+='<div class="col-sm-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
 			html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';

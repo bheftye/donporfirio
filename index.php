@@ -29,9 +29,19 @@
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
 	</video>
 </div>
+<?php
+if(strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPad')) {
+?>	
+<?php
+}
+else{
+?>
 <video autoplay muted id="bgvid" class="bgall" loop>
 	<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4">
 </video>
+<?php
+}
+?>
 <div class="contenido collapse in">
 	<!-- Website Content -->
 	<div class="container">
