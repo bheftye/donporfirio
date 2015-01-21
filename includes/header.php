@@ -43,8 +43,8 @@ include_once('lang/'.$idioma.'.php');
 		direction: ltr !important;
 	}
 	.mCSB_container{
-		margin-left:15px;
-		padding-top:15px;
+		/*margin-left:15px;
+		padding-top:15px;*/
 	}
 	.mCustomScrollBox>.mCSB_scrollTools{
 		opacity:1;
