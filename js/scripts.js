@@ -182,8 +182,14 @@ function viewcontact(){
 			$("#contacto").removeClass("ccerrado");
 			$("#contacto").addClass("cabierto");
 		});
-		$("#bgvid").animate({"top":"-400px"},600);
-		$("#bgvid3").animate({"top":"-400px"},600);
+		if(ipad == false){
+			$("#bgvid").animate({"top":"-400px"},600);
+			$("#bgvid3").animate({"top":"-400px"},600);
+		}
+		else{
+			$("#content-slider-1").animate({"top":"-400px"},600);
+			$("#content-slider-2").animate({"top":"-400px"},600);
+		}
 		$(".aboutbg").animate({"top":"-400px"},600);
 	}
 	else{
@@ -200,8 +206,14 @@ function hidecontact(){
 	$("#wraperfondo").animate({"top":"0"},600);
 	$(".contenido").animate({"top":"0"},600);
 	$("#contacto").animate({"top":"0"},600);
-	$("#bgvid").animate({"top":"0"},600);
-	$("#bgvid3").animate({"top":"0"},600);
+	if(ipad == false){
+		$("#bgvid").animate({"top":"0"},600);
+		$("#bgvid3").animate({"top":"0"},600);
+	}
+	else{
+		$("#content-slider-1").animate({"top":"0"},600);
+		$("#content-slider-2").animate({"top":"0"},600);
+	}
 	$(".aboutbg").animate({"top":"0"},600);
 	$("#contacto").removeClass("cabierto");
 	$("#contacto").addClass("ccerrado");
@@ -214,10 +226,14 @@ function changecursor(){
 function showvideo(){
 	$(".contenido").fadeOut(1000);
 	$("#wraperfondo").fadeOut(1000);
-	$("#bgvid").fadeOut(1000);
+	if(ipad == false)
+		$("#bgvid").fadeOut(1000);
+	else
+		$("#content-slider-1").fadeOut(1000);
 	$("#contacto").fadeOut(1000);
 	$('body').css('cursor', 'url(./img/clsr.png),auto');
-	$("#bgvid")[0].pause();
+	if(ipad == false)
+		$("#bgvid")[0].pause();
 	$("#fullscreenvideo").show();
 	$("#bgvid2")[0].currentTime = 0;
 	$("#bgvid2")[0].play();
@@ -228,23 +244,33 @@ $("#fullscreenvideo").on('click',function(){
 	$("#bgvid2")[0].pause();
 	$(".contenido").fadeIn(1000);
 	$("#wraperfondo").fadeIn(1000);
-	$("#bgvid").fadeIn(1000);
+	if(ipad == false)
+		$("#bgvid").fadeIn(1000);
+	else
+		$("#content-slider-1").fadeIn(1000);
 	$("#contacto").fadeIn(1000);;
 	$('body').css('cursor','auto');
-	$("#bgvid")[0].currentTime = 0;
-	$("#bgvid")[0].play();
+	if(ipad == false){
+		$("#bgvid")[0].currentTime = 0;
+		$("#bgvid")[0].play();
+	}
 });
 
 $("#fullscreenvideo2").on('click',function(){
 	$("#fullscreenvideo2").hide();
-	$("#bgvid4")[0].pause();
+	//$("#bgvid4")[0].pause();
 	$(".contenido").fadeIn(1000);
 	$("#wraperfondo").fadeIn(1000);
-	$("#bgvid3").fadeIn(1000);
+	if(ipad == false)
+		$("#bgvid3").fadeIn(1000);
+	else
+		$("#content-slider-2").fadeIn(1000);
 	$("#contacto").fadeIn(1000);
 	$('body').css('cursor','auto');
-	$("#bgvid3")[0].currentTime = 0;
-	$("#bgvid3")[0].play();
+	if(ipad == false){
+		$("#bgvid3")[0].currentTime = 0;
+		$("#bgvid3")[0].play();
+	}
 });
 
 function verabout(){
@@ -258,7 +284,8 @@ function verabout(){
 		$(".pmenu").removeClass("active");
 		$(".mabout").addClass("active");
 		$(".bgall").fadeOut(600);
-		$("#bgvid")[0].pause();
+		if(ipad == false)
+			$("#bgvid")[0].pause();
 		$(".videoproyecto").empty();
 		$(".all").fadeOut(600);
 		//$(".titulorojo").animate({"width":"0"},600);
@@ -320,10 +347,15 @@ function verhome(){
 		$(".videoproyecto").empty();
 		//$(".bgall")[0].pause();
 		$(".all").fadeOut(600);
-		$("#bgvid").delay(600).fadeIn(600,function(){
-			$("#bgvid")[0].currentTime = 0;
-			$("#bgvid")[0].play();
-		});
+		if(ipad == false){
+			$("#bgvid").delay(600).fadeIn(600,function(){
+				$("#bgvid")[0].currentTime = 0;
+				$("#bgvid")[0].play();
+			});
+		}
+		else{
+			$("#content-slider-1").delay(600).fadeIn(600);
+		}
 		$(".hometitle").delay(600).fadeIn(600,function(){
 			
 			$('.imgloading2').hide(function(){
@@ -378,15 +410,19 @@ function verproyecto(id){
 		closegallery();
 		$(".hometitle").fadeOut('slow');
 		$(".proyecto").css("right","-1000px");
-		if($("#bgvid3").length > 0){
-			$("#bgvid3")[0].pause();
+		if(ipad == false){
+			if($("#bgvid3").length > 0){
+				$("#bgvid3")[0].pause();
+			}
 		}
 		//$(".galleryright").empty();
 		//$(".vimeoright").empty();
 		$(".pmenu").removeClass("active");
 		$(".mwork").addClass("active");
-		$("#bgvid")[0].pause();
-		$("#bgvid4").remove();
+		if(ipad == false){
+			$("#bgvid")[0].pause();
+			$("#bgvid4").remove();
+		}
 	
 		var proyecto_existente = false;
 		var data = new FormData;
@@ -445,9 +481,9 @@ function verproyecto(id){
 			html+='<div class="col-sm-6 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">'+pnext+'</button></a></div>';
 			html+='</div>';
 			if(ipad == false){
-			html2+='<video id="bgvid3" loop muted>';
-			html2+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video+'" id="mp4Source"  type="video/mp4">';
-			html2+='</video>';
+				html2+='<video id="bgvid3" loop muted>';
+				html2+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video+'" id="mp4Source"  type="video/mp4">';
+				html2+='</video>';
 			}
 			html3+='<div class="row">';
 			html3+='<div class="col-sm-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
@@ -457,10 +493,12 @@ function verproyecto(id){
 				html3+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[i].ruta+'" />';
 			}
 			$(".galleryright").html(html3);
+			/*
 			html4+='<video id="bgvid4">';
 			html4+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video_hd+'" id="mp4Source"  type="video/mp4">';
 			html4+='</video>';
 			$("#fullscreenvideo2").html(html4);
+			*/
 			html5+='<div class="row">';
 			html5+='<div class="col-sm-10 sidemenu"><ul><li>Vimeo</li></ul></div>';
 			html5+='<span class="closebutton" onclick="closevimeo()"><img src="'+mypath+'img/cls.png" /></span>';
@@ -478,13 +516,15 @@ function verproyecto(id){
 			$(".all").fadeOut('slow');
 			$(".bgall").fadeOut('slow');
 	
-			setTimeout(function(){
-				$(".videoproyecto").delay(1000).html(html2).fadeIn('fast',function(){
-				reproduceproyecto();
-				$("#bgvid3")[0].currentTime = 0;
-				$("#bgvid3")[0].play();
-			});
-			}, 1000);
+			if(ipad == false){
+				setTimeout(function(){
+					$(".videoproyecto").delay(1000).html(html2).fadeIn('fast',function(){
+					reproduceproyecto();
+					$("#bgvid3")[0].currentTime = 0;
+					$("#bgvid3")[0].play();
+				});
+				}, 1000);
+			}
 			
 			setTimeout(function(){
 				$(".proyecto").html(html).fadeIn('slow', function(){
@@ -577,7 +617,7 @@ $(document).ready(function(){
 		hidecontact();
 	});*/
 });
-
+/*
 $(document).ready(function(){
 		//console.log("hola");
 	$("#bgvid").on(
@@ -595,7 +635,7 @@ $(document).ready(function(){
 	        //$(".titulorojo2").width(percent2+"px");
 	});
 });
-
+*/
 function showpreview(id,vp){
 	//console.log(vp);
 	//$(".videono"+id).empty();
