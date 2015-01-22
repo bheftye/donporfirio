@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -19,9 +19,43 @@ function checksize(){
 	viewportWidth = $(window).width();
 	viewportHeight = $(window).height();
 	//console.log(viewportWidth);
-	if(viewportWidth>=768){
+	if(viewportWidth>=768){ 
 		centervert();
 	}
+}
+
+function royal(){
+	 $('#content-slider-1').royalSlider({
+	    autoHeight: true,
+	    arrowsNav: false,
+	    fadeinLoadedSlide: false,
+	    controlNavigationSpacing: 0,
+	    controlNavigation: 'tabs',
+	    imageScaleMode: 'none',
+	    imageAlignCenter:false,
+	    loop: false,
+	    loopRewind: true,
+	    numImagesToPreload: 6,
+	    keyboardNavEnabled: true,
+	    usePreloader: false
+	  });
+}
+
+function royal2(){
+	 $('#content-slider-2').royalSlider({
+	    autoHeight: true,
+	    arrowsNav: false,
+	    fadeinLoadedSlide: false,
+	    controlNavigationSpacing: 0,
+	    controlNavigation: 'tabs',
+	    imageScaleMode: 'none',
+	    imageAlignCenter:false,
+	    loop: false,
+	    loopRewind: true,
+	    numImagesToPreload: 6,
+	    keyboardNavEnabled: true,
+	    usePreloader: false
+	  });
 }
 
 $(".contenido").on('click',function(){
@@ -484,13 +518,6 @@ function verproyecto(id){
 $(document).ready(function(){
 	var hashTag = window.location.hash
 	//console.log(hashTag);
-	$('.imgloading').hide();
-	$('.imgloading2').hide(function(){
-		$(".loader").animate({"top":"-100%"},600);
-		$(".loader2").animate({"left":"-100%"},600);
-		$(".loader3").animate({"left":"100%"},600);
-		$(".loader4").animate({"top":"100%"},600);
-	});
 	if(hashTag!=""){
 		if(hashTag=="#home"){
 			verhome();
@@ -526,6 +553,15 @@ $(document).ready(function(){
 		            }
 		    });
 		}
+	}
+	else{
+		$('.imgloading').hide();
+		$('.imgloading2').hide(function(){
+			$(".loader").animate({"top":"-100%"},600);
+			$(".loader2").animate({"left":"-100%"},600);
+			$(".loader3").animate({"left":"100%"},600);
+			$(".loader4").animate({"top":"100%"},600);
+		});
 	}
 	if(idioma == "esp"){
 		$(".aen").removeClass("active");

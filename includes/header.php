@@ -31,6 +31,8 @@ include_once('lang/'.$idioma.'.php');
 
         <link rel='shortcut icon' href='favicon.ico'> 
         <link href="<?=mypath?>css/bootstrap.css" rel="stylesheet">
+        <link href="<?=mypath?>royalslider/royalslider.css" rel="stylesheet">
+		<link href="<?=mypath?>royalslider/skins/default/rs-default.css" rel="stylesheet">
         <link href="<?=mypath?>css/style.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?=mypath?>css/jquery.mCustomScrollbar.css" />
