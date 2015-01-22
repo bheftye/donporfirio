@@ -2,6 +2,7 @@
 <?php
 	$video_slide = new video_slide();
 	$lista_videos_slide = $video_slide -> listar_videos_slide_activos();
+	$imagenes_inicio = $video_slide -> listar_img_secundarias_inicio();
 	if(count($lista_videos_slide) > 0){
 		$src_tmp = $lista_videos_slide[0]["nombre_video"];
 		$src_hd = $lista_videos_slide[0]["nombre_video_hd"];
@@ -20,6 +21,8 @@
 	$url_facebook = $redes_sociales -> facebook;
 	$url_behance = $redes_sociales -> behance;
 	$url_vimeo = $redes_sociales -> vimeo;
+
+
 ?>
 <div class="bgall aboutbg"></div>
 <div class="bgall videoproyecto"></div>
@@ -34,25 +37,12 @@ if(strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGEN
 //if(1==1) {
 ?>	
 <div id="content-slider-1" class="royalSlider contentSlider rsDefault bgall bghome">
-  <div>
-    <h3>Slide HTML Text</h3>
-    <p>This is dummy copy. It is not meant to be read. It has been placed here solely to demonstrate the look and feel of finished, typeset text. Only for show. He who searches for meaning here will be sorely disappointed.  These words are here to provide the reader with a basic impression of how actual text will appear in its final presentation. </p>
-    <blockquote>This is dummy copy. It's Greek to you. Unless, of course, you're Greek, in which case, it really makes no sense. Why, you can't even read it!  It is strictly for mock-ups. You may mock it up as strictly as you wish.</blockquote>
-    <p>After all, you have many other things you should be doing. Who's paying you to waste this time, anyway?</p>
-    <span class="rsTmb">HTML text</span>
-  </div>
-  <div>
-    <img class="rsImg" src="http://dimsemenov.com/plugins/royal-slider/img/home.jpg" data-rsw="707" data-rsh="397">
-    <h3>Slide with Image and Text</h3>
-    <p>This is dummy copy. It is not meant to be read. Accordingly, it is difficult to figure out when to end it. If this were real copy, it would have ended long ago. But then, this is dummy copy. It is not meant to be read. Period.</p>
-    <span class="rsTmb">Image</span>
-  </div>
-  <div>
-    <img class="rsImg" src="http://dimsemenov.com/plugins/royal-slider/img/boat.jpg" data-rsvideo="http://www.youtube.com/watch?v=HFbHRWwyihE" data-rsw="640" data-rsh="425">
-    <h3>Slide with Video and Text</h3>
-    <p>This is dummy copy. It is not meant to be read. Accordingly, it is difficult to figure out when to end it. But then, this is dummy copy. It is not meant to be read. Period.</p>
-    <span class="rsTmb">Video</span>
-  </div>
+  <?php
+  	foreach ($imagenes_inicio as $imagen) {
+  		$ruta_imagen =  mypath."imgInicio/".$imagen["nombre_imagen"];
+  		echo "<img class='rsImg' src='".$ruta_imagen."' />";
+  	}
+  ?>
 
 </div>
 <?php
