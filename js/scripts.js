@@ -565,8 +565,22 @@ $(document).ready(function(){
 			verabout();
 		}else if(hashTag=="#work"){
 			openmenu();
+			$('.imgloading').hide();
+			$('.imgloading2').hide(function(){
+				$(".loader").animate({"top":"-100%"},600);
+				$(".loader2").animate({"left":"-100%"},600);
+				$(".loader3").animate({"left":"100%"},600);
+				$(".loader4").animate({"top":"100%"},600);
+			});
 		}else if(hashTag=="#contact"){
 			viewcontact();
+			$('.imgloading').hide();
+			$('.imgloading2').hide(function(){
+				$(".loader").animate({"top":"-100%"},600);
+				$(".loader2").animate({"left":"-100%"},600);
+				$(".loader3").animate({"left":"100%"},600);
+				$(".loader4").animate({"top":"100%"},600);
+			});
 		}else{
 			//console.log(hashTag);	
 			var url = hashTag.substring(1);
