@@ -5,7 +5,7 @@
 <script src="<?=mypath?>royalslider/jquery.royalslider.min.js" />
 <script src="<?=mypath?>js/bootstrap.min.js"></script>
 <?php
-if(strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPad')) {
+if(strstr($_SERVER['HTTP_USER_AGENT'],'Android') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPad')) {
 ?>
 <script>
 	var ipad = true;
