@@ -55,7 +55,7 @@ include'menu.php';//Contiene a todo el menu.
         <div id="page-content-wrapper">
             
             <!-- Keep all page content within the page-content inset div! -->
-            <div class="page-content inset">
+            <div class="page-content inset col-lg-12">
                 <div class="row rowedit">
                 	<!--Seccion del titulo y el boton de agregar-->
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -79,64 +79,139 @@ include'menu.php';//Contiene a todo el menu.
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     	<div class='notifications top-right'></div>
                     </div>
-                    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
-                    	<div id="titulo_video" class="input-group espacios">
-                        	<span class="input-group-addon es">Título del video</span>
-                        	<input type="text"  name="titulo_video" class="form-control" placeholder="Ingrese el titulo aquí..." value="<?=$temporal->titulo_video?>">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    	<ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#vid" role="tab" data-toggle="tab">Videos</a></li>
+                            <li><a href="#img" role="tab" data-toggle="tab">Imágenes</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                                <div class="tab-pane active" id="vid">
+                                	<div id="titulo_video" class="input-group espacios">
+			                        	<span class="input-group-addon es">Título del video</span>
+			                        	<input type="text"  name="titulo_video" class="form-control" placeholder="Ingrese el titulo aquí..." value="<?=$temporal->titulo_video?>">
+		                        	</div>
+
+		                        <br>
+		                        <div class="col-lg-6">
+			                        <div class="espacios">
+			                    		<span class="textHelper">Previsualizar el video de fondo de baja calidad:</span>
+			                    	</div>
+			                        <?php 
+			                            if($temporal -> nombre_video != ""){
+			                                echo '<video id="video" muted controls style="height:350px;width:100%;display:table;margin:0 auto;">
+			                                        <source src="../videosSlide/'.$temporal -> nombre_video.'" id="mp4Source"  type="video/mp4">
+			                                      </video>';
+			                            }
+			                            else{
+			                                echo '<video id="video" muted controls style="display:none;height:350px;width:100%;margin:0 auto;" >
+			                                      </video>';
+			                            }
+			                        ?>
+			                        <br>
+			                    	<center>
+			                            <input id="files6" name="archivo" type="file" class="upload"/>
+			                        </center>
+			                        <br>
+			                        <div class="text-center textHelper">
+			                        	Tipo de archivos permitidos: mp4.
+			                            <br>
+			                            Tamaño máximo de archivo: 8MB.
+			                        </div>
+		                        </div>
+		                        <div class="col-lg-6">
+			                         <div class="espacios">
+				                    	<span class="textHelper">Previsualizar el video en HD:</span>
+				                     </div>
+			                         <?php 
+			                            if($temporal -> nombre_video_hd != ""){
+			                                echo '<video id="video2" muted controls style="height:350px;width:100%;display:table;margin:0 auto;">
+			                                        <source src="../videosSlide/'.$temporal -> nombre_video_hd.'" id="mp4Source"  type="video/mp4">
+			                                      </video>';
+			                            }
+			                            else{
+			                                echo '<video id="video2" muted controls style="display:none;height:350px;width:100%;margin:0 auto;" >
+			                                      </video>';
+			                            }
+			                        ?>
+			                        <br>
+			                    	<center>
+			                            <input id="files5" name="archivo_hd" type="file" class="upload"/>
+			                        </center>
+			                        <br>
+			                        <div class="text-center textHelper">
+			                        	Tipo de archivos permitidos: mp4.
+			                            <br>
+			                            Tamaño máximo de archivo: 15MB.
+			                        </div>         
+                                </div>
+                                </div>
+                                <div class="tab-pane" id="img">
+                                	<p>Selecciona las imágenes del slide de inicio para dispositivos móviles.</p>
+                                    <br>
+                                    <br>
+                                    <center>
+                                        <input id="files2" name="archivo2[]" type="file" class="upload" multiple/>
+                                    </center>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 textHelper">
+                                        Tipo de archivos permitidos: jpg, jpeg, png, gif.
+                                        <br>
+                                        Tamaño máximo de archivo: 10MB.
+                                    </div>
+                                    
+                                    <div class="clearfix"></div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <span class="textHelper">Previsualizar:</span>
+                                    </div>
+                                    <br>
+                                    <!--Aquí es donde se previsualiza las imágenes secundarias-->
+                                    <div class="col-lg-12 col-md-12" id="list2">
+                                        
+                                    </div>
+                                    
+                                    <div id="sortableImg">
+                                    <?php
+                                        if($id != 0){
+                                                $temporal->listar_img_secundarias_inicio();
+                                                foreach ($temporal->lista_imagenes_secundarias as $elementoImgS) {  
+                                    ?>
+                                        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12" id="img2<?=$elementoImgS['id_imagen']?>">
+                                            <div class="image-wrapper">
+                                                <span class="image-options">
+                                                    <ul class="ulmenuoptions">
+                                                        <li onclick="deleteIMG2(<?=$elementoImgS['id_imagen']?>)"  class="limenuoptions manita">
+                                                            <span class="inputUploadFont fontOptionsImg">Eliminar <i class="fa fa-times"></i></span>
+                                                        </li>   
+                                                        <li class="limenuoptions manita">
+                                                            <div class="fileUpload" style="width:100%; border-color: none important!">
+                                                                <input type="hidden" name="id_imagen[]" value="<?=$elementoImgS['id_imagen']?>"/>
+                                                                <input type="hidden" class="idorden" name="idorden[]" value="<?=$elementoImgS['id_imagen']?>"/>
+                                                                <span class="inputUploadFont fontOptionsImg manita">Editar <i class="fa fa-pencil"></i></span>
+                                                                <input name="archivo3[]" type="file" onchange="showMyImage('imgedit<?=$elementoImgS['id_imagen']?>',this)" class="upload manita"/>
+                                                            </div>
+                                                        </li>   
+                                                    </ul>
+                                                </span>
+                                              
+                                                <div id="imgedit<?=$elementoImgS['id_imagen']?>" class="<?=$handle?>" >
+                                                    <img style="margin: 0 0 20px 0" widht="100%" height="250px" src="../imgInicio/<?=$elementoImgS['nombre_imagen']?>"/>
+                                                </div>
+                                            </div>                                              
+                                        </div>          
+                                    <?php
+                                                }
+                                        }else{
+                                            echo '';
+                                        }
+                                    ?>
+                                    </div>
+
+                                </div>
                         </div>
 
-                        <br>
-                        <div class="col-lg-6">
-	                        <div class="espacios">
-	                    		<span class="textHelper">Previsualizar el video de fondo de baja calidad:</span>
-	                    	</div>
-	                        <?php 
-	                            if($temporal -> nombre_video != ""){
-	                                echo '<video id="video" muted controls style="height:350px;width:100%;display:table;margin:0 auto;">
-	                                        <source src="../videosSlide/'.$temporal -> nombre_video.'" id="mp4Source"  type="video/mp4">
-	                                      </video>';
-	                            }
-	                            else{
-	                                echo '<video id="video" muted controls style="display:none;height:350px;width:100%;margin:0 auto;" >
-	                                      </video>';
-	                            }
-	                        ?>
-	                        <br>
-	                    	<center>
-	                            <input id="files6" name="archivo" type="file" class="upload"/>
-	                        </center>
-	                        <br>
-	                        <div class="text-center textHelper">
-	                        	Tipo de archivos permitidos: mp4.
-	                            <br>
-	                            Tamaño máximo de archivo: 8MB.
-	                        </div>
-                        </div>
-                        <div class="col-lg-6">
-	                         <div class="espacios">
-		                    	<span class="textHelper">Previsualizar el video en HD:</span>
-		                     </div>
-	                         <?php 
-	                            if($temporal -> nombre_video_hd != ""){
-	                                echo '<video id="video2" muted controls style="height:350px;width:100%;display:table;margin:0 auto;">
-	                                        <source src="../videosSlide/'.$temporal -> nombre_video_hd.'" id="mp4Source"  type="video/mp4">
-	                                      </video>';
-	                            }
-	                            else{
-	                                echo '<video id="video2" muted controls style="display:none;height:350px;width:100%;margin:0 auto;" >
-	                                      </video>';
-	                            }
-	                        ?>
-	                        <br>
-	                    	<center>
-	                            <input id="files5" name="archivo_hd" type="file" class="upload"/>
-	                        </center>
-	                        <br>
-	                        <div class="text-center textHelper">
-	                        	Tipo de archivos permitidos: mp4.
-	                            <br>
-	                            Tamaño máximo de archivo: 15MB.
-	                        </div>         
+
+                    	
                        </div>
                     </div><!--Div de cierre col-lg-9-->
                     <div class="clearfix"></div>
@@ -281,7 +356,89 @@ include 'javascripts.html';
 	}, false);
 	</script>
  <!--Script que permite previsualizar la imagen Secundaria-->
+	<script>
+    	function showMyImage(id,fileInput) {
+		//var files = evt.target.files; // FileList object 
+        var files = fileInput.files;
+		// Loop through the FileList and render image files as thumbnails.
+		for (var x = 0, f; f = files[x]; x++) {
+		  // Only process image files.
+		  if (!f.type.match('image.*')) {
+			continue;
+		  }
+		  var reader = new FileReader();
+		  // Closure to capture the file information.
+		  reader.onload = (function(theFile) {
+			return function(e) {
+			  // Render thumbnail.
+			  var span = document.createElement('span');
+			  span.innerHTML = ['<img width="auto" height="221" src="', e.target.result,
+								'" title="', escape(theFile.name), '"/>'].join('');
+			  $("#"+id).empty();
+			  document.getElementById(id).insertBefore(span, null);
+			};
+		  })(f);
+		  // Read in the image file as a data URL.
+		  reader.readAsDataURL(f);
+		}    
+    }
+    </script>
+    <!--Script que permite previsualizar la imagen Secundaria-->
+    <script>
+	  function handleFileSelect(evt) {
+		var files2 = evt.target.files; // FileList object
+		$("#list2").empty();
+		 var div = document.createElement('div');
+        div.className = "col-lg-12 col-md-12 col-sm-12 col-xs-12";
+        div.innerHTML = ['<p class="titulo">Imágenes Nuevas</p><br/>'].join('');
+        document.getElementById('list2').insertBefore(div, null);  
+		// Loop through the FileList and render image files as thumbnails.
+		for (var i = 0, f; f = files2[i]; i++) {
 	
+		  // Only process image files.
+		  if (!f.type.match('image.*')) {
+			continue;
+		  }
+	
+		  var reader = new FileReader();
+	
+		  // Closure to capture the file information.
+		  reader.onload = (function(theFile) {
+			return function(e) {
+			  // Render thumbnail.
+			  var span = document.createElement('div');
+			  span.className = "col-lg-3 col-md-4 col-sm-12 col-xs-12";
+			  span.innerHTML = ['<img style="margin: 0 0 20px 0" class="img-responsive" src="', e.target.result,
+								'" title="', escape(theFile.name), '"/>'].join('');
+			  document.getElementById('list2').insertBefore(span, null);
+			};
+		  })(f);
+	
+		  // Read in the image file as a data URL.
+		  reader.readAsDataURL(f);
+		}
+	  }
+	
+	  document.getElementById('files2').addEventListener('change', handleFileSelect, false);
+	</script>
+	<script>
+	function deleteIMG2(id){
+		$.ajaxSetup({ cache: false });
+		$.ajax({
+			async:true,
+			type: "POST",
+			dataType: "html",
+			contentType: "application/x-www-form-urlencoded",
+			url:"operaciones.php",
+			data:"idImg2="+id+"&operaciones=eliminar_img_inicio",
+			success:function(data){	
+				// console.log(data)			
+				$("#img2"+id).fadeOut('slow');			
+			},
+			cache:false
+		});		
+	}    
+</script>
  <!--Script que sirve para validar-->
 	<script>
 	function validar_campos(){

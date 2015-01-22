@@ -2,22 +2,22 @@
 -- version 4.2.5
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost:8889
--- Tiempo de generación: 20-01-2015 a las 16:32:09
--- Versión del servidor: 5.5.38
--- Versión de PHP: 5.5.14
+-- Host: localhost:8889
+-- Generation Time: Jan 22, 2015 at 07:19 PM
+-- Server version: 5.5.38
+-- PHP Version: 5.5.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Base de datos: `donporfirio`
+-- Database: `donporfirio`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias_proyectos`
+-- Table structure for table `categorias_proyectos`
 --
 
 CREATE TABLE `categorias_proyectos` (
@@ -30,7 +30,7 @@ CREATE TABLE `categorias_proyectos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Volcado de datos para la tabla `categorias_proyectos`
+-- Dumping data for table `categorias_proyectos`
 --
 
 INSERT INTO `categorias_proyectos` (`id_categoria`, `nombre_esp`, `nombre_eng`, `status`, `mostrar`, `orden`) VALUES
@@ -42,7 +42,7 @@ INSERT INTO `categorias_proyectos` (`id_categoria`, `nombre_esp`, `nombre_eng`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `config_mailing`
+-- Table structure for table `config_mailing`
 --
 
 CREATE TABLE `config_mailing` (
@@ -56,7 +56,7 @@ CREATE TABLE `config_mailing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `config_mailing`
+-- Dumping data for table `config_mailing`
 --
 
 INSERT INTO `config_mailing` (`idconfig`, `correo_noreply`, `correo_standard`, `facebook`, `twitter`, `instagram`, `youtube`) VALUES
@@ -65,7 +65,7 @@ INSERT INTO `config_mailing` (`idconfig`, `correo_noreply`, `correo_standard`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contacto`
+-- Table structure for table `contacto`
 --
 
 CREATE TABLE `contacto` (
@@ -75,7 +75,7 @@ CREATE TABLE `contacto` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `contacto`
+-- Dumping data for table `contacto`
 --
 
 INSERT INTO `contacto` (`idcontacto`, `correo`, `emisor`) VALUES
@@ -84,7 +84,7 @@ INSERT INTO `contacto` (`idcontacto`, `correo`, `emisor`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contenido_marca`
+-- Table structure for table `contenido_marca`
 --
 
 CREATE TABLE `contenido_marca` (
@@ -94,7 +94,7 @@ CREATE TABLE `contenido_marca` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `contenido_marca`
+-- Dumping data for table `contenido_marca`
 --
 
 INSERT INTO `contenido_marca` (`id_contenidom`, `link_video`, `tipo`) VALUES
@@ -103,7 +103,7 @@ INSERT INTO `contenido_marca` (`id_contenidom`, `link_video`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `datosusuario`
+-- Table structure for table `datosusuario`
 --
 
 CREATE TABLE `datosusuario` (
@@ -115,7 +115,7 @@ CREATE TABLE `datosusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `datosusuario`
+-- Dumping data for table `datosusuario`
 --
 
 INSERT INTO `datosusuario` (`idusuario`, `nombre`, `email`, `telefono`, `token`) VALUES
@@ -126,7 +126,7 @@ INSERT INTO `datosusuario` (`idusuario`, `nombre`, `email`, `telefono`, `token`)
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `img_proyecto`
+-- Table structure for table `img_proyecto`
 --
 
 CREATE TABLE `img_proyecto` (
@@ -138,7 +138,7 @@ CREATE TABLE `img_proyecto` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=71 ;
 
 --
--- Volcado de datos para la tabla `img_proyecto`
+-- Dumping data for table `img_proyecto`
 --
 
 INSERT INTO `img_proyecto` (`id_img_proyecto`, `id_proyecto`, `ruta`, `orden`, `titulo`) VALUES
@@ -185,7 +185,7 @@ INSERT INTO `img_proyecto` (`id_img_proyecto`, `id_proyecto`, `ruta`, `orden`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `links_videos`
+-- Table structure for table `links_videos`
 --
 
 CREATE TABLE `links_videos` (
@@ -196,7 +196,7 @@ CREATE TABLE `links_videos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
--- Volcado de datos para la tabla `links_videos`
+-- Dumping data for table `links_videos`
 --
 
 INSERT INTO `links_videos` (`id_link`, `id_proyecto`, `link_video`, `orden`) VALUES
@@ -208,7 +208,7 @@ INSERT INTO `links_videos` (`id_link`, `id_proyecto`, `link_video`, `orden`) VAL
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `nosotros`
+-- Table structure for table `nosotros`
 --
 
 CREATE TABLE `nosotros` (
@@ -218,7 +218,7 @@ CREATE TABLE `nosotros` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `nosotros`
+-- Dumping data for table `nosotros`
 --
 
 INSERT INTO `nosotros` (`id_nosotros`, `link_video`, `tipo`) VALUES
@@ -227,7 +227,7 @@ INSERT INTO `nosotros` (`id_nosotros`, `link_video`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pantallas`
+-- Table structure for table `pantallas`
 --
 
 CREATE TABLE `pantallas` (
@@ -241,7 +241,7 @@ CREATE TABLE `pantallas` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `pantallas`
+-- Dumping data for table `pantallas`
 --
 
 INSERT INTO `pantallas` (`id_pantallas`, `link_video1`, `tipo1`, `link_video2`, `tipo2`, `link_video3`, `tipo3`) VALUES
@@ -250,7 +250,7 @@ INSERT INTO `pantallas` (`id_pantallas`, `link_video1`, `tipo1`, `link_video2`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permiso`
+-- Table structure for table `permiso`
 --
 
 CREATE TABLE `permiso` (
@@ -261,7 +261,7 @@ CREATE TABLE `permiso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=89 ;
 
 --
--- Volcado de datos para la tabla `permiso`
+-- Dumping data for table `permiso`
 --
 
 INSERT INTO `permiso` (`idpermiso`, `nompermiso`, `clavepermiso`, `status`) VALUES
@@ -309,7 +309,7 @@ INSERT INTO `permiso` (`idpermiso`, `nompermiso`, `clavepermiso`, `status`) VALU
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proyectos`
+-- Table structure for table `proyectos`
 --
 
 CREATE TABLE `proyectos` (
@@ -338,7 +338,7 @@ CREATE TABLE `proyectos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=32 ;
 
 --
--- Volcado de datos para la tabla `proyectos`
+-- Dumping data for table `proyectos`
 --
 
 INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_esp`, `subtitulo_eng`, `descripcion_esp`, `descripcion_eng`, `nombre_video`, `nombre_preview`, `nombre_video_hd`, `img_principal`, `orden`, `status`, `mostrar`, `meta_titulo_esp`, `meta_descripcion_esp`, `url_amigable`, `fecha_creacion`, `fecha_modificacion`, `behance`, `meta_titulo_eng`, `meta_descripcion_eng`) VALUES
@@ -352,7 +352,7 @@ INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_e
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proyectos_categorias`
+-- Table structure for table `proyectos_categorias`
 --
 
 CREATE TABLE `proyectos_categorias` (
@@ -361,7 +361,7 @@ CREATE TABLE `proyectos_categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `proyectos_categorias`
+-- Dumping data for table `proyectos_categorias`
 --
 
 INSERT INTO `proyectos_categorias` (`id_proyecto`, `id_categoria`) VALUES
@@ -377,7 +377,7 @@ INSERT INTO `proyectos_categorias` (`id_proyecto`, `id_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `redes_sociales`
+-- Table structure for table `redes_sociales`
 --
 
 CREATE TABLE `redes_sociales` (
@@ -389,7 +389,7 @@ CREATE TABLE `redes_sociales` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `redes_sociales`
+-- Dumping data for table `redes_sociales`
 --
 
 INSERT INTO `redes_sociales` (`id_redes_sociales`, `facebook`, `twitter`, `vimeo`, `behance`) VALUES
@@ -398,7 +398,29 @@ INSERT INTO `redes_sociales` (`id_redes_sociales`, `facebook`, `twitter`, `vimeo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tiposusuario`
+-- Table structure for table `slide_inicio`
+--
+
+CREATE TABLE `slide_inicio` (
+`id_imagen` int(11) NOT NULL,
+  `nombre_imagen` text COLLATE utf8_unicode_ci NOT NULL,
+  `orden` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `slide_inicio`
+--
+
+INSERT INTO `slide_inicio` (`id_imagen`, `nombre_imagen`, `orden`) VALUES
+(9, 'eb75f786.jpg', 9),
+(10, '47b0daed.jpg', 10),
+(11, '6f1b6cc2.jpg', 11),
+(12, 'a2cf7402.jpg', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tiposusuario`
 --
 
 CREATE TABLE `tiposusuario` (
@@ -408,7 +430,7 @@ CREATE TABLE `tiposusuario` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Volcado de datos para la tabla `tiposusuario`
+-- Dumping data for table `tiposusuario`
 --
 
 INSERT INTO `tiposusuario` (`idtipousuario`, `nomtipousuario`, `status`) VALUES
@@ -418,7 +440,7 @@ INSERT INTO `tiposusuario` (`idtipousuario`, `nomtipousuario`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipousuarioxpermiso`
+-- Table structure for table `tipousuarioxpermiso`
 --
 
 CREATE TABLE `tipousuarioxpermiso` (
@@ -427,7 +449,7 @@ CREATE TABLE `tipousuarioxpermiso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tipousuarioxpermiso`
+-- Dumping data for table `tipousuarioxpermiso`
 --
 
 INSERT INTO `tipousuarioxpermiso` (`idtipousuario`, `idpermiso`) VALUES
@@ -487,7 +509,7 @@ INSERT INTO `tipousuarioxpermiso` (`idtipousuario`, `idpermiso`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -499,7 +521,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`idusuario`, `nomusuario`, `password`, `status`, `idtipousuario`) VALUES
@@ -508,7 +530,7 @@ INSERT INTO `usuario` (`idusuario`, `nomusuario`, `password`, `status`, `idtipou
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `videos_slide`
+-- Table structure for table `videos_slide`
 --
 
 CREATE TABLE `videos_slide` (
@@ -519,135 +541,146 @@ CREATE TABLE `videos_slide` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Volcado de datos para la tabla `videos_slide`
+-- Dumping data for table `videos_slide`
 --
 
 INSERT INTO `videos_slide` (`id_video_slide`, `titulo_video`, `nombre_video`, `nombre_video_hd`) VALUES
 (1, 'MOTION DESIGN REEL 2014', '0b80379e.mp4', '25fb8659.mp4');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categorias_proyectos`
+-- Indexes for table `categorias_proyectos`
 --
 ALTER TABLE `categorias_proyectos`
  ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indices de la tabla `contenido_marca`
+-- Indexes for table `contenido_marca`
 --
 ALTER TABLE `contenido_marca`
  ADD PRIMARY KEY (`id_contenidom`);
 
 --
--- Indices de la tabla `img_proyecto`
+-- Indexes for table `img_proyecto`
 --
 ALTER TABLE `img_proyecto`
  ADD PRIMARY KEY (`id_img_proyecto`,`id_proyecto`);
 
 --
--- Indices de la tabla `links_videos`
+-- Indexes for table `links_videos`
 --
 ALTER TABLE `links_videos`
  ADD PRIMARY KEY (`id_link`,`id_proyecto`);
 
 --
--- Indices de la tabla `nosotros`
+-- Indexes for table `nosotros`
 --
 ALTER TABLE `nosotros`
  ADD PRIMARY KEY (`id_nosotros`);
 
 --
--- Indices de la tabla `pantallas`
+-- Indexes for table `pantallas`
 --
 ALTER TABLE `pantallas`
  ADD PRIMARY KEY (`id_pantallas`);
 
 --
--- Indices de la tabla `permiso`
+-- Indexes for table `permiso`
 --
 ALTER TABLE `permiso`
  ADD PRIMARY KEY (`idpermiso`);
 
 --
--- Indices de la tabla `proyectos`
+-- Indexes for table `proyectos`
 --
 ALTER TABLE `proyectos`
  ADD PRIMARY KEY (`id_proyecto`);
 
 --
--- Indices de la tabla `proyectos_categorias`
+-- Indexes for table `proyectos_categorias`
 --
 ALTER TABLE `proyectos_categorias`
  ADD PRIMARY KEY (`id_proyecto`,`id_categoria`);
 
 --
--- Indices de la tabla `redes_sociales`
+-- Indexes for table `redes_sociales`
 --
 ALTER TABLE `redes_sociales`
  ADD PRIMARY KEY (`id_redes_sociales`);
 
 --
--- Indices de la tabla `tiposusuario`
+-- Indexes for table `slide_inicio`
+--
+ALTER TABLE `slide_inicio`
+ ADD PRIMARY KEY (`id_imagen`);
+
+--
+-- Indexes for table `tiposusuario`
 --
 ALTER TABLE `tiposusuario`
  ADD PRIMARY KEY (`idtipousuario`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
  ADD PRIMARY KEY (`idusuario`);
 
 --
--- Indices de la tabla `videos_slide`
+-- Indexes for table `videos_slide`
 --
 ALTER TABLE `videos_slide`
  ADD PRIMARY KEY (`id_video_slide`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias_proyectos`
+-- AUTO_INCREMENT for table `categorias_proyectos`
 --
 ALTER TABLE `categorias_proyectos`
 MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT de la tabla `img_proyecto`
+-- AUTO_INCREMENT for table `img_proyecto`
 --
 ALTER TABLE `img_proyecto`
 MODIFY `id_img_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
--- AUTO_INCREMENT de la tabla `links_videos`
+-- AUTO_INCREMENT for table `links_videos`
 --
 ALTER TABLE `links_videos`
 MODIFY `id_link` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT de la tabla `permiso`
+-- AUTO_INCREMENT for table `permiso`
 --
 ALTER TABLE `permiso`
 MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=89;
 --
--- AUTO_INCREMENT de la tabla `proyectos`
+-- AUTO_INCREMENT for table `proyectos`
 --
 ALTER TABLE `proyectos`
 MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
--- AUTO_INCREMENT de la tabla `tiposusuario`
+-- AUTO_INCREMENT for table `slide_inicio`
+--
+ALTER TABLE `slide_inicio`
+MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `tiposusuario`
 --
 ALTER TABLE `tiposusuario`
 MODIFY `idtipousuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
 MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
--- AUTO_INCREMENT de la tabla `videos_slide`
+-- AUTO_INCREMENT for table `videos_slide`
 --
 ALTER TABLE `videos_slide`
 MODIFY `id_video_slide` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;

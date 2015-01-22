@@ -18,6 +18,7 @@ class video_slide extends Archivo {
 	var $ruta_final;
 	var $ruta_temporal;
 	var $ruta_temporal_2;
+	var $imagenes_slide;
 	
 	function video_slide($id_video_slide = 0, $nombre_video = '', $ruta_temporal = '',$nombre_video_hd = '', $ruta_temporal_hd = '', $titulo_video = '') 
 	{
@@ -127,6 +128,30 @@ class video_slide extends Archivo {
 		}
 		mysqli_free_result($temporal);
 		return $resultados;
+	}
+
+	//=============MAESTRO DETALLE DE LAS IMAGENES SECUNDARIAS===============
+	function ordenar_img_secundarias_inicio($orden,$id){
+		$img_proyecto_temp = new img_inicio($id);
+		$img_proyecto_temp -> ordenar_img_secundarias_inicio($orden);
+	}
+	function listar_img_secundarias_inicio() {
+		$img_proyecto_temp = new img_inicio();
+		$this -> lista_imagenes_secundarias = $img_proyecto_temp -> listar_img_secundarias_inicio();
+	}
+	//insertar_imagen($_REQUEST['titulo'],$_FILES['archivo']['name'],$_FILES['archivo']['tmp_name']);
+	function insertar_img_secundaria_inicio($rut, $temporal) {
+		$img_proyecto_temp = new img_inicio(0,$rut, $temporal);
+		$img_proyecto_temp -> insertar_img_secundaria_inicio();
+	}	//$noticia_temporal->modificar_imagen($_REQUEST['id_imagen'],$_REQUEST['titulo'],$_FILES['archivo']['name'],$_FILES['archivo']['tmp_name']);
+	
+	function modificar_img_secundaria_inicio($id, $rut, $temporal) {
+		$img_proyecto_temp = new img_inicio($id, $rut, $temporal);
+		$img_proyecto_temp -> modificar_img_secundaria_inicio();
+	}	
+	function eliminar_img_secundaria_inicio($id) {
+		$img_proyecto_temp = new img_inicio($id);
+		$img_proyecto_temp -> eliminar_img_inicio();
 	}
 }
 ?>

@@ -721,8 +721,44 @@ switch($operaciones){
 			}
 	
 			$video_slide = new video_slide(1,$nameP, $tmpnameP, $nameP_hd, $tmpnameP_hd ,$_REQUEST['titulo_video']);
-			$video_slide -> modificar_video_slide();    
+			$video_slide -> modificar_video_slide();
+
+			if (isset($_FILES['archivo2']['name'][0])) {
+				if ($_FILES['archivo2']['name'][0]!=''){
+			 		$tot3 = count($_FILES["archivo2"]["size"]);
+	         		for ($i = 0; $i < $tot3; $i++){
+	         			$extension=$_FILES['archivo2']['name'][$i];
+	         			$name = $video_slide -> obtenerExtensionArchivo($extension); 
+	            		$tmp_name = $_FILES["archivo2"]["tmp_name"][$i]; 
+	            		$video_slide -> insertar_img_secundaria_inicio($name,$tmp_name);       
+	            	}
+				}
+			}
+
+			if(isset($_FILES['archivo3']['name'])){
+				$tot3 = count($_FILES['archivo3']['name']);
+				for($i = 0; $i < $tot3; $i++){
+					if ($_FILES['archivo3']['error'][$i] == 0 and $_FILES['archivo3']['name'][$i] != ''){
+						$extension=$_FILES['archivo3']['name'][$i];
+		         		$name = $video_slide->obtenerExtensionArchivo($extension); 
+		            	$tmp_name = $_FILES["archivo3"]["tmp_name"][$i]; 
+		            	$video_slide -> modificar_img_secundaria_inicio($_REQUEST['id_imagen'][$i], $name, $tmp_name);  
+					}			
+				}	
+			}    
 			header('location: formvideoslide.php');
+			break;
+			case 'eliminar_img_inicio':
+				$id_imagen = (isset($_REQUEST['idImg2']))? $_REQUEST["idImg2"]: 0;
+				if($id_imagen != 0){
+					$video_slide = new video_slide();
+					$video_slide->eliminar_img_secundaria_inicio($id_imagen);
+					echo "true";
+				}
+				else{
+					echo "false";
+				}
+			
 			break;
 
 			/******Operaciones de Boletin******/
