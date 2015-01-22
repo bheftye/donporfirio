@@ -2,7 +2,9 @@
 <?php
 	$video_slide = new video_slide();
 	$lista_videos_slide = $video_slide -> listar_videos_slide_activos();
-	$imagenes_inicio = $video_slide -> listar_img_secundarias_inicio();
+	$video_slide -> listar_img_secundarias_inicio();
+	$imagenes_inicio = $video_slide -> lista_imagenes_secundarias;
+	
 	if(count($lista_videos_slide) > 0){
 		$src_tmp = $lista_videos_slide[0]["nombre_video"];
 		$src_hd = $lista_videos_slide[0]["nombre_video_hd"];
