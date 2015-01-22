@@ -42,7 +42,11 @@ if(strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGEN
   <?php
   	foreach ($imagenes_inicio as $imagen) {
   		$ruta_imagen =  mypath."imgInicio/".$imagen["nombre_imagen"];
-  		echo "<img class='rsImg' src='".$ruta_imagen."' />";
+  		echo "<div style='margin-top: -10px; background:url(".$ruta_imagen.") no-repeat center center; width:100%; height:100%; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;'>
+  		 <h3 style='margin:0;'></h3>
+    <p></p>
+    <span class='rsTmb'></span>
+    </div>";
   	}
   ?>
 

@@ -33,11 +33,18 @@ function royal(){
 	    controlNavigation: 'tabs',
 	    imageScaleMode: 'none',
 	    imageAlignCenter:false,
-	    loop: false,
+	    loop: true,
 	    loopRewind: true,
+	    transitionType: 'fade',
 	    numImagesToPreload: 6,
 	    keyboardNavEnabled: true,
-	    usePreloader: false
+	    usePreloader: false,
+	    autoPlay: {
+    		// autoplay options go gere
+    		enabled: true,
+    		delay: 5000,
+    		pauseOnHover: false
+    	}
 	  });
 }
 
@@ -50,11 +57,18 @@ function royal2(){
 	    controlNavigation: 'tabs',
 	    imageScaleMode: 'none',
 	    imageAlignCenter:false,
-	    loop: false,
+	    loop: true,
 	    loopRewind: true,
+	    transitionType: 'fade',
 	    numImagesToPreload: 6,
 	    keyboardNavEnabled: true,
-	    usePreloader: false
+	    usePreloader: false,
+	    autoPlay: {
+    		// autoplay options go gere
+    		enabled: true,
+    		delay: 5000,
+    		pauseOnHover: false
+    	}
 	  });
 }
 
@@ -556,6 +570,7 @@ function verproyecto(id){
 }
 
 $(document).ready(function(){
+	royal();
 	var hashTag = window.location.hash
 	//console.log(hashTag);
 	if(hashTag!=""){

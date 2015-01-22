@@ -639,6 +639,15 @@ button.redes:hover{
 	margin-left:-28px;
 }
 /************************************SLIDER**********************************************/
+#content-slider-1{
+	position:absolute;
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	background:#000;
+	z-index:0;
+}
 .contentSlider {
 	position:absolute;
 	top:0;
@@ -652,7 +661,7 @@ button.redes:hover{
 .contentSlider .rsSlide,
 .contentSlider .rsVideoFrameHolder,
 .contentSlider .rsThumbs {
-  background: #eee;
+  background:#000;
   color: #000;
 }
 
@@ -675,6 +684,13 @@ button.redes:hover{
   width: 86%;
   padding: 24px 7%;
   background: #eee;
+}
+.contentSlider .rsSlide, .contentSlider .rsOverflow {
+background: #000;
+height:100%;
+}
+.rsDefault .rsTabs{
+	display:none;
 }
 /******************************FUENTES**************************************************/
 @font-face{
