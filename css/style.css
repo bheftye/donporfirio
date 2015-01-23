@@ -9,6 +9,8 @@ html,body{
 	word-wrap:break-word;
 	background-color: #000;
 }
+
+
 .container{
 	width:100%;
 	padding:0 60px;
@@ -190,6 +192,7 @@ h2{
 		left:0;
 		-webkit-transform: translateY(50%);
 	}
+
 }
 /**********************************MENU********************************************/
 .menuright{
@@ -340,6 +343,11 @@ h3{
 	}
 }
 
+.navbar-default {
+background-color:transparent;
+border-color: transparent;
+}
+
 .navbar-default .navbar-toggle .icon-bar {
 	background-color: #ff0000;
 }
@@ -353,6 +361,19 @@ h3{
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 	background-color: transparent;
+}
+
+#bs-example-navbar-collapse-1{
+	background-color:#fff;
+}
+
+.nav > li > a {
+	text-align: center;
+	
+}
+
+.navbar-default .navbar-nav > li > a {
+	color:#f90e32;
 }
 /*************************************INICIO***************************************/
 .titulorojo, .titulorojo2{

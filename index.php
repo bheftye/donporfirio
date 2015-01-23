@@ -69,7 +69,8 @@ else{
 			<div class=" col-sm-1" style="padding:0;">
 				<div class="titulorojo2"><img src="<?=mypath?>img/logowr.png" /></div>
 				<img src="<?=mypath?>img/logow.png" class="hidden-xs" />
-				<nav class="navbar navbar-default" style="background:transparent;">
+
+				<nav class="navbar navbar-default">
 				  <div class="container-fluid">
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
@@ -87,7 +88,7 @@ else{
 						<li><a class="pmenu mwork" href="#work" onclick="openmenu()"><?=WORK?></a></li>
 						<li><a class="pmenu mabout" href="#about" onclick="verabout()"><?=ABOUT?></a></li>
 						<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()"><?=CONTACT?></a></li>
-						<li class="idioma"><a class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></li>
+						<li class="idioma"><a style="display:inline" class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a style="display:inline" href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></li>
 				      </ul>
 				    </div>
 				  </div>
