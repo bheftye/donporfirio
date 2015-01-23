@@ -489,14 +489,14 @@ function verproyecto(id){
 			html+='</div>';
 			html+='<div class="row">';
 			//html+='<div class="col-sm-3 proylink"><button class="proybutton watchproy" onclick="reproduceproyectohd()">'+ver+'</button></div>';
-			html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="openvimeo()">VIMEO</button></div>';
-			html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="opengallery()">'+galeria+'</button></div>';
-			html+='<div class="col-sm-3 proylink"><a href="'+resultado[0].behance+'" target="_blank"><button class="proybutton">BEHANCE</button></a></div>';
-			html+='<div class="col-sm-3 proylink"><button class="proybutton" onclick="share()">'+share+'</button></div>';
+			html+='<div class="col-sm-3 col-xs-6 proylink"><button class="proybutton" onclick="openvimeo()">VIMEO</button></div>';
+			html+='<div class="col-sm-3 col-xs-6 proylink"><button class="proybutton" onclick="opengallery()">'+galeria+'</button></div>';
+			html+='<div class="col-sm-3 col-xs-6 proylink"><a href="'+resultado[0].behance+'" target="_blank"><button class="proybutton">BEHANCE</button></a></div>';
+			html+='<div class="col-sm-3 col-xs-6 proylink"><button class="proybutton" onclick="share()">'+share+'</button></div>';
 			html+='</div>';
 			html+='<div class="row" style="margin-top:-1px;">';
-			html+='<div class="col-sm-6 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">'+pprev+'</button></a></div>';
-			html+='<div class="col-sm-6 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">'+pnext+'</button></a></div>';
+			html+='<div class="col-sm-6 col-xs-12 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">'+pprev+'</button></a></div>';
+			html+='<div class="col-sm-6 col-xs-12 proylink"><a href="#'+resultadonext+'" onclick="verproyecto('+idnext+')"><button class="proybutton">'+pnext+'</button></a></div>';
 			html+='</div>';
 			if(ipad == false){
 				html2+='<video id="bgvid3" loop muted>';
