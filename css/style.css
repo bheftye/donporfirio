@@ -358,6 +358,12 @@ h3{
 	.titulorojo{
 		display:none;
 	}
+	.logobottom{
+		padding: 0 15px;
+	}
+	.logobottom img{
+		max-width:100%;
+	}
 }
 /********************************ABOUT*********************************************/
 .about{
