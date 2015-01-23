@@ -355,13 +355,13 @@ h3{
 	.logohome{
 		padding-top:15px;
 	}
-	.titulorojo{
+	.logobottom{
 		display:none;
 	}
-	.logobottom{
+	.logobottomr{
 		padding: 0 15px;
 	}
-	.logobottom img{
+	.logobottomr img{
 		max-width:100%;
 	}
 }
