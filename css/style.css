@@ -648,6 +648,15 @@ button.redes:hover{
 	background:#000;
 	z-index:0;
 }
+#content-slider-2{
+	position:absolute;
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	background:#000;
+	z-index:0;
+}
 .contentSlider {
 	position:absolute;
 	top:0;
@@ -663,6 +672,11 @@ button.redes:hover{
 .contentSlider .rsThumbs {
   background:#000;
   color: #000;
+}
+
+.contentSlider .rsOverflow {
+background: #000;
+height: 100% !important;
 }
 
 .contentSlider .rsSlide,

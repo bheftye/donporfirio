@@ -49,6 +49,7 @@ function royal(){
 }
 
 function royal2(){
+	console.log("ROYAL");
 	 $('#content-slider-2').royalSlider({
 	    autoHeight: true,
 	    arrowsNav: false,
@@ -292,6 +293,7 @@ function verabout(){
 	$(".loader3").animate({"left":"0"},600);
 	$(".loader4").animate({"top":"0"},600);
 	$(".loader").animate({"top":"0"},600,function(){
+		$("#slideproy").empty();
 		$('.imgloading').show();
 		$('.imgloading2').show();
 		playslider();
@@ -352,6 +354,7 @@ function verhome(){
 	$(".loader3").animate({"left":"0"},600);
 	$(".loader4").animate({"top":"0"},600);
 	$(".loader").animate({"top":"0"},600,function(){
+		$("#slideproy").empty();
 		$('.imgloading').show();
 		$('.imgloading2').show();
 		playslider();
@@ -417,6 +420,7 @@ function verproyecto(id){
 	$(".loader3").animate({"left":"0"},600);
 	$(".loader4").animate({"top":"0"},600);
 	$(".loader").animate({"top":"0"},600,function(){
+		$("#slideproy").empty();
 		$('.imgloading').show();
 		$('.imgloading2').show();
 		playslider();
@@ -499,6 +503,15 @@ function verproyecto(id){
 				html2+='<source src="'+mypath+'vidProyectos/'+resultado[0].nombre_video+'" id="mp4Source"  type="video/mp4">';
 				html2+='</video>';
 			}
+			else{
+				html2+='<div id="content-slider-2" class="royalSlider contentSlider rsDefault bgall bghome">';
+				for(var z = 0; z < resultado[0].img_secundarias.length; z++){
+					html2+='<div style="margin-top: -10px; background:url('+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[z].ruta+') no-repeat center center; width:100%; height:100%; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">';
+					html2+='<span class="rsTmb"></span>';
+					html2+='</div>';
+				}
+				html2+='</div>';
+			}
 			html3+='<div class="row">';
 			html3+='<div class="col-sm-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
 			html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
@@ -539,12 +552,18 @@ function verproyecto(id){
 				});
 				}, 1000);
 			}
+			else{
+				setTimeout(function(){
+					$("#slideproy").delay(1000).html(html2).fadeIn('fast');
+				}, 1000);
+			}
 			
 			setTimeout(function(){
 				$(".proyecto").html(html).fadeIn('slow', function(){
 					checksize();
 					
 					$('.imgloading2').hide(function(){
+						royal2();
 						$(".loader").animate({"top":"-100%"},600);
 						$(".loader2").animate({"left":"-100%"},600);
 						$(".loader3").animate({"left":"100%"},600);
@@ -562,7 +581,6 @@ function verproyecto(id){
 			      } // removed extra commas  
 			    }); 
 			}, 1500);
-			
 			$(".galleryright").show();
 			$(".vimeoright").show();
 		}	
