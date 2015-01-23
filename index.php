@@ -68,7 +68,32 @@ else{
 		<div class="row logohome">
 			<div class=" col-sm-1" style="padding:0;">
 				<div class="titulorojo2"><img src="<?=mypath?>img/logowr.png" /></div>
-				<img src="<?=mypath?>img/logow.png" />
+				<img src="<?=mypath?>img/logow.png" class="hidden-xs" />
+				<nav class="navbar navbar-default" style="background:transparent;">
+				  <div class="container-fluid">
+				    <!-- Brand and toggle get grouped for better mobile display -->
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="border:hidden;">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a class="navbar-brand" href="#"><img src="<?=mypath?>img/logow.png" style="margin-top:-15px;" /></a>
+				    </div>
+
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				        <li><a class="pmenu mhome active" href="#home" onclick="verhome()"><?=HOME?></a></li>
+						<li><a class="pmenu mwork" href="#work" onclick="openmenu()"><?=WORK?></a></li>
+						<li><a class="pmenu mabout" href="#about" onclick="verabout()"><?=ABOUT?></a></li>
+						<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()"><?=CONTACT?></a></li>
+						<li class="idioma"><a class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></li>
+				      </ul>
+				    </div>
+				  </div>
+				</nav>
+
+
 			</div>
 		</div>
 		<div id="menu">

@@ -339,6 +339,21 @@ h3{
 		display:none;
 	}
 }
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #ff0000;
+}
+
+.navbar-toggle .icon-bar {
+	display: block;
+	width: 30px;
+	height: 4px;
+	border-radius: 1px;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: transparent;
+}
 /*************************************INICIO***************************************/
 .titulorojo, .titulorojo2{
 	position:absolute;
