@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -172,40 +172,58 @@ function openvimeo(){
 
 function closemenu(){
 	$(".mwork").removeClass("active");
-	$(".menuright").animate({"right":"-60%"},100);
+	if(viewportWidth>=768){
+		$(".menuright").animate({"right":"-60%"},100);
+	}
+	else{
+		$(".menuright").animate({"right":"-100%"},100);
+	}
 	$(".menuright").removeClass("mabierto");
 	$(".menuright").addClass("mcerrado");
 }
 
 function closegallery(){
-	$(".galleryright").animate({"right":"-60%"},100);
+	if(viewportWidth>=768){
+		$(".galleryright").animate({"right":"-60%"},100);
+	}else{
+		$(".galleryright").animate({"right":"-100%"},100);
+	}
 	$(".galleryright").removeClass("gabierto");
 	$(".galleryright").addClass("gcerrado");
 }
 
 function closevimeo(){
-	$(".vimeoright").animate({"right":"-60%"},100);
+	if(viewportWidth>=768){
+		$(".vimeoright").animate({"right":"-60%"},100);
+	}else{
+		$(".vimeoright").animate({"right":"-100%"},100);
+	}
 	$(".vimeoright").removeClass("vabierto");
 	$(".vimeoright").addClass("vcerrado");
 }
 
 function viewcontact(){
+	//console.log(viewportWidth);
 	if($("#contacto").hasClass("ccerrado")){
-		$("#wraperfondo").animate({"top":"-400px"},600);
-		$(".contenido").animate({"top":"-400px"},600);
+		if(viewportWidth>=768){
+			$("#wraperfondo").animate({"top":"-400px"},600);
+			$(".contenido").animate({"top":"-400px"},600);
+		}
 		$("#contacto").animate({"top":"-400px"},600,function(){
 			$("#contacto").removeClass("ccerrado");
 			$("#contacto").addClass("cabierto");
 		});
-		if(ipad == false){
-			$("#bgvid").animate({"top":"-400px"},600);
-			$("#bgvid3").animate({"top":"-400px"},600);
+		if(viewportWidth>=768){
+			if(ipad == false){
+				$("#bgvid").animate({"top":"-400px"},600);
+				$("#bgvid3").animate({"top":"-400px"},600);
+			}
+			else{
+				$("#content-slider-1").animate({"top":"-400px"},600);
+				$("#content-slider-2").animate({"top":"-400px"},600);
+			}
+			$(".aboutbg").animate({"top":"-400px"},600);
 		}
-		else{
-			$("#content-slider-1").animate({"top":"-400px"},600);
-			$("#content-slider-2").animate({"top":"-400px"},600);
-		}
-		$(".aboutbg").animate({"top":"-400px"},600);
 	}
 	else{
 		hidecontact();
@@ -218,18 +236,22 @@ function viewcontact(){
 //});
 
 function hidecontact(){
-	$("#wraperfondo").animate({"top":"0"},600);
-	$(".contenido").animate({"top":"0"},600);
+	if(viewportWidth>=768){
+		$("#wraperfondo").animate({"top":"0"},600);
+		$(".contenido").animate({"top":"0"},600);
+	}
 	$("#contacto").animate({"top":"0"},600);
-	if(ipad == false){
-		$("#bgvid").animate({"top":"0"},600);
-		$("#bgvid3").animate({"top":"0"},600);
+	if(viewportWidth>=768){
+		if(ipad == false){
+			$("#bgvid").animate({"top":"0"},600);
+			$("#bgvid3").animate({"top":"0"},600);
+		}
+		else{
+			$("#content-slider-1").animate({"top":"0"},600);
+			$("#content-slider-2").animate({"top":"0"},600);
+		}
+		$(".aboutbg").animate({"top":"0"},600);
 	}
-	else{
-		$("#content-slider-1").animate({"top":"0"},600);
-		$("#content-slider-2").animate({"top":"0"},600);
-	}
-	$(".aboutbg").animate({"top":"0"},600);
 	$("#contacto").removeClass("cabierto");
 	$("#contacto").addClass("ccerrado");
 }/*
@@ -513,7 +535,7 @@ function verproyecto(id){
 				html2+='</div>';
 			}
 			html3+='<div class="row">';
-			html3+='<div class="col-sm-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
+			html3+='<div class="col-sm-10 col-xs-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
 			html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
 			html3+='</div>';
 			for(var i = 0; i < resultado[0].img_secundarias.length; i++){
@@ -527,7 +549,7 @@ function verproyecto(id){
 			$("#fullscreenvideo2").html(html4);
 			*/
 			html5+='<div class="row">';
-			html5+='<div class="col-sm-10 sidemenu"><ul><li>Vimeo</li></ul></div>';
+			html5+='<div class="col-sm-10 col-xs-10 sidemenu"><ul><li>Vimeo</li></ul></div>';
 			html5+='<span class="closebutton" onclick="closevimeo()"><img src="'+mypath+'img/cls.png" /></span>';
 			html5+='</div>';
 			for(var i = 0; i < resultado[0].links_videos.length; i++){
@@ -555,6 +577,7 @@ function verproyecto(id){
 			else{
 				setTimeout(function(){
 					$("#slideproy").delay(1000).html(html2).fadeIn('fast');
+					$(".proyecto").css("right","0");
 				}, 1000);
 			}
 			

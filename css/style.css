@@ -184,7 +184,7 @@ h2{
 		font-size:25px;
 	}
 	h1{
-		font-size:70px;
+		font-size:45px;
 	}
 	video#bgvid2 {
 		width: 100%; 
@@ -192,7 +192,24 @@ h2{
 		left:0;
 		-webkit-transform: translateY(50%);
 	}
-
+	.proybutton{
+		border:1px solid #fff;
+	}
+}
+@media(max-height:550px){
+	h2{
+		font-size:18px;
+	}
+	h1{
+		font-size:30px;
+	}
+	.aboutborder{
+		max-height:80px;
+		overflow:auto;
+	}
+	.proybutton{
+		font-size: 10px;
+	}
 }
 /**********************************MENU********************************************/
 .menuright{
@@ -341,6 +358,14 @@ h3{
 	#menu{
 		display:none;
 	}
+	.menuright{
+		position:absolute;
+		right:-100%;
+		top:90px;
+		bottom:0;
+		width:100%;
+		height:auto;
+	}
 }
 
 .navbar-default {
@@ -364,7 +389,13 @@ border-color: transparent;
 }
 
 #bs-example-navbar-collapse-1{
+	position:absolute;
+	top:-15px;
+	left:0;
+	right:0;
+	z-index:1000;
 	background-color:#fff;
+	text-align:center;
 }
 
 .nav > li > a {
@@ -574,6 +605,24 @@ button.proybutton:hover{
 #fullscreenvideo2{
 	display:none;
 }
+@media(max-width:767px){
+	.galleryright{
+		position:absolute;
+		right:-100%;
+		top:90px;
+		bottom:0;
+		width:100%;
+		height:auto;
+	}
+	.vimeoright{
+		position:absolute;
+		right:-100%;
+		top:90px;
+		bottom:0;
+		width:100%;
+		height:auto;
+	}
+}
 /*********************************CONTACTO******************************************/
 #contacto{
 	position:relative;
@@ -648,6 +697,11 @@ button.redes:hover{
 @media(max-width:991px){
 	.textMedIt{
 		font-size:12px;
+	}
+}
+@media(max-width:767px){
+	.topsec{
+		margin-bottom:20px;
 	}
 }
 /*********************************LOADING***********************************************/

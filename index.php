@@ -83,11 +83,12 @@ else{
 				    </div>
 
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				    	<div class="row"><span class="closebutton navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="z-index: 100; float:right;"><img src="<?=mypath?>img/cls.png" /></span></div>
 				      <ul class="nav navbar-nav">
-				        <li><a class="pmenu mhome active" href="#home" onclick="verhome()"><?=HOME?></a></li>
-						<li><a class="pmenu mwork" href="#work" onclick="openmenu()"><?=WORK?></a></li>
-						<li><a class="pmenu mabout" href="#about" onclick="verabout()"><?=ABOUT?></a></li>
-						<li><a class="pmenu mcontact" href="#contact" onclick="viewcontact()"><?=CONTACT?></a></li>
+				        <li><a class="pmenu mhome active" href="#home" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="verhome()"><?=HOME?></a></li>
+						<li><a class="pmenu mwork" href="#work" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="openmenu()"><?=WORK?></a></li>
+						<li><a class="pmenu mabout" href="#about" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="verabout()"><?=ABOUT?></a></li>
+						<li><a class="pmenu mcontact" href="#contact" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="viewcontact()"><?=CONTACT?></a></li>
 						<li class="idioma"><a style="display:inline" class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a style="display:inline" href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></li>
 				      </ul>
 				    </div>
@@ -237,7 +238,7 @@ else{
 	</div>
 	<div class="vimeoright vcerrado">
 		<div class="row">
-			<div class="col-sm-10 sidemenu"></div>
+			<div class="col-sm-10 col-xs-10 sidemenu"></div>
 			<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
 		</div>
 	</div>
@@ -247,7 +248,7 @@ else{
 	<div class="container">
 		<div class="col-sm-9" style="padding:0;">
 			<div class="row topsec">
-				<div class="col-sm-4">
+				<div class="col-sm-4 col-xs-12">
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
@@ -256,7 +257,7 @@ else{
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4 hidden-xs">
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
@@ -265,7 +266,7 @@ else{
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4 col-xs-12">
 					<span class="textMedIt">We are always looking for fresh new talent, please send us your demo reel to: </span><br/>
 					<div class="row tabborder">
 						<div class="col-sm-6 tbdefault bgblack" style="border:none;"><a href="mailto:info@donporfirio.tv">info@donporfirio.tv</a></div>
@@ -274,7 +275,7 @@ else{
 				</div>
 			</div>
 			<div class="row topsec">
-				<div class="col-sm-4">
+				<div class="col-sm-4 hidden-xs">
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
@@ -283,7 +284,7 @@ else{
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4 hidden-xs">
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
@@ -292,14 +293,14 @@ else{
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4 col-xs-12">
 					<span class="textbold"><?=FOLLOW?></span><br/>
 					<br/>
 					<div class="row">
 						<?php
 						if($url_vimeo!=""){
 						?>
-						<div class="col-sm-3" style="padding:0;">
+						<div class="col-sm-3 col-xs-3" style="padding:0;">
 							<a href="<?=$url_vimeo?>" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-vimeo-square fa-2x"></i>
@@ -310,7 +311,7 @@ else{
 						}
 						if($url_behance!=""){
 						?>
-						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
+						<div class="col-sm-3 col-xs-3" style="padding:0; margin-left:-1px;">
 							<a href="<?=$url_behance?>" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-behance fa-2x"></i>
@@ -321,7 +322,7 @@ else{
 						}
 						if($url_twitter!=""){
 						?>
-						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
+						<div class="col-sm-3 col-xs-3" style="padding:0; margin-left:-1px;">
 							<a href="<?=$url_twitter?>" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-twitter fa-2x"></i>
@@ -332,7 +333,7 @@ else{
 						}
 						if($url_facebook!=""){
 						?>
-						<div class="col-sm-3" style="padding:0; margin-left:-1px;">
+						<div class="col-sm-3 col-xs-3" style="padding:0; margin-left:-1px;">
 							<a href="<?=$url_facebook?>" target="_blank" style="display: block;">
 								<button class="redes">
 									<i class="fa fa-facebook fa-2x"></i>
