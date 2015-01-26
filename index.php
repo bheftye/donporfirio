@@ -70,7 +70,7 @@ else{
 				<div class="titulorojo2"><img src="<?=mypath?>img/logowr.png" /></div>
 				<img src="<?=mypath?>img/logow.png" class="hidden-xs" />
 
-				<nav class="navbar navbar-default">
+				<nav class="navbar navbar-default visible-xs">
 				  <div class="container-fluid">
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
@@ -98,7 +98,7 @@ else{
 
 			</div>
 		</div>
-		<div id="menu">
+		<div id="menu" class="hidden-xs">
 			<ul>
 				<li><a class="pmenu mhome active" href="#home" onclick="verhome()"><?=HOME?></a></li>
 				<li><a class="pmenu mwork" href="#work" onclick="openmenu()"><?=WORK?></a></li>
@@ -126,7 +126,7 @@ else{
 			<button class="bwatch" onclick="showvideo()"><?=WATCH?></button>
 		</div>
 		<div class="col-sm-7 col-sm-push-5 about all">
-			<h2><?=AB2?></h2>
+			<h2><?//=AB2?></h2>
 			<h1>BROADCAST DESIGN &amp; MOTION GRAPHICS</h1>
 			<div class="row">
 				<div class="col-sm-8 col-sm-push-4 aboutborder">
@@ -296,14 +296,14 @@ else{
 				<div class="col-sm-4 col-xs-12">
 					<span class="textbold"><?=FOLLOW?></span><br/>
 					<br/>
-					<div class="row">
+					<div class="row" style="height:36px;">
 						<?php
 						if($url_vimeo!=""){
 						?>
-						<div class="col-sm-3 col-xs-3" style="padding:0;">
+						<div class="col-sm-3 col-xs-3" style="padding:0;height:36px;">
 							<a href="<?=$url_vimeo?>" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-vimeo-square fa-2x"></i>
+									<i class="fa fa-vimeo-square"></i>
 								</button>
 							</a>
 						</div>
@@ -311,10 +311,10 @@ else{
 						}
 						if($url_behance!=""){
 						?>
-						<div class="col-sm-3 col-xs-3" style="padding:0; margin-left:-1px;">
+						<div class="col-sm-3 col-xs-3" style="padding:0;height:36px; margin-left:-1px;">
 							<a href="<?=$url_behance?>" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-behance fa-2x"></i>
+									<i class="fa fa-behance"></i>
 								</button>
 							</a>
 						</div>
@@ -322,10 +322,10 @@ else{
 						}
 						if($url_twitter!=""){
 						?>
-						<div class="col-sm-3 col-xs-3" style="padding:0; margin-left:-1px;">
+						<div class="col-sm-3 col-xs-3" style="padding:0;height:36px; margin-left:-1px;">
 							<a href="<?=$url_twitter?>" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-twitter fa-2x"></i>
+									<i class="fa fa-twitter"></i>
 								</button>
 							</a>
 						</div>
@@ -333,10 +333,10 @@ else{
 						}
 						if($url_facebook!=""){
 						?>
-						<div class="col-sm-3 col-xs-3" style="padding:0; margin-left:-1px;">
+						<div class="col-sm-3 col-xs-3" style="padding:0;height:36px; margin-left:-1px;">
 							<a href="<?=$url_facebook?>" target="_blank" style="display: block;">
 								<button class="redes">
-									<i class="fa fa-facebook fa-2x"></i>
+									<i class="fa fa-facebook"></i>
 								</button>
 							</a>
 						</div>
