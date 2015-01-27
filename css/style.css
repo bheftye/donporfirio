@@ -58,7 +58,7 @@ html,body{
 .closebutton:hover{
 	opacity:0.5;
 }
-video#bgvid {
+video#bgvid,video#bgvid3 {
 	position: fixed; 
 	right: 0; 
 	bottom: 0;
@@ -67,25 +67,7 @@ video#bgvid {
 	width: auto; 
 	height: auto; 
 }
-video#bgvid2 {
-	position: relative; 
-	right: 0; 
-	bottom: 0;
-	min-width: 100%; 
-	min-height: 100%;
-	width: auto; 
-	height: auto; 
-}
-video#bgvid3 {
-	position: fixed; 
-	right: 0; 
-	bottom: 0;
-	min-width: 100%; 
-	min-height: 100%;
-	width: auto; 
-	height: auto; 
-}
-video#bgvid4 {
+video#bgvid2,video#bgvid4 {
 	position: relative; 
 	right: 0; 
 	bottom: 0;
@@ -216,9 +198,8 @@ h2{
 	position:absolute;
 	right:-60%;
 	top:0;
-	width:60%;
+	width:35%;
 	height:100%;
-	background:#fff;
 	z-index:1000;
 	border: 2px solid #fff;
 	overflow-y: auto;
@@ -227,10 +208,14 @@ h2{
 	-o-transition: all 0.6s;
 	-moz-transition: all 0.6s;
     transition: all 0.6s;
+    -webkit-box-shadow: -3px 0px 26px 0px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow:    -3px 0px 26px 0px rgba(0, 0, 0, 0.6);
+	box-shadow:         -3px 0px 26px 0px rgba(0, 0, 0, 0.6);
 }
 .menuheader{
 	height:65px;
 	width:100%;
+	background:#fff;
 }
 #menu{
 	position:absolute;
@@ -324,6 +309,21 @@ h2{
 	min-width:100%;
 	position:absolute;
 }
+
+.listproyectos > a{
+	display: block;
+	border-bottom:solid #fff 2px;
+}
+
+.fondo_proyectos{
+	position: absolute;
+	height:100%;
+	width:100%;
+	background-color: #fff;
+	opacity: 0.7;
+	z-index:-1;
+}
+
 .fcategoria{
 	position:absolute;
 	width:100%;
@@ -550,34 +550,42 @@ button.redesb:hover{
 	position:absolute;
 	right:-60%;
 	top:0;
-	width:60%;
+	width:35%;
 	height:100%;
-	background:#fff;
+	background:transparent;
 	z-index:900;
-	border: 2px solid #fff;
+	border-left:solid #fff 2px;
+	border-right:solid #fff 2px;
 	overflow-y: auto;
 	overflow-x:hidden;
 	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
 	-o-transition: all 0.6s;
 	-moz-transition: all 0.6s;
     transition: all 0.6s;
+    -webkit-box-shadow: -3px 0px 26px 0px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow:    -3px 0px 26px 0px rgba(0, 0, 0, 0.6);
+	box-shadow:         -3px 0px 26px 0px rgba(0, 0, 0, 0.6);
 }
 .vimeoright{
 	display:none;
 	position:absolute;
 	right:-60%;
 	top:0;
-	width:60%;
+	width:35%;
 	height:100%;
-	background:#fff;
+	background:transparent;
 	z-index:900;
-	border: 2px solid #fff;
+	border-left:solid #fff 2px;
+	border-right:solid #fff 2px;
 	overflow-y: auto;
 	overflow-x:hidden;
 	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
 	-o-transition: all 0.6s;
 	-moz-transition: all 0.6s;
     transition: all 0.6s;
+    -webkit-box-shadow: -3px 0px 26px 0px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow:    -3px 0px 26px 0px rgba(0, 0, 0, 0.6);
+	box-shadow:         -3px 0px 26px 0px rgba(0, 0, 0, 0.6);
 }
 
 img.gray-img{

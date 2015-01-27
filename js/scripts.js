@@ -554,12 +554,12 @@ function verproyecto(id){
 				}
 				html2+='</div>';
 			}
-			html3+='<div class="row">';
+			html3+='<div class="fondo_proyectos"></div><div class="row" style="background-color:#fff;">';
 			html3+='<div class="col-sm-10 col-xs-10 sidemenu"><ul><li>'+style_frame+'</li></ul></div>';
 			html3+='<span class="closebutton" onclick="closegallery()"><img src="'+mypath+'img/cls.png" /></span>';
 			html3+='</div>';
 			for(var i = 0; i < resultado[0].img_secundarias.length; i++){
-				html3+='<img class="gray-img" style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[i].ruta+'" />';
+				html3+='<img class="gray-img" style="width:100%;border-bottom:solid #fff 2px;" src="'+mypath+'imgProyectos/secundarias/'+resultado[0].img_secundarias[i].ruta+'" />';
 			}
 			$(".galleryright").html(html3);
 			/*
@@ -568,7 +568,7 @@ function verproyecto(id){
 			html4+='</video>';
 			$("#fullscreenvideo2").html(html4);
 			*/
-			html5+='<div class="row">';
+			html5+='<div class="fondo_proyectos"></div><div class="row" style="background-color:#fff;">';
 			html5+='<div class="col-sm-10 col-xs-10 sidemenu"><ul><li>'+galeria+'</li></ul></div>';
 			html5+='<span class="closebutton" onclick="closevimeo()"><img src="'+mypath+'img/cls.png" /></span>';
 			html5+='</div>';
@@ -576,7 +576,7 @@ function verproyecto(id){
 				var link_video = resultado[0].links_videos[i].link_video;
 				var splitted_link = link_video.split(".com/");
 	            var video_id = splitted_link[1];
-				html5+='<div style="height:646px;width:100%;" >'+
+				html5+='<div style="height:377px;width:100%;border-bottom:solid #fff 2px;" >'+
 	                        '<iframe id="player'+resultado[0].links_videos[i].id_link+'" src="//player.vimeo.com/video/'+video_id+'?api=1&player_id=player'+resultado[0].links_videos[i].id_link+'" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'+
 	                    '</div>';
 			}

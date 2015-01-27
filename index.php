@@ -180,6 +180,7 @@ else{
 	</div>
 	<!-- Website Content -->
 	<div class="menuright mcerrado">
+		<div class="fondo_proyectos"></div>
 		<div class="menuheader">
 			<div class="row">
 				<div class="col-sm-10 sidemenu">
@@ -231,13 +232,15 @@ else{
 		</div>
 	</div>
 	<div class="galleryright gcerrado">
-		<div class="row">
+		<div class="fondo_proyectos"></div>
+		<div class="row" style="background-color:#fff;">
 			<div class="col-sm-10 sidemenu"></div>
 			<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
 		</div>
 	</div>
 	<div class="vimeoright vcerrado">
-		<div class="row">
+		<div class="fondo_proyectos"></div>
+		<div class="row" style="background-color:#fff;">
 			<div class="col-sm-10 col-xs-10 sidemenu"></div>
 			<span class="closebutton" onclick="closemenu()"><img src="<?=mypath?>img/cls.png" /></span>
 		</div>
