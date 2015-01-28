@@ -196,7 +196,7 @@ h2{
 		font-size:18px;
 	}
 	h1{
-		font-size:30px;
+		font-size:45px;
 	}
 	.aboutborder{
 		max-height:80px;
@@ -274,7 +274,7 @@ h2{
 	margin:0;
 }
 .sidemenu ul li{
-	display:inline;
+	display:inline-block;
 	list-style:none;
 	font-family: 'AkzidenzGrotesk-Bold';
 	padding:0 15px;
