@@ -397,9 +397,8 @@ function playslider(){
 	$(".imgloading2").width("0px");
     $(".imgloading2").animate({"width":"51px"},1500,playslider);//^callback function
 }  
-/*
-(function($) {  
-  $(window).load(function() {  
+ 
+$( window ).resize(function() {  
     $(".aboutborder").mCustomScrollbar({  
       scrollEasing:"easeOutCirc",  
       mouseWheel:"auto",   
@@ -409,9 +408,8 @@ function playslider(){
         updateOnContentResize:true   
       } // removed extra commas  
     });  
-  });  
-})(jQuery);
-*/
+});
+
 function verhome(){
 	/*$(".loader2").animate({"left":"0"},600);
 	$(".loader3").animate({"left":"0"},600);
