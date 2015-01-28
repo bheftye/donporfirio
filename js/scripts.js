@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -293,6 +293,28 @@ function showvideo(){
 	$("#fullscreenvideo").show();
 	$("#bgvid2")[0].currentTime = 0;
 	$("#bgvid2")[0].play();
+	reproduceproyecto2();
+}
+
+function reproduceproyecto2(){
+	$("#bgvid2").on(
+	    "timeupdate", 
+   			function (event){
+   			//console.log("entro");
+		    var vid = document.getElementById('bgvid2');
+		    var percent = null;
+		    var buffervideo = null;
+		    var percent = vid.currentTime/vid.duration;
+		    var buffervideo = $('video').get(0).buffered.end(0) / $('video').get(0).duration;
+		    //console.log("video "+percent);
+		    //console.log("buffer"+$('video').get(0).buffered.end(0) / $('video').get(0).duration);
+	        if(buffervideo<=percent){
+	        	$("#bufferload").show();
+	        }
+	        else{
+	        	$("#bufferload").hide();
+	        }
+	});
 }
 
 $("#fullscreenvideo").on('click',function(){

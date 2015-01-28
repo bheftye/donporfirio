@@ -29,6 +29,7 @@
 <div class="bgall aboutbg"></div>
 <div class="bgall videoproyecto"></div>
 <div id="fullscreenvideo2"></div>
+<div id="bufferload"><i class="fa fa-spinner fa-2x"></i></div>
 <div id="slideproy" class="bgall bgproy"></div>
 <div id="fullscreenvideo">
 	<video id="bgvid2" loop>
@@ -183,7 +184,7 @@ else{
 		<div class="fondo_proyectos"></div>
 		<div class="menuheader">
 			<div class="row">
-				<div class="col-sm-10 sidemenu">
+				<div class="col-sm-10 col-xs-10 sidemenu">
 					<ul>
 						<li class="cat0 active" onclick="lxcategoria(0)">
 							<?php
