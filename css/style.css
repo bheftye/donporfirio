@@ -186,6 +186,10 @@ h2{
 	.proybutton{
 		border:1px solid #fff;
 	}
+	.aboutborder{
+		max-height:auto;
+		overflow:auto;
+	}
 }
 @media(max-height:550px){
 	h2{
@@ -653,6 +657,9 @@ button.proybutton:hover{
 		bottom:0;
 		width:100%;
 		height:auto;
+	}
+	button.proybutton{
+		padding:10px 0;
 	}
 }
 /*********************************CONTACTO******************************************/
