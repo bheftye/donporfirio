@@ -416,16 +416,8 @@ function playslider(){
     $(".imgloading2").animate({"width":"51px"},1500,playslider);//^callback function
 }  
  
-$( window ).resize(function() {  
-    $(".aboutborder").mCustomScrollbar({  
-      scrollEasing:"easeOutCirc",  
-      mouseWheel:"auto",   
-      autoDraggerLength:true,   
-      advanced:{  
-        updateOnBrowserResize:true,   
-        updateOnContentResize:true   
-      } // removed extra commas  
-    });  
+$( window ).resize(function() { 
+	$('.aboutborder').mCustomScrollbar("update");
 });
 
 function verhome(){
