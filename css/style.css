@@ -61,7 +61,9 @@ html,body{
 	right:0;
 	margin-top:-15px;
 	padding:5px 15px;
-	border: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
 	color:#fff; 
 	font-family:'AkzidenzGrotesk-BoldItalic';
 	cursor:pointer;
@@ -759,6 +761,18 @@ button.redes:hover{
 @media(max-width:767px){
 	.topsec{
 		margin-bottom:20px;
+	}
+	#contacto{
+		position:relative;
+		height:100%;
+		overflow:auto;
+	}
+	#contacto .container {
+		height: auto;
+	}
+	.imgcontacto{
+		padding:20px 0;
+		margin-top:-70px;
 	}
 }
 /*********************************LOADING***********************************************/

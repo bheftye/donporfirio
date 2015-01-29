@@ -257,9 +257,9 @@ else{
 <div id="contacto" class="ccerrado">
 	<span class="closebutton" onclick="hidecontact()"><img src="<?=mypath?>img/cls.png" /></span>
 	<div class="container">
-		<div class="col-sm-9" style="padding:0;">
+		<div class="col-sm-9 hidden-xs" style="padding:0;">
 			<div class="row topsec">
-				<div class="col-sm-4 col-xs-12">
+				<div class="col-sm-4">
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
@@ -268,7 +268,7 @@ else{
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
 				</div>
-				<div class="col-sm-4 hidden-xs">
+				<div class="col-sm-4">
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
@@ -277,7 +277,7 @@ else{
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
 				</div>
-				<div class="col-sm-4 col-xs-12">
+				<div class="col-sm-4">
 					<span class="textMedIt">We are always looking for fresh new talent, please send us your demo reel to: </span><br/>
 					<div class="row tabborder">
 						<div class="col-sm-6 tbdefault bgblack" style="border:none;"><a href="mailto:info@donporfirio.tv">info@donporfirio.tv</a></div>
@@ -286,7 +286,7 @@ else{
 				</div>
 			</div>
 			<div class="row topsec">
-				<div class="col-sm-4 hidden-xs">
+				<div class="col-sm-4">
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
@@ -295,7 +295,7 @@ else{
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
 				</div>
-				<div class="col-sm-4 hidden-xs">
+				<div class="col-sm-4">
 					<span class="textbold">Roberto Puig</span><br/>
 					<span class="textitalic">Director General &amp; Creativo</span><br/>
 					<div class="row tabborder">
@@ -304,7 +304,7 @@ else{
 						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
 					</div>
 				</div>
-				<div class="col-sm-4 col-xs-12">
+				<div class="col-sm-4">
 					<span class="textbold"><?=FOLLOW?></span><br/>
 					<br/>
 					<div class="row" style="height:36px;">
@@ -363,7 +363,124 @@ else{
 				</span>
 			</div>
 		</div>
-		<div class="col-sm-3 imgcontacto" style="text-align: center;">
+		<div class="col-xs-12 visible-xs" style="padding:0;">
+			<div class="col-xs-4 imgcontacto" style="text-align: center;">
+				<img style="max-width:100%;" src="<?=mypath?>img/logo2.png" />
+			</div>
+			<div class="row topsec">
+				<div class="col-xs-12">
+					<span class="textbold">Roberto Puig</span><br/>
+					<span class="textitalic">Director General &amp; Creativo</span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack"><a href="mailto:rpuig@donporfirio.tv">rpuig@donporfirio.tv</a></div>
+						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
+						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
+					</div>
+				</div>
+			</div>
+			<div class="row topsec">
+				<div class="col-xs-12">
+					<span class="textbold">Roberto Puig</span><br/>
+					<span class="textitalic">Director General &amp; Creativo</span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack"><a href="mailto:rpuig@donporfirio.tv">rpuig@donporfirio.tv</a></div>
+						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
+						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
+					</div>
+				</div>
+			</div>
+			<div class="row topsec">
+				<div class="col-xs-12">
+					<span class="textbold">Roberto Puig</span><br/>
+					<span class="textitalic">Director General &amp; Creativo</span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack"><a href="mailto:rpuig@donporfirio.tv">rpuig@donporfirio.tv</a></div>
+						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
+						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
+					</div>
+				</div>
+			</div>
+			<div class="row topsec">
+				<div class="col-xs-12">
+					<span class="textbold">Roberto Puig</span><br/>
+					<span class="textitalic">Director General &amp; Creativo</span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack"><a href="mailto:rpuig@donporfirio.tv">rpuig@donporfirio.tv</a></div>
+						<div class="col-sm-6 tbdefault bdbtm">+52 (999) 925 5239</div>
+						<div class="col-sm-12 tbdefault">Mérida, Yucatán, MX</div>
+					</div>
+				</div>
+			</div>
+			<div class="row topsec">
+				<div class="col-xs-12">
+					<span class="textMedIt">We are always looking for fresh new talent, please send us your demo reel to: </span><br/>
+					<div class="row tabborder">
+						<div class="col-sm-6 tbdefault bgblack" style="border:none;"><a href="mailto:info@donporfirio.tv">info@donporfirio.tv</a></div>
+						<div class="col-sm-6 tbdefault bdbtm" style="border:none;"><?=THANK?></div>
+					</div>
+				</div>
+			</div>
+			<div class="row topsec">
+				<div class="col-xs-12">
+					<span class="textbold"><?=FOLLOW?></span><br/>
+					<br/>
+					<div class="row" style="height:36px;">
+						<?php
+						if($url_vimeo!=""){
+						?>
+						<div class="col-sm-3 col-xs-3" style="padding:0;height:36px;">
+							<a href="<?=$url_vimeo?>" target="_blank" style="display: block;">
+								<button class="redes">
+									<i class="fa fa-vimeo-square"></i>
+								</button>
+							</a>
+						</div>
+						<?php
+						}
+						if($url_behance!=""){
+						?>
+						<div class="col-sm-3 col-xs-3" style="padding:0;height:36px; margin-left:-1px;">
+							<a href="<?=$url_behance?>" target="_blank" style="display: block;">
+								<button class="redes">
+									<i class="fa fa-behance"></i>
+								</button>
+							</a>
+						</div>
+						<?php
+						}
+						if($url_twitter!=""){
+						?>
+						<div class="col-sm-3 col-xs-3" style="padding:0;height:36px; margin-left:-1px;">
+							<a href="<?=$url_twitter?>" target="_blank" style="display: block;">
+								<button class="redes">
+									<i class="fa fa-twitter"></i>
+								</button>
+							</a>
+						</div>
+						<?php
+						}
+						if($url_facebook!=""){
+						?>
+						<div class="col-sm-3 col-xs-3" style="padding:0;height:36px; margin-left:-1px;">
+							<a href="<?=$url_facebook?>" target="_blank" style="display: block;">
+								<button class="redes">
+									<i class="fa fa-facebook"></i>
+								</button>
+							</a>
+						</div>
+						<?php
+						}
+						?>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="padding-left:15px; padding-bottom:20px;">
+				<span class="textMedItBottom">
+					<?=COPY?>
+				</span>
+			</div>
+		</div>
+		<div class="col-sm-3 imgcontacto hidden-xs" style="text-align: center;">
 			<img style="max-width:100%;" src="<?=mypath?>img/logo.png" />
 		</div>
 	</div>

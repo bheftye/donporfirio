@@ -230,11 +230,17 @@ function viewcontact(){
 		if(viewportWidth>=768){
 			$("#wraperfondo").animate({"top":"-400px"},600);
 			$(".contenido").animate({"top":"-400px"},600);
+			$("#contacto").animate({"top":"-400px"},600,function(){
+				$("#contacto").removeClass("ccerrado");
+				$("#contacto").addClass("cabierto");
+			});
 		}
-		$("#contacto").animate({"top":"-400px"},600,function(){
-			$("#contacto").removeClass("ccerrado");
-			$("#contacto").addClass("cabierto");
-		});
+		else{
+			$("#contacto").animate({"top":"-100%"},600,function(){
+				$("#contacto").removeClass("ccerrado");
+				$("#contacto").addClass("cabierto");
+			});			
+		}
 		if(viewportWidth>=768){
 			if(ipad == false){
 				$("#bgvid").animate({"top":"-400px"},600);
