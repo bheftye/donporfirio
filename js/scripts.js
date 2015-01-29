@@ -417,7 +417,17 @@ function playslider(){
 }  
  
 $( window ).resize(function() { 
-	$('.aboutborder').mCustomScrollbar("update");
+	$('.aboutborder').mCustomScrollbar("destroy");
+	$(".aboutborder").mCustomScrollbar({  
+	      scrollEasing:"easeOutCirc",  
+	      mouseWheel:"auto",   
+	      autoDraggerLength:true,   
+	      advanced:{  
+	        updateOnBrowserResize:true,   
+	        updateOnContentResize:true   
+	      } // removed extra commas  
+	    }); 
+	centervert();
 });
 
 function verhome(){
