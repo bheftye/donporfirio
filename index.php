@@ -32,6 +32,7 @@
 <div id="bufferload"><i class="fa fa-spinner fa-2x"></i></div>
 <div id="slideproy" class="bgall bgproy"></div>
 <div id="fullscreenvideo">
+	<img class="closebutton2" onclick="hidehd()" src="<?=mypath?>img/cls.png" />
 	<video id="bgvid2" loop>
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
 	</video>
@@ -119,7 +120,7 @@ else{
 		</div>
 		<div class="row logobottomr" style="text-align: right; padding:0 60px;">
 			<div class="col-sm-3 col-sm-push-9" style="padding:0;">
-				<img style="max-width:100%;" src="<?=mypath?>img/bd.png" />
+				<img style="/*max-width:100%;*/ max-width:200px;" src="<?=mypath?>img/bd.png" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-sm-push-6 hometitle all">
@@ -130,11 +131,13 @@ else{
 			<h2><?//=AB2?></h2>
 			<h1>BROADCAST DESIGN &amp; MOTION GRAPHICS</h1>
 			<div class="row">
-				<div class="col-sm-8 col-sm-push-4 aboutborder">
+				<!--<div class="col-sm-8 col-sm-push-4 aboutborder">-->
+					<div class="col-sm-7 col-sm-push-5 aboutborder">
 					<p>Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design. We are a team of graphic artists in search for new challenges and opportunities to create original concepts while we do what we love most... design.</p>
 					<p style="margin:0;">Driven by passion, creativity and love for great design, we create high impact animation.</p>
 				</div>
-				<div class="col-sm-8 col-sm-push-4 redesabout">
+				<!--<div class="col-sm-8 col-sm-push-4 redesabout">-->
+					<div class="col-sm-7 col-sm-push-5 redesabout">
 					<span class="textboldw"><?=FOLLOW?></span>
 					<?php
 					if($url_vimeo!=""){

@@ -55,7 +55,14 @@ html,body{
 	margin-right:18px; 
 	cursor:pointer;
 }
-.closebutton:hover{
+.closebutton2{
+	position:absolute;
+	top:15px;
+	right:15px; 
+	cursor:pointer;
+	z-index:10;
+}
+.closebutton:hover, .closebutton2:hover{
 	opacity:0.5;
 }
 video#bgvid,video#bgvid3 {
@@ -81,7 +88,7 @@ h1{
 	font-family: 'AkzidenzGrotesk-Bold';
 	color:#fff;
 	text-align: right;
-	line-height:0.75em;
+	line-height:0.80em;
 	margin-top:0;
 }
 h2{
