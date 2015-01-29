@@ -32,7 +32,7 @@
 <div id="bufferload"><i class="fa fa-spinner fa-2x"></i></div>
 <div id="slideproy" class="bgall bgproy"></div>
 <div id="fullscreenvideo">
-	<div class="closebutton2" onclick="hidehd()"><img src="<?=CLOSE?> <?=mypath?>img/cls2.png" /></div>
+	<div id="clsfull" onclick="hidehd()"><?=CLOSE?> <img src="<?=mypath?>img/cls2.png" /></div>
 	<video id="bgvid2" loop>
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
 	</video>
