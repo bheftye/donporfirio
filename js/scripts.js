@@ -845,6 +845,7 @@ function lxcategoria(idcat){
                 		var titulo_proyecto = (idioma == "esp")? resultado_cat[x].titulo_esp : resultado_cat[x].titulo_eng;
 						var subtitulo_proyecto = (idioma == "esp")? resultado_cat[x].subtitulo_esp : resultado_cat[x].subtitulo_eng;
 						var video_preview = resultado_cat[x].nombre_preview;
+						console.log(video_preview);
 						var vp = "'"+video_preview+"'";
 	                	html+='<a href="#'+resultado_cat[x].url_amigable+'" style="display:block;" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+','+vp+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >';
 						html+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
@@ -855,10 +856,14 @@ function lxcategoria(idcat){
 						html+='</div>';
 						html+='<div class="vidpreview videono'+resultado_cat[x].id_proyecto+'">';
 						html+='<div id="video-container">';
-						html+='<video autoplay loop muted class="fillWidth">';
-						html+='<source src="'+mypath+'vidProyectos/'+video_preview+'" type="video/mp4"/>';
-						html+='Your browser does not support the video tag. I suggest you upgrade your browser.';
-						html+='</video>';
+						if(video_preview!=""){
+							html+='<video autoplay loop muted class="fillWidth">';
+							html+='<source src="'+mypath+'vidProyectos/'+video_preview+'" type="video/mp4"/>';
+							html+='Your browser does not support the video tag. I suggest you upgrade your browser.';
+							html+='</video>';
+						}else{
+							html+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
+						}
 						html+='</div>';
 						html+='</div>';
 						html+='</div></a>';
