@@ -36,10 +36,22 @@ include_once('lang/'.$idioma.'.php');
         <link href="<?=mypath?>css/style.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?=mypath?>css/jquery.mCustomScrollbar.css" />
+         <link rel="stylesheet" type="text/css" href="<?=mypath?>css/outdatedBrowser.min.css" />
+		 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		    <!--[if lt IE 9]>
+		      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		    <![endif]-->
 
         <title>Don Porfirio</title>
 </head>
 <body>
+<div id="outdated">
+      <h6>Tu Navegador esta des-actualizado, para que el sitio</h6>
+     <h6>funcione correctamente porfavor:</h6>
+     <p> <a id="btnUpdateBrowser" href="http://locker.com.mx/actualiza/">Actualiza tu navegador</a></p>
+     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
 <style>
 	.mCustomScrollBox {
 		direction: ltr !important;

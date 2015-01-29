@@ -397,16 +397,18 @@ function verabout(){
 				$(".loader4").animate({"top":"100%"},600);
 				$('.imgloading').hide();
 			});*/
-		});
+		}); 
+		$('.aboutborder').mCustomScrollbar("destroy");
 		$(".aboutborder").mCustomScrollbar({  
-	      scrollEasing:"easeOutCirc",  
-	      mouseWheel:"auto",   
-	      autoDraggerLength:true,   
-	      advanced:{  
-	        updateOnBrowserResize:true,   
-	        updateOnContentResize:true   
-	      } // removed extra commas  
-	    }); 
+		      scrollEasing:"easeOutCirc",  
+		      mouseWheel:"auto",   
+		      autoDraggerLength:true,   
+		      advanced:{  
+		        updateOnBrowserResize:true,   
+		        updateOnContentResize:true   
+		      } // removed extra commas  
+		    }); 
+		centervert();
 		//$(".aboutborder").mCustomScrollbar();
 	//});
 }
