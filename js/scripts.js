@@ -109,7 +109,7 @@ $(document).ready(function() {
     $('#fullscreenvideo').mousemove(function(e){
     	//$('#fullscreenvideo').css({cursor: 'url(./img/clsr.png),auto'});
     	 $('#fullscreenvideo').css({cursor: 'auto'});
-    	 $('.closebutton2').show();
+    	 $('#clsfull').show();
     });
     $('#fullscreenvideo2').mousemove(function(e){
     	//$('#fullscreenvideo2').css({cursor: 'url(./img/clsr.png),auto'});
@@ -135,7 +135,7 @@ function centervert(){
 function hidecursor() {
     $('#fullscreenvideo').css({cursor: 'none'});
     $('#fullscreenvideo2').css({cursor: 'none'});
-    $('.closebutton2').hide();
+    $('#clsfull').hide();
 }
 
 function openmenu(){
