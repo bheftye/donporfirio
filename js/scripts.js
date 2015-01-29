@@ -119,6 +119,7 @@ $(document).ready(function() {
 });
 
 function centervert(){
+	if(viewportWidth>=768){
 	var proHeight = $(".proyecto").outerHeight();
 	//console.log(proHeight);
 	$('.proyecto').css({
@@ -128,7 +129,7 @@ function centervert(){
             left:'auto',
             top: (viewportHeight - proHeight)/2
         });
-	
+	}
 }
 
 function hidecursor() {

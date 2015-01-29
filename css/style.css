@@ -57,13 +57,21 @@ html,body{
 }
 .closebutton2{
 	position:absolute;
-	top:15px;
-	right:15px; 
+	top:50%;
+	right:0;
+	margin-top:-15px;
+	padding:5px 15px;
+	border: 1px solid #fff;
+	color:#fff; 
+	font-family:'AkzidenzGrotesk-BoldItalic';
 	cursor:pointer;
 	z-index:10;
 }
-.closebutton:hover, .closebutton2:hover{
+.closebutton:hover{
 	opacity:0.5;
+}
+.closebutton2:hover{
+	background:#f90e32;
 }
 video#bgvid,video#bgvid3 {
 	position: fixed; 
