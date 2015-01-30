@@ -5,6 +5,11 @@ var idnext ="";
 var idprev ="";
 var viewportWidth = $(window).width();
 var viewportHeight = $(window).height();
+var social_img = "";
+var social_description = "";
+var social_title = "";
+var url = "";
+
 
 $(window).resize(function() {
 	viewportWidth = $(window).width();
@@ -148,6 +153,10 @@ function openmenu(){
 		$(".mwork").addClass("active");
 		$(".mhome").removeClass("active");
 		$(".mabout").removeClass("active");
+		if($(".hometitle").is(":visible")){
+			$("#logobottom_2").css({bottom:"10px", position:"absolute"});
+		}
+		
 	}
 	else{
 		closemenu();
@@ -565,12 +574,19 @@ function verproyecto(id){
 			var titulo = (idioma == "esp")? resultado[0].titulo_esp : resultado[0].titulo_eng;
 			var subtitulo = (idioma == "esp")? resultado[0].subtitulo_esp : resultado[0].subtitulo_eng;
 			var descripcion = (idioma == "esp")? resultado[0].descripcion_esp : resultado[0].descripcion_eng;
+			var meta_descripcion = (idioma == "esp")? resultado[0].meta_descripcion_esp : resultado[0].meta_descripcion_eng;
+			var img_principal = resultado[0].img_principal;
 			var ver = (idioma == "esp")? "VER" : "WATCH";
 			var galeria = (idioma == "esp")? "GALERÍA" : "GALLERY";
 			var style_frame = (idioma == "esp")? "MARCO DE ESTILO" : "STYLE FRAME";
 			var share = (idioma == "esp")? "COMPARTIR" : "SHARE";
 			var pprev = (idioma == "esp")? "PROYECTO ANTERIOR" : "PREVIOUS PROYECT";
 			var pnext = (idioma == "esp")? "SIGUIENTE PROYECTO" : "NEXT PROJECT";
+
+			social_title = titulo;
+			social_description = meta_descripcion;
+			social_img = img_principal;
+			url = window.location.href;
 	
 			html='';
 			html2='';
@@ -587,7 +603,10 @@ function verproyecto(id){
 			html+='<div class="col-sm-3 col-xs-6 proylink"><button class="proybutton" onclick="openvimeo()">'+galeria+'</button></div>';
 			html+='<div class="col-sm-3 col-xs-6 proylink"><button class="proybutton" onclick="opengallery()">'+style_frame+'</button></div>';
 			html+='<div class="col-sm-3 col-xs-6 proylink"><a href="'+resultado[0].behance+'" target="_blank"><button class="proybutton">BEHANCE</button></a></div>';
-			html+='<div class="col-sm-3 col-xs-6 proylink"><button class="proybutton" onclick="share()">'+share+'</button></div>';
+			html+='<div class="col-sm-3 col-xs-6 proylink">'+
+						'<button class="redesb" onclick="shareTwitter()" style="padding:3px 15px;width:33.3%;"> <i class="fa fa-twitter"></i></button>'+
+						'<button class="redesb" onclick="shareFacebook()" style="padding:3px 15px;width:33.3%;border-left:solid 1px #fff;"> <i class="fa fa-facebook"></i></button>'+
+						'<button class="redesb" onclick="sharePinterest()" style="padding:3px 15px;width:33.3%;border-left:solid 1px #fff;border-right:solid 1px #fff;"> <i class="fa fa-pinterest"></i></button>';
 			html+='</div>';
 			html+='<div class="row" style="margin-top:-1px;">';
 			html+='<div class="col-sm-6 col-xs-12 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">'+pprev+'</button></a></div>';
@@ -681,6 +700,17 @@ function verproyecto(id){
 			$(".vimeoright").show();
 		}	
 	//});	
+}
+
+function shareFacebook(){
+    window.open("http://www.facebook.com/share.php?u="+url,'_blank');
+}
+function shareTwitter(){
+    window.open("https://twitter.com/share?text=Don Porfirio - "+social_title,'_blank');
+}
+function sharePinterest(){
+    window.open("https://www.pinterest.com/pin/create/button/?url="+url+"&media="+social_img+"&description="+social_description , '_blank');
+    console.log("https://plusone.google.com/_/+1/confirm?hl=en&url="+url);
 }
 
 $(document).ready(function(){
