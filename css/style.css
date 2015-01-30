@@ -70,12 +70,17 @@ html,body{
 	z-index:10;
 	background:#000;
 	opacity:0.7;
+	-webkit-transition: all 0.6s; /* For Safari 3.1 to 6.0 */
+	-o-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+    transition: all 0.6s;
 }
 .closebutton:hover{
 	opacity:0.5;
 }
 #clsfull:hover{
 	background:#f90e32;
+	opacity:1;
 }
 video#bgvid,video#bgvid3 {
 	position: fixed; 
@@ -388,19 +393,6 @@ h3{
 	margin-top:-25px;
 	z-index:10;
 }
-@media(max-width:767px){
-	#menu{
-		display:none;
-	}
-	.menuright{
-		position:absolute;
-		right:-100%;
-		top:90px;
-		bottom:0;
-		width:100%;
-		height:auto;
-	}
-}
 
 .navbar-default {
 background-color:transparent;
@@ -408,7 +400,8 @@ border-color: transparent;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-	background-color: #ff0000;
+	/*background-color: #ff0000;*/
+	background-color: #fff;
 }
 
 .navbar-toggle .icon-bar {
@@ -439,6 +432,34 @@ border-color: transparent;
 
 .navbar-default .navbar-nav > li > a {
 	color:#f90e32;
+}
+
+@media(max-width:767px){
+	#menu{
+		display:none;
+	}
+	.menuright{
+		position:absolute;
+		right:-100%;
+		top:90px;
+		bottom:0;
+		width:100%;
+		height:auto;
+	}
+	.pmenu{
+		color:#000 !important;
+		font-family: 'AkzidenzGrotesk-Italic';
+	}
+	.pmenu.active{
+		color:#f90e32 !important;
+	}
+	.idiomas a{
+		color:#000;
+		font-family: 'AkzidenzGrotesk-Regular';
+	}
+	.idiomas a.active{
+		color:#f90e32;
+	}
 }
 /*************************************INICIO***************************************/
 .titulorojo, .titulorojo2{

@@ -32,7 +32,7 @@
 <div id="bufferload"><i class="fa fa-spinner fa-2x"></i></div>
 <div id="slideproy" class="bgall bgproy"></div>
 <div id="fullscreenvideo">
-	<div id="clsfull" onclick="hidehd()"><?=CLOSE?> <img src="<?=mypath?>img/cls2.png" /></div>
+	<div id="clsfull" onclick="hidehd()"><span style="margin-right:15px; margin-top:2px;"><?=CLOSE?></span> <img src="<?=mypath?>img/cls2.png" /></div>
 	<video id="bgvid2" loop>
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
 	</video>
@@ -85,14 +85,33 @@ else{
 				    </div>
 
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				    	<div class="row"><span class="closebutton navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="z-index: 100; float:right;"><img src="<?=mypath?>img/cls.png" /></span></div>
-				      <ul class="nav navbar-nav">
+				    	<div class="row">
+				    		<div class="col-xs-4" style="margin-top:40px;">
+				    			<img style="max-width:100%;" src="<?=mypath?>img/dpmobil.png" />
+				    		</div>
+				    		<div class="col-xs-8" style="padding:0;">
+				    			<div class="row">
+				    				<span class="closebutton navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="z-index: 100; float:right; padding:0; padding-top:15px; margin:0; border:none;"><img style="max-width:20px;" src="<?=mypath?>img/cls.png" /></span>
+				    			</div>
+				    			<div class="clearfix"></div>
+				    			<div class="row">
+				    				<ul class="nav navbar-nav" style="margin:0; margin-top:20px;">
+								        <li class="col-xs-6" style="border:1px solid #000; padding:2px 0;"><a class="pmenu mhome active" style="padding:0;" href="#home" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="verhome()"><?=HOME?></a></li>
+										<li class="col-xs-6" style="border:1px solid #000; padding:2px 0; margin-left:-1px;"><a class="pmenu mwork" style="padding:0;" href="#work" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="openmenu()"><?=WORK?></a></li>
+										<li class="col-xs-6" style="border:1px solid #000; padding:2px 0; margin-top:-1px;"><a class="pmenu mabout" style="padding:0;" href="#about" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="verabout()"><?=ABOUT?></a></li>
+										<li class="col-xs-6" style="border:1px solid #000; padding:2px 0; margin-top:-1px; margin-left:-1px;"><a class="pmenu mcontact" style="padding:0;" href="#contact" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="viewcontact()"><?=CONTACT?></a></li>
+								    </ul>
+				    			</div>
+				      		</div>
+				      	</div>
+				      <!--<ul class="nav navbar-nav">
 				        <li><a class="pmenu mhome active" href="#home" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="verhome()"><?=HOME?></a></li>
 						<li><a class="pmenu mwork" href="#work" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="openmenu()"><?=WORK?></a></li>
 						<li><a class="pmenu mabout" href="#about" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="verabout()"><?=ABOUT?></a></li>
 						<li><a class="pmenu mcontact" href="#contact" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="viewcontact()"><?=CONTACT?></a></li>
 						<li class="idioma"><a style="display:inline" class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a style="display:inline" href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></li>
-				      </ul>
+				      </ul>-->
+				      <div class="row idiomas" style="text-align: right; margin-bottom:20px;"><a style="display:inline;" class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a style="display:inline" href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></div>
 				    </div>
 				  </div>
 				</nav>
