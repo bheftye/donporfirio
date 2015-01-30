@@ -86,16 +86,15 @@ else{
 
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				    	<div class="row">
-				    		<div class="col-xs-4" style="margin-top:40px;">
+				    		<span class="closebutton navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="z-index: 100; float:right; padding:0; padding-top:15px; margin:0; border:none;"><img style="max-width:20px;" src="<?=mypath?>img/cls.png" /></span>
+				    	</div>
+				    	<div class="row">
+				    		<div class="col-xs-4" style="margin-top:40px; float: none; display: table-cell; vertical-align: bottom;">
 				    			<img style="max-width:100%;" src="<?=mypath?>img/dpmobil.png" />
 				    		</div>
-				    		<div class="col-xs-8" style="padding:0;">
+				    		<div class="col-xs-8" style="padding:0; float: none; display: table-cell; vertical-align: bottom;">
 				    			<div class="row">
-				    				<span class="closebutton navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="z-index: 100; float:right; padding:0; padding-top:15px; margin:0; border:none;"><img style="max-width:20px;" src="<?=mypath?>img/cls.png" /></span>
-				    			</div>
-				    			<div class="clearfix"></div>
-				    			<div class="row">
-				    				<ul class="nav navbar-nav" style="margin:0; margin-top:20px;">
+				    				<ul class="nav navbar-nav" style="margin:0;">
 								        <li class="col-xs-6" style="border:1px solid #000; padding:2px 0;"><a class="pmenu mhome active" style="padding:0;" href="#home" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="verhome()"><?=HOME?></a></li>
 										<li class="col-xs-6" style="border:1px solid #000; padding:2px 0; margin-left:-1px;"><a class="pmenu mwork" style="padding:0;" href="#work" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="openmenu()"><?=WORK?></a></li>
 										<li class="col-xs-6" style="border:1px solid #000; padding:2px 0; margin-top:-1px;"><a class="pmenu mabout" style="padding:0;" href="#about" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="verabout()"><?=ABOUT?></a></li>
@@ -111,7 +110,7 @@ else{
 						<li><a class="pmenu mcontact" href="#contact" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="viewcontact()"><?=CONTACT?></a></li>
 						<li class="idioma"><a style="display:inline" class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a style="display:inline" href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></li>
 				      </ul>-->
-				      <div class="row idiomas" style="text-align: right; margin-bottom:20px;"><a style="display:inline;" class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a style="display:inline" href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></div>
+				      <div class="row idiomas" style="text-align: right; margin:20px 0;"><a style="display:inline;" class="aen <?php echo ($idioma == "eng " || $idioma == "eng")? "active" : "";?>" href="#" onclick="changelang('eng')">ENG</a> / <a style="display:inline" href="#" class="aes <?php echo ($idioma == "esp" || $idioma == "esp ")? "active" : "";?>" onclick="changelang('esp')">ESP</a></div>
 				    </div>
 				  </div>
 				</nav>
