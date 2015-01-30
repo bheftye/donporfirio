@@ -137,7 +137,7 @@ else{
 				<img src="<?=mypath?>img/dptitle.png" />
 			</div>
 		</div>
-		<div class="row logobottomr" style="text-align: right; padding:0 60px;">
+		<div id="logobottom_1" class="row logobottomr hidden-xs" style="text-align: right; padding:0 60px;">
 			<div class="col-sm-3 col-sm-push-9" style="padding:0;">
 				<img style="max-width:100%;" src="<?=mypath?>img/bd.png" />
 			</div>
@@ -199,7 +199,16 @@ else{
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-6 col-lg-push-6 col-md-8 col-md-push-4 col-sm-9 col-sm-push-3 proyecto all"></div>
+		<div class="proyect_container">
+			<div>
+				<div class="col-lg-6 col-lg-push-6 col-md-8 col-md-push-4 col-sm-9 col-sm-push-3 proyecto all"></div>
+				<div id="logobottom_2" class="row logobottomr visible-xs" style="position:relative;bottom:0px;padding-top:8px; ">
+					<div class="col-sm-3 col-sm-push-9" style="display:table; margin:0 auto;">
+						<img src="<?=mypath?>img/bd.png" />
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- Website Content -->
 	<div class="menuright mcerrado">

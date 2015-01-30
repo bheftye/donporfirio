@@ -210,6 +210,8 @@ h2{
 @media(max-width:767px){
 	.container{
 		padding: 0 15px;
+		padding-bottom:20px;
+		overflow:auto;
 	}
 	h2{
 		font-size:25px;
@@ -232,7 +234,24 @@ h2{
 	}
 }
 
-********************************MENU********************************************/
+/********************************MENU********************************************/
+@media(max-height:550px){
+	h2{
+		font-size:18px;
+	}
+	h1{
+		font-size:45px;
+	}
+	.aboutborder{
+		
+		overflow:auto;
+	}
+	.proybutton{
+		font-size: 10px;
+	}
+}
+/**********************************MENU********************************************/
+>>>>>>> Stashed changes
 .menuright{
 	position:absolute;
 	right:-60%;
@@ -402,7 +421,6 @@ border-color: transparent;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-	/*background-color: #ff0000;*/
 	background-color: #fff;
 }
 
@@ -505,6 +523,8 @@ border-color: transparent;
 	}
 	.logobottomr img{
 		max-width:100%;
+		margin: 0 auto;
+		display: table;
 	}
 }
 /********************************ABOUT*********************************************/

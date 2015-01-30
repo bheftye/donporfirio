@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
+var mypath ='http://localhost:8888/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -116,6 +116,7 @@ $(document).ready(function() {
     	$('#fullscreenvideo').css({cursor: 'auto'});
 
     });
+
 });
 
 function centervert(){
@@ -387,6 +388,7 @@ function verabout(){
 		playslider();
 		$(".pmenu").removeClass("active");
 		$(".mabout").addClass("active");
+		$("#logobottom_2").css({bottom:"0px", position:"relative"});
 		$(".bgall").fadeOut(600);
 		if(ipad == false)
 			$("#bgvid")[0].pause();
@@ -450,6 +452,7 @@ function verhome(){
 		playslider();
 		$(".pmenu").removeClass("active");
 		$(".mhome").addClass("active");
+		$("#logobottom_2").css({bottom:"10px", position:"absolute"});
 		$(".bgall").fadeOut(600);
 		$(".videoproyecto").empty();
 		//$(".bgall")[0].pause();
@@ -517,6 +520,7 @@ function verproyecto(id){
 		closemenu();
 		closegallery();
 		$(".hometitle").fadeOut('slow');
+		$("#logobottom_2").css({position:"relative", bottom:"0px"});
 		$(".proyecto").css("right","-1000px");
 		if(ipad == false){
 			if($("#bgvid3").length > 0){
