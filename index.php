@@ -88,7 +88,7 @@ else{
 				    	<div class="row">
 				    		<span class="closebutton navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="z-index: 100; float:right; padding:0; padding-top:15px; margin:0; border:none;"><img style="max-width:20px;" src="<?=mypath?>img/cls.png" /></span>
 				    	</div>
-				    	<div class="row">
+				    	<div class="row" style="display:table;">
 				    		<div class="col-xs-4" style="margin-top:40px; float: none; display: table-cell; vertical-align: bottom;">
 				    			<img style="max-width:100%;" src="<?=mypath?>img/dpmobil.png" />
 				    		</div>
