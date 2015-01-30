@@ -201,7 +201,7 @@ else{
 		<div class="proyect_container">
 			<div>
 				<div class="col-lg-6 col-lg-push-6 col-md-8 col-md-push-4 col-sm-9 col-sm-push-3 proyecto all"></div>
-				<div id="logobottom_2" class="row logobottomr visible-xs" style="position:relative;bottom:0px;padding-top:8px; ">
+				<div id="logobottom_2" class="row logobottomr visible-xs" style="position:relative;bottom:0px;padding-top:10px; ">
 					<div class="col-sm-3 col-sm-push-9" style="display:table; margin:0 auto;">
 						<img src="<?=mypath?>img/bd.png" />
 					</div>
