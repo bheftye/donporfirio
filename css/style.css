@@ -191,6 +191,22 @@ h2{
 		overflow:auto;
 	}
 }
+@media(max-height:550px){
+	h2{
+		font-size:18px;
+	}
+	h1{
+		font-size:45px;
+	}
+	.aboutborder{
+		max-height:80px;
+		overflow:auto;
+	}
+	.proybutton{
+		font-size: 10px;
+	}
+}
+
 @media(max-width:767px){
 	.container{
 		padding: 0 15px;
@@ -211,26 +227,12 @@ h2{
 		border:1px solid #fff;
 	}
 	.aboutborder{
-		max-height:auto;
+		max-height:none;
 		overflow:auto;
 	}
 }
-@media(max-height:550px){
-	h2{
-		font-size:18px;
-	}
-	h1{
-		font-size:45px;
-	}
-	.aboutborder{
-		max-height:80px;
-		overflow:auto;
-	}
-	.proybutton{
-		font-size: 10px;
-	}
-}
-/**********************************MENU********************************************/
+
+********************************MENU********************************************/
 .menuright{
 	position:absolute;
 	right:-60%;

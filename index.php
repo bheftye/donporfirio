@@ -139,7 +139,7 @@ else{
 		</div>
 		<div class="row logobottomr" style="text-align: right; padding:0 60px;">
 			<div class="col-sm-3 col-sm-push-9" style="padding:0;">
-				<img style="/*max-width:100%;*/ max-width:200px;" src="<?=mypath?>img/bd.png" />
+				<img style="max-width:100%;" src="<?=mypath?>img/bd.png" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-sm-push-6 hometitle all">
