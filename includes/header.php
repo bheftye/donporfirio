@@ -22,10 +22,10 @@ include_once('lang/'.$idioma.'.php');
         <meta name="keywords" content="Locker, Diseño Web, Programacion Web, Redes Sociales, Publicidad, Imagen, Responsive, Webs, PHP, HTML5, CSS3, " /> <!-- IMPORTANTE -->
         <meta name="author" content="Locker AD" /><!-- Aqui siempre va Locker AD -->
         <meta property="og:title" content="Website - Don Porfirio" /> <!-- En el caso de un portafolio, se pone el titulo del Portafolio, -->
-        <meta property="og:url" content="http://clientes.locker.com.mx/donporfirio" /> <!-- Este es Link que Facebook Tomara, por eso le pasamos el ID, si es un index o nosotros, solo va la pagina EJ: locker.com.mx -->
+        <meta property="og:url" content="<?=mypath?>" /> <!-- Este es Link que Facebook Tomara, por eso le pasamos el ID, si es un index o nosotros, solo va la pagina EJ: locker.com.mx -->
         <meta property="og:type" content="website" />
         <meta property="og:description" content="Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design." /><!-- Descripción de Algún portafolio o proyecto, si es Index o Nosotros, poner Breve Descripción. -->
-        <meta property="og:image" content="http://clientes.locker.com.mx/donporfirio/img/logo.png" /><!-- Path de la Imagen Principal del Proyecto -->
+        <meta property="og:image" content="<?=mypath?>img/aboutbg.jpg"/>
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Don Porfirio" /> <!-- Nombre de la Empresa -->
 
