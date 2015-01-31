@@ -586,7 +586,7 @@ function verproyecto(id){
 		closegallery();
 		$(".hometitle").fadeOut('slow');
 		$("#logobottom_2").css({position:"relative", bottom:"0px"});
-		//$(".proyecto").css("right","-1000px");
+		$(".proyecto").css("right","-1000px");
 		if(ipad == false){
 			if($("#bgvid3").length > 0){
 				$("#bgvid3")[0].pause();
@@ -732,6 +732,9 @@ function verproyecto(id){
 			setTimeout(function(){
 				$(".proyecto").html(html).fadeIn('slow', function(){
 					checksize();
+					if(viewportWidth<=767){
+						$(".proyecto").css("right","0px");
+					}
 					bajartituloP();
 					/*$('.imgloading2').hide(function(){
 						royal2();
