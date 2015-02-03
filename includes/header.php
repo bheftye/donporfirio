@@ -20,7 +20,7 @@ include_once('lang/'.$idioma.'.php');
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="keywords" content="Locker, Diseño Web, Programacion Web, Redes Sociales, Publicidad, Imagen, Responsive, Webs, PHP, HTML5, CSS3, " /> <!-- IMPORTANTE -->
-        <meta name="author" content="Locker AD" /><!-- Aqui siempre va Locker AD -->
+        <meta name="author" content="Don Porfirio" /><!-- Aqui siempre va Locker AD -->
         <meta property="og:title" content="Website - Don Porfirio" /> <!-- En el caso de un portafolio, se pone el titulo del Portafolio, -->
         <meta property="og:url" content="<?=mypath?>" /> <!-- Este es Link que Facebook Tomara, por eso le pasamos el ID, si es un index o nosotros, solo va la pagina EJ: locker.com.mx -->
         <meta property="og:type" content="website" />

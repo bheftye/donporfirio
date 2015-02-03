@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
+var mypath ='http://localhost:8888/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -643,6 +643,7 @@ function verproyecto(id){
 			social_description = meta_descripcion;
 			social_img = img_principal;
 			url = window.location.href;
+			console.log(url);
 	
 			html='';
 			html2='';
@@ -765,7 +766,7 @@ function shareFacebook(){
     window.open("http://www.facebook.com/share.php?u="+url,'_blank');
 }
 function shareTwitter(){
-    window.open("https://twitter.com/share?text=Don Porfirio - "+social_title,'_blank');
+    window.open("https://twitter.com/share?text=Don Porfirio - "+social_title +"&url="+url ,'_blank');
 }
 function sharePinterest(){
     window.open("https://www.pinterest.com/pin/create/button/?url="+url+"&media="+social_img+"&description="+social_description , '_blank');
