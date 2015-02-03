@@ -641,7 +641,7 @@ function verproyecto(id){
 
 			social_title = titulo;
 			social_description = meta_descripcion;
-			social_img = img_principal;
+			social_img = mypath+"imgProyectos/"+img_principal;
 			url = window.location.href;
 			console.log(url);
 	
@@ -769,9 +769,8 @@ function shareTwitter(){
     window.open("https://twitter.com/share?text=Don Porfirio - "+social_title +"&url="+url ,'_blank');
 }
 function sharePinterest(){
-    window.open("https://www.pinterest.com/pin/create/button/?url="+url+"&media="+social_img+"&description="+social_description , '_blank');
-    console.log("https://plusone.google.com/_/+1/confirm?hl=en&url="+url);
-}
+  	window.open("https://www.pinterest.com/pin/create/button/?url="+encodeURIComponent(url)+"&description="+social_title+"&media="+encodeURIComponent(social_img) , '_blank');
+    console.log(social_description);}
 
 $(document).ready(function(){
 	royal();
@@ -974,9 +973,12 @@ function lxcategoria(idcat){
                 	}
                 	//console.log(html);
                 	console.log("in");
-                	$(".listproyectos").animate({left:"2000px"},800,function(){
+                	/*$(".listproyectos").animate({left:"2000px"},800,function(){
                 		$(".listproyectos").empty().append(html).delay(400).animate({left:"0"},800);
-                	})
+                	})*/
+					$(".listproyectos").fadeOut("fast",function(){
+						$(".listproyectos").empty().append(html).delay(400).fadeIn("slow");
+					});
                 	//$(".listproyectos").delay(600).animate({marginLeft:"0"},600);         	
                 }
             }
