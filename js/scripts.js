@@ -394,10 +394,13 @@ function changecursor(){
 function showvideo(){
 	$(".contenido").fadeOut(1000);
 	$("#wraperfondo").fadeOut(1000);
-	if(ipad == false)
+	if(ipad == false){
 		$("#bgvid").fadeOut(1000);
-	else
+		$("#bufferload2").hide();
+	}
+	else{
 		$("#content-slider-1").fadeOut(1000);
+	}
 	$("#contacto").fadeOut(1000);
 	//$('body').css('cursor', 'url(./img/clsr.png),auto');
 	if(ipad == false)
@@ -462,6 +465,7 @@ function hidehd(){
 	if(ipad == false){
 		$("#bgvid")[0].currentTime = 0;
 		$("#bgvid")[0].play();
+		reproduceproyecto1();
 	}
 }
 /*
