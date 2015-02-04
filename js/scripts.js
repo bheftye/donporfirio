@@ -15,11 +15,11 @@ $(window).resize(function() {
 	viewportWidth = $(window).width();
 	viewportHeight = $(window).height();
 	//console.log(viewportWidth);
-	if(viewportWidth>=768){
+	/*if(viewportWidth>=768){
 		centervert();
 		centervertA();
 		centervertH();
-	}
+	}*/
 });
 
 function checksize(){
