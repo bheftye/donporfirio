@@ -451,6 +451,26 @@ function reproduceproyecto1(){
 	        }
 	});
 }
+function reproduceproyecto3(){
+	$("#bgvid3").on(
+	    "timeupdate", 
+   			function (event){
+   			//console.log("entro");
+		    var vid = document.getElementById('bgvid3');
+		    var percent = null;
+		    var buffervideo = null;
+		    var percent = vid.currentTime/vid.duration;
+		    var buffervideo = $("#bgvid3").get(0).buffered.end(0) / $("#bgvid3").get(0).duration;
+		    //console.log("video "+percent);
+		    //console.log("buffer"+$("#bgvid").get(0).buffered.end(0) / $("#bgvid").get(0).duration);
+	        if(buffervideo<=percent){
+	        	$("#bufferload2").show();
+	        }
+	        else{
+	        	$("#bufferload2").hide();
+	        }
+	});
+}
 function hidehd(){
 	$("#fullscreenvideo").hide();
 	$("#bgvid2")[0].pause();
@@ -785,6 +805,7 @@ function verproyecto(id){
 					reproduceproyecto();
 					$("#bgvid3")[0].currentTime = 0;
 					$("#bgvid3")[0].play();
+					reproduceproyecto3();
 				});
 				}, 1000);
 			}
