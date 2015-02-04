@@ -60,8 +60,7 @@ if(strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGEN
 else{
 ?>
 <video autoplay muted id="bgvid" class="bgall" loop>
-	<source src="<?=mypath;?>videosSlide/0b80379e.webm" type='video/webm' />
-	<!--<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4"></source>-->
+	<source src="<?=mypath;?>videosSlide/<?=$src_tmp;?>" id="mp4Source"  type="video/mp4"></source>
 </video>
 <?php
 }
