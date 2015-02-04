@@ -183,6 +183,9 @@ $(document).ready(function() {
 
     });
     bajartituloH();
+    if(ipad==false){
+    	reproduceproyecto1();
+    }
 
 });
 
@@ -425,6 +428,26 @@ function reproduceproyecto2(){
 	        }
 	});
 }
+function reproduceproyecto1(){
+	$("#bgvid").on(
+	    "timeupdate", 
+   			function (event){
+   			//console.log("entro");
+		    var vid = document.getElementById('bgvid');
+		    var percent = null;
+		    var buffervideo = null;
+		    var percent = vid.currentTime/vid.duration;
+		    var buffervideo = $('video').get(0).buffered.end(0) / $('video').get(0).duration;
+		    //console.log("video "+percent);
+		    //console.log("buffer"+$('video').get(0).buffered.end(0) / $('video').get(0).duration);
+	        if(buffervideo<=percent){
+	        	$("#bufferload2").show();
+	        }
+	        else{
+	        	$("#bufferload2").hide();
+	        }
+	});
+}
 function hidehd(){
 	$("#fullscreenvideo").hide();
 	$("#bgvid2")[0].pause();
@@ -562,6 +585,7 @@ function verhome(){
 			$("#bgvid").delay(600).fadeIn(600,function(){
 				$("#bgvid")[0].currentTime = 0;
 				$("#bgvid")[0].play();
+				reproduceproyecto1();
 			});
 		}
 		else{
