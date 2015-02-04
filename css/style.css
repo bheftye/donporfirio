@@ -522,7 +522,7 @@ border-color: transparent;
 	display:none;
 }
 .hometitle{
-	margin-top:10%;
+	/*margin-top:10%;*/
 }
 @media(max-width:767px){
 	.logohome{

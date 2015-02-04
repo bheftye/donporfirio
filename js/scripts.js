@@ -15,11 +15,11 @@ $(window).resize(function() {
 	viewportWidth = $(window).width();
 	viewportHeight = $(window).height();
 	//console.log(viewportWidth);
-	/*if(viewportWidth>=768){
+	if(viewportWidth>=768){
 		centervert();
 		centervertA();
 		centervertH();
-	}*/
+	}
 });
 
 function checksize(){
@@ -939,6 +939,7 @@ $(document).ready(function(){
 		}
 	}
 	else{
+		centervertH();
 		$('.imgloading').hide();
 		$('.imgloading2').hide(function(){
 			$(".loader").animate({"top":"-100%"},600);
