@@ -17,6 +17,8 @@ $(window).resize(function() {
 	//console.log(viewportWidth);
 	if(viewportWidth>=768){
 		centervert();
+		centervertA();
+		centervertH();
 	}
 });
 
@@ -26,6 +28,8 @@ function checksize(){
 	//console.log(viewportWidth);
 	if(viewportWidth>=768){ 
 		centervert();
+		centervertA();
+		centervertH();
 	}
 }
 
@@ -164,7 +168,9 @@ $(document).ready(function() {
     $(document).mousemove(function() {
         clearTimeout(j);
         //$('#fullscreenvideo').css({cursor: 'default'});
-        j = setTimeout('hidecursor();', 1000);
+        if(viewportWidth>=768){
+        	j = setTimeout('hidecursor();', 1000);
+        }
     });
     $('#fullscreenvideo').mousemove(function(e){
     	//$('#fullscreenvideo').css({cursor: 'url(./img/clsr.png),auto'});
@@ -185,6 +191,34 @@ function centervert(){
 	var proHeight = $(".proyecto").outerHeight();
 	//console.log(proHeight);
 	$('.proyecto').css({
+            position:'absolute',
+            //left: ($(window).width() - $('.className').outerWidth())/2,
+            right:'60px',
+            left:'auto',
+            top: (viewportHeight - proHeight)/2
+        });
+	}
+}
+
+function centervertA(){
+	if(viewportWidth>=768){
+	var proHeight = $(".about").outerHeight();
+	//console.log(proHeight);
+	$('.about').css({
+            position:'absolute',
+            //left: ($(window).width() - $('.className').outerWidth())/2,
+            right:'60px',
+            left:'auto',
+            top: (viewportHeight - proHeight)/2
+        });
+	}
+}
+
+function centervertH(){
+	if(viewportWidth>=768){
+	var proHeight = $(".hometitle").outerHeight();
+	//console.log(proHeight);
+	$('.hometitle').css({
             position:'absolute',
             //left: ($(window).width() - $('.className').outerWidth())/2,
             right:'60px',
@@ -504,6 +538,8 @@ $( window ).resize(function() {
 	      } // removed extra commas  
 	    }); 
 	centervert();
+	centervertA();
+	centervertH();
 });
 
 function verhome(){
@@ -533,6 +569,7 @@ function verhome(){
 		}
 		$(".hometitle").delay(600).fadeIn(600,function(){
 			bajartituloH();
+			centervertH();
 			/*$('.imgloading2').hide(function(){
 				$(".loader").animate({"top":"-100%"},600);
 				$(".loader2").animate({"left":"-100%"},600);
@@ -737,6 +774,7 @@ function verproyecto(id){
 						$(".proyecto").css("right","0px");
 					}
 					bajartituloP();
+					royal2();
 					/*$('.imgloading2').hide(function(){
 						royal2();
 						$(".loader").animate({"top":"-100%"},600);

@@ -587,6 +587,11 @@ button.redesb{
 	-moz-transition: all 0.6s;
     transition: all 0.6s;
 }
+button.redesb:focus {
+	outline: -webkit-focus-ring-color auto 0;
+	outline: 0;
+	box-shadow: none;
+}
 .redesb fa{
 	font-size:15px;
 }
