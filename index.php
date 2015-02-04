@@ -29,8 +29,8 @@
 <div class="bgall aboutbg"></div>
 <div class="bgall videoproyecto"></div>
 <div id="fullscreenvideo2"></div>
-<div id="bufferload"><i class="fa fa-spinner fa-2x fa-spin"></i></div>
-<div id="bufferload2"><i class="fa fa-spinner fa-2x fa-spin"></i></div>
+<div id="bufferload"><img src="<?=mypath?>img/ajax-loader.gif" /></div>
+<div id="bufferload2"><img src="<?=mypath?>img/ajax-loader.gif" /></div>
 <div id="slideproy" class="bgall bgproy"></div>
 <div id="fullscreenvideo">
 	<div id="clsfull" onclick="hidehd()"><span style="margin-right:15px; margin-top:2px;"><?=CLOSE?></span> <img src="<?=mypath?>img/cls2.png" /></div>

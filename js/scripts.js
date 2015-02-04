@@ -420,7 +420,7 @@ function reproduceproyecto2(){
 		    var percent = null;
 		    var buffervideo = null;
 		    var percent = vid.currentTime/vid.duration;
-		    var buffervideo = $('video').get(0).buffered.end(0) / $('video').get(0).duration;
+		    var buffervideo = $("#bgvid2").get(0).buffered.end(0) / $("#bgvid2").get(0).duration;
 		    //console.log("video "+percent);
 		    //console.log("buffer"+$('video').get(0).buffered.end(0) / $('video').get(0).duration);
 	        if(buffervideo<=percent){
@@ -440,9 +440,9 @@ function reproduceproyecto1(){
 		    var percent = null;
 		    var buffervideo = null;
 		    var percent = vid.currentTime/vid.duration;
-		    var buffervideo = $('video').get(0).buffered.end(0) / $('video').get(0).duration;
+		    var buffervideo = $("#bgvid").get(0).buffered.end(0) / $("#bgvid").get(0).duration;
 		    //console.log("video "+percent);
-		    //console.log("buffer"+$('video').get(0).buffered.end(0) / $('video').get(0).duration);
+		    //console.log("buffer"+$("#bgvid").get(0).buffered.end(0) / $("#bgvid").get(0).duration);
 	        if(buffervideo<=percent){
 	        	$("#bufferload2").show();
 	        }
