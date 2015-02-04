@@ -885,7 +885,7 @@ $(document).ready(function(){
 			});
 		}else if(hashTag=="#work"){
 			openmenu();
-			
+			centervertH();
 			$('.imgloading2').hide(function(){
 				$('.imgloading').hide();
 				$(".loader").animate({"top":"-100%"},600);
@@ -895,7 +895,7 @@ $(document).ready(function(){
 			});
 		}else if(hashTag=="#contact"){
 			viewcontact();
-			
+			centervertH();
 			$('.imgloading2').hide(function(){
 				$('.imgloading').hide();
 				$(".loader").animate({"top":"-100%"},600);
