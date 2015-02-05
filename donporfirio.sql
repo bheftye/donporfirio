@@ -1,45 +1,36 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.2.5
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 05-02-2015 a las 00:49:37
--- Versión del servidor: 5.6.12-log
--- Versión de PHP: 5.4.12
+-- Host: localhost:8889
+-- Generation Time: Feb 05, 2015 at 06:39 PM
+-- Server version: 5.5.38
+-- PHP Version: 5.5.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
 --
--- Base de datos: `donporfirio`
+-- Database: `donporfirio`
 --
-CREATE DATABASE IF NOT EXISTS `donporfirio` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `donporfirio`;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias_proyectos`
+-- Table structure for table `categorias_proyectos`
 --
 
-CREATE TABLE IF NOT EXISTS `categorias_proyectos` (
-  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `categorias_proyectos` (
+`id_categoria` int(11) NOT NULL,
   `nombre_esp` text COLLATE utf8_unicode_ci NOT NULL,
   `nombre_eng` text COLLATE utf8_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL,
   `mostrar` tinyint(1) NOT NULL,
-  `orden` int(11) NOT NULL,
-  PRIMARY KEY (`id_categoria`)
+  `orden` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Volcado de datos para la tabla `categorias_proyectos`
+-- Dumping data for table `categorias_proyectos`
 --
 
 INSERT INTO `categorias_proyectos` (`id_categoria`, `nombre_esp`, `nombre_eng`, `status`, `mostrar`, `orden`) VALUES
@@ -51,10 +42,10 @@ INSERT INTO `categorias_proyectos` (`id_categoria`, `nombre_esp`, `nombre_eng`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `config_mailing`
+-- Table structure for table `config_mailing`
 --
 
-CREATE TABLE IF NOT EXISTS `config_mailing` (
+CREATE TABLE `config_mailing` (
   `idconfig` tinyint(1) NOT NULL,
   `correo_noreply` text COLLATE utf8_unicode_ci NOT NULL,
   `correo_standard` text COLLATE utf8_unicode_ci NOT NULL,
@@ -65,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `config_mailing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `config_mailing`
+-- Dumping data for table `config_mailing`
 --
 
 INSERT INTO `config_mailing` (`idconfig`, `correo_noreply`, `correo_standard`, `facebook`, `twitter`, `instagram`, `youtube`) VALUES
@@ -74,17 +65,17 @@ INSERT INTO `config_mailing` (`idconfig`, `correo_noreply`, `correo_standard`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contacto`
+-- Table structure for table `contacto`
 --
 
-CREATE TABLE IF NOT EXISTS `contacto` (
+CREATE TABLE `contacto` (
   `idcontacto` int(2) NOT NULL,
   `correo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `emisor` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `contacto`
+-- Dumping data for table `contacto`
 --
 
 INSERT INTO `contacto` (`idcontacto`, `correo`, `emisor`) VALUES
@@ -93,18 +84,17 @@ INSERT INTO `contacto` (`idcontacto`, `correo`, `emisor`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contenido_marca`
+-- Table structure for table `contenido_marca`
 --
 
-CREATE TABLE IF NOT EXISTS `contenido_marca` (
+CREATE TABLE `contenido_marca` (
   `id_contenidom` tinyint(1) NOT NULL,
   `link_video` text COLLATE utf8_unicode_ci NOT NULL,
-  `tipo` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_contenidom`)
+  `tipo` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `contenido_marca`
+-- Dumping data for table `contenido_marca`
 --
 
 INSERT INTO `contenido_marca` (`id_contenidom`, `link_video`, `tipo`) VALUES
@@ -113,10 +103,10 @@ INSERT INTO `contenido_marca` (`id_contenidom`, `link_video`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `datosusuario`
+-- Table structure for table `datosusuario`
 --
 
-CREATE TABLE IF NOT EXISTS `datosusuario` (
+CREATE TABLE `datosusuario` (
   `idusuario` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -125,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `datosusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `datosusuario`
+-- Dumping data for table `datosusuario`
 --
 
 INSERT INTO `datosusuario` (`idusuario`, `nombre`, `email`, `telefono`, `token`) VALUES
@@ -136,35 +126,45 @@ INSERT INTO `datosusuario` (`idusuario`, `nombre`, `email`, `telefono`, `token`)
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `img_metas`
+-- Table structure for table `img_metas`
 --
 
-CREATE TABLE IF NOT EXISTS `img_metas` (
-  `id_img_metas` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `img_metas` (
+`id_img_metas` int(11) NOT NULL,
   `id_metas` int(11) NOT NULL,
   `ruta` text NOT NULL,
   `orden` int(11) NOT NULL,
-  `titulo` text NOT NULL,
-  PRIMARY KEY (`id_img_metas`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `titulo` text NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+
+--
+-- Dumping data for table `img_metas`
+--
+
+INSERT INTO `img_metas` (`id_img_metas`, `id_metas`, `ruta`, `orden`, `titulo`) VALUES
+(14, 1, 'db460b7c.jpg', 14, ''),
+(15, 1, 'd7b40997.jpg', 15, ''),
+(16, 1, '02f5af87.jpg', 16, ''),
+(17, 1, 'a5dfb14f.jpg', 17, ''),
+(18, 1, '031c3a2b.jpg', 18, ''),
+(19, 1, '89ff5f32.jpg', 19, '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `img_proyecto`
+-- Table structure for table `img_proyecto`
 --
 
-CREATE TABLE IF NOT EXISTS `img_proyecto` (
-  `id_img_proyecto` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `img_proyecto` (
+`id_img_proyecto` int(11) NOT NULL,
   `id_proyecto` int(11) NOT NULL,
   `ruta` text COLLATE utf8_unicode_ci NOT NULL,
   `orden` int(11) NOT NULL,
-  `titulo` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_img_proyecto`,`id_proyecto`)
+  `titulo` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=71 ;
 
 --
--- Volcado de datos para la tabla `img_proyecto`
+-- Dumping data for table `img_proyecto`
 --
 
 INSERT INTO `img_proyecto` (`id_img_proyecto`, `id_proyecto`, `ruta`, `orden`, `titulo`) VALUES
@@ -211,19 +211,18 @@ INSERT INTO `img_proyecto` (`id_img_proyecto`, `id_proyecto`, `ruta`, `orden`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `links_videos`
+-- Table structure for table `links_videos`
 --
 
-CREATE TABLE IF NOT EXISTS `links_videos` (
-  `id_link` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `links_videos` (
+`id_link` int(11) NOT NULL,
   `id_proyecto` int(11) NOT NULL,
   `link_video` text COLLATE utf8_unicode_ci NOT NULL,
-  `orden` int(11) NOT NULL,
-  PRIMARY KEY (`id_link`,`id_proyecto`)
+  `orden` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
--- Volcado de datos para la tabla `links_videos`
+-- Dumping data for table `links_videos`
 --
 
 INSERT INTO `links_videos` (`id_link`, `id_proyecto`, `link_video`, `orden`) VALUES
@@ -235,42 +234,40 @@ INSERT INTO `links_videos` (`id_link`, `id_proyecto`, `link_video`, `orden`) VAL
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `metas`
+-- Table structure for table `metas`
 --
 
-CREATE TABLE IF NOT EXISTS `metas` (
-  `id_metas` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `metas` (
+`id_metas` int(11) NOT NULL,
   `meta_titulo` varchar(150) NOT NULL,
   `meta_descripcion` text NOT NULL,
   `meta_empresa` varchar(100) NOT NULL,
   `orden` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `mostrar` int(11) NOT NULL,
-  PRIMARY KEY (`id_metas`)
+  `mostrar` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Volcado de datos para la tabla `metas`
+-- Dumping data for table `metas`
 --
 
 INSERT INTO `metas` (`id_metas`, `meta_titulo`, `meta_descripcion`, `meta_empresa`, `orden`, `status`, `mostrar`) VALUES
-(1, 'Don Porfirio', 'Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design.', 'Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design.', 0, 0, 0);
+(1, 'Don Porfirio', 'Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design.', 'Don Porfirio Broadcast Design', 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `nosotros`
+-- Table structure for table `nosotros`
 --
 
-CREATE TABLE IF NOT EXISTS `nosotros` (
+CREATE TABLE `nosotros` (
   `id_nosotros` int(11) NOT NULL,
   `link_video` text COLLATE utf8_unicode_ci NOT NULL,
-  `tipo` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_nosotros`)
+  `tipo` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `nosotros`
+-- Dumping data for table `nosotros`
 --
 
 INSERT INTO `nosotros` (`id_nosotros`, `link_video`, `tipo`) VALUES
@@ -279,22 +276,21 @@ INSERT INTO `nosotros` (`id_nosotros`, `link_video`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pantallas`
+-- Table structure for table `pantallas`
 --
 
-CREATE TABLE IF NOT EXISTS `pantallas` (
+CREATE TABLE `pantallas` (
   `id_pantallas` tinyint(1) NOT NULL,
   `link_video1` text COLLATE utf8_unicode_ci NOT NULL,
   `tipo1` text COLLATE utf8_unicode_ci NOT NULL,
   `link_video2` text COLLATE utf8_unicode_ci NOT NULL,
   `tipo2` text COLLATE utf8_unicode_ci NOT NULL,
   `link_video3` text COLLATE utf8_unicode_ci NOT NULL,
-  `tipo3` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_pantallas`)
+  `tipo3` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `pantallas`
+-- Dumping data for table `pantallas`
 --
 
 INSERT INTO `pantallas` (`id_pantallas`, `link_video1`, `tipo1`, `link_video2`, `tipo2`, `link_video3`, `tipo3`) VALUES
@@ -303,19 +299,18 @@ INSERT INTO `pantallas` (`id_pantallas`, `link_video1`, `tipo1`, `link_video2`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permiso`
+-- Table structure for table `permiso`
 --
 
-CREATE TABLE IF NOT EXISTS `permiso` (
-  `idpermiso` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `permiso` (
+`idpermiso` int(11) NOT NULL,
   `nompermiso` varchar(255) NOT NULL,
   `clavepermiso` varchar(255) NOT NULL,
-  `status` int(5) NOT NULL,
-  PRIMARY KEY (`idpermiso`)
+  `status` int(5) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=89 ;
 
 --
--- Volcado de datos para la tabla `permiso`
+-- Dumping data for table `permiso`
 --
 
 INSERT INTO `permiso` (`idpermiso`, `nompermiso`, `clavepermiso`, `status`) VALUES
@@ -363,11 +358,11 @@ INSERT INTO `permiso` (`idpermiso`, `nompermiso`, `clavepermiso`, `status`) VALU
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proyectos`
+-- Table structure for table `proyectos`
 --
 
-CREATE TABLE IF NOT EXISTS `proyectos` (
-  `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `proyectos` (
+`id_proyecto` int(11) NOT NULL,
   `titulo_esp` text COLLATE utf8_unicode_ci NOT NULL,
   `titulo_eng` text COLLATE utf8_unicode_ci NOT NULL,
   `subtitulo_esp` text COLLATE utf8_unicode_ci NOT NULL,
@@ -388,12 +383,11 @@ CREATE TABLE IF NOT EXISTS `proyectos` (
   `fecha_modificacion` date NOT NULL,
   `behance` text COLLATE utf8_unicode_ci NOT NULL,
   `meta_titulo_eng` text COLLATE utf8_unicode_ci NOT NULL,
-  `meta_descripcion_eng` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_proyecto`)
+  `meta_descripcion_eng` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=32 ;
 
 --
--- Volcado de datos para la tabla `proyectos`
+-- Dumping data for table `proyectos`
 --
 
 INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_esp`, `subtitulo_eng`, `descripcion_esp`, `descripcion_eng`, `nombre_video`, `nombre_preview`, `nombre_video_hd`, `img_principal`, `orden`, `status`, `mostrar`, `meta_titulo_esp`, `meta_descripcion_esp`, `url_amigable`, `fecha_creacion`, `fecha_modificacion`, `behance`, `meta_titulo_eng`, `meta_descripcion_eng`) VALUES
@@ -407,17 +401,16 @@ INSERT INTO `proyectos` (`id_proyecto`, `titulo_esp`, `titulo_eng`, `subtitulo_e
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proyectos_categorias`
+-- Table structure for table `proyectos_categorias`
 --
 
-CREATE TABLE IF NOT EXISTS `proyectos_categorias` (
+CREATE TABLE `proyectos_categorias` (
   `id_proyecto` int(11) NOT NULL,
-  `id_categoria` int(11) NOT NULL,
-  PRIMARY KEY (`id_proyecto`,`id_categoria`)
+  `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `proyectos_categorias`
+-- Dumping data for table `proyectos_categorias`
 --
 
 INSERT INTO `proyectos_categorias` (`id_proyecto`, `id_categoria`) VALUES
@@ -433,20 +426,19 @@ INSERT INTO `proyectos_categorias` (`id_proyecto`, `id_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `redes_sociales`
+-- Table structure for table `redes_sociales`
 --
 
-CREATE TABLE IF NOT EXISTS `redes_sociales` (
+CREATE TABLE `redes_sociales` (
   `id_redes_sociales` tinyint(1) NOT NULL,
   `facebook` text COLLATE utf8_unicode_ci NOT NULL,
   `twitter` text COLLATE utf8_unicode_ci NOT NULL,
   `vimeo` text COLLATE utf8_unicode_ci NOT NULL,
-  `behance` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_redes_sociales`)
+  `behance` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `redes_sociales`
+-- Dumping data for table `redes_sociales`
 --
 
 INSERT INTO `redes_sociales` (`id_redes_sociales`, `facebook`, `twitter`, `vimeo`, `behance`) VALUES
@@ -455,18 +447,17 @@ INSERT INTO `redes_sociales` (`id_redes_sociales`, `facebook`, `twitter`, `vimeo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `slide_inicio`
+-- Table structure for table `slide_inicio`
 --
 
-CREATE TABLE IF NOT EXISTS `slide_inicio` (
-  `id_imagen` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `slide_inicio` (
+`id_imagen` int(11) NOT NULL,
   `nombre_imagen` text COLLATE utf8_unicode_ci NOT NULL,
-  `orden` int(11) NOT NULL,
-  PRIMARY KEY (`id_imagen`)
+  `orden` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
--- Volcado de datos para la tabla `slide_inicio`
+-- Dumping data for table `slide_inicio`
 --
 
 INSERT INTO `slide_inicio` (`id_imagen`, `nombre_imagen`, `orden`) VALUES
@@ -478,18 +469,17 @@ INSERT INTO `slide_inicio` (`id_imagen`, `nombre_imagen`, `orden`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tiposusuario`
+-- Table structure for table `tiposusuario`
 --
 
-CREATE TABLE IF NOT EXISTS `tiposusuario` (
-  `idtipousuario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tiposusuario` (
+`idtipousuario` int(11) NOT NULL,
   `nomtipousuario` varchar(255) NOT NULL,
-  `status` int(5) NOT NULL,
-  PRIMARY KEY (`idtipousuario`)
+  `status` int(5) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Volcado de datos para la tabla `tiposusuario`
+-- Dumping data for table `tiposusuario`
 --
 
 INSERT INTO `tiposusuario` (`idtipousuario`, `nomtipousuario`, `status`) VALUES
@@ -499,16 +489,16 @@ INSERT INTO `tiposusuario` (`idtipousuario`, `nomtipousuario`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipousuarioxpermiso`
+-- Table structure for table `tipousuarioxpermiso`
 --
 
-CREATE TABLE IF NOT EXISTS `tipousuarioxpermiso` (
+CREATE TABLE `tipousuarioxpermiso` (
   `idtipousuario` int(11) NOT NULL,
   `idpermiso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tipousuarioxpermiso`
+-- Dumping data for table `tipousuarioxpermiso`
 --
 
 INSERT INTO `tipousuarioxpermiso` (`idtipousuario`, `idpermiso`) VALUES
@@ -568,20 +558,19 @@ INSERT INTO `tipousuarioxpermiso` (`idtipousuario`, `idpermiso`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuario` (
+`idusuario` int(11) NOT NULL,
   `nomusuario` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `status` int(5) NOT NULL,
-  `idtipousuario` int(11) NOT NULL,
-  PRIMARY KEY (`idusuario`)
+  `idtipousuario` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`idusuario`, `nomusuario`, `password`, `status`, `idtipousuario`) VALUES
@@ -590,24 +579,180 @@ INSERT INTO `usuario` (`idusuario`, `nomusuario`, `password`, `status`, `idtipou
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `videos_slide`
+-- Table structure for table `videos_slide`
 --
 
-CREATE TABLE IF NOT EXISTS `videos_slide` (
-  `id_video_slide` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `videos_slide` (
+`id_video_slide` int(11) NOT NULL,
   `titulo_video` text COLLATE utf8_unicode_ci NOT NULL,
   `nombre_video` text COLLATE utf8_unicode_ci NOT NULL,
   `nombre_video_hd` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_video_slide`)
+  `link_vimeo` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Volcado de datos para la tabla `videos_slide`
+-- Dumping data for table `videos_slide`
 --
 
-INSERT INTO `videos_slide` (`id_video_slide`, `titulo_video`, `nombre_video`, `nombre_video_hd`) VALUES
-(1, 'MOTION DESIGN REEL 2014', '0b80379e.mp4', '25fb8659.mp4');
+INSERT INTO `videos_slide` (`id_video_slide`, `titulo_video`, `nombre_video`, `nombre_video_hd`, `link_vimeo`) VALUES
+(1, 'MOTION DESIGN REEL 2014', '0b80379e.mp4', '25fb8659.mp4', 'http://vimeo.com/96605375');
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categorias_proyectos`
+--
+ALTER TABLE `categorias_proyectos`
+ ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indexes for table `contenido_marca`
+--
+ALTER TABLE `contenido_marca`
+ ADD PRIMARY KEY (`id_contenidom`);
+
+--
+-- Indexes for table `img_metas`
+--
+ALTER TABLE `img_metas`
+ ADD PRIMARY KEY (`id_img_metas`);
+
+--
+-- Indexes for table `img_proyecto`
+--
+ALTER TABLE `img_proyecto`
+ ADD PRIMARY KEY (`id_img_proyecto`,`id_proyecto`);
+
+--
+-- Indexes for table `links_videos`
+--
+ALTER TABLE `links_videos`
+ ADD PRIMARY KEY (`id_link`,`id_proyecto`);
+
+--
+-- Indexes for table `metas`
+--
+ALTER TABLE `metas`
+ ADD PRIMARY KEY (`id_metas`);
+
+--
+-- Indexes for table `nosotros`
+--
+ALTER TABLE `nosotros`
+ ADD PRIMARY KEY (`id_nosotros`);
+
+--
+-- Indexes for table `pantallas`
+--
+ALTER TABLE `pantallas`
+ ADD PRIMARY KEY (`id_pantallas`);
+
+--
+-- Indexes for table `permiso`
+--
+ALTER TABLE `permiso`
+ ADD PRIMARY KEY (`idpermiso`);
+
+--
+-- Indexes for table `proyectos`
+--
+ALTER TABLE `proyectos`
+ ADD PRIMARY KEY (`id_proyecto`);
+
+--
+-- Indexes for table `proyectos_categorias`
+--
+ALTER TABLE `proyectos_categorias`
+ ADD PRIMARY KEY (`id_proyecto`,`id_categoria`);
+
+--
+-- Indexes for table `redes_sociales`
+--
+ALTER TABLE `redes_sociales`
+ ADD PRIMARY KEY (`id_redes_sociales`);
+
+--
+-- Indexes for table `slide_inicio`
+--
+ALTER TABLE `slide_inicio`
+ ADD PRIMARY KEY (`id_imagen`);
+
+--
+-- Indexes for table `tiposusuario`
+--
+ALTER TABLE `tiposusuario`
+ ADD PRIMARY KEY (`idtipousuario`);
+
+--
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
+ ADD PRIMARY KEY (`idusuario`);
+
+--
+-- Indexes for table `videos_slide`
+--
+ALTER TABLE `videos_slide`
+ ADD PRIMARY KEY (`id_video_slide`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categorias_proyectos`
+--
+ALTER TABLE `categorias_proyectos`
+MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `img_metas`
+--
+ALTER TABLE `img_metas`
+MODIFY `id_img_metas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `img_proyecto`
+--
+ALTER TABLE `img_proyecto`
+MODIFY `id_img_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
+--
+-- AUTO_INCREMENT for table `links_videos`
+--
+ALTER TABLE `links_videos`
+MODIFY `id_link` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `metas`
+--
+ALTER TABLE `metas`
+MODIFY `id_metas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `permiso`
+--
+ALTER TABLE `permiso`
+MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=89;
+--
+-- AUTO_INCREMENT for table `proyectos`
+--
+ALTER TABLE `proyectos`
+MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+--
+-- AUTO_INCREMENT for table `slide_inicio`
+--
+ALTER TABLE `slide_inicio`
+MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `tiposusuario`
+--
+ALTER TABLE `tiposusuario`
+MODIFY `idtipousuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `videos_slide`
+--
+ALTER TABLE `videos_slide`
+MODIFY `id_video_slide` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
