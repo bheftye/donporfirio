@@ -386,7 +386,7 @@ h2{
 
 .listproyectos > a{
 	display: block;
-	border-bottom:solid #fff 2px;
+	/*border-bottom:solid #fff 2px;*/
 }
 
 .fondo_proyectos{
