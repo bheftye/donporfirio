@@ -15,6 +15,8 @@ include_once('lang/'.$idioma.'.php');
 include_once('panel/clases/metas.php');
 $metas = new metas(1);
 $metas -> obtener_metas();
+$metas -> listar_img_secundarias_metas();
+$imagenes_secundarias = $metas -> lista_imagenes_secundarias;
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,12 +29,10 @@ $metas -> obtener_metas();
         <meta property="og:title" content="<?=$metas -> meta_titulo?>" /> <!-- En el caso de un portafolio, se pone el titulo del Portafolio, -->
         <meta property="og:url" content="<?=mypath?>" /> <!-- Este es Link que Facebook Tomara, por eso le pasamos el ID, si es un index o nosotros, solo va la pagina EJ: locker.com.mx -->
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="<?=$metas -> meta_descripcion?> -->
-        <meta property="og:image" content="<?=mypath?>img/logo.png"/>
-        <meta property="og:image" content="<?=mypath?>img/aboutbg.jpg"/>
-        <meta property="og:image" content="<?=mypath?>imgInicio/6f1b6cc2.jpg"/>
-        <meta property="og:image" content="<?=mypath?>imgInicio/a2cf7402.jpg"/>
-        <meta property="og:image" content="<?=mypath?>imgInicio/eb75f786.jpg"/>
+        <meta property="og:description" content="<?=$metas -> meta_descripcion;?>">
+        <?php foreach ($imagenes_secundarias as $imagen) {
+           echo '<meta property="og:image" content="'.mypath.'imgMetas/secundarias/'.$imagen["ruta"].'"/>';
+        }?>
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="<?=$metas -> meta_empresa?>" /> <!-- Nombre de la Empresa -->
 

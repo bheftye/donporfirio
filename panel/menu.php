@@ -17,5 +17,8 @@
                 <li <?php if ($page == "formredsocial.php"){ echo "class='active'";} ?>><a href="formredsocial.php">Redes Sociales</a>
                 </li>
                 <hr class="hrmenu">
+                <li <?php if ($page == "formmetas.php"){ echo "class='active'";} ?>><a href="formmetas.php">Meta Tags</a>
+                </li>
+                <hr class="hrmenu">
             </ul>
         </div>

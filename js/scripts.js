@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
+var mypath ='http://localhost:8888/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -249,7 +249,8 @@ function openmenu(){
 		if($(".hometitle").is(":visible")){
 			$("#logobottom_2").css({bottom:"10px", position:"absolute"});
 		}
-		
+		$(".pmenu").removeClass("active");
+		$(".mwork").addClass("active");
 	}
 	else{
 		closemenu();
@@ -284,19 +285,6 @@ function openvimeo(){
 function closemenu(){
 	$(".mwork").removeClass("active");
 
-	if($(".hometitle").is(":visible")){
-		$(".mhome").addClass("active");
-	}
-
-	if($(".about").is(":visible")){
-		$(".mabout").addClass("active");
-	}
-
-	if($(".proyecto").is(":visible")){
-		$(".mwork").addClass("active");
-	}
-
-
 	if(viewportWidth>=768){
 		$(".menuright").animate({"right":"-60%"},100);
 	}
@@ -305,6 +293,18 @@ function closemenu(){
 	}
 	$(".menuright").removeClass("mabierto");
 	$(".menuright").addClass("mcerrado");
+
+	if($(".hometitle").is(":visible")){
+		$(".mhome").addClass("active");
+	}
+	
+	if($(".about").is(":visible")){
+		$(".mabout").addClass("active");
+	}
+
+	if($(".proyecto").is(":visible")){
+		$(".mwork").addClass("active");
+	}
 }
 
 function closegallery(){
@@ -355,6 +355,8 @@ function viewcontact(){
 			}
 			$(".aboutbg").animate({"top":"-400px"},600);
 		}
+		$(".pmenu").removeClass("active");
+		$(".mcontact").addClass("active");
 	}
 	else{
 		hidecontact();
@@ -385,6 +387,19 @@ function hidecontact(){
 	}
 	$("#contacto").removeClass("cabierto");
 	$("#contacto").addClass("ccerrado");
+
+	$(".pmenu").removeClass("active");
+	if($(".hometitle").is(":visible")){
+		$(".mhome").addClass("active");
+	}
+	
+	if($(".about").is(":visible")){
+		$(".mabout").addClass("active");
+	}
+
+	if($(".proyecto").is(":visible")){
+		$(".mwork").addClass("active");
+	}
 }/*
 function changecursor(){
 	console.log("cursor cambiado");
@@ -598,8 +613,7 @@ function verhome(){
 		//$('.imgloading').show();
 		//$('.imgloading2').show();
 		playslider();
-		$(".pmenu").removeClass("active");
-		$(".mhome").addClass("active");
+		
 		$("#logobottom_2").css({bottom:"10px", position:"absolute"});
 		$(".bgall").fadeOut(600);
 		$(".videoproyecto").empty();
@@ -618,6 +632,8 @@ function verhome(){
 		$(".hometitle").delay(600).fadeIn(600,function(){
 			bajartituloH();
 			centervertH();
+			$(".pmenu").removeClass("active");
+			$(".mhome").addClass("active");
 			/*$('.imgloading2').hide(function(){
 				$(".loader").animate({"top":"-100%"},600);
 				$(".loader2").animate({"left":"-100%"},600);
@@ -857,7 +873,8 @@ function shareTwitter(){
 }
 function sharePinterest(){
   	window.open("https://www.pinterest.com/pin/create/button/?url="+encodeURIComponent(url)+"&description="+social_title+"&media="+encodeURIComponent(social_img) , '_blank');
-    console.log(social_description);}
+    console.log(social_description);
+}
 
 $(document).ready(function(){
 	royal();

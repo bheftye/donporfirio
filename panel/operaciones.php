@@ -105,6 +105,44 @@ switch($operaciones){
 		header('location: formredsocial.php?success=2');
 	break;
 	/***********REDES SOCIALES***************/
+
+	/***********META TAGS***************/
+	case 'modificar_meta_tags':
+		$meta_titulo = (isset($_REQUEST['meta_titulo']))? $_REQUEST['meta_titulo'] : "";
+		$meta_descripcion = (isset($_REQUEST['meta_descripcion']))? $_REQUEST['meta_descripcion'] : "";
+		$meta_empresa = (isset($_REQUEST['meta_empresa']))? $_REQUEST['meta_empresa'] : "";
+
+		$metas = new metas(1, $meta_titulo, $meta_descripcion, $meta_empresa);
+		$metas -> modificar_metas();
+
+		if (isset($_FILES['archivo2']['name'][0])) {
+				if ($_FILES['archivo2']['name'][0]!=''){
+			 		$tot3 = count($_FILES["archivo2"]["size"]);
+	         		for ($i = 0; $i < $tot3; $i++){
+	         			$extension=$_FILES['archivo2']['name'][$i];
+	         			$name = $metas -> obtenerExtensionArchivo($extension); 
+	            		$tmp_name = $_FILES["archivo2"]["tmp_name"][$i]; 
+	            		$metas -> insertar_img_secundaria_metas("",$name,$tmp_name);       
+	            	}
+				}
+			}
+
+			if(isset($_FILES['archivo3']['name'])){
+				$tot3 = count($_FILES['archivo3']['name']);
+				for($i = 0; $i < $tot3; $i++){
+					if ($_FILES['archivo3']['error'][$i] == 0 and $_FILES['archivo3']['name'][$i] != ''){
+						$extension=$_FILES['archivo3']['name'][$i];
+		         		$name = $metas->obtenerExtensionArchivo($extension); 
+		            	$tmp_name = $_FILES["archivo3"]["tmp_name"][$i]; 
+		            	$metas -> modificar_img_secundaria_metas($_REQUEST['id_imagen'][$i],"", $name, $tmp_name);  
+					}			
+				}	
+			}    
+
+		header('location: formmetas.php?success=2');
+	break;
+	/***********META TAGS***************/
+
 	
 	/**********************************************************
 	* Procesos de Usuarios
