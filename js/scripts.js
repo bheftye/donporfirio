@@ -1,4 +1,4 @@
-var mypath ='http://localhost:8888/donporfirio/'; 
+var mypath ='http://localhost:8080/donporfirio2/donporfirio/'; 
 var resultadonext ="";
 var resultadoprev ="";
 var idnext ="";
@@ -251,9 +251,11 @@ function centervertH(){
 }
 
 function hidecursor() {
-    $('#fullscreenvideo').css({cursor: 'none'});
-    $('#fullscreenvideo2').css({cursor: 'none'});
-    $('#clsfull').hide();
+	if(ipad==false){
+	    $('#fullscreenvideo').css({cursor: 'none'});
+	    $('#fullscreenvideo2').css({cursor: 'none'});
+	    $('#clsfull').hide();
+   }
 }
 
 function openmenu(){

@@ -44,9 +44,22 @@
 <div id="slideproy" class="bgall bgproy"></div>
 <div id="fullscreenvideo">
 	<div id="clsfull" onclick="hidehd()"><span style="margin-right:15px; margin-top:2px;"><?=CLOSE?></span> <img src="<?=mypath?>img/cls2.png" /></div>
+<?php
+if(strstr($_SERVER['HTTP_USER_AGENT'],'Android') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPad'))
+{
+?>
+	<div style="position: absolute; right: 0; bottom: 0; width: 100%; height: 100%; " >
+		<iframe id="player<?=$video_id?>" src="//player.vimeo.com/video/<?=$video_id?>?api=1&player_id=player<?=$video_id?>" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+<?php
+}else{
+?>
 	<video id="bgvid2" loop>
 		<source src="<?=mypath;?>videosSlide/<?=$src_hd;?>" id="mp4Source"  type="video/mp4">
 	</video>
+<?php
+}
+?>
 </div>
 <?php
 if(strstr($_SERVER['HTTP_USER_AGENT'],'Android') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPad')) {
