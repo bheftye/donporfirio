@@ -12,6 +12,9 @@ function __autoload($nombre_clase) {
         $idioma = $_SESSION["lang"];
 
 include_once('lang/'.$idioma.'.php');
+include_once('panel/clases/metas.php');
+$metas = new metas(1);
+$metas -> obtener_metas();
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,13 +24,17 @@ include_once('lang/'.$idioma.'.php');
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="keywords" content="Locker, Diseño Web, Programacion Web, Redes Sociales, Publicidad, Imagen, Responsive, Webs, PHP, HTML5, CSS3, " /> <!-- IMPORTANTE -->
         <meta name="author" content="Don Porfirio" /><!-- Aqui siempre va Locker AD -->
-        <meta property="og:title" content="Website - Don Porfirio" /> <!-- En el caso de un portafolio, se pone el titulo del Portafolio, -->
+        <meta property="og:title" content="<?=$metas -> meta_titulo?>" /> <!-- En el caso de un portafolio, se pone el titulo del Portafolio, -->
         <meta property="og:url" content="<?=mypath?>" /> <!-- Este es Link que Facebook Tomara, por eso le pasamos el ID, si es un index o nosotros, solo va la pagina EJ: locker.com.mx -->
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="Don Porfirio is a Broadcast Design and Motion Graphics Studio with a great passion for design." /><!-- Descripción de Algún portafolio o proyecto, si es Index o Nosotros, poner Breve Descripción. -->
+        <meta property="og:description" content="<?=$metas -> meta_descripcion?> -->
+        <meta property="og:image" content="<?=mypath?>img/logo.png"/>
         <meta property="og:image" content="<?=mypath?>img/aboutbg.jpg"/>
+        <meta property="og:image" content="<?=mypath?>imgInicio/6f1b6cc2.jpg"/>
+        <meta property="og:image" content="<?=mypath?>imgInicio/a2cf7402.jpg"/>
+        <meta property="og:image" content="<?=mypath?>imgInicio/eb75f786.jpg"/>
         <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="Don Porfirio" /> <!-- Nombre de la Empresa -->
+        <meta property="og:site_name" content="<?=$metas -> meta_empresa?>" /> <!-- Nombre de la Empresa -->
 
         <link rel='shortcut icon' href='favicon.ico'> 
         <link href="<?=mypath?>css/bootstrap.css" rel="stylesheet">

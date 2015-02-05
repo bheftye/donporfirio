@@ -604,6 +604,10 @@ button.redesb:focus {
 	outline: 0;
 	box-shadow: none;
 }
+button.redesc{
+	padding:3px 15px;
+	width:33.3%;
+}
 .redesb fa{
 	font-size:15px;
 }
@@ -624,6 +628,18 @@ button.redesb:hover{
 	}
 	.redesb fa{
 		font-size:12px;
+	}
+}
+@media(max-width:1200px){
+	button.redesc{
+		padding:0 15px;
+		width:33.3%;
+	}
+}
+@media(max-width:767px){
+	button.redesc{
+		padding:9px 15px;
+		width:33.3%;
 	}
 }
 /********************************PROYECTOS*******************************************/

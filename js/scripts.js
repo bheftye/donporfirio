@@ -746,9 +746,9 @@ function verproyecto(id){
 			html+='<div class="col-sm-3 col-xs-6 proylink"><button class="proybutton" onclick="opengallery()">'+style_frame+'</button></div>';
 			html+='<div class="col-sm-3 col-xs-6 proylink"><a href="'+resultado[0].behance+'" target="_blank"><button class="proybutton">BEHANCE</button></a></div>';
 			html+='<div class="col-sm-3 col-xs-6 proylink">'+
-						'<button class="redesb" onclick="shareTwitter()" style="padding:3px 15px;width:33.3%;"> <i class="fa fa-twitter"></i></button>'+
-						'<button class="redesb" onclick="shareFacebook()" style="padding:3px 15px;width:33.3%;border-left:solid 1px #fff;"> <i class="fa fa-facebook"></i></button>'+
-						'<button class="redesb" onclick="sharePinterest()" style="padding:3px 15px;width:33.3%;border-left:solid 1px #fff;border-right:solid 1px #fff;"> <i class="fa fa-pinterest"></i></button>';
+						'<button class="redesb redesc" onclick="shareTwitter()"> <i class="fa fa-twitter"></i></button>'+
+						'<button class="redesb redesc" onclick="shareFacebook()" style="border-left:solid 1px #fff;"> <i class="fa fa-facebook"></i></button>'+
+						'<button class="redesb redesc" onclick="sharePinterest()" style="border-left:solid 1px #fff;border-right:solid 1px #fff;"> <i class="fa fa-pinterest"></i></button>';
 			html+='</div>';
 			html+='<div class="row" style="margin-top:-1px;">';
 			html+='<div class="col-sm-6 col-xs-12 proylink"><a href="#'+resultadoprev+'" onclick="verproyecto('+idprev+')"><button class="proybutton">'+pprev+'</button></a></div>';
@@ -992,8 +992,10 @@ function showpreview(id,vp){
 	html+='</video>';
 	html+='</div>';
 	$(".videono"+id).append(html).delay(600).fadeIn(600);*/
-	$(".videono"+id).fadeIn(600);
-	$(".fillWidth")[0].play();
+	if(ipad==false){
+		$(".videono"+id).fadeIn(600);
+		$(".fillWidth")[0].play();
+	}
 	//$(".videono"+id).fadeIn(600);
 }
 
@@ -1002,8 +1004,10 @@ function hidepreview(id){
 	/*$(".videono"+id).fadeOut(600, function(){
 		$(".videono"+id).empty();
 	});*/
-	$(".videono"+id).fadeOut(600);
-	$(".fillWidth")[0].pause();
+	if(ipad==false){
+		$(".videono"+id).fadeOut(600);
+		$(".fillWidth")[0].pause();
+	}
 }
 
 function lxcategoria(idcat){
