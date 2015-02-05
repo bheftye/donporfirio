@@ -24,6 +24,16 @@
 	$url_behance = $redes_sociales -> behance;
 	$url_vimeo = $redes_sociales -> vimeo;
 
+	$id=1;
+	$video_slide2 = new video_slide($id);
+	$video_slide2 -> obtener_video_slide();
+
+	$link_video = $video_slide2 -> link_vimeo;
+	$splitted_link = explode(".com/"), $link_video);
+    $video_id = $splitted_link[1];
+	$html_video ='<div style="height:auto;width:100%;" >'+
+	                '<iframe id="player'.$video_id.'" src="//player.vimeo.com/video/'.$video_id.'?api=1&player_id=player'.$video_id.'" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'+
+	            '</div>';
 
 ?>
 <div class="bgall aboutbg"></div>
