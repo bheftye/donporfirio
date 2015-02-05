@@ -9,6 +9,8 @@ var social_img = "";
 var social_description = "";
 var social_title = "";
 var url = "";
+var total_proyectos_escondidos = 0;
+var proyectos_escondidos = new Array();
 
 
 $(window).resize(function() {
@@ -88,6 +90,23 @@ function bajartituloP(){
 	}
 }
 
+function showNewProyects(){
+    proyectos_escondidos = $(".img-hidden");
+    total_proyectos_escondidos = $(proyectos_escondidos).size();
+    showProyect(0);
+}
+
+function showProyect(index){
+        if(index < total_proyectos_escondidos){
+            var proyecto_escondido = proyectos_escondidos[index];
+            $(proyecto_escondido).hide().delay(500);
+            $(proyecto_escondido).fadeIn("slow");
+            $(proyecto_escondido).removeClass("img-hidden");
+            setTimeout(function(){showProyect(index+1)}, 500);
+        }
+        
+}
+
 function royal(){
 	 $('#content-slider-1').royalSlider({
 	    autoHeight: true,
@@ -130,7 +149,7 @@ function royal2(){
 	    usePreloader: false,
 	    autoPlay: {
     		// autoplay options go gere
-    		enabled: true,
+    		enabled: false,
     		delay: 5000,
     		pauseOnHover: false
     	}
@@ -1058,8 +1077,8 @@ function lxcategoria(idcat){
 						var video_preview = resultado_cat[x].nombre_preview;
 						console.log(video_preview);
 						var vp = "'"+video_preview+"'";
-	                	html+='<a href="#'+resultado_cat[x].url_amigable+'" style="display:block;" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+','+vp+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >';
-						html+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
+	                	html+='<a class="img-hidden" href="#'+resultado_cat[x].url_amigable+'" style="display:block;" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+','+vp+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >';
+						html+='<img style="width:100%; height:100%; margin: 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
 						html+='<div class="fcategoria"></div>';
 						html+='<div class="cattitulos">';
 						html+='<h4>'+titulo_proyecto+'</h4>';
@@ -1073,7 +1092,7 @@ function lxcategoria(idcat){
 							html+='Your browser does not support the video tag. I suggest you upgrade your browser.';
 							html+='</video>';
 						}else{
-							html+='<img style="width:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
+							html+='<img style="width:100%; height:100%; margin: 1px 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
 						}
 						html+='</div>';
 						html+='</div>';
@@ -1086,7 +1105,9 @@ function lxcategoria(idcat){
                 		$(".listproyectos").empty().append(html).delay(400).animate({left:"0"},800);
                 	})*/
 					$(".listproyectos").fadeOut("fast",function(){
-						$(".listproyectos").empty().append(html).delay(400).fadeIn("slow");
+						$(".listproyectos").empty().append(html).delay(400).show(function(){
+							showNewProyects();
+						});
 					});
                 	//$(".listproyectos").delay(600).animate({marginLeft:"0"},600);         	
                 }

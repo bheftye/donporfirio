@@ -154,6 +154,9 @@ h2{
 	/*background:#000;*/
 	color:#fff;
 }
+.img-hidden{
+	display: none;
+}
 @media(max-width:1199px){
 	h1{
 		font-size:90px;
@@ -345,7 +348,8 @@ h2{
 	color:#f90e32;
 }
 .proyectofondo{
-	margin: 1px 0;
+	/*margin: 1px 0;*/
+	border: 1px 0 solid #fff;
 	position:relative;
 }
 .vidpreview{
@@ -940,6 +944,9 @@ button.redes:hover{
 	width: 100%;
 	height:100%;
 	background:#000;
+}
+.rsOvelflow{
+	width:100% !important;
 }
 .contentSlider,
 .contentSlider .rsOverflow,

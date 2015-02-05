@@ -39,7 +39,7 @@
 	</video>
 </div>
 <?php
-if(strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPad')) {
+if(strstr($_SERVER['HTTP_USER_AGENT'],'Android') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod') || strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPad')) {
 //if(1==1) {
 ?>	
 <div id="content-slider-1" class="royalSlider contentSlider rsDefault bgall bghome">
@@ -243,7 +243,7 @@ else{
 			$vp = "'".$video_preview."'";
 			echo '<a href="#'.$un_proyecto["url_amigable"].'" style="display:block;" onclick="verproyecto('.$un_proyecto["id_proyecto"].')" onmouseenter="showpreview('.$un_proyecto["id_proyecto"].','.$vp.')" onmouseleave="hidepreview('.$un_proyecto["id_proyecto"].')">
 					<div style="max-height:200px; overflow:hidden; position:relative;"  class="proyectofondo" >
-					<img style="width:100%; margin: 1px 0;" src="'.mypath.'imgProyectos/'.$un_proyecto["img_principal"].'" />
+					<img style="width:100%; height:100%; margin: 0;" src="'.mypath.'imgProyectos/'.$un_proyecto["img_principal"].'" />
 					<div class="fcategoria"></div>
 					<div class="cattitulos">
 					<h4>'.$subtitulo_proyecto.'</h4>
@@ -257,7 +257,7 @@ else{
 					Your browser does not support the video tag. I suggest you upgrade your browser.
 					</video>';
 			}else{
-					echo '<img style="width:100%; margin: 1px 0;" src="'.mypath.'imgProyectos/'.$un_proyecto["img_principal"].'" />';
+					echo '<img style="width:100%; height:100%; margin: 1px 0;" src="'.mypath.'imgProyectos/'.$un_proyecto["img_principal"].'" />';
 			}
 			echo '</div>
 					</div>
