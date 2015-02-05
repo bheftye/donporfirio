@@ -1077,7 +1077,7 @@ function lxcategoria(idcat){
 						var video_preview = resultado_cat[x].nombre_preview;
 						console.log(video_preview);
 						var vp = "'"+video_preview+"'";
-	                	html+='<a class="img-hidden" href="#'+resultado_cat[x].url_amigable+'" style="display:block;" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+','+vp+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo" >';
+	                	html+='<a href="#'+resultado_cat[x].url_amigable+'" onclick="verproyecto('+resultado_cat[x].id_proyecto+')" onmouseenter="showpreview('+resultado_cat[x].id_proyecto+','+vp+')" onmouseleave="hidepreview('+resultado_cat[x].id_proyecto+')"><div style="max-height:200px; overflow:hidden;"  class="proyectofondo img-hidden" >';
 						html+='<img style="width:100%; height:100%; margin: 0;" src="'+mypath+'imgProyectos/'+resultado_cat[x].img_principal+'" />';
 						html+='<div class="fcategoria"></div>';
 						html+='<div class="cattitulos">';
