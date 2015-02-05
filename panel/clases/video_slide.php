@@ -14,13 +14,14 @@ class video_slide extends Archivo {
 	var $titulo_video;
 	var $nombre_video;
 	var $nombre_video_hd;
+	var $link_vimeo;
 	var $directorio = '../videosSlide/';
 	var $ruta_final;
 	var $ruta_temporal;
 	var $ruta_temporal_2;
 	var $imagenes_slide;
 	
-	function video_slide($id_video_slide = 0, $nombre_video = '', $ruta_temporal = '',$nombre_video_hd = '', $ruta_temporal_hd = '', $titulo_video = '') 
+	function video_slide($id_video_slide = 0, $link_vimeo = "" ,$nombre_video = '', $ruta_temporal = '',$nombre_video_hd = '', $ruta_temporal_hd = '', $titulo_video = '') 
 	{
 		$this -> id_video_slide = $id_video_slide;
 		if ($nombre_video != '') {
@@ -36,6 +37,7 @@ class video_slide extends Archivo {
 		}
 
 		$this -> titulo_video = $titulo_video;
+		$this -> link_vimeo = $link_vimeo;
 		
 		$this -> ruta_final = $this -> directorio . $this -> nombre_video;
 		$this -> ruta_temporal = $ruta_temporal;
@@ -67,7 +69,8 @@ class video_slide extends Archivo {
 		$fecha_modificacion = date("Y-m-d");
 		$sql = "UPDATE videos_slide set 
 		".$sql.$sql2."
-		titulo_video ='".htmlspecialchars($this -> titulo_video, ENT_QUOTES)."'
+		titulo_video ='".htmlspecialchars($this -> titulo_video, ENT_QUOTES)."',
+		link_vimeo = '".$this -> link_vimeo."'
 		where id_video_slide =".$this -> id_video_slide.";";
 		$con = new conexion();
 		$con -> ejecutar_sentencia($sql);
@@ -97,6 +100,7 @@ class video_slide extends Archivo {
 			$this -> nombre_video_hd = $fila['nombre_video_hd'];
 			$this -> titulo_video = htmlspecialchars_decode($fila['titulo_video']);
 			$this -> ruta_final = $this -> directorio . $fila['nombre_video'];
+			$this -> link_vimeo =  $fila['link_vimeo'];
 		}
 	}	
 	function recuperar_video_slide() {
@@ -109,6 +113,7 @@ class video_slide extends Archivo {
 			$this -> nombre_video_hd = $fila['nombre_video_hd'];
 			$this -> titulo_video = htmlspecialchars_decode($fila['titulo_video']);
 			$this -> ruta_final = $this -> directorio . $fila['nombre_video'];
+			$this -> link_vimeo =  $fila['link_vimeo'];
 		}
 	}
 
@@ -122,6 +127,7 @@ class video_slide extends Archivo {
 			$registro=array();
 			$registro['id_video_slide']=$fila['id_video_slide'];
 			$registro['nombre_video']=$fila['nombre_video'];
+			$registro['link_vimeo']=$fila['link_vimeo'];
 			$registro['nombre_video_hd']=$fila['nombre_video_hd'];
 			$registro['titulo_video']=$fila['titulo_video'];
 			array_push($resultados, $registro);

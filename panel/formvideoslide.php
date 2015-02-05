@@ -89,9 +89,13 @@ include'menu.php';//Contiene a todo el menu.
                         <div class="tab-content">
                                 <div class="tab-pane active" id="vid">
                                 	<div id="titulo_video" class="input-group espacios">
-			                        	<span class="input-group-addon es">Título del video</span>
+			                        	<span class="input-group-addon es">Título del video*</span>
 			                        	<input type="text"  name="titulo_video" class="form-control" placeholder="Ingrese el titulo aquí..." value="<?=$temporal->titulo_video?>">
 		                        	</div>
+		                        	<div id="link_vimeo" class="input-group espacios">
+	                                    <span class="input-group-addon es">Link Video Vimeo*</span>
+	                                    <input type="text" name="link_vimeo" id="input_link_video" value="<?=$temporal->link_vimeo?>" class="form-control" placeholder="Introduce el link aqui.... " >
+	                                </div>
 
 		                        <br>
 		                        <div class="col-lg-6">

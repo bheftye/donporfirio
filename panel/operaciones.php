@@ -757,8 +757,9 @@ switch($operaciones){
 				$nameP_hd = "";
 				$tmpnameP_hd = "";
 			}
+
 	
-			$video_slide = new video_slide(1,$nameP, $tmpnameP, $nameP_hd, $tmpnameP_hd ,$_REQUEST['titulo_video']);
+			$video_slide = new video_slide(1,$_REQUEST['link_vimeo'], $nameP, $tmpnameP, $nameP_hd, $tmpnameP_hd ,$_REQUEST['titulo_video']);
 			$video_slide -> modificar_video_slide();
 
 			if (isset($_FILES['archivo2']['name'][0])) {
