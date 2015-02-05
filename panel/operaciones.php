@@ -10,6 +10,9 @@ function __autoload($nombre_clase) {
     include 'clases/'.$nombre_clase .'.php';
 }
 
+include_once("clases/bitly.php");
+include_once("clases/socialconvert.php");
+
 $operaciones=$_REQUEST['operaciones'];
 switch($operaciones){
 	case 'ordenar':
@@ -408,6 +411,8 @@ switch($operaciones){
 		$categorias = (isset($_REQUEST['categorias']))? $_REQUEST['categorias'] : array();
 		$links_videos = (isset($_REQUEST['links_videos']))? $_REQUEST['links_videos'] : array();
 
+		$bitly_url = "";
+
 
 		if(isset($_FILES['archivo']['name']))
 		{
@@ -443,8 +448,7 @@ switch($operaciones){
 		}
 		$nombre_video_hd = (isset($_REQUEST['nombre_video_hd']))? $_REQUEST['nombre_video_hd'] : "";
 		
-	 				    
-		//	function proyecto($id_proyecto = 0, $img_principal = '', $ruta_temporal = '',$nombre_video = "", $ruta_temporal2 = "", $nombre_preview = "", $ruta_temporal3 = "", $titulo_esp = '',$titulo_eng = '',$subtitulo_esp = '',$subtitulo_eng = '', $descripcion_esp = '', $descripcion_eng = '', $behance = "",$url_amigable = '', $meta_titulo_esp = "", $meta_descripcion_esp = "", $meta_titulo_eng = "", $meta_descripcion_eng = "", $mostrar = 0, $status = 1) 
+
 
 		$proyecto = new proyecto(0, $img_principal, $img_principal_temporal, $nombre_video, $nombre_video_temporal, $nombre_preview, $nombre_preview_temporal, $nombre_video_hd, $titulo_esp, $titulo_eng ,$subtitulo_esp, $subtitulo_eng, $descripcion_esp, $descripcion_eng, $behance, $titulo_esp, $meta_titulo_esp, $meta_descripcion_esp, $meta_titulo_eng, $meta_descripcion_eng);
 		$proyecto -> insertar_proyecto();
@@ -452,6 +456,12 @@ switch($operaciones){
 			$success = 0;
 		}
 		else{
+			$url_bitly = "http://clientes.locker.com.mx/donporfirio/#".$proyecto -> url_amigable;
+			$url_bitly = autolink($url_bitly);
+
+			$proyecto  -> url_bitly = $url_bitly;
+			$proyecto -> actualizar_url_bitly();
+
 			$success = 1;
 			if (isset($_FILES['archivo2']['name'][0])) {
 				if ($_FILES['archivo2']['name'][0]!=''){
@@ -540,6 +550,12 @@ switch($operaciones){
 		
 		if($proyecto -> id_proyecto != 0){
 			$proyecto -> modificar_proyecto();
+
+			$url_bitly = "http://clientes.locker.com.mx/donporfirio/#".$proyecto -> url_amigable;
+			$url_bitly = autolink($url_bitly);
+			
+			$proyecto  -> url_bitly = $url_bitly;
+			$proyecto -> actualizar_url_bitly();
 		
 			if (isset($_FILES['archivo2']['name'][0])) {
 				if ($_FILES['archivo2']['name'][0]!=''){
