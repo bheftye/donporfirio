@@ -99,10 +99,10 @@ function showNewProyects(){
 function showProyect(index){
         if(index < total_proyectos_escondidos){
             var proyecto_escondido = proyectos_escondidos[index];
-            $(proyecto_escondido).hide().delay(500);
+            $(proyecto_escondido).hide().delay(300);
             $(proyecto_escondido).fadeIn("slow");
             $(proyecto_escondido).removeClass("img-hidden");
-            setTimeout(function(){showProyect(index+1)}, 500);
+            setTimeout(function(){showProyect(index+1)}, 300);
         }
         
 }
