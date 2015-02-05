@@ -764,7 +764,7 @@ function verproyecto(id){
 			social_title = titulo;
 			social_description = meta_descripcion;
 			social_img = mypath+"imgProyectos/"+img_principal;
-			url = window.location.href;
+			url = resultado[0].url_bitly;
 			console.log(url);
 	
 			html='';

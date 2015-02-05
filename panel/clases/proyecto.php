@@ -23,6 +23,7 @@ class proyecto extends Archivo {
 	var $descripcion_eng;
 	var $behance;
 	var $url_amigable;
+	var $url_bitly;
 	var $fecha_creacion;
 	var $fecha_modificacion;
 	var $mostrar;
@@ -131,6 +132,9 @@ class proyecto extends Archivo {
 		'".$fechaCreacion."',
 		0,
 		1);";
+		
+		$this -> url_amigable = $url;
+
 		$con = new conexion();
 		$this -> id_proyecto = $con -> ejecutar_sentencia($sql);
 		$this -> subir_archivo();
@@ -198,6 +202,9 @@ class proyecto extends Archivo {
 		fecha_modificacion ='".$fecha_modificacion."',
 		url_amigable='".$url."' 
 		where id_proyecto =".$this -> id_proyecto.";";
+
+		$this -> url_amigable = $url;
+
 		$con = new conexion();
 		$con -> ejecutar_sentencia($sql);
 		$this -> subir_archivo();
@@ -214,6 +221,12 @@ class proyecto extends Archivo {
 			$this -> subir_archivo();
 		}
 
+	}
+
+	function actualizar_url_bitly() {
+		$sql = "UPDATE proyectos SET url_bitly = '".$this -> url_bitly."' WHERE id_proyecto =" . $this -> id_proyecto . ";";
+		$con = new conexion();
+		$con -> ejecutar_sentencia($sql);
 	}
 
 	function borrar_video(){
@@ -248,6 +261,7 @@ class proyecto extends Archivo {
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
 			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['url_bitly'] = $fila['url_bitly'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -393,6 +407,7 @@ class proyecto extends Archivo {
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
 			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['url_bitly'] = $fila['url_bitly'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -426,6 +441,7 @@ class proyecto extends Archivo {
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
 			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['url_bitly'] = $fila['url_bitly'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -460,6 +476,7 @@ class proyecto extends Archivo {
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
 			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['url_bitly'] = $fila['url_bitly'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -494,6 +511,7 @@ class proyecto extends Archivo {
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
 			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['url_bitly'] = $fila['url_bitly'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -529,6 +547,7 @@ class proyecto extends Archivo {
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
 			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['url_bitly'] = $fila['url_bitly'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -562,6 +581,7 @@ class proyecto extends Archivo {
 			$this -> nombre_video = $fila["nombre_video"];
 			$this -> nombre_preview = $fila["nombre_preview"];
 			$this -> nombre_video_hd = $fila["nombre_video_hd"];
+			$this -> url_bitly = $fila['url_bitly'];
 			$this -> titulo_esp = htmlspecialchars_decode($fila['titulo_esp']);
 			$this -> titulo_eng = htmlspecialchars_decode($fila['titulo_eng']);
 			$this -> subtitulo_esp = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -595,6 +615,7 @@ class proyecto extends Archivo {
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
 			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['url_bitly'] = $fila['url_bitly'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -631,6 +652,7 @@ class proyecto extends Archivo {
 			$this -> nombre_video = $fila["nombre_video"];
 			$this -> nombre_preview = $fila["nombre_preview"];
 			$this -> nombre_video_hd = $fila["nombre_video_hd"];
+			$this -> url_bitly = $fila['url_bitly'];
 			$this -> titulo_esp = htmlspecialchars_decode($fila['titulo_esp']);
 			$this -> titulo_eng = htmlspecialchars_decode($fila['titulo_eng']);
 			$this -> subtitulo_esp = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -663,6 +685,7 @@ class proyecto extends Archivo {
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
 			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['url_bitly'] = $fila['url_bitly'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
@@ -763,6 +786,7 @@ class proyecto extends Archivo {
 			$registro['nombre_video'] = $fila['nombre_video'];
 			$registro['nombre_preview'] = $fila['nombre_preview'];
 			$registro['nombre_video_hd'] = $fila['nombre_video_hd'];
+			$registro['url_bitly'] = $fila['url_bitly'];
 			$registro['titulo_esp'] = htmlspecialchars_decode($fila['titulo_esp']);
 			$registro['titulo_eng'] = htmlspecialchars_decode($fila['titulo_eng']);
 			$registro['subtitulo_esp'] = htmlspecialchars_decode($fila['subtitulo_esp']);
