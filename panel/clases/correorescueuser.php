@@ -7,7 +7,7 @@ class correorescueuser extends correo
 {
     var $userend;
     var $datosuserend;
-    var $path  = "http://clientes.locker.com.mx/notmonday/";
+    var $path  = "http://clientes.locker.com.mx/donporfirio/";
 
     function correorescueuser($iduserend)
     {    
@@ -19,7 +19,7 @@ class correorescueuser extends correo
     
     function genera_asunto()
     {
-        $this->correo->Subject='Email Activation NotMonday';
+        $this->correo->Subject='Email Activation Don Porfirio';
     }
     
     function genera_destino()
@@ -36,7 +36,7 @@ $this->correo->Body = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http:/
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <title>Message NotMonday</title> <!-- Nombre del sitio web -->
+        <title>Message Don Porfirio</title> <!-- Nombre del sitio web -->
         
 
         <style> 
@@ -95,8 +95,8 @@ $this->correo->Body = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http:/
                         <tr>
                             <td align="center" class="logo" style="border-bottom:4px solid #333333;padding:7px 0">
                                 <!-- Nombre del sitio web, url de la página, ruta del logo de la página y otra ves el nombre.-->
-                                <a title="NotMonday" href="'.$this->path.'" style="color:#337ff1">
-                                    <img src="'.$this->path.'img/logo.png" alt="NotMonday" />
+                                <a title="Don Porfirio" href="'.$this->path.'" style="color:#337ff1">
+                                    <img src="'.$this->path.'img/logo.png" alt="Don Porfirio" />
                                 </a>
                             </td>
                         </tr>
@@ -140,7 +140,7 @@ $this->correo->Body = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http:/
                         <tr>
                             <td class="footer" style="border-top:4px solid #333333;padding:7px 0">
                                         <!-- url y nombre de la página web -->
-                                <span><a href="'.$this->path.'" style="color:#337ff1">NotMonday</a></span>
+                                <span><a href="'.$this->path.'" style="color:#337ff1">Don Porfirio</a></span>
                             </td>
                         </tr>
                     </table>

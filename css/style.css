@@ -637,13 +637,19 @@ button.redesb:hover{
 }
 @media(max-width:1200px){
 	button.redesc{
-		padding:0 15px;
+		padding:2px 15px;
 		width:33.3%;
 	}
 }
 @media(max-width:767px){
 	button.redesc{
 		padding:9px 15px;
+		width:33.3%;
+	}
+}
+@media(max-height:550px){
+	button.redesc{
+		padding:7px 15px;
 		width:33.3%;
 	}
 }
@@ -838,7 +844,10 @@ button.redes:hover{
 }
 @media(max-width:991px){
 	.textMedIt{
-		font-size:12px;
+		font-size:8px;
+	}
+	.bgblack a{
+		font-size:8px;
 	}
 }
 @media(max-width:767px){
@@ -852,10 +861,17 @@ button.redes:hover{
 	}
 	#contacto .container {
 		height: auto;
+		margin-top:0px;
 	}
 	.imgcontacto{
 		padding:20px 0;
-		margin-top:-70px;
+		/*margin-top:-70px;*/
+	}
+	.textMedIt{
+		font-size:12px;
+	}
+	.bgblack a{
+		font-size:12px;
 	}
 }
 /*********************************LOADING***********************************************/
@@ -961,6 +977,7 @@ button.redes:hover{
 .contentSlider .rsOverflow {
 background: #000;
 height: 100% !important;
+width: 100% !important;
 }
 
 .contentSlider .rsSlide,

@@ -20,7 +20,7 @@ class correoRecuperacion extends correo
     
     function genera_asunto()
     {
-        $this->correo->Subject='Recuperación de contraseña Cercasa';
+        $this->correo->Subject='Recuperación de contraseña Don Porfirio';
     }
     
     function genera_destino()
@@ -36,7 +36,7 @@ class correoRecuperacion extends correo
         <h5>SOPORTE TECNICO LOCKER</h5>
 		<p>Entre al siguiente link, y ahi usted podra crear una nueva contraseña... ¡Gracias!</p>
 		<p>Su nombre de usuario es: '.$this->usuario->nomusuario.'</p>
-        <a href="http://clientes.locker.com.mx/plataforma/panel/js/recuperar/recuperar.php?verify='.$this->datosusuario->token.'" target="_blank">Recuperar Contraseña</a>
+        <a href="http://clientes.locker.com.mx/donporfirio/panel/js/recuperar/recuperar.php?verify='.$this->datosusuario->token.'" target="_blank">Recuperar Contraseña</a>
         <br/>
         <br/>';
         

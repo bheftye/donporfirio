@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="col-lg-11 col-md-10">
-                    <p class="urlweb">Bienvenido al panel de control de www.eraseunavez.mx</p>
+                    <p class="urlweb">Bienvenido al panel de control de www.donporfirio.com</p>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
             	<p id="panel">PANEL DE CONTROL</p>
             </div>
             <div id="navBlueMovil2" class="jumbotron navbar-fixed-top">
-            	 <p class="urlweb">Bienvenido al panel de control de www.eraseunavez.mx</p>
+            	 <p class="urlweb">Bienvenido al panel de control de www.donporfirio.com</p>
             </div>
         </div>
     </header>

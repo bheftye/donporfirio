@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="col-lg-11 col-md-10">
-                    <p class="urlweb">Bienvenido al panel de control de www.plataforma.com.mx</p>
+                    <p class="urlweb">Bienvenido al panel de control de www.donporfirio.com</p>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
             	<p id="panel">PANEL DE CONTROL</p>
             </div>
             <div id="navBlueMovil2" class="jumbotron navbar-fixed-top">
-            	 <p class="urlweb">Bienvenido al panel de control de www.plataforma.com.mx</p>
+            	 <p class="urlweb">Bienvenido al panel de control de www.donporfirio.com</p>
             </div>
         </div>
     </header>
@@ -82,7 +82,7 @@
                     	<div class="row">
                     		<div class='notifications top-right'></div>
                         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            	<p class="login">Recuperar Contraseña Plataforma</p>
+                            	<p class="login">Recuperar Contraseña Don Porfirio</p>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     			<hr class="hrmenu">

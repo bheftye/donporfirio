@@ -11,8 +11,8 @@ function Correo()
 
 $this->correo = new PHPMailer();
 $this->correo->Host='localhost';
-$this->correo->From='contacto@notmonday.com';
-$this->correo->FromName='NotMonday';
+$this->correo->From='contacto@donporfirio.com';
+$this->correo->FromName='Don Porfirio';
 $this->correo->AddCC='luisf@locker.com.mx, copia';    
 $this->correo->IsHTML(true);
 $this->correo->CharSet='UTF-8';
@@ -30,7 +30,7 @@ $this->correo->Subject='Registro completado';
     
 function genera_destino()
 {
-$this->correo->AddAddress('http://clientes.locker.com.mx/cactuslab');
+$this->correo->AddAddress('http://clientes.locker.com.mx/donporfirio');
 }
     
 function enviar()
